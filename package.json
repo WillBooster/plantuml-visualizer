@@ -1,0 +1,28 @@
+{
+  "name": "plantuml-visualizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build src/main.js src/popup.html",
+    "start": "parcel src/popup.html --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillBooster/plantuml-visualizer.git"
+  },
+  "author": "WillBooster LLC",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/WillBooster/plantuml-visualizer/issues"
+  },
+  "homepage": "https://github.com/WillBooster/plantuml-visualizer",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "renovate-config-exkazuu": "1.0.0"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
