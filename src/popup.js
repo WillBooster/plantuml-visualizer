@@ -1,18 +1,16 @@
 window.onload = () => {
-    const $startButton = document.querySelector('.start');
-  
-    $startButton.onclick = () => {
-      // Get active tab
-      chrome.tabs.query({
+  const $startButton = document.querySelector('.start');
+  $startButton.onclick = () => {
+    // Get active tab
+    chrome.tabs.query(
+      {
         active: true,
         currentWindow: true,
-      }, (tabs) => {
+      },
+      tabs => {
         // Send message to script file
-        chrome.tabs.sendMessage(
-          tabs[0].id,
-          { injectApp: true },
-          response => window.close()
-        );
-      });
-    };
-  }
+        chrome.tabs.sendMessage(tabs[0].id, { injectApp: true }, response => window.close());
+      }
+    );
+  };
+};
