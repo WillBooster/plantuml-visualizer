@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/popup.html --open",
-    "build": "parcel build src/main.js src/popup.html --public-url ./",
-    "watch": "parcel watch src/main.js src/popup.html --public-url ./",
-    "prettier": "prettier --write *.{css,html,js,json,md,scss,yml} **/*.{css,html,js,json,md,scss,yml}"
+    "build": "parcel build src/main.ts src/popup.html --public-url ./",
+    "watch": "parcel watch src/main.ts src/popup.html --public-url ./",
+    "prettier": "prettier --write *.{css,html,js,json,md,scss,ts,yml} **/*.{css,html,js,json,md,scss,ts,yml}"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/WillBooster/plantuml-visualizer",
   "devDependencies": {
+    "@types/chrome": "0.0.83",
     "parcel-bundler": "1.12.3",
     "prettier": "1.17.0",
-    "renovate-config-exkazuu": "1.0.0"
+    "renovate-config-exkazuu": "1.0.0",
+    "typescript": "3.4.4"
   },
   "dependencies": {
     "jquery": "3.4.0",

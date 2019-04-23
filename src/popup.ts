@@ -1,6 +1,6 @@
 window.onload = () => {
   const $startButton = document.querySelector('.start');
-  $startButton.onclick = () => {
+  $startButton.addEventListener('click', () => {
     // Get active tab
     chrome.tabs.query(
       {
@@ -12,5 +12,5 @@ window.onload = () => {
         chrome.tabs.sendMessage(tabs[0].id, { injectApp: true }, response => window.close());
       }
     );
-  };
+  });
 };
