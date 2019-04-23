@@ -4,7 +4,7 @@
 
 ## How to Run The Plugin
 
-### Initialization
+### First Time
 
 1. `yarn` to install the latest dependencies
 1. `yarn build`
