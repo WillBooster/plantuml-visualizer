@@ -1,9 +1,10 @@
+import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   render() {
-    return <div> Your App injected to DOM correctly! </div>;
+    return <div> The number of div elements: {$('div').length}</div>;
   }
 }
 
@@ -23,5 +24,7 @@ function injectApp() {
   const newDiv = document.createElement('div');
   newDiv.setAttribute('id', 'chromeExtensionReactApp');
   document.body.appendChild(newDiv);
-  ReactDOM.render(<App />, newDiv);
+  ReactDOM.render(<App/>, newDiv);
 }
+
+console.log(`div: ${$('div').length}`);

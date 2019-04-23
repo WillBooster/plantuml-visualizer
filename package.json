@@ -25,6 +25,7 @@
     "renovate-config-exkazuu": "1.0.0"
   },
   "dependencies": {
+    "jquery": "3.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
