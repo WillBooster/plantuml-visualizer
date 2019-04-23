@@ -2,6 +2,7 @@
 
 ## How to run this plugin
 
+1. `yarn` to install dependencies
 1. `yarn build`
 1. Open Chrome
 1. Open [chrome://extensions](chrome://extensions)
