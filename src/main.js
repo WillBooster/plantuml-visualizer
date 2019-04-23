@@ -27,4 +27,6 @@ function injectApp() {
   ReactDOM.render(<App/>, newDiv);
 }
 
-console.log(`div: ${$('div').length}`);
+$("pre[lang='uml']").click(function() {
+  window.alert('hello');
+});
