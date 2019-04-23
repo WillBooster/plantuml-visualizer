@@ -22,3 +22,12 @@ function injectDiv() {
 $("pre[lang='uml']").click(function() {
   window.alert('hello');
 });
+
+
+let viewed_filename = $("#blob-path > .final-path");
+
+if(viewed_filename && viewed_filename.text().match("(.*\.pu)|(.*\.puml)|(.*\.uml)")) {
+  $("div[itemprop='text'][class='Box-body p-0 blob-wrapper data type-text ']").click(function() {
+    window.alert('hello');
+  });  
+}
