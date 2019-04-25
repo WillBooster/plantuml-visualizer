@@ -2,33 +2,51 @@
   "name": "plantuml-visualizer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "parcel src/popup.html --open",
-    "build": "parcel build src/main.ts src/popup.html --public-url ./",
-    "watch": "parcel watch src/main.ts src/popup.html --public-url ./",
-    "prettier": "prettier --write *.{css,html,js,json,md,scss,ts,yml} **/*.{css,html,js,json,md,scss,ts,yml}"
+  "homepage": "https://github.com/WillBooster/plantuml-visualizer",
+  "bugs": {
+    "url": "https://github.com/WillBooster/plantuml-visualizer/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WillBooster/plantuml-visualizer.git"
   },
-  "author": "WillBooster LLC",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/WillBooster/plantuml-visualizer/issues"
+  "author": "WillBooster LLC",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build src/main.ts src/popup.html --public-url ./",
+    "prettier": "prettier --write *.{css,html,js,json,md,scss,ts,yml} **/*.{css,html,js,json,md,scss,ts,yml}",
+    "start": "parcel src/popup.html --open",
+    "tslint": "tslint -p . -t verbose",
+    "tslint-fix": "yarn tslint --fix",
+    "watch": "parcel watch src/main.ts src/popup.html --public-url ./"
   },
-  "homepage": "https://github.com/WillBooster/plantuml-visualizer",
-  "devDependencies": {
-    "@types/chrome": "0.0.83",
-    "parcel-bundler": "1.12.3",
-    "prettier": "1.17.0",
-    "renovate-config-exkazuu": "1.0.0",
-    "typescript": "3.4.4"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
+  "prettier": "prettier-config-willbooster",
   "dependencies": {
     "jquery": "3.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.83",
+    "husky": "2.1.0",
+    "lint-staged": "8.1.5",
+    "parcel-bundler": "1.12.3",
+    "prettier": "1.17.0",
+    "prettier-config-willbooster": "0.0.3",
+    "renovate-config-willbooster": "0.0.3",
+    "sort-package-json": "1.22.1",
+    "tsconfig-willbooster": "0.0.3",
+    "tslint": "5.16.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-config-willbooster": "0.0.3",
+    "tslint-microsoft-contrib": "6.1.1",
+    "tslint-plugin-prettier": "2.0.1",
+    "typescript": "3.4.4"
   }
 }

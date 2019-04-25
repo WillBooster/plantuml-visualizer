@@ -1,0 +1,4 @@
+{
+  "extends": ["tslint-config-willbooster"],
+  "rulesDirectory": ["node_modules/tslint-config-willbooster"]
+}
