@@ -1,4 +1,7 @@
 {
-  "extends": ["tslint-config-willbooster"],
-  "rulesDirectory": ["node_modules/tslint-config-willbooster"]
+  "extends": ["tslint:recommended", "tslint-config-willbooster"],
+  "rulesDirectory": ["node_modules/tslint-config-willbooster"],
+  "rules": {
+    "prefer-const": true
+  }
 }
