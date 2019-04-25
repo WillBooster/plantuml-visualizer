@@ -19,4 +19,15 @@ function injectDiv() {
   document.body.appendChild(newDiv);
 }
 
-console.log(`div: ${$('div').length}`);
+$("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']").click(function() {
+  window.alert('hello');
+});
+
+
+let viewed_filename = $("#blob-path > .final-path");
+
+if(viewed_filename && viewed_filename.text().match("(.*\.pu)|(.*\.puml)|(.*\.plantuml)")) {
+  $("div[itemprop='text'][class='Box-body p-0 blob-wrapper data type-text ']").click(function() {
+    window.alert('hello');
+  });  
+}
