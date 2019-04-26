@@ -15,10 +15,11 @@
   "main": "index.js",
   "scripts": {
     "build": "parcel build src/main.ts src/popup.html --public-url ./",
-    "prettier": "prettier --write *.{css,html,js,json,md,scss,ts,yml} **/*.{css,html,js,json,md,scss,ts,yml}",
+    "prettier": "prettier --write **/*.{css,html,js,json,md,scss,yml}",
     "start": "parcel src/popup.html --open",
     "tslint": "tslint -p . -t verbose",
     "tslint-fix": "yarn tslint --fix",
+    "typecheck": "tsc --noEmit",
     "watch": "parcel watch src/main.ts src/popup.html --public-url ./"
   },
   "husky": {

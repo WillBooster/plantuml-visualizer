@@ -11,3 +11,11 @@ build:
         code: |
           yarn config set cache-folder "$WERCKER_CACHE_DIR/yarn"
           yarn install
+    - script:
+        name: typecheck
+        code: |
+          yarn typecheck
+    - script:
+        name: tslint
+        code: |
+          yarn tslint
