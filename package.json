@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@types/chrome": "0.0.83",
+    "@types/jquery": "3.3.29",
     "husky": "2.1.0",
     "lint-staged": "8.1.5",
     "parcel-bundler": "1.12.3",
