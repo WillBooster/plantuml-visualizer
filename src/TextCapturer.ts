@@ -10,3 +10,20 @@ export function getCodeBlockTexts(): string[] {
   }
   return codeBlockTexts;
 }
+
+export function getViewedFileText(): string {
+  const viewedFilename = $('#blob-path > .final-path');
+  if (viewedFilename.length == 0 || viewedFilename.text().match('(.*.pu)|(.*.puml)|(.*.plantuml)') == null) {
+    return '';
+  }
+  var viewedFileText: string = '';
+  const fileLines = $("div[itemprop='text'] tr");
+  for (var i = 0; i < fileLines.length; i++) {
+    viewedFileText +=
+      fileLines
+        .eq(i)
+        .find("[id^='LC'")
+        .text() + '\n';
+  }
+  return viewedFileText;
+}
