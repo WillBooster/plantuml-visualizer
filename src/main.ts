@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { getCodeBlockTexts } from './text_capturer';
+import { getCodeBlockTexts } from './TextCapturer';
 
 // Message Listener function
 chrome.runtime.onMessage.addListener((request, sender, response) => {
