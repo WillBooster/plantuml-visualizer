@@ -1,4 +1,6 @@
+import $ from 'jquery';
 import { getCodeBlockTexts, getViewedFileText } from './TextCapturer';
+import { PlantUmlEncoder } from './PlantUmlEncoder';
 
 // Message Listener function
 chrome.runtime.onMessage.addListener((request, sender, response) => {
@@ -21,3 +23,6 @@ const injectDiv = () => {
 
 console.log(getCodeBlockTexts());
 console.log(getViewedFileText());
+
+const umlString = '@startuml\nclass A\n@enduml';
+console.log(PlantUmlEncoder.getImageUrl(umlString));
