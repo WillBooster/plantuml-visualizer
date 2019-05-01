@@ -5,7 +5,7 @@ export function getCodeBlockTexts(): string[] {
   const codeBlocks = $("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
 
   const codeBlockTexts: string[] = [];
-  for (var i = 0; i < codeBlocks.length; i++) {
+  for (let i = 0; i < codeBlocks.length; i++) {
     codeBlockTexts.push(codeBlocks.eq(i).text());
   }
   return codeBlockTexts;
