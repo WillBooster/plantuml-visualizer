@@ -4,7 +4,7 @@ import { PlantUmlEncoder } from './PlantUmlEncoder';
 // tslint:disable-next-line: export-name
 
 abstract class UmlVisualizer {
-  abstract repaceTextWithImage(): void;
+  abstract replaceTextWithImage(): void;
 }
 
 export class CodeBlocksUmlVisualizer extends UmlVisualizer {
@@ -21,7 +21,7 @@ export class CodeBlocksUmlVisualizer extends UmlVisualizer {
     }
   }
 
-  repaceTextWithImage(): void {
+  replaceTextWithImage(): void {
     for (let i = 0; i < this.textAreasJQuery.length; i++) {
       const textAreaJQuery = this.textAreasJQuery.eq(i);
       textAreaJQuery.replaceWith(this.imageTagJQueries[i]);
@@ -45,7 +45,7 @@ export class ViewedFileUmlVisualizer extends UmlVisualizer {
     }
   }
 
-  repaceTextWithImage(): void {
+  replaceTextWithImage(): void {
     if (this.textAreaJQuery.length != 0) {
       this.textAreaJQuery.replaceWith(this.imageTagJQuery);
     }

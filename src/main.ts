@@ -22,8 +22,8 @@ const injectDiv = () => {
 
 const codeBlocksUmlVisualizer = new CodeBlocksUmlVisualizer();
 const viewedFileUmlVisualizer = new ViewedFileUmlVisualizer();
-codeBlocksUmlVisualizer.repaceTextWithImage();
-viewedFileUmlVisualizer.repaceTextWithImage();
+codeBlocksUmlVisualizer.replaceTextWithImage();
+viewedFileUmlVisualizer.replaceTextWithImage();
 
 const umlString = '@startuml\nclass A\n@enduml';
 console.log(PlantUmlEncoder.getImageUrl(umlString));
