@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { getCodeBlockTexts } from './TextCapturer';
 import { PlantUmlEncoder } from './PlantUmlEncoder';
 
 // Message Listener function
@@ -20,9 +21,7 @@ const injectDiv = () => {
   document.body.appendChild(newDiv);
 };
 
-$("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']").click(() => {
-  window.alert('hello');
-});
+console.log(getCodeBlockTexts());
 
 const viewedFilename = $('#blob-path > .final-path');
 
