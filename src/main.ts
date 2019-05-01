@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { getCodeBlockTexts } from './text_capturer';
 
 // Message Listener function
 chrome.runtime.onMessage.addListener((request, sender, response) => {
@@ -19,9 +20,7 @@ const injectDiv = () => {
   document.body.appendChild(newDiv);
 };
 
-$("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']").click(() => {
-  window.alert('hello');
-});
+console.log(getCodeBlockTexts());
 
 const viewedFilename = $('#blob-path > .final-path');
 
