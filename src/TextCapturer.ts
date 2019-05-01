@@ -16,9 +16,9 @@ export function getViewedFileText(): string {
   if (viewedFilename.length == 0 || viewedFilename.text().match('(.*.pu)|(.*.puml)|(.*.plantuml)') == null) {
     return '';
   }
-  var viewedFileText: string = '';
+  let viewedFileText: string = '';
   const fileLines = $("div[itemprop='text'] tr");
-  for (var i = 0; i < fileLines.length; i++) {
+  for (let i = 0; i < fileLines.length; i++) {
     viewedFileText +=
       fileLines
         .eq(i)
