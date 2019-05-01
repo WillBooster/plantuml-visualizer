@@ -1,5 +1,4 @@
-import $ from 'jquery';
-import { getCodeBlockTexts, getViewedFileText } from './TextCapturer';
+import { CodeBlocksUmlVisualizer, ViewedFileUmlVisualizer } from './Visualizer';
 import { PlantUmlEncoder } from './PlantUmlEncoder';
 
 // Message Listener function
@@ -21,8 +20,10 @@ const injectDiv = () => {
   document.body.appendChild(newDiv);
 };
 
-console.log(getCodeBlockTexts());
-console.log(getViewedFileText());
+const codeBlocksUmlVisualizer = new CodeBlocksUmlVisualizer();
+const viewedFileUmlVisualizer = new ViewedFileUmlVisualizer();
+codeBlocksUmlVisualizer.repaceTextWithImage();
+viewedFileUmlVisualizer.repaceTextWithImage();
 
 const umlString = '@startuml\nclass A\n@enduml';
 console.log(PlantUmlEncoder.getImageUrl(umlString));
