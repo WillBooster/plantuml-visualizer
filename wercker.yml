@@ -2,20 +2,20 @@ box: node
 build:
   steps:
     - script:
-        name: show environment information
+        name: Show environment information
         code: |
           echo "node: $(node -v)"
           echo "yarn: $(yarn -v)"
     - script:
-        name: yarn install
+        name: Install dependencies
         code: |
           yarn config set cache-folder "$WERCKER_CACHE_DIR/yarn"
           yarn install
     - script:
-        name: typecheck
+        name: Run typecheck
         code: |
           yarn typecheck
     - script:
-        name: tslint
+        name: Run lint
         code: |
           yarn lint
