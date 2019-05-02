@@ -15,7 +15,7 @@
   "main": "index.js",
   "scripts": {
     "build": "parcel build src/main.ts src/popup.html --public-url ./",
-    "prettier": "prettier --write **/*.{css,html,js,json,md,scss,yml}",
+    "prettier": "prettier --write **/*.{css,htm,html,js,json,md,scss,yml}",
     "start": "parcel src/popup.html --open",
     "lint": "tslint -p . -t verbose",
     "lint-fix": "yarn lint --fix",
