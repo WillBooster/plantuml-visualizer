@@ -16,19 +16,18 @@ export abstract class Finder {
     return this._webpageType;
   }
 
-  constructor(webpageUrl: string) {
-    if (webpageUrl.match('https://github\\.com.*') != null) {
-      this._webpageType = WebpageType.GitHub;
-    } else {
-      this._webpageType = WebpageType.Others;
-    }
+  constructor() {
+    this._webpageType = WebpageType.Others;
   }
   abstract find(): PlantUmlContent[];
 }
 
 export class CodeBlocksFinder extends Finder {
   constructor(webpageUrl: string) {
-    super(webpageUrl);
+    super();
+    if (webpageUrl.match('https://github\\.com.*') != null) {
+      this._webpageType = WebpageType.GitHub;
+    }
   }
   find(): PlantUmlContent[] {
     switch (this._webpageType) {
@@ -49,15 +48,14 @@ export class CodeBlocksFinder extends Finder {
 
 export class FileBlocksFinder extends Finder {
   constructor(webpageUrl: string) {
-    super(webpageUrl);
+    super();
+    if (webpageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') != null) {
+      this._webpageType = WebpageType.GitHub;
+    }
   }
   find(): PlantUmlContent[] {
     switch (this._webpageType) {
       case WebpageType.GitHub: {
-        const viewedFilename = $('#blob-path > .final-path');
-        if (viewedFilename.length == 0 || viewedFilename.text().match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null)
-          return [];
-
         const textAreasJQuery = $("div[itemprop='text']");
         const result = [];
         for (let i = 0; i < textAreasJQuery.length; i++) {
