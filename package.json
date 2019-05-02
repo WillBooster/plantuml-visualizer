@@ -38,7 +38,7 @@
     "parcel-bundler": "1.12.3",
     "prettier": "1.17.0",
     "prettier-config-willbooster": "0.0.3",
-    "renovate-config-willbooster": "0.0.3",
+    "renovate-config-willbooster": "0.0.4",
     "sort-package-json": "1.22.1",
     "tsconfig-willbooster": "0.0.3",
     "tslint": "5.16.0",

@@ -4866,10 +4866,10 @@ remove-trailing-separator@^1.0.1:
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
   integrity sha1-wkvOKig62tW8P1jg1IJJuSN52O8=
 
-renovate-config-willbooster@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/renovate-config-willbooster/-/renovate-config-willbooster-0.0.3.tgz#04a9dfd9715d437debabc8517698177f8114762b"
-  integrity sha512-Kf5rkUl9KT0ma3bQQK4hxp7GW24I5lqYoHx+YwvCEohB2otp1NkiphDpAuy5GUlxky8ZtBdrn0JcHPotKwkwrA==
+renovate-config-willbooster@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/renovate-config-willbooster/-/renovate-config-willbooster-0.0.4.tgz#1a6df5b9f9f6ea8de4bafec2e63680029af013d8"
+  integrity sha512-eCT/KzooW6N7GRopc22JhQgR3VkBKK/hvwDUTnyf0p93qoHWrbQ7D/+cMUHD4NaxMow+OvJk3aOyxMJQzQhq2g==
 
 repeat-element@^1.1.2:
   version "1.1.3"
