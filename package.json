@@ -17,15 +17,10 @@
     "build": "parcel build src/main.ts src/popup.html --public-url ./",
     "prettier": "prettier --write **/*.{css,html,js,json,md,scss,yml}",
     "start": "parcel src/popup.html --open",
-    "tslint": "tslint -p . -t verbose",
-    "tslint-fix": "yarn tslint --fix",
+    "lint": "tslint -p . -t verbose",
+    "lint-fix": "yarn tslint --fix",
     "typecheck": "tsc --noEmit",
     "watch": "parcel watch src/main.ts src/popup.html --public-url ./"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "prettier": "prettier-config-willbooster",
   "dependencies": {
