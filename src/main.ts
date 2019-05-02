@@ -1,4 +1,5 @@
-import { CodeBlocksUmlVisualizer, ViewedFileUmlVisualizer } from './Visualizer';
+import { CodeBlocksFinder, FileBlocksFinder, activeFinders } from './Finder';
+import { Mutator } from './Mutator';
 import { PlantUmlEncoder } from './PlantUmlEncoder';
 
 // Message Listener function
@@ -20,10 +21,9 @@ const injectDiv = () => {
   document.body.appendChild(newDiv);
 };
 
-const codeBlocksUmlVisualizer = new CodeBlocksUmlVisualizer();
-const viewedFileUmlVisualizer = new ViewedFileUmlVisualizer();
-codeBlocksUmlVisualizer.replaceTextWithImage();
-viewedFileUmlVisualizer.replaceTextWithImage();
-
+console.log(location.href);
+activeFinders.push(new CodeBlocksFinder(location.href));
+activeFinders.push(new FileBlocksFinder(location.href));
+Mutator.registrateOnClickEvents(activeFinders);
 const umlString = '@startuml\nclass A\n@enduml';
 console.log(PlantUmlEncoder.getImageUrl(umlString));
