@@ -51,7 +51,7 @@ export class ViewedFileUmlVisualizer extends UmlVisualizer {
     }
   }
 
-  getViewedFileText(): string {
+  private getViewedFileText(): string {
     if (this.textAreaJQuery.length == 0) return '';
 
     let viewedFileText: string = '';
