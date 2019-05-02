@@ -18,4 +18,4 @@ build:
     - script:
         name: tslint
         code: |
-          yarn tslint
+          yarn lint

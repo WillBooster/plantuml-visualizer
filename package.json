@@ -18,7 +18,7 @@
     "prettier": "prettier --write **/*.{css,html,js,json,md,scss,yml}",
     "start": "parcel src/popup.html --open",
     "lint": "tslint -p . -t verbose",
-    "lint-fix": "yarn tslint --fix",
+    "lint-fix": "yarn lint --fix",
     "typecheck": "tsc --noEmit",
     "watch": "parcel watch src/main.ts src/popup.html --public-url ./"
   },
