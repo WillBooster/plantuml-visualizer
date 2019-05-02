@@ -24,7 +24,7 @@
   },
   "prettier": "prettier-config-willbooster",
   "dependencies": {
-    "jquery": "3.4.0",
+    "jquery": "3.4.1",
     "pako": "1.0.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
