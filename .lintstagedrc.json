@@ -1,4 +1,4 @@
 {
   "./{src,__tests__}/**/*.{ts,tsx}": ["tslint -p . -t verbose --fix", "git add"],
-  "./**/*.{css,html,js,jsx,json,md,scss,yml}": ["prettier --write", "git add"]
+  "./**/*.{css,htm,html,js,jsx,json,md,scss,yml}": ["prettier --write", "git add"]
 }

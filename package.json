@@ -15,21 +15,16 @@
   "main": "index.js",
   "scripts": {
     "build": "parcel build src/main.ts src/popup.html --public-url ./",
-    "prettier": "prettier --write **/*.{css,html,js,json,md,scss,yml}",
+    "lint": "tslint -p . -t verbose",
+    "lint-fix": "yarn lint --fix",
+    "prettier": "prettier --write **/*.{css,htm,html,js,json,md,scss,yml} && yarn sort-package-json",
     "start": "parcel src/popup.html --open",
-    "tslint": "tslint -p . -t verbose",
-    "tslint-fix": "yarn tslint --fix",
     "typecheck": "tsc --noEmit",
     "watch": "parcel watch src/main.ts src/popup.html --public-url ./"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "prettier": "prettier-config-willbooster",
   "dependencies": {
-    "jquery": "3.4.0",
+    "jquery": "3.4.1",
     "pako": "1.0.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -38,12 +33,12 @@
     "@types/chrome": "0.0.83",
     "@types/jquery": "3.3.29",
     "@types/pako": "1.0.1",
-    "husky": "2.1.0",
+    "husky": "2.2.0",
     "lint-staged": "8.1.5",
     "parcel-bundler": "1.12.3",
     "prettier": "1.17.0",
     "prettier-config-willbooster": "0.0.3",
-    "renovate-config-willbooster": "0.0.3",
+    "renovate-config-willbooster": "0.0.4",
     "sort-package-json": "1.22.1",
     "tsconfig-willbooster": "0.0.3",
     "tslint": "5.16.0",
