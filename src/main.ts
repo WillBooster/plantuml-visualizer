@@ -1,4 +1,4 @@
-import { GitHubCodeBlockFinder, GitHubFileBlockFinder, activeFinders } from './Finder';
+import { GitHubCodeBlockFinder, GitHubFileBlockFinder } from './Finder';
 import { Mutator } from './Mutator';
 import { PlantUmlEncoder } from './PlantUmlEncoder';
 
