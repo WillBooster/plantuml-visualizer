@@ -1,4 +1,4 @@
-import { GitHubCodeBlocksFinder, GitHubFileBlocksFinder, activeFinders } from './Finder';
+import { GitHubCodeBlockFinder, GitHubFileBlockFinder, activeFinders } from './Finder';
 import { Mutator } from './Mutator';
 import { PlantUmlEncoder } from './PlantUmlEncoder';
 
@@ -22,8 +22,8 @@ const injectDiv = () => {
 };
 
 console.log(location.href);
-activeFinders.push(new GitHubCodeBlocksFinder());
-activeFinders.push(new GitHubFileBlocksFinder());
+const activeFinders = [new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
 Mutator.registrateOnClickEvents(activeFinders, location.href);
+
 const umlString = '@startuml\nclass A\n@enduml';
 console.log(PlantUmlEncoder.getImageUrl(umlString));

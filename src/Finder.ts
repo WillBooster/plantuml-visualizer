@@ -9,7 +9,7 @@ export abstract class Finder {
   abstract find(webpageUrl: string): PlantUmlContent[];
 }
 
-export class GitHubCodeBlocksFinder extends Finder {
+export class GitHubCodeBlockFinder extends Finder {
   find(webpageUrl: string): PlantUmlContent[] {
     if (webpageUrl.match('https://github\\.com.*') == null) return [];
 
@@ -22,7 +22,7 @@ export class GitHubCodeBlocksFinder extends Finder {
   }
 }
 
-export class GitHubFileBlocksFinder extends Finder {
+export class GitHubFileBlockFinder extends Finder {
   find(webpageUrl: string): PlantUmlContent[] {
     if (webpageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null) return [];
 
@@ -44,5 +44,3 @@ export class GitHubFileBlocksFinder extends Finder {
     return result;
   }
 }
-
-export const activeFinders: Finder[] = [];
