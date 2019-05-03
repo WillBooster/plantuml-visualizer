@@ -19,8 +19,8 @@ export const Mutator = {
           $(this).hide();
           textElement.show();
         });
-
-        imageElement.hide();
+        textElement.hide();
+        imageElement.show();
       }
     }
   },
