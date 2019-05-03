@@ -22,8 +22,8 @@ const injectDiv = () => {
 };
 
 console.log(location.href);
-activeFinders.push(new CodeBlocksFinder(location.href));
-activeFinders.push(new FileBlocksFinder(location.href));
-Mutator.registrateOnClickEvents(activeFinders);
+activeFinders.push(new CodeBlocksFinder());
+activeFinders.push(new FileBlocksFinder());
+Mutator.registrateOnClickEvents(activeFinders, location.href);
 const umlString = '@startuml\nclass A\n@enduml';
 console.log(PlantUmlEncoder.getImageUrl(umlString));
