@@ -11,14 +11,13 @@ jobs:
             echo "node: $(node -v)"
             echo "yarn: $(yarn -v)"
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install dependencies
           command: |
-            yarn config set cache-folder "$WERCKER_CACHE_DIR/yarn"
             yarn install
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
       - run:
