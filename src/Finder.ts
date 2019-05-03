@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export interface PlantUmlContent {
-  queryElement: JQuery<HTMLElement>;
+  $textArea: JQuery<HTMLElement>;
   text: string;
 }
 
@@ -13,10 +13,10 @@ export class GitHubCodeBlockFinder extends Finder {
   find(webpageUrl: string): PlantUmlContent[] {
     if (webpageUrl.match('https://github\\.com.*') == null) return [];
 
-    const textAreasJQuery = $("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
+    const $textAreas = $("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
     const result = [];
-    for (let i = 0; i < textAreasJQuery.length; i++) {
-      result.push({ queryElement: textAreasJQuery.eq(i), text: textAreasJQuery.eq(i).text() });
+    for (let i = 0; i < $textAreas.length; i++) {
+      result.push({ $textArea: $textAreas.eq(i), text: $textAreas.eq(i).text() });
     }
     return result;
   }
@@ -26,20 +26,20 @@ export class GitHubFileBlockFinder extends Finder {
   find(webpageUrl: string): PlantUmlContent[] {
     if (webpageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null) return [];
 
-    const textAreasJQuery = $("div[itemprop='text']");
+    const $textAreas = $("div[itemprop='text']");
     const result = [];
-    for (let i = 0; i < textAreasJQuery.length; i++) {
-      const textAreaJQuery = textAreasJQuery.eq(i);
-      let viewedFileText: string = '';
-      const fileLines = textAreaJQuery.find('tr');
-      for (let i = 0; i < fileLines.length; i++) {
-        viewedFileText +=
-          fileLines
+    for (let i = 0; i < $textAreas.length; i++) {
+      const $textArea = $textAreas.eq(i);
+      let fileText: string = '';
+      const $fileLines = $textArea.find('tr');
+      for (let i = 0; i < $fileLines.length; i++) {
+        fileText +=
+          $fileLines
             .eq(i)
             .find("[id^='LC'")
             .text() + '\n';
       }
-      result.push({ queryElement: textAreaJQuery, text: viewedFileText });
+      result.push({ $textArea: $textArea, text: fileText });
     }
     return result;
   }

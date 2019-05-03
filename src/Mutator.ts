@@ -7,20 +7,20 @@ export const Mutator = {
     for (let fi = 0; fi < finders.length; fi++) {
       const contents = finders[fi].find(webpageUrl);
       for (let ci = 0; ci < contents.length; ci++) {
-        const textElement = contents[ci].queryElement;
-        const imageElement = $('<img>', { src: PlantUmlEncoder.getImageUrl(contents[ci].text) });
-        imageElement.insertAfter(textElement);
+        const $textArea = contents[ci].$textArea;
+        const $imageArea = $('<img>', { src: PlantUmlEncoder.getImageUrl(contents[ci].text) });
+        $imageArea.insertAfter($textArea);
 
-        textElement.click(function() {
+        $textArea.click(function() {
           $(this).hide();
-          imageElement.show();
+          $imageArea.show();
         });
-        imageElement.click(function() {
+        $imageArea.click(function() {
           $(this).hide();
-          textElement.show();
+          $textArea.show();
         });
-        textElement.hide();
-        imageElement.show();
+        $textArea.hide();
+        $imageArea.show();
       }
     }
   },
