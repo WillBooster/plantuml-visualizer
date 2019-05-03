@@ -1,3 +1,30 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.0.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: Show environment information
+          command: |
+            echo "node: $(node -v)"
+            echo "yarn: $(yarn -v)"
+      - restore_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install dependencies
+          command: |
+            yarn install
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: Run typecheck
+          command: |
+            yarn typecheck
+      - run:
+          name: Run lint
+          command: |
+            yarn lint
