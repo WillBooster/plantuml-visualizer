@@ -1,5 +1,5 @@
-import $ from 'jquery';
-import { getCodeBlockTexts, getViewedFileText } from './TextCapturer';
+import { GitHubCodeBlockFinder, GitHubFileBlockFinder } from './Finder';
+import { Mutator } from './Mutator';
 import { PlantUmlEncoder } from './PlantUmlEncoder';
 
 // Message Listener function
@@ -21,8 +21,9 @@ const injectDiv = () => {
   document.body.appendChild(newDiv);
 };
 
-console.log(getCodeBlockTexts());
-console.log(getViewedFileText());
+console.log(location.href);
+const activeFinders = [new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
+Mutator.registrateOnClickEvents(activeFinders, location.href);
 
 const umlString = '@startuml\nclass A\n@enduml';
 console.log(PlantUmlEncoder.getImageUrl(umlString));
