@@ -14,13 +14,15 @@
   "author": "WillBooster LLC",
   "main": "index.js",
   "scripts": {
+    "prebuild": "shx rm -Rf build && shx cp icon.png manifest.json dist/",
     "build": "parcel build src/main.ts src/popup.html --public-url ./",
+    "package": "yarn build && zip -r dist.zip dist",
     "lint": "tslint -p . -t verbose",
     "lint-fix": "yarn lint --fix",
     "prettier": "prettier --write **/*.{css,htm,html,js,json,md,scss,yaml,yml} && yarn sort-package-json",
     "start": "parcel src/popup.html --open",
     "typecheck": "tsc --noEmit",
-    "watch": "parcel watch src/main.ts src/popup.html --public-url ./"
+    "watch": "yarn prebuild && parcel watch src/main.ts src/popup.html --public-url ./"
   },
   "prettier": "prettier-config-willbooster",
   "dependencies": {
@@ -39,6 +41,7 @@
     "prettier": "1.17.0",
     "prettier-config-willbooster": "0.0.3",
     "renovate-config-willbooster": "0.0.4",
+    "shx": "0.3.2",
     "sort-package-json": "1.22.1",
     "tsconfig-willbooster": "0.0.3",
     "tslint": "5.16.0",

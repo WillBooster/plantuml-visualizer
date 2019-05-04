@@ -3,7 +3,9 @@ import { Mutator } from './Mutator';
 
 chrome.runtime.onMessage.addListener((request, sender, response) => {
   if (request.hello) {
-    window.alert('Hello World!');
+    if (window) {
+      window.alert('Hello World!');
+    }
     response({
       startedExtension: true,
     });

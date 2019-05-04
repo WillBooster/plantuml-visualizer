@@ -7,7 +7,7 @@
 
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "dist/popup.html"
+    "default_popup": "popup.html"
   },
 
   "permissions": ["activeTab", "tabs"],
@@ -15,7 +15,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["dist/main.js"]
+      "js": ["main.js"]
     }
   ]
 }
