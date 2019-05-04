@@ -1,7 +1,6 @@
 window.onload = () => {
-  const $startButton = document.querySelector('.start');
-  $startButton!.addEventListener('click', () => {
-    // Get active tab
+  const startButtonElement = document.querySelector('.start');
+  startButtonElement!.addEventListener('click', () => {
     chrome.tabs.query(
       {
         active: true,
@@ -9,8 +8,7 @@ window.onload = () => {
       },
       tabs => {
         if (tabs[0].id !== undefined) {
-          // Send message to script file
-          chrome.tabs.sendMessage(tabs[0].id, { injectApp: true }, () => window.close());
+          chrome.tabs.sendMessage(tabs[0].id, { hello: true }, () => window.close());
         }
       }
     );

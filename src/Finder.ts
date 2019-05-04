@@ -6,12 +6,12 @@ export interface PlantUmlContent {
 }
 
 export abstract class Finder {
-  abstract find(webpageUrl: string): PlantUmlContent[];
+  abstract find(webPageUrl: string): PlantUmlContent[];
 }
 
 export class GitHubCodeBlockFinder extends Finder {
-  find(webpageUrl: string): PlantUmlContent[] {
-    if (webpageUrl.match('https://github\\.com.*') == null) return [];
+  find(webPageUrl: string): PlantUmlContent[] {
+    if (webPageUrl.match('https://github\\.com.*') == null) return [];
 
     const $textAreas = $("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
     const result = [];
@@ -23,8 +23,8 @@ export class GitHubCodeBlockFinder extends Finder {
 }
 
 export class GitHubFileBlockFinder extends Finder {
-  find(webpageUrl: string): PlantUmlContent[] {
-    if (webpageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null) return [];
+  find(webPageUrl: string): PlantUmlContent[] {
+    if (webPageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null) return [];
 
     const $textAreas = $("div[itemprop='text']");
     const result = [];
