@@ -1,9 +1,11 @@
 import pako from 'pako';
 
+export const ImageSrcPrefix = 'https://www.plantuml.com/plantuml/img/';
+
 export const PlantUmlEncoder = {
   getImageUrl(umlString: string) {
     const encoded = encode64(pako.deflateRaw(umlString, { level: 9, to: 'string' }));
-    return `https://www.plantuml.com/plantuml/img/${encoded}`;
+    return `${ImageSrcPrefix}${encoded}`;
   },
 };
 
