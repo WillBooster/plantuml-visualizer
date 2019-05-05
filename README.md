@@ -21,5 +21,6 @@
 1. Open Chrome
 1. Rewrite some code files
 1. Close and Reopen Chrome browser (not only tabs)
+   - or reload this extension in [chrome://extensions](chrome://extensions)
 1. Debug code
 1. Go to `step 4`

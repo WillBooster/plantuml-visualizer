@@ -1,26 +1,32 @@
 import $ from 'jquery';
 import { Finder } from './Finder';
-import { PlantUmlEncoder } from './PlantUmlEncoder';
+import { ImageSrcPrefix, PlantUmlEncoder } from './PlantUmlEncoder';
 
 export const Mutator = {
-  registerOnClickEvents(finders: Finder[], webPageUrl: string) {
-    for (let fi = 0; fi < finders.length; fi++) {
-      const contents = finders[fi].find(webPageUrl);
-      for (let ci = 0; ci < contents.length; ci++) {
-        const $textArea = contents[ci].$textArea;
-        const $imageArea = $('<img>', { src: PlantUmlEncoder.getImageUrl(contents[ci].text) });
-        $imageArea.insertAfter($textArea);
+  embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {
+    for (const finder of finders) {
+      for (const content of finder.find(webPageUrl, $root)) {
+        const $textArea = content.$textArea;
 
-        $textArea.on('click', function(e: JQuery.Event) {
+        // To avoid embedding an image multiple times
+        const nextImgElement = <HTMLImageElement>$textArea.next()[0];
+        if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
+          continue;
+        }
+
+        const $imageArea = $('<img>', { src: PlantUmlEncoder.getImageUrl(content.text) });
+        $imageArea.insertAfter($textArea);
+        $textArea.hide();
+        $imageArea.show();
+
+        $textArea.on('dblclick', function(e: JQuery.Event) {
           $(this).hide();
           $imageArea.show();
         });
-        $imageArea.on('click', function(e: JQuery.Event) {
+        $imageArea.on('dblclick', function(e: JQuery.Event) {
           $(this).hide();
           $textArea.show();
         });
-        $textArea.hide();
-        $imageArea.show();
       }
     }
   },
