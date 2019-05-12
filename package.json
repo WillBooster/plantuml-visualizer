@@ -1,6 +1,6 @@
 {
   "name": "plantuml-visualizer",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "homepage": "https://github.com/WillBooster/plantuml-visualizer",
   "bugs": {
@@ -18,7 +18,7 @@
     "build": "parcel build src/content_scripts.ts src/background.ts src/popup.html --public-url ./",
     "lint": "tslint -p . -t verbose",
     "lint-fix": "yarn lint --fix",
-    "package": "yarn build && zip -r dist.zip dist",
+    "package": "yarn build && shx rm -f dist.zip && zip -r dist.zip dist",
     "prettier": "prettier --write {*,**/*}.{css,htm,html,js,json,md,scss,yaml,yml} && yarn sort-package-json",
     "start-popup": "parcel src/popup.html --open",
     "typecheck": "tsc --noEmit",
