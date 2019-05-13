@@ -24,3 +24,10 @@
    - or reload this extension in [chrome://extensions](chrome://extensions)
 1. Debug code
 1. Go to `step 4`
+
+## Deployment
+
+1. Bump version in `manifest.json` and `package.json`
+1. `yarn package`
+1. Open https://chrome.google.com/webstore/developer/dashboard
+1. Upload `dist.zip`
