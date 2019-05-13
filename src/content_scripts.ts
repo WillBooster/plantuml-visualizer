@@ -19,7 +19,7 @@ Mutator.embedPlantUmlImages(activeFinders, location.href, $(document.body));
 const observer = new MutationObserver(mutations => {
   for (const mutation of mutations) {
     for (const node of mutation.addedNodes) {
-      Mutator.embedPlantUmlImages(activeFinders, location.href, $(node));
+      Mutator.embedPlantUmlImages(activeFinders, location.href, $(document.body));
     }
   }
 });
