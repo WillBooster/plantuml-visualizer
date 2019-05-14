@@ -30,7 +30,7 @@
     "pako": "1.0.10"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.84",
+    "@types/chrome": "0.0.85",
     "@types/jquery": "3.3.29",
     "@types/pako": "1.0.1",
     "husky": "2.3.0",
