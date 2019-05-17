@@ -30,9 +30,15 @@
 1. Debug code
 1. Go to `step 4`
 
-## Deployment
+## Deployment for Chrome
 
 1. Bump version in `manifest.json` and `package.json`
 1. `yarn package`
 1. Open https://chrome.google.com/webstore/developer/dashboard
 1. Upload `dist.zip`
+
+## Deployment for Firefox
+
+1. Download `.crx` file via https://chrome-extension-downloader.com/
+1. Open https://addons.mozilla.org/en-US/developers/addon/plantuml-visualizer/edit
+1. Upload `.crx` file
