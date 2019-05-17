@@ -5,8 +5,8 @@
 
 ## Release Pages
 
-- Chrome Extension: https://chrome.google.com/webstore/detail/plantuml-visualizer/ffaloebcmkogfdkemcekamlmfkkmgkcf
-- Firefox Extension: https://addons.mozilla.org/firefox/addon/plantuml-visualizer/
+- Chrome: https://chrome.google.com/webstore/detail/plantuml-visualizer/ffaloebcmkogfdkemcekamlmfkkmgkcf
+- Firefox: https://addons.mozilla.org/firefox/addon/plantuml-visualizer/
 
 ## Setup
 
