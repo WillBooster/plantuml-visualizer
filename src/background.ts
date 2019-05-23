@@ -29,11 +29,11 @@ chrome.webRequest.onHeadersReceived.addListener(
   ['blocking', 'responseHeaders']
 );
 
-let pluginIsValid = true;
+let extensionIsValid = true;
 
 chrome.browserAction.onClicked.addListener(tab => {
-  pluginIsValid = !pluginIsValid;
-  if (pluginIsValid) {
+  extensionIsValid = !extensionIsValid;
+  if (extensionIsValid) {
     chrome.browserAction.setBadgeText({ text: 'ON' });
   } else {
     chrome.browserAction.setBadgeText({ text: '' });
@@ -44,7 +44,7 @@ chrome.browserAction.onClicked.addListener(tab => {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.command) {
     case 'validityRequest':
-      sendResponse(pluginIsValid);
+      sendResponse(extensionIsValid);
       return;
     default:
       sendResponse('');

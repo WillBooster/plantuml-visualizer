@@ -3,9 +3,9 @@ import { GitHubCodeBlockFinder, GitHubFileBlockFinder } from './Finder';
 import { Mutator } from './Mutator';
 
 $(document).ready(() => {
-  chrome.runtime.sendMessage({ command: 'validityRequest' }, pluginIsValid => {
-    console.log(pluginIsValid);
-    if (pluginIsValid) activatePlugin();
+  chrome.runtime.sendMessage({ command: 'validityRequest' }, extensionIsValid => {
+    console.log(extensionIsValid);
+    if (extensionIsValid) activatePlugin();
   });
 });
 
