@@ -28,3 +28,26 @@ chrome.webRequest.onHeadersReceived.addListener(
   },
   ['blocking', 'responseHeaders']
 );
+
+let pluginIsValid = true;
+
+chrome.browserAction.onClicked.addListener(tab => {
+  pluginIsValid = !pluginIsValid;
+  if (pluginIsValid) {
+    chrome.browserAction.setBadgeText({ text: 'ON' });
+  } else {
+    chrome.browserAction.setBadgeText({ text: '' });
+  }
+  if (tab.id) chrome.tabs.reload(tab.id);
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  switch (request.command) {
+    case 'validityRequest':
+      sendResponse(pluginIsValid);
+      return;
+    default:
+      sendResponse('');
+      return;
+  }
+});
