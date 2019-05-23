@@ -39,7 +39,7 @@ chrome.browserAction.onClicked.addListener(tab => {
 });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.command == 'abilityRequest') {
+  if (request.command == 'enabled or disabled') {
     sendResponse(extensionEnabled);
   }
 });

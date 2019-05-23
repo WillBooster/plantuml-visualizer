@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { GitHubCodeBlockFinder, GitHubFileBlockFinder } from './Finder';
 import { Mutator } from './Mutator';
 
-chrome.runtime.sendMessage({ command: 'abilityRequest' }, extensionEnabled => {
+chrome.runtime.sendMessage({ command: 'enabled or disabled' }, extensionEnabled => {
   if (extensionEnabled) activatePlugin();
 });
 
