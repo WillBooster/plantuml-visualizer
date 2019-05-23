@@ -29,25 +29,17 @@ chrome.webRequest.onHeadersReceived.addListener(
   ['blocking', 'responseHeaders']
 );
 
-let extensionIsValid = true;
+let extensionEnabled = true;
+chrome.browserAction.setBadgeText({ text: 'ON' });
 
 chrome.browserAction.onClicked.addListener(tab => {
-  extensionIsValid = !extensionIsValid;
-  if (extensionIsValid) {
-    chrome.browserAction.setBadgeText({ text: 'ON' });
-  } else {
-    chrome.browserAction.setBadgeText({ text: '' });
-  }
+  extensionEnabled = !extensionEnabled;
+  chrome.browserAction.setBadgeText({ text: extensionEnabled ? 'ON' : '' });
   if (tab.id) chrome.tabs.reload(tab.id);
 });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  switch (request.command) {
-    case 'validityRequest':
-      sendResponse(extensionIsValid);
-      return;
-    default:
-      sendResponse('');
-      return;
+  if (request.command == 'abilityRequest') {
+    sendResponse(extensionEnabled);
   }
 });

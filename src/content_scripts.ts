@@ -2,11 +2,8 @@ import $ from 'jquery';
 import { GitHubCodeBlockFinder, GitHubFileBlockFinder } from './Finder';
 import { Mutator } from './Mutator';
 
-$(document).ready(() => {
-  chrome.runtime.sendMessage({ command: 'validityRequest' }, extensionIsValid => {
-    console.log(extensionIsValid);
-    if (extensionIsValid) activatePlugin();
-  });
+chrome.runtime.sendMessage({ command: 'abilityRequest' }, extensionEnabled => {
+  if (extensionEnabled) activatePlugin();
 });
 
 function activatePlugin() {
