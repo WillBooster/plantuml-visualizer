@@ -33,10 +33,12 @@ chrome.webRequest.onHeadersReceived.addListener(
 
 let extensionEnabled = true;
 chrome.browserAction.setBadgeText({ text: 'ON' });
+chrome.browserAction.setBadgeBackgroundColor({ color: 'blue' });
 
 chrome.browserAction.onClicked.addListener(tab => {
   extensionEnabled = !extensionEnabled;
-  chrome.browserAction.setBadgeText({ text: extensionEnabled ? 'ON' : '' });
+  chrome.browserAction.setBadgeText({ text: extensionEnabled ? 'ON' : 'OFF' });
+  chrome.browserAction.setBadgeBackgroundColor({ color: extensionEnabled ? 'blue' : 'red' });
   if (tab.id) chrome.tabs.reload(tab.id);
 });
 
