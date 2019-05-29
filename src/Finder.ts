@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export interface PlantUmlContent {
-  $textArea: JQuery<Node>;
+  $text: JQuery<Node>;
   text: string;
 }
 
@@ -13,11 +13,11 @@ export class GitHubCodeBlockFinder implements Finder {
   find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[] {
     if (webPageUrl.match('https://github\\.com.*') == null) return [];
 
-    const $textAreas = $root.find("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
+    const $texts = $root.find("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
     const result = [];
-    for (let i = 0; i < $textAreas.length; i++) {
-      const $textArea = $textAreas.eq(i);
-      result.push({ $textArea, text: $textArea.text() });
+    for (let i = 0; i < $texts.length; i++) {
+      const $text = $texts.eq(i);
+      result.push({ $text, text: $text.text() });
     }
     return result;
   }
@@ -27,12 +27,12 @@ export class GitHubFileBlockFinder implements Finder {
   find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[] {
     if (webPageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null) return [];
 
-    const $textAreas = $("div[itemprop='text']");
+    const $texts = $("div[itemprop='text']");
     const result = [];
-    for (let i = 0; i < $textAreas.length; i++) {
-      const $textArea = $textAreas.eq(i);
+    for (let i = 0; i < $texts.length; i++) {
+      const $text = $texts.eq(i);
       let fileText = '';
-      const $fileLines = $textArea.find('tr');
+      const $fileLines = $text.find('tr');
       for (let i = 0; i < $fileLines.length; i++) {
         fileText +=
           $fileLines
@@ -40,7 +40,7 @@ export class GitHubFileBlockFinder implements Finder {
             .find("[id^='LC'")
             .text() + '\n';
       }
-      result.push({ $textArea, text: fileText });
+      result.push({ $text, text: fileText });
     }
     return result;
   }

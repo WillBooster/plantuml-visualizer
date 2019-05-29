@@ -1,8 +1,9 @@
 import $ from 'jquery';
 import { GitHubCodeBlockFinder, GitHubFileBlockFinder } from './Finder';
 import { Mutator } from './Mutator';
+import { Constants } from './Constants';
 
-chrome.runtime.sendMessage({ command: 'enabled or disabled' }, extensionEnabled => {
+chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, extensionEnabled => {
   if (extensionEnabled) activatePlugin();
 });
 
@@ -11,10 +12,9 @@ function activatePlugin() {
   Mutator.embedPlantUmlImages(activeFinders, location.href, $(document.body));
 
   const observer = new MutationObserver(mutations => {
-    for (const mutation of mutations) {
-      for (const node of mutation.addedNodes) {
-        Mutator.embedPlantUmlImages(activeFinders, location.href, $(document.body));
-      }
+    const addedSomeNodes = mutations.some(mutation => mutation.addedNodes.length > 0);
+    if (addedSomeNodes) {
+      Mutator.embedPlantUmlImages(activeFinders, location.href, $(document.body));
     }
   });
   observer.observe(document.body, { childList: true });

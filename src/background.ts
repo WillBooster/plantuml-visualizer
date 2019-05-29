@@ -1,3 +1,5 @@
+import { Constants } from './Constants';
+
 /**
  * This code rewrites response headers to allow this extension to embed images from www.plantuml.com
  */
@@ -39,7 +41,7 @@ chrome.browserAction.onClicked.addListener(tab => {
 });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.command == 'enabled or disabled') {
+  if (request.command === Constants.toggleEnabled) {
     sendResponse(extensionEnabled);
   }
 });

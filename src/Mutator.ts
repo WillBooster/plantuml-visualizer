@@ -6,26 +6,26 @@ export const Mutator = {
   embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {
     for (const finder of finders) {
       for (const content of finder.find(webPageUrl, $root)) {
-        const $textArea = content.$textArea;
+        const $text = content.$text;
 
         // To avoid embedding an image multiple times
-        const nextImgElement = <HTMLImageElement>$textArea.next()[0];
+        const nextImgElement = <HTMLImageElement>$text.next()[0];
         if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
           continue;
         }
 
-        const $imageArea = $('<img>', { src: PlantUmlEncoder.getImageUrl(content.text) });
-        $imageArea.insertAfter($textArea);
-        $textArea.hide();
-        $imageArea.show();
+        const $image = $('<img>', { src: PlantUmlEncoder.getImageUrl(content.text) });
+        $image.insertAfter($text);
+        $text.hide();
+        $image.show();
 
-        $textArea.on('dblclick', function(e: JQuery.Event) {
+        $text.on('dblclick', function(e: JQuery.Event) {
           $(this).hide();
-          $imageArea.show();
+          $image.show();
         });
-        $imageArea.on('dblclick', function(e: JQuery.Event) {
+        $image.on('dblclick', function(e: JQuery.Event) {
           $(this).hide();
-          $textArea.show();
+          $text.show();
         });
       }
     }
