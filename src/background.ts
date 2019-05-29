@@ -28,3 +28,18 @@ chrome.webRequest.onHeadersReceived.addListener(
   },
   ['blocking', 'responseHeaders']
 );
+
+let extensionEnabled = true;
+chrome.browserAction.setBadgeText({ text: 'ON' });
+
+chrome.browserAction.onClicked.addListener(tab => {
+  extensionEnabled = !extensionEnabled;
+  chrome.browserAction.setBadgeText({ text: extensionEnabled ? 'ON' : '' });
+  if (tab.id) chrome.tabs.reload(tab.id);
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.command == 'enabled or disabled') {
+    sendResponse(extensionEnabled);
+  }
+});
