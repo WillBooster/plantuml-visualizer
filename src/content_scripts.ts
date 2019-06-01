@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { GitHubCodeBlockFinder, GitHubFileBlockFinder } from './Finder';
+import { GitHubCodeBlockFinder, GitHubFileBlockFinder, GitHubPullRequestDiffFinder } from './GitHubFinder';
 import { Mutator } from './Mutator';
 import { Constants } from './Constants';
 
@@ -8,7 +8,7 @@ chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, extensionEnable
 });
 
 function activatePlugin() {
-  const activeFinders = [new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
+  const activeFinders = [new GitHubCodeBlockFinder(), new GitHubFileBlockFinder(), new GitHubPullRequestDiffFinder()];
   Mutator.embedPlantUmlImages(activeFinders, location.href, $(document.body));
 
   const observer = new MutationObserver(mutations => {
