@@ -20,13 +20,13 @@ export const Mutator = {
         $text.hide();
         for (const $image of $images) $image.show();
 
-        $text.on('dblclick', function(e: JQuery.Event) {
-          $(this).hide();
+        $text.on('dblclick', e => {
+          $text.hide();
           for (const $image of $images) $image.show();
         });
         for (const $image of $images) {
-          $image.on('dblclick', function(e: JQuery.Event) {
-            $(this).hide();
+          $image.on('dblclick', e => {
+            for (const $image of $images) $image.hide();
             $text.show();
           });
         }

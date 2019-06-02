@@ -79,13 +79,15 @@ export class GitHubPullRequestDiffFinder implements Finder {
     ]).then(textsArray => (diffTexts = Array.prototype.concat.apply([], textsArray)));
     return { $text: $diffBlock, texts: diffTexts };
   }
+
   private async getTexts(fileUrl: string): Promise<string[]> {
     const response = await fetch(fileUrl);
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
     const contents = await new GitHubFileBlockFinder().find(fileUrl, $body);
     const texts: string[] = [];
-    for (const content of contents) Array.prototype.concat.apply(texts, content.texts);
+    for (const content of contents) Array.prototype.push.apply(texts, content.texts);
+    console.log(texts);
     return texts;
   }
 }
