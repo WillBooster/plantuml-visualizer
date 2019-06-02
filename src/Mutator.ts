@@ -18,7 +18,7 @@ export const Mutator = {
         const $image = $('<img>', { src: PlantUmlEncoder.getImageUrl(content.text) });
         $image.insertAfter($text);
 
-        $text.on('dblclick', function(e: JQuery.Event) {
+        $text.on('dblclick', e => {
           $(this).hide();
           $image.show();
         });
@@ -56,7 +56,7 @@ export const DiffMutator = {
           headImages[i].insertAfter(headImages[i - 1]);
         }
 
-        $diff.on('dblclick', function(e: JQuery.Event) {
+        $diff.on('dblclick', e => {
           $(this).hide();
           for (const $image of baseImages) $image.show();
           for (const $image of headImages) $image.show();
