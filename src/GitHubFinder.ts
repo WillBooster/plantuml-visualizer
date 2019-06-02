@@ -1,22 +1,23 @@
 import $ from 'jquery';
 import { PlantUmlContent, Finder } from './Finder';
+import { async } from 'q';
 
 export class GitHubCodeBlockFinder implements Finder {
-  find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[] {
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<PlantUmlContent[]> {
     if (webPageUrl.match('https://github\\.com.*') == null) return [];
 
     const $texts = $root.find("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
       const $text = $texts.eq(i);
-      result.push({ $text, text: $text.text() });
+      result.push({ $text, texts: [$text.text()] });
     }
     return result;
   }
 }
 
 export class GitHubFileBlockFinder implements Finder {
-  find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[] {
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<PlantUmlContent[]> {
     if (webPageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null) return [];
     const $texts = $root.find("div[itemprop='text']");
     const result = [];
@@ -31,58 +32,60 @@ export class GitHubFileBlockFinder implements Finder {
             .find("[id^='LC'")
             .text() + '\n';
       }
-      result.push({ $text, text: fileText });
+      result.push({ $text, texts: [fileText] });
     }
     return result;
   }
 }
 
+interface DiffRoots {
+  base: string;
+  head: string;
+}
+
 export class GitHubPullRequestDiffFinder implements Finder {
-  find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[] {
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<PlantUmlContent[]> {
     if (webPageUrl.match('https://github\\.com/.*/pull/\\d+/files') == null) return [];
-    const diffRepoRoot = this.getDiffRepoRoot(webPageUrl, $root);
-    const result = [];
+    const diffRoots = this.getDiffRoots(webPageUrl, $root);
     const $diffs = $root.find("div[id^='diff-']");
+    const diffArray = [];
     for (let i = 0; i < $diffs.length; i++) {
-      const $diff = $diffs.eq(i);
-      const filePath = $diff.find("div[class='file-info'] a").text();
-      const $fileDiffBlock = $diff.find("div[class='data highlight js-blob-wrapper ']");
-      if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $fileDiffBlock.length == 0) continue;
-      let diffText = '';
-      const baseUrl = diffRepoRoot.base + '/' + filePath;
-      this.getUmlText(baseUrl).then(baseText => {
-        diffText += baseText;
-      });
-      const headUrl = diffRepoRoot.head + '/' + filePath;
-      this.getUmlText(headUrl).then(headText => {
-        diffText += headText;
-      });
-      result.push({ $text: $fileDiffBlock, text: diffText });
+      diffArray.push($diffs.eq(i));
     }
-    return result;
+    const result = await Promise.all(diffArray.map($diff => this.getDiffContent(diffRoots, $diff)));
+    return result.filter(content => content.texts.length > 0);
   }
 
-  private getDiffRepoRoot(webPageUrl: string, $root: JQuery<Node>) {
+  private getDiffRoots(webPageUrl: string, $root: JQuery<Node>): DiffRoots {
     const blobUrl = webPageUrl.replace(/pull\/\d+\/files/, 'blob');
     const tableObjectTagName = "div[class='TableObject-item TableObject-item--primary']";
     const baseRefTagName = "span[class='commit-ref css-truncate user-select-contain expandable base-ref']";
     const headRefTagName = "span[class='commit-ref css-truncate user-select-contain expandable head-ref']";
     const $baseRef = $root.find(tableObjectTagName + ' ' + baseRefTagName);
     const $headRef = $root.find(tableObjectTagName + ' ' + headRefTagName);
-    return {
-      base: blobUrl + '/' + $baseRef.text(),
-      head: blobUrl + '/' + $headRef.text(),
-    };
+    return { base: blobUrl + '/' + $baseRef.text(), head: blobUrl + '/' + $headRef.text() };
   }
 
-  private async getUmlText(fileBlockUrl: string): Promise<string> {
-    const response = await fetch(fileBlockUrl);
-    const htmlString = await response.text();
-    const contents = new GitHubFileBlockFinder().find(fileBlockUrl, $(htmlString).find('body'));
-    let umlText = '';
-    for (const content of contents) {
-      umlText += content.text;
+  private async getDiffContent(diffRoots: DiffRoots, $diff: JQuery<Node>): Promise<PlantUmlContent> {
+    const filePath = $diff.find("div[class='file-info'] a").text();
+    const $diffBlock = $diff.find("div[class='data highlight js-blob-wrapper ']");
+    if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $diffBlock.length == 0) {
+      return { $text: $diffBlock, texts: [] };
     }
-    return umlText;
+    let diffTexts: string[] = [];
+    await Promise.all([
+      this.getTexts(diffRoots.base + '/' + filePath),
+      this.getTexts(diffRoots.head + '/' + filePath),
+    ]).then(textsArray => (diffTexts = Array.prototype.concat.apply([], textsArray)));
+    return { $text: $diffBlock, texts: diffTexts };
+  }
+  private async getTexts(fileUrl: string): Promise<string[]> {
+    const response = await fetch(fileUrl);
+    const htmlString = await response.text();
+    const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
+    const contents = await new GitHubFileBlockFinder().find(fileUrl, $body);
+    const texts: string[] = [];
+    for (const content of contents) Array.prototype.concat.apply(texts, content.texts);
+    return texts;
   }
 }

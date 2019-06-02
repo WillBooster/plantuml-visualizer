@@ -1,8 +1,8 @@
 export interface PlantUmlContent {
   $text: JQuery<Node>;
-  text: string;
+  texts: string[];
 }
 
 export interface Finder {
-  find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[];
+  find(webPageUrl: string, $root: JQuery<Node>): Promise<PlantUmlContent[]>;
 }

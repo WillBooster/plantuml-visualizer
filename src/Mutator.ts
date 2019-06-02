@@ -3,9 +3,10 @@ import { Finder } from './Finder';
 import { ImageSrcPrefix, PlantUmlEncoder } from './PlantUmlEncoder';
 
 export const Mutator = {
-  embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {
+  async embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {
     for (const finder of finders) {
-      for (const content of finder.find(webPageUrl, $root)) {
+      const contents = await finder.find(webPageUrl, $root);
+      for (const content of contents) {
         const $text = content.$text;
 
         // To avoid embedding an image multiple times
@@ -14,19 +15,21 @@ export const Mutator = {
           continue;
         }
 
-        const $image = $('<img>', { src: PlantUmlEncoder.getImageUrl(content.text) });
-        $image.insertAfter($text);
+        const $images = content.texts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }));
+        for (const $image of $images) $image.insertAfter($text);
         $text.hide();
-        $image.show();
+        for (const $image of $images) $image.show();
 
         $text.on('dblclick', function(e: JQuery.Event) {
           $(this).hide();
-          $image.show();
+          for (const $image of $images) $image.show();
         });
-        $image.on('dblclick', function(e: JQuery.Event) {
-          $(this).hide();
-          $text.show();
-        });
+        for (const $image of $images) {
+          $image.on('dblclick', function(e: JQuery.Event) {
+            $(this).hide();
+            $text.show();
+          });
+        }
       }
     }
   },
