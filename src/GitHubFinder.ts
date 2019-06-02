@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { PlantUmlContent, Finder } from './Finder';
-import { async } from 'q';
 
 export class GitHubCodeBlockFinder implements Finder {
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<PlantUmlContent[]> {
