@@ -74,7 +74,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     const response = await fetch(fileUrl);
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-    const contents = await new GitHubFileBlockFinder().find(fileUrl, $body);
+    const contents = new GitHubFileBlockFinder().find(fileUrl, $body);
     return contents.map(content => content.text);
   }
 }
