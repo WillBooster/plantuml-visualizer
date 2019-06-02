@@ -44,7 +44,7 @@ interface DiffRoots {
 
 export class GitHubPullRequestDiffFinder implements Finder {
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<PlantUmlContent[]> {
-    if (webPageUrl.match('https://github\\.com/.*/pull/\\d+/files') == null) return [];
+    if (webPageUrl.match('https://github\\.com/.*/pull/\\d+/files.*') == null) return [];
     const diffRoots = this.getDiffRoots(webPageUrl, $root);
     const $diffs = $root.find("div[id^='diff-']");
     const diffArray = [];
@@ -56,7 +56,7 @@ export class GitHubPullRequestDiffFinder implements Finder {
   }
 
   private getDiffRoots(webPageUrl: string, $root: JQuery<Node>): DiffRoots {
-    const blobUrl = webPageUrl.replace(/pull\/\d+\/files/, 'blob');
+    const blobUrl = webPageUrl.replace(/pull\/\d+\/files.*/, 'blob');
     const tableObjectTagName = "div[class='TableObject-item TableObject-item--primary']";
     const baseRefTagName = "span[class='commit-ref css-truncate user-select-contain expandable base-ref']";
     const headRefTagName = "span[class='commit-ref css-truncate user-select-contain expandable head-ref']";
