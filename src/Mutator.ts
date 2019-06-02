@@ -5,8 +5,7 @@ import { ImageSrcPrefix, PlantUmlEncoder } from './PlantUmlEncoder';
 export const Mutator = {
   embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {
     for (const finder of finders) {
-      const contents = finder.find(webPageUrl, $root);
-      for (const content of contents) {
+      for (const content of finder.find(webPageUrl, $root)) {
         const $text = content.$text;
 
         // To avoid embedding an image multiple times
@@ -35,8 +34,7 @@ export const Mutator = {
 export const DiffMutator = {
   async embedPlantUmlImages(diffFinders: DiffFinder[], webPageUrl: string, $root: JQuery<Node>) {
     for (const finder of diffFinders) {
-      const contents = await finder.find(webPageUrl, $root);
-      for (const content of contents) {
+      for (const content of await finder.find(webPageUrl, $root)) {
         const $diff = content.$diff;
 
         // To avoid embedding an image multiple times
