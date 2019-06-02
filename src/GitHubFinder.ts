@@ -72,12 +72,11 @@ export class GitHubPullRequestDiffFinder implements Finder {
     if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $diffBlock.length == 0) {
       return { $text: $diffBlock, texts: [] };
     }
-    let diffTexts: string[] = [];
-    await Promise.all([
+    const textsArray = await Promise.all([
       this.getTexts(diffRoots.base + '/' + filePath),
       this.getTexts(diffRoots.head + '/' + filePath),
-    ]).then(textsArray => (diffTexts = Array.prototype.concat.apply([], textsArray)));
-    return { $text: $diffBlock, texts: diffTexts };
+    ]);
+    return { $text: $diffBlock, texts: Array.prototype.concat.apply([], textsArray) };
   }
 
   private async getTexts(fileUrl: string): Promise<string[]> {
@@ -85,9 +84,6 @@ export class GitHubPullRequestDiffFinder implements Finder {
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
     const contents = await new GitHubFileBlockFinder().find(fileUrl, $body);
-    const texts: string[] = [];
-    for (const content of contents) Array.prototype.push.apply(texts, content.texts);
-    console.log(texts);
-    return texts;
+    return Array.prototype.concat.apply([], contents.map(content => content.texts));
   }
 }
