@@ -18,11 +18,11 @@ export const Mutator = {
         $image.insertAfter($text);
 
         $text.on('dblclick', e => {
-          $(this).hide();
+          $text.hide();
           $image.show();
         });
         $image.on('dblclick', e => {
-          $(this).hide();
+          $image.hide();
           $text.show();
         });
         $text.dblclick();
@@ -55,7 +55,7 @@ export const DiffMutator = {
         }
 
         $diff.on('dblclick', e => {
-          $(this).hide();
+          $diff.hide();
           for (const $image of baseImages) $image.show();
           for (const $image of headImages) $image.show();
         });
