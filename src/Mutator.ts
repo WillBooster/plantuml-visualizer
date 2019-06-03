@@ -67,10 +67,14 @@ export const DiffMutator = {
         $diff.on('dblclick', e => {
           $diff.hide();
           for (const $image of images) $image.show();
+          $baseBranchMark.show();
+          $headBranchMark.show();
         });
         for (const $image of images) {
           $image.on('dblclick', e => {
             for (const $image of images) $image.hide();
+            $baseBranchMark.hide();
+            $headBranchMark.hide();
             $diff.show();
           });
         }
