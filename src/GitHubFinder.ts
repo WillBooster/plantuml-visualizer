@@ -41,9 +41,11 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]> {
     if (webPageUrl.match('https://github\\.com/.*/pull/\\d+/files.*') == null) return [];
     const blobRoot = webPageUrl.replace(/pull\/\d+\/files.*/, 'blob');
-    const branchNames = this.getBaseHeadBranchNames($root);
+    const [baseBranchName, headBranchName] = this.getBaseHeadBranchNames($root);
     const diffs = this.getDiffs($root);
-    const result = await Promise.all(diffs.map($diff => this.getDiffContent(blobRoot, branchNames, $diff)));
+    const result = await Promise.all(
+      diffs.map($diff => this.getDiffContent(blobRoot, baseBranchName, headBranchName, $diff))
+    );
     return result.filter(content => content.$diff.length > 0);
   }
 
@@ -65,15 +67,32 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     return [$baseRef.text(), $headRef.text()];
   }
 
-  private async getDiffContent(blobRoot: string, branchNames: string[], $diff: JQuery<Node>): Promise<UmlDiffContent> {
+  private async getDiffContent(
+    blobRoot: string,
+    baseBranchName: string,
+    headBranchName: string,
+    $diff: JQuery<Node>
+  ): Promise<UmlDiffContent> {
     const filePath = $diff.find('div.file-info a').text();
     const $diffBlock = $diff.find('div.data.highlight.js-blob-wrapper');
     if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $diffBlock.length == 0) {
-      return { $diff: $(), baseTexts: [], headTexts: [] };
+      return {
+        $diff: $(),
+        baseBranchName,
+        headBranchName,
+        baseTexts: [],
+        headTexts: [],
+      };
     }
-    const fileUrls = branchNames.map(branchName => blobRoot + '/' + branchName + '/' + filePath);
-    const baseHeadTexts = await Promise.all(fileUrls.map(fileUrl => this.getTexts(fileUrl)));
-    return { $diff: $diffBlock, baseTexts: baseHeadTexts[0], headTexts: baseHeadTexts[1] };
+    const fileUrls = [baseBranchName, headBranchName].map(branchName => blobRoot + '/' + branchName + '/' + filePath);
+    const [baseTexts, headTexts] = await Promise.all(fileUrls.map(fileUrl => this.getTexts(fileUrl)));
+    return {
+      $diff: $diffBlock,
+      baseBranchName,
+      headBranchName,
+      baseTexts,
+      headTexts,
+    };
   }
 
   private async getTexts(fileUrl: string): Promise<string[]> {

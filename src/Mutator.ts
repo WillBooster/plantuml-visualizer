@@ -47,11 +47,18 @@ export const DiffMutator = {
         const baseImages = content.baseTexts.map(textToImage);
         const headImages = content.headTexts.map(textToImage);
 
-        baseImages[0].insertAfter($diff);
+        // tslint:disable-next-line: no-jquery-raw-elements
+        const $baseBranchMark = $(`<div>${content.baseBranchName}</div>`);
+        // tslint:disable-next-line: no-jquery-raw-elements
+        const $headBranchMark = $(`<div>${content.headBranchName}</div>`);
+
+        $baseBranchMark.insertAfter($diff);
+        baseImages[0].insertAfter($baseBranchMark);
         for (let i = 1; i < baseImages.length; i++) {
           baseImages[i].insertAfter(baseImages[i - 1]);
         }
-        headImages[0].insertAfter(baseImages[baseImages.length - 1]);
+        $headBranchMark.insertAfter(baseImages[baseImages.length - 1]);
+        headImages[0].insertAfter($headBranchMark);
         for (let i = 1; i < baseImages.length; i++) {
           headImages[i].insertAfter(headImages[i - 1]);
         }

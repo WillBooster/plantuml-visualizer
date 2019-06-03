@@ -9,6 +9,8 @@ export interface Finder {
 
 export interface UmlDiffContent {
   $diff: JQuery<Node>;
+  baseBranchName: string;
+  headBranchName: string;
   baseTexts: string[];
   headTexts: string[];
 }
