@@ -69,11 +69,23 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     const filePath = $diff.find('div.file-info a').text();
     const $diffBlock = $diff.find('div.data.highlight.js-blob-wrapper');
     if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $diffBlock.length == 0) {
-      return { $diff: $(), baseTexts: [], headTexts: [] };
+      return {
+        $diff: $(),
+        baseBranchName: branchNames[0],
+        headBranchName: branchNames[1],
+        baseTexts: [],
+        headTexts: [],
+      };
     }
     const fileUrls = branchNames.map(branchName => blobRoot + '/' + branchName + '/' + filePath);
     const baseHeadTexts = await Promise.all(fileUrls.map(fileUrl => this.getTexts(fileUrl)));
-    return { $diff: $diffBlock, baseTexts: baseHeadTexts[0], headTexts: baseHeadTexts[1] };
+    return {
+      $diff: $diffBlock,
+      baseBranchName: branchNames[0],
+      headBranchName: branchNames[1],
+      baseTexts: baseHeadTexts[0],
+      headTexts: baseHeadTexts[1],
+    };
   }
 
   private async getTexts(fileUrl: string): Promise<string[]> {
