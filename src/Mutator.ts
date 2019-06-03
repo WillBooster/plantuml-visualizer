@@ -43,8 +43,10 @@ export const DiffMutator = {
           continue;
         }
 
-        const baseImages = content.baseTexts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }));
-        const headImages = content.headTexts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }));
+        const textToImage = (text: string) => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) });
+        const baseImages = content.baseTexts.map(textToImage);
+        const headImages = content.headTexts.map(textToImage);
+
         baseImages[0].insertAfter($diff);
         for (let i = 1; i < baseImages.length; i++) {
           baseImages[i].insertAfter(baseImages[i - 1]);
@@ -54,19 +56,16 @@ export const DiffMutator = {
           headImages[i].insertAfter(headImages[i - 1]);
         }
 
+        const images = baseImages.concat(headImages);
         $diff.on('dblclick', e => {
           $diff.hide();
-          for (const $image of baseImages) $image.show();
-          for (const $image of headImages) $image.show();
+          for (const $image of images) $image.show();
         });
-        for (const images of [baseImages, headImages]) {
-          for (const $image of images) {
-            $image.on('dblclick', e => {
-              for (const $image of baseImages) $image.hide();
-              for (const $image of headImages) $image.hide();
-              $diff.show();
-            });
-          }
+        for (const $image of images) {
+          $image.on('dblclick', e => {
+            for (const $image of images) $image.hide();
+            $diff.show();
+          });
         }
         $diff.dblclick();
       }

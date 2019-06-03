@@ -57,17 +57,17 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
   }
 
   private getBaseHeadBranchNames($root: JQuery<Node>): string[] {
-    const tableObjectTagName = "div[class='TableObject-item TableObject-item--primary']";
-    const baseRefTagName = "span[class='commit-ref css-truncate user-select-contain expandable base-ref']";
-    const headRefTagName = "span[class='commit-ref css-truncate user-select-contain expandable head-ref']";
-    const $baseRef = $root.find(tableObjectTagName + ' ' + baseRefTagName);
-    const $headRef = $root.find(tableObjectTagName + ' ' + headRefTagName);
+    const tableObjectTagName = 'div.TableObject-item.TableObject-item--primary';
+    const getTagName = (baseOrHead: string) =>
+      `span.commit-ref.css-truncate.user-select-contain.expandable.${baseOrHead}-ref`;
+    const $baseRef = $root.find(tableObjectTagName + ' ' + getTagName('base'));
+    const $headRef = $root.find(tableObjectTagName + ' ' + getTagName('head'));
     return [$baseRef.text(), $headRef.text()];
   }
 
   private async getDiffContent(blobRoot: string, branchNames: string[], $diff: JQuery<Node>): Promise<UmlDiffContent> {
-    const filePath = $diff.find("div[class='file-info'] a").text();
-    const $diffBlock = $diff.find("div[class='data highlight js-blob-wrapper ']");
+    const filePath = $diff.find('div.file-info a').text();
+    const $diffBlock = $diff.find('div.data.highlight.js-blob-wrapper');
     if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $diffBlock.length == 0) {
       return { $diff: $(), baseTexts: [], headTexts: [] };
     }
