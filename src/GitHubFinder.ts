@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import { PlantUmlContent, Finder, PlantUmlDiffContent, DiffFinder } from './Finder';
+import { UmlContent, Finder, UmlDiffContent, DiffFinder } from './Finder';
 
 export class GitHubCodeBlockFinder implements Finder {
-  find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[] {
+  find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
     if (webPageUrl.match('https://github\\.com.*') == null) return [];
 
     const $texts = $root.find("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
@@ -16,7 +16,7 @@ export class GitHubCodeBlockFinder implements Finder {
 }
 
 export class GitHubFileBlockFinder implements Finder {
-  find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[] {
+  find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
     if (webPageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null) return [];
     const $texts = $root.find("div[itemprop='text']");
     const result = [];
@@ -38,35 +38,41 @@ export class GitHubFileBlockFinder implements Finder {
 }
 
 export class GitHubPullRequestDiffFinder implements DiffFinder {
-  async find(webPageUrl: string, $root: JQuery<Node>): Promise<PlantUmlDiffContent[]> {
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]> {
     if (webPageUrl.match('https://github\\.com/.*/pull/\\d+/files.*') == null) return [];
-    const baseHeadRoot = this.getBaseHeadRoot(webPageUrl, $root);
-    const $diffs = $root.find("div[id^='diff-']");
-    const diffArray = [];
-    for (let i = 0; i < $diffs.length; i++) {
-      diffArray.push($diffs.eq(i));
-    }
-    const result = await Promise.all(diffArray.map($diff => this.getDiffContent(baseHeadRoot, $diff)));
+    const blobRoot = webPageUrl.replace(/pull\/\d+\/files.*/, 'blob');
+    const branchNames = this.getBaseHeadBranchNames($root);
+    const diffs = this.getDiffs($root);
+    const result = await Promise.all(diffs.map($diff => this.getDiffContent(blobRoot, branchNames, $diff)));
     return result.filter(content => content.$diff.length > 0);
   }
 
-  private getBaseHeadRoot(webPageUrl: string, $root: JQuery<Node>): string[] {
-    const blobUrl = webPageUrl.replace(/pull\/\d+\/files.*/, 'blob');
+  private getDiffs($root: JQuery<Node>): JQuery<Node>[] {
+    const $diffs = $root.find("div[id^='diff-']");
+    const diffs = [];
+    for (let i = 0; i < $diffs.length; i++) {
+      diffs.push($diffs.eq(i));
+    }
+    return diffs;
+  }
+
+  private getBaseHeadBranchNames($root: JQuery<Node>): string[] {
     const tableObjectTagName = "div[class='TableObject-item TableObject-item--primary']";
     const baseRefTagName = "span[class='commit-ref css-truncate user-select-contain expandable base-ref']";
     const headRefTagName = "span[class='commit-ref css-truncate user-select-contain expandable head-ref']";
     const $baseRef = $root.find(tableObjectTagName + ' ' + baseRefTagName);
     const $headRef = $root.find(tableObjectTagName + ' ' + headRefTagName);
-    return [blobUrl + '/' + $baseRef.text(), blobUrl + '/' + $headRef.text()];
+    return [$baseRef.text(), $headRef.text()];
   }
 
-  private async getDiffContent(baseHeadRoot: string[], $diff: JQuery<Node>): Promise<PlantUmlDiffContent> {
+  private async getDiffContent(blobRoot: string, branchNames: string[], $diff: JQuery<Node>): Promise<UmlDiffContent> {
     const filePath = $diff.find("div[class='file-info'] a").text();
     const $diffBlock = $diff.find("div[class='data highlight js-blob-wrapper ']");
     if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $diffBlock.length == 0) {
       return { $diff: $(), baseTexts: [], headTexts: [] };
     }
-    const baseHeadTexts = await Promise.all(baseHeadRoot.map(root => this.getTexts(root + '/' + filePath)));
+    const fileUrls = branchNames.map(branchName => blobRoot + '/' + branchName + '/' + filePath);
+    const baseHeadTexts = await Promise.all(fileUrls.map(fileUrl => this.getTexts(fileUrl)));
     return { $diff: $diffBlock, baseTexts: baseHeadTexts[0], headTexts: baseHeadTexts[1] };
   }
 

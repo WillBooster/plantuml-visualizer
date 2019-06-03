@@ -1,13 +1,13 @@
-export interface PlantUmlContent {
+export interface UmlContent {
   $text: JQuery<Node>;
   text: string;
 }
 
 export interface Finder {
-  find(webPageUrl: string, $root: JQuery<Node>): PlantUmlContent[];
+  find(webPageUrl: string, $root: JQuery<Node>): UmlContent[];
 }
 
-export interface PlantUmlDiffContent {
+export interface UmlDiffContent {
   $diff: JQuery<Node>;
   baseTexts: string[];
   headTexts: string[];
@@ -15,5 +15,5 @@ export interface PlantUmlDiffContent {
 
 // DiffFinder is not a sub-interface of Finder
 export interface DiffFinder {
-  find(webPageUrl: string, $root: JQuery<Node>): Promise<PlantUmlDiffContent[]>;
+  find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]>;
 }
