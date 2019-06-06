@@ -42,11 +42,11 @@ export const DiffMutator = {
         if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
           continue;
         }
-        const textsToImages = (texts: string[], errorMessage: string) =>
+        const textsToImages = (texts: string[], noContentsMessage: string) =>
           texts.length > 0
             ? texts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }))
             : // tslint:disable-next-line:no-jquery-raw-elements
-              [$(`<div>${errorMessage}</div>`)];
+              [$(`<div>${noContentsMessage}</div>`)];
         const baseImages = textsToImages(content.baseTexts, 'Nothing');
         const headImages = textsToImages(content.headTexts, 'Deleted');
 
