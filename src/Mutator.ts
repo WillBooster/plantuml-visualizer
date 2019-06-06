@@ -47,8 +47,8 @@ export const DiffMutator = {
           texts.length > 0
             ? texts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }))
             : [$('<div>No PlantUML</div>')];
-        const baseImageTags = textsToImageTags(content.baseTexts);
-        const headImageTags = textsToImageTags(content.headTexts);
+        const baseImages = textsToImageTags(content.baseTexts);
+        const headImages = textsToImageTags(content.headTexts);
 
         // tslint:disable-next-line:no-jquery-raw-elements
         const $baseBranchMark = $(`<div>${content.baseBranchName}</div>`);
@@ -56,26 +56,26 @@ export const DiffMutator = {
         const $headBranchMark = $(`<div>${content.headBranchName}</div>`);
 
         $baseBranchMark.insertAfter($diff);
-        baseImageTags[0].insertAfter($baseBranchMark);
-        for (let i = 1; i < baseImageTags.length; i++) {
-          baseImageTags[i].insertAfter(baseImageTags[i - 1]);
+        baseImages[0].insertAfter($baseBranchMark);
+        for (let i = 1; i < baseImages.length; i++) {
+          baseImages[i].insertAfter(baseImages[i - 1]);
         }
-        $headBranchMark.insertAfter(baseImageTags[baseImageTags.length - 1]);
-        headImageTags[0].insertAfter($headBranchMark);
-        for (let i = 1; i < headImageTags.length; i++) {
-          headImageTags[i].insertAfter(headImageTags[i - 1]);
+        $headBranchMark.insertAfter(baseImages[baseImages.length - 1]);
+        headImages[0].insertAfter($headBranchMark);
+        for (let i = 1; i < headImages.length; i++) {
+          headImages[i].insertAfter(headImages[i - 1]);
         }
 
-        const imageTags = baseImageTags.concat(headImageTags);
+        const images = baseImages.concat(headImages);
         $diff.on('dblclick', e => {
           $diff.hide();
-          for (const $imageTag of imageTags) $imageTag.show();
+          for (const $image of images) $image.show();
           $baseBranchMark.show();
           $headBranchMark.show();
         });
-        for (const $image of imageTags) {
+        for (const $image of images) {
           $image.on('dblclick', e => {
-            for (const $imageTag of imageTags) $imageTag.hide();
+            for (const $image of images) $image.hide();
             $baseBranchMark.hide();
             $headBranchMark.hide();
             $diff.show();
