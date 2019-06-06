@@ -42,14 +42,17 @@ export const DiffMutator = {
         if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
           continue;
         }
+        const textsToImages = (texts: string[], noContentsMessage: string) =>
+          texts.length > 0
+            ? texts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }))
+            : // tslint:disable-next-line:no-jquery-raw-elements
+              [$(`<div>${noContentsMessage}</div>`)];
+        const baseImages = textsToImages(content.baseTexts, 'Nothing');
+        const headImages = textsToImages(content.headTexts, 'Deleted');
 
-        const textToImage = (text: string) => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) });
-        const baseImages = content.baseTexts.map(textToImage);
-        const headImages = content.headTexts.map(textToImage);
-
-        // tslint:disable-next-line: no-jquery-raw-elements
+        // tslint:disable-next-line:no-jquery-raw-elements
         const $baseBranchMark = $(`<div>${content.baseBranchName}</div>`);
-        // tslint:disable-next-line: no-jquery-raw-elements
+        // tslint:disable-next-line:no-jquery-raw-elements
         const $headBranchMark = $(`<div>${content.headBranchName}</div>`);
 
         $baseBranchMark.insertAfter($diff);
@@ -59,7 +62,7 @@ export const DiffMutator = {
         }
         $headBranchMark.insertAfter(baseImages[baseImages.length - 1]);
         headImages[0].insertAfter($headBranchMark);
-        for (let i = 1; i < baseImages.length; i++) {
+        for (let i = 1; i < headImages.length; i++) {
           headImages[i].insertAfter(headImages[i - 1]);
         }
 
