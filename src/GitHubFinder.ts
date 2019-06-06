@@ -74,7 +74,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     $diff: JQuery<Node>
   ): Promise<UmlDiffContent> {
     const filePath = $diff.find('div.file-info a').text();
-    const $diffBlock = $diff.find('div.data.highlight.js-blob-wrapper');
+    const $diffBlock = $diff.find('div.js-file-content.Details-content--hidden');
     if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $diffBlock.length == 0) {
       return {
         $diff: $(),
