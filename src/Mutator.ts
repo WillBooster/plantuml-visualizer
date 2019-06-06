@@ -42,12 +42,13 @@ export const DiffMutator = {
         if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
           continue;
         }
-
-        const textToImage = (text: string) => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) });
-        const baseImages =
-          content.baseTexts.length > 0 ? content.baseTexts.map(textToImage) : [$('<div>Nothing</div>')];
-        const headImages =
-          content.headTexts.length > 0 ? content.headTexts.map(textToImage) : [$('<div>Deleted</div>')];
+        const textsToImages = (texts: string[], errorMessage: string) =>
+          texts.length > 0
+            ? texts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }))
+            : // tslint:disable-next-line:no-jquery-raw-elements
+              [$(`<div>${errorMessage}</div>`)];
+        const baseImages = textsToImages(content.baseTexts, 'Nothing');
+        const headImages = textsToImages(content.headTexts, 'Deleted');
 
         // tslint:disable-next-line:no-jquery-raw-elements
         const $baseBranchMark = $(`<div>${content.baseBranchName}</div>`);
