@@ -36,7 +36,7 @@
     "husky": "2.4.0",
     "lint-staged": "8.2.0",
     "parcel-bundler": "1.12.3",
-    "prettier": "1.17.1",
+    "prettier": "1.18.0",
     "prettier-config-willbooster": "0.0.3",
     "renovate-config-willbooster": "0.0.4",
     "shx": "0.3.2",
