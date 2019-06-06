@@ -40,7 +40,7 @@ export class GitHubFileBlockFinder implements Finder {
 export class GitHubPullRequestDiffFinder implements DiffFinder {
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]> {
     if (webPageUrl.match('https://github\\.com/.*/pull/\\d+/.*') == null) return [];
-    const blobRoot = webPageUrl.replace(/pull\/\d+\/files.*/, 'blob');
+    const blobRoot = webPageUrl.replace(/pull\/\d+\/.*/, 'blob');
     const [baseBranchName, headBranchName] = this.getBaseHeadBranchNames($root);
     const diffs = this.getDiffs($root);
     const result = await Promise.all(
