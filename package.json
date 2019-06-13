@@ -47,6 +47,6 @@
     "tslint-config-willbooster": "0.0.3",
     "tslint-microsoft-contrib": "6.2.0",
     "tslint-plugin-prettier": "2.0.1",
-    "typescript": "3.5.1"
+    "typescript": "3.5.2"
   }
 }
