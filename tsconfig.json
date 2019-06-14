@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/tsconfig-willbooster/tsconfig.json",
+  "extends": "./node_modules/@willbooster/tsconfig/tsconfig.json",
   "compilerOptions": {
     "typeRoots": ["./node_modules/@types", "./@types"]
   },

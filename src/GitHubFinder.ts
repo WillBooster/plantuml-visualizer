@@ -60,7 +60,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
 
   private getBaseHeadBranchNames($root: JQuery<Node>): string[] {
     const tableObjectTagName = 'div.TableObject-item.TableObject-item--primary';
-    const getTagName = (baseOrHead: string) =>
+    const getTagName = (baseOrHead: string): string =>
       `span.commit-ref.css-truncate.user-select-contain.expandable.${baseOrHead}-ref`;
     const $baseRef = $root.find(tableObjectTagName + ' ' + getTagName('base'));
     const $headRef = $root.find(tableObjectTagName + ' ' + getTagName('head'));

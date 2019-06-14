@@ -9,7 +9,7 @@ export const Mutator = {
         const $text = content.$text;
 
         // To avoid embedding an image multiple times
-        const nextImgElement = <HTMLImageElement>$text.next()[0];
+        const nextImgElement = $text.next()[0] as HTMLImageElement;
         if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
           continue;
         }
@@ -17,11 +17,11 @@ export const Mutator = {
         const $image = $('<img>', { src: PlantUmlEncoder.getImageUrl(content.text) });
         $image.insertAfter($text);
 
-        $text.on('dblclick', e => {
+        $text.on('dblclick', () => {
           $text.hide();
           $image.show();
         });
-        $image.on('dblclick', e => {
+        $image.on('dblclick', () => {
           $image.hide();
           $text.show();
         });
@@ -38,21 +38,18 @@ export const DiffMutator = {
         const $diff = content.$diff;
 
         // To avoid embedding an image multiple times
-        const nextImgElement = <HTMLImageElement>$diff.next()[0];
+        const nextImgElement = $diff.next()[0] as HTMLImageElement;
         if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
           continue;
         }
-        const textsToImages = (texts: string[], noContentsMessage: string) =>
+        const textsToImages = (texts: string[], noContentsMessage: string): JQuery<HTMLElement>[] =>
           texts.length > 0
             ? texts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }))
-            : // tslint:disable-next-line:no-jquery-raw-elements
-              [$(`<div>${noContentsMessage}</div>`)];
+            : [$(`<div>${noContentsMessage}</div>`)];
         const baseImages = textsToImages(content.baseTexts, 'Nothing');
         const headImages = textsToImages(content.headTexts, 'Deleted');
 
-        // tslint:disable-next-line:no-jquery-raw-elements
         const $baseBranchMark = $(`<div>${content.baseBranchName}</div>`);
-        // tslint:disable-next-line:no-jquery-raw-elements
         const $headBranchMark = $(`<div>${content.headBranchName}</div>`);
 
         $baseBranchMark.insertAfter($diff);
@@ -67,14 +64,14 @@ export const DiffMutator = {
         }
 
         const images = baseImages.concat(headImages);
-        $diff.on('dblclick', e => {
+        $diff.on('dblclick', () => {
           $diff.hide();
           for (const $image of images) $image.show();
           $baseBranchMark.show();
           $headBranchMark.show();
         });
         for (const $image of images) {
-          $image.on('dblclick', e => {
+          $image.on('dblclick', () => {
             for (const $image of images) $image.hide();
             $baseBranchMark.hide();
             $headBranchMark.hide();

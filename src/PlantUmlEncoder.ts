@@ -9,9 +9,9 @@ export const PlantUmlEncoder = {
   },
 };
 
-function encode64(data: string) {
+function encode64(data: string): string {
   const length = data.length;
-  data += '\0\0'; // tslint:disable-line:no-octal-literal
+  data += '\0\0';
   let r = '';
   for (let i = 0; i < length; i += 3) {
     r += append3bytes(data.charCodeAt(i), data.charCodeAt(i + 1), data.charCodeAt(i + 2));
@@ -19,7 +19,7 @@ function encode64(data: string) {
   return r;
 }
 
-function append3bytes(code1: number, code2: number, code3: number) {
+function append3bytes(code1: number, code2: number, code3: number): string {
   return (
     encode6bit(code1 >> 2) +
     encode6bit((code1 << 4) | (code2 >> 4)) +

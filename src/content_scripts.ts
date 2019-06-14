@@ -7,7 +7,7 @@ chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, extensionEnable
   if (extensionEnabled) activateExtension();
 });
 
-function activateExtension() {
+function activateExtension(): void {
   const activeFinders = [new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
   const activeDiffFinders = [new GitHubPullRequestDiffFinder()];
   Mutator.embedPlantUmlImages(activeFinders, location.href, $(document.body));

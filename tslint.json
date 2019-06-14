@@ -1,8 +1,0 @@
-{
-  "extends": ["tslint-config-willbooster"],
-  "rulesDirectory": ["node_modules/tslint-config-willbooster"],
-  "rules": {
-    // default rules
-    "prefer-const": true
-  }
-}
