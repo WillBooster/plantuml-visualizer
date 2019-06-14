@@ -1,5 +1,6 @@
 # Project-speicific settings
 
+dist/
 dist.zip
 
 # Created by https://www.gitignore.io/api/jetbrains
@@ -180,12 +181,10 @@ typings/
 
 # End of https://www.gitignore.io/api/node
 
-# Project-specific settings
-dist/
+# Created by https://www.gitignore.io/api/macos
+# Edit at https://www.gitignore.io/?templates=macos
 
-
-### https://raw.github.com/github/gitignore/18e28746b0862059dbee8694fd366a679cb812fb/Global/macOS.gitignore
-
+### macOS ###
 # General
 .DS_Store
 .AppleDouble
@@ -193,7 +192,6 @@ dist/
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
@@ -214,4 +212,34 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# End of https://www.gitignore.io/api/macos
 
+# Created by https://www.gitignore.io/api/windows
+# Edit at https://www.gitignore.io/?templates=windows
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.gitignore.io/api/windows
