@@ -16,7 +16,8 @@
   "scripts": {
     "prebuild": "shx rm -Rf dist && shx mkdir dist && shx cp icon.png manifest.json dist/",
     "build": "parcel build src/content_scripts.ts src/background.ts --public-url ./",
-    "lint": "tslint -p . -t verbose",
+    "format": "yarn lint-fix && yarn prettier && yarn sort-package-json",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "yarn lint --fix",
     "package": "yarn build && shx rm -f src.zip dist.zip && yarn pack && zip -r dist.zip dist",
     "prettier": "prettier --write {*,**/*}.{css,htm,html,js,json,md,scss,yaml,yml} && yarn sort-package-json",
@@ -24,7 +25,7 @@
     "typecheck": "tsc --noEmit",
     "watch": "yarn prebuild && parcel watch src/content_scripts.ts src/background.ts --public-url ./ --no-hmr"
   },
-  "prettier": "prettier-config-willbooster",
+  "prettier": "@willbooster/prettier-config",
   "dependencies": {
     "jquery": "3.4.1",
     "pako": "1.0.10"
@@ -33,20 +34,21 @@
     "@types/chrome": "0.0.86",
     "@types/jquery": "3.3.29",
     "@types/pako": "1.0.1",
+    "@typescript-eslint/eslint-plugin": "1.10.2",
+    "@typescript-eslint/parser": "1.10.2",
+    "@willbooster/eslint-config": "0.0.8",
+    "@willbooster/prettier-config": "0.0.8",
+    "@willbooster/renovate-config": "0.0.8",
+    "@willbooster/tsconfig": "0.0.8",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-plugin-prettier": "3.1.0",
     "husky": "2.4.1",
     "lint-staged": "8.2.1",
     "parcel-bundler": "1.12.3",
     "prettier": "1.18.2",
-    "prettier-config-willbooster": "0.0.3",
-    "renovate-config-willbooster": "0.0.4",
     "shx": "0.3.2",
     "sort-package-json": "1.22.1",
-    "tsconfig-willbooster": "0.0.3",
-    "tslint": "5.17.0",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-config-willbooster": "0.0.3",
-    "tslint-microsoft-contrib": "6.2.0",
-    "tslint-plugin-prettier": "2.0.1",
     "typescript": "3.5.2"
   }
 }
