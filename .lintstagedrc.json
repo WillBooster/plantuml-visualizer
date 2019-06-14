@@ -1,4 +1,4 @@
 {
-  "./{src,__tests__}/**/*.{ts,tsx}": ["eslint --fix", "git add"],
-  "./**/*.{css,htm,html,js,jsx,json,md,scss,yaml,yml}": ["prettier --write", "git add"]
+  "./{src,__tests__}/**/*.{js,jsx,ts,tsx}": ["eslint --fix", "git add"],
+  "./**/*.{css,htm,html,json,md,scss,yaml,yml}": ["prettier --write", "git add"]
 }
