@@ -872,12 +872,12 @@
   resolved "https://registry.yarnpkg.com/@willbooster/renovate-config/-/renovate-config-0.0.9.tgz#8b15d1ebbc1c024a2f6c3ff6d1e5277239a74169"
   integrity sha512-akfzPSNiHAv2rVBGA+taddRE9mL7vPCjjHNhs7/055dzBd17yx1370NW/qPpfUxixpfqpJLEYhjhW5VmuIkEPQ==
 
-"@willbooster/tsconfig@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@willbooster/tsconfig/-/tsconfig-0.0.8.tgz#4df0c3b10602ca55e15782377dca55dee2b4b8c5"
-  integrity sha512-V9SM1tTQhCTydCFCWeYd2Rzqahhzx9J1J7TMx2Tf/c/zg0/q6xVj/dz7pp6LMGQ3jHSuuAalkzoaBySa8tSC4g==
+"@willbooster/tsconfig@0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@willbooster/tsconfig/-/tsconfig-0.0.9.tgz#458396230a8b2eb6efab3dc63741f5b709aa7697"
+  integrity sha512-dy0AOtFeXtTXiBFcJww4Rd9LwHqzKSUKxFhmBhjddoVuJ6VT0N4yHzzw4kTkXSU2CfRl1lKM+4vd70S7UDs6uA==
   dependencies:
-    tslib "1.9.3"
+    tslib "1.10.0"
 
 abab@^2.0.0:
   version "2.0.0"
@@ -5996,12 +5996,7 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-tslib@1.9.3:
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
-  integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
-
-tslib@^1.8.1, tslib@^1.9.0:
+tslib@1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
