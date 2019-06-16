@@ -36,7 +36,7 @@
     "@types/pako": "1.0.1",
     "@typescript-eslint/eslint-plugin": "1.10.2",
     "@typescript-eslint/parser": "1.10.2",
-    "@willbooster/eslint-config": "0.0.9",
+    "@willbooster/eslint-config": "0.0.10",
     "@willbooster/prettier-config": "0.0.9",
     "@willbooster/renovate-config": "0.0.9",
     "@willbooster/tsconfig": "0.0.9",
