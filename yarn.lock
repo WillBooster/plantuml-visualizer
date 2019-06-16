@@ -857,10 +857,10 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-"@willbooster/eslint-config@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@willbooster/eslint-config/-/eslint-config-0.0.8.tgz#52454d9fb3daeae1d83bcce6759af686ba8d25f3"
-  integrity sha512-kiQs6rOS6s6ZYbRy768pZzedAOIj0fevFXKmkm4QdllzXM+7DFEVZxwjVrSMNdW8CL7391O38jujMcnfbpMs7g==
+"@willbooster/eslint-config@0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@willbooster/eslint-config/-/eslint-config-0.0.9.tgz#c8299c889bbb2ce1d6e09bc876e4cc69cfe19d1b"
+  integrity sha512-CKpD6uDmuD0PwXJzXKUJmicccN2jJRyLOt1B0A2Iy5iBoxrAumxODALGbPR265nEYUgu1FqP0Fdo6mPMVkHWPg==
 
 "@willbooster/prettier-config@0.0.8":
   version "0.0.8"
