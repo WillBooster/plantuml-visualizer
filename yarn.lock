@@ -867,10 +867,10 @@
   resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-0.0.9.tgz#9d4fe84b6c7754d5affb8ca68c6447eb29464e9d"
   integrity sha512-rZUTD1FsR+oAPXr9tCCX1/1yXS/nQAPl2x0dRNb/sMBkCC0e5MvQB2GiMvuM1Z/So2Mv8DlUcKyQ8BzbTKSL2g==
 
-"@willbooster/renovate-config@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@willbooster/renovate-config/-/renovate-config-0.0.8.tgz#a58439373ff9cf0f5d60a2487bb7496cfc56b408"
-  integrity sha512-lWaByy7wnyGgZhCrkifs+Yh3LrDqp2NXLiYUikSuZJQkTOKJlu7JCt991aA9Q47m8dYMOCjIKe+Y5GeVBpch5A==
+"@willbooster/renovate-config@0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@willbooster/renovate-config/-/renovate-config-0.0.9.tgz#8b15d1ebbc1c024a2f6c3ff6d1e5277239a74169"
+  integrity sha512-akfzPSNiHAv2rVBGA+taddRE9mL7vPCjjHNhs7/055dzBd17yx1370NW/qPpfUxixpfqpJLEYhjhW5VmuIkEPQ==
 
 "@willbooster/tsconfig@0.0.8":
   version "0.0.8"
