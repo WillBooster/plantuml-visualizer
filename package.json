@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/chrome": "0.0.86",
-    "@types/jquery": "3.3.29",
+    "@types/jquery": "3.3.30",
     "@types/pako": "1.0.1",
     "@typescript-eslint/eslint-plugin": "1.11.0",
     "@typescript-eslint/parser": "1.11.0",
