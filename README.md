@@ -13,10 +13,22 @@
 ## Supported Pages
 
 - GitHub
-  - Issues
-  - Pull requests
+  - Code: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/class.pu
+  - Issues: https://github.com/WillBooster/plantuml-visualizer/issues/54
+  - Pull Requests
+    - Added: https://github.com/WillBooster/plantuml-visualizer/pull/49/files
+    - Deleted: https://github.com/WillBooster/plantuml-visualizer/pull/50/files
+    - Changed: https://github.com/WillBooster/plantuml-visualizer/pull/24/files
   - Code blocks in README or something
+    - README.md: https://github.com/WillBooster/plantuml-visualizer
 - Any .pu / .puml / .plantuml files
+  - GitHub Raw File: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
+  
+## Examples
+
+```puml
+class A
+```
 
 ## Development Preparation
 
