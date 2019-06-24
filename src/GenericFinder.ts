@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { UmlContent, Finder } from './Finder';
 
 export class GenericFinder implements Finder {
