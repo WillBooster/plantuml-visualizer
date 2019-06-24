@@ -27,7 +27,9 @@
 ## Examples
 
 ```puml
+@startuml
 class A
+@enduml
 ```
 
 ## Development Preparation
