@@ -40,7 +40,7 @@
     "@willbooster/prettier-config": "0.0.10",
     "@willbooster/renovate-config": "0.0.10",
     "@willbooster/tsconfig": "0.0.10",
-    "eslint": "5.16.0",
+    "eslint": "6.0.0",
     "eslint-config-prettier": "5.0.0",
     "eslint-plugin-prettier": "3.1.0",
     "husky": "2.4.1",
