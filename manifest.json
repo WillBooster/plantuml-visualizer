@@ -6,13 +6,22 @@
   "browser_action": {
     "default_icon": "icon.png"
   },
-  "permissions": ["activeTab", "tabs", "webRequest", "webRequestBlocking", "https://github.com/*"],
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "https://github.com/*",
+    "*://*/*.puml",
+    "*://*/*.pu",
+    "*://*/*.plantuml"
+  ],
   "background": {
     "scripts": ["background.js"]
   },
   "content_scripts": [
     {
-      "matches": ["https://github.com/*"],
+      "matches": ["https://github.com/*", "*://*/*.puml", "*://*/*.pu", "*://*/*.plantuml"],
       "js": ["content_scripts.js"]
     }
   ]
