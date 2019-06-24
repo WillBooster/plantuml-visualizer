@@ -10,7 +10,7 @@
 - Chrome: https://chrome.google.com/webstore/detail/plantuml-visualizer/ffaloebcmkogfdkemcekamlmfkkmgkcf
 - Firefox: https://addons.mozilla.org/firefox/addon/plantuml-visualizer/
 
-## Setup
+## Development Preparation
 
 1. `yarn` to install the latest dependencies
 1. `yarn build`
@@ -28,7 +28,7 @@
 1. Open Chrome
 1. Rewrite some code files
 1. Close and Reopen Chrome browser (not only tabs)
-   - or reload this extension in [chrome://extensions](chrome://extensions)
+   - or reload this extension in [chrome://extensions](chrome://extensions) and reload pages
 1. Debug code
 1. Go to `step 4`
 
