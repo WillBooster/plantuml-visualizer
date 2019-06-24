@@ -5,6 +5,11 @@
 
 :factory: A Chrome / Firefox exntesion for visualizing PlantUML code.
 
+## Release Pages
+
+- Chrome: https://chrome.google.com/webstore/detail/plantuml-visualizer/ffaloebcmkogfdkemcekamlmfkkmgkcf
+- Firefox: https://addons.mozilla.org/firefox/addon/plantuml-visualizer/
+
 ## Supported Pages
 
 - GitHub
@@ -12,11 +17,6 @@
   - Pull requests
   - Code blocks in README or something
 - Any .pu / .puml / .plantuml files
-
-## Release Pages
-
-- Chrome: https://chrome.google.com/webstore/detail/plantuml-visualizer/ffaloebcmkogfdkemcekamlmfkkmgkcf
-- Firefox: https://addons.mozilla.org/firefox/addon/plantuml-visualizer/
 
 ## Development Preparation
 
