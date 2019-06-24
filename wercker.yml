@@ -1,4 +1,4 @@
-box: node
+box: willbooster/wercker-box
 build:
   steps:
     - script:
