@@ -4,6 +4,7 @@ export interface UmlContent {
 }
 
 export interface Finder {
+  canFind(webPageUrl: string): boolean;
   find(webPageUrl: string, $root: JQuery<Node>): UmlContent[];
 }
 
@@ -17,5 +18,6 @@ export interface UmlDiffContent {
 
 // DiffFinder is not a sub-interface of Finder
 export interface DiffFinder {
+  canFind(webPageUrl: string): boolean;
   find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]>;
 }
