@@ -862,10 +862,10 @@
   resolved "https://registry.yarnpkg.com/@willbooster/eslint-config/-/eslint-config-0.0.10.tgz#7a2bcbeb4b7a39f2a11e3e43a86fb36482d1da9b"
   integrity sha512-JnbFW/eTvLnYsmYU4PiQ4dbPpEV/pewmkIgKqeEpwkRPH2k8ncnVHoEFQqQv3qzB4uetmIggNdVEw+lmeyRHMQ==
 
-"@willbooster/prettier-config@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-0.0.10.tgz#7c2c5d8386e8f9aec1086a6e361cbadc4a386ebd"
-  integrity sha512-+f/pPWSUrBGBbuNhLIeUdWq2G+DtAqjhfuvHvIq49WXQcPx1+VKfHlP6vPXVDMAjzMBlBFYtk2ve6zcFEssnjQ==
+"@willbooster/prettier-config@0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-0.0.11.tgz#b59c705b87902dbbdb693176bc201eb7e5992d62"
+  integrity sha512-tRjwTsDD7Ns5ZrVxUdqJTkLZDQza1crl5CLXyV042Lt2mcwqnU/HjbAD3aJ9t0AVu+WuYRfbPp14aXtA184gLQ==
 
 "@willbooster/renovate-config@0.0.10":
   version "0.0.10"
