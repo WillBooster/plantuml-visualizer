@@ -22,8 +22,9 @@
   - Code blocks in README or something
     - README.md: https://github.com/WillBooster/plantuml-visualizer
 - Any .pu / .puml / .plantuml files
+
   - GitHub Raw File: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
-  
+
 ## Examples
 
 ```puml
