@@ -2,9 +2,13 @@ import $ from 'jquery';
 import { UmlContent, Finder, UmlDiffContent, DiffFinder } from './Finder';
 
 export class GitHubCodeBlockFinder implements Finder {
-  find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
-    if (webPageUrl.match('https://github\\.com.*') == null) return [];
+  private readonly URL_REGEX = /^https:\/\/github\.com/;
 
+  canFind(webPageUrl: string): boolean {
+    return this.URL_REGEX.test(webPageUrl);
+  }
+
+  find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
     const $texts = $root.find("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
@@ -16,8 +20,13 @@ export class GitHubCodeBlockFinder implements Finder {
 }
 
 export class GitHubFileBlockFinder implements Finder {
+  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)$/;
+
+  canFind(webPageUrl: string): boolean {
+    return this.URL_REGEX.test(webPageUrl);
+  }
+
   find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
-    if (webPageUrl.match('https://github\\.com/.*/(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null) return [];
     const $texts = $root.find("div[itemprop='text']");
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
@@ -38,8 +47,13 @@ export class GitHubFileBlockFinder implements Finder {
 }
 
 export class GitHubPullRequestDiffFinder implements DiffFinder {
+  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/pull\/\d+\/files/;
+
+  canFind(webPageUrl: string): boolean {
+    return this.URL_REGEX.test(webPageUrl);
+  }
+
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]> {
-    if (webPageUrl.match('https://github\\.com/.*/pull/\\d+/files.*') == null) return [];
     const blobRoot = webPageUrl.replace(/pull\/\d+\/files.*/, 'blob');
     const [baseBranchName, headBranchName] = this.getBaseHeadBranchNames($root);
     const diffs = this.getDiffs($root);
@@ -75,7 +89,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
   ): Promise<UmlDiffContent> {
     const filePath = $diff.find('div.file-info a').text();
     const $diffBlock = $diff.find('div.js-file-content.Details-content--hidden');
-    if (filePath.match('(.*\\.pu)|(.*\\.puml)|(.*\\.plantuml)') == null || $diffBlock.length == 0) {
+    if (filePath.match('.*\\.(plantuml|pu|puml)') == null || $diffBlock.length == 0) {
       return {
         $diff: $(),
         baseBranchName,
