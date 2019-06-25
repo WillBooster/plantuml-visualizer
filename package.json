@@ -20,7 +20,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "yarn lint --fix",
     "package": "yarn build && shx rm -f src.zip dist.zip && yarn pack && zip -r dist.zip dist",
-    "prettier": "prettier --write {,*/}**/*.{css,htm,html,js,json,md,scss,yaml,yml}",
+    "prettier": "prettier --write {,*/}**/*.{css,htm,html,json,md,scss,yaml,yml}",
     "start-popup": "parcel src/popup.html --open",
     "typecheck": "tsc --noEmit",
     "watch": "yarn prebuild && parcel watch src/content_scripts.ts src/background.ts --public-url ./ --no-hmr"
