@@ -38,7 +38,7 @@
     "@typescript-eslint/parser": "1.11.0",
     "@willbooster/eslint-config": "0.0.10",
     "@willbooster/prettier-config": "0.0.10",
-    "@willbooster/renovate-config": "0.0.10",
+    "@willbooster/renovate-config": "0.0.11",
     "@willbooster/tsconfig": "0.0.10",
     "eslint": "6.0.1",
     "eslint-config-prettier": "5.0.0",
