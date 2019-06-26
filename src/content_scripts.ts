@@ -14,7 +14,7 @@ function apply(): void {
 
   const finders = availableFinders.filter(f => f.canFind(location.href));
   const diffFinders = availableDiffFinders.filter(f => f.canFind(location.href));
-  if (finders.length + diffFinders.length) return;
+  if (finders.length + diffFinders.length == 0) return;
 
   Mutator.embedPlantUmlImages(finders, location.href, $(document.body));
   DiffMutator.embedPlantUmlImages(diffFinders, location.href, $(document.body));
