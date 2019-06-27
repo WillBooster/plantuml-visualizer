@@ -1,23 +1,44 @@
 @startuml
 title: Test Class Diagram
-namespace Test {
-    class A {
+namespace TestA {
+    class A1 {
         -int privateField
         +String publicField
         -void privateMethod(argumentX: String, argumentY: String, argumentZ: int)
         +int publicMethod(argumentX: String, argumentY: String)
     }
 
-    class B {
+    class A2 {
         - privateObject: Object
         +int publicMethod(argumentX: String, argumentY: String, argumentZ: Object)
     }
 
-    class C {
+    class A3 {
         Object publicMethodToConvertObject(argumentZ: Object)
     }
 
-    A <|-right- B
-    B -right-> C
+    A1 <|-right- A2
+    A2 -right-> A3
+}
+
+namespace TestB {
+    class B1 {
+        -int privateField
+        +String publicField
+        -void privateMethod(argumentX: String, argumentY: String, argumentZ: double)
+        +int publicMethod(argumentX: String, argumentY: String)
+    }
+
+    class B2 {
+        - privateObject: Object
+        +int publicMethod(argumentX: String, argumentY: String, argumentZ: Object)
+    }
+
+    class B3 {
+        Object publicMethodToConvertObject(argumentZ: Object)
+    }
+
+    B1 <|-right- B2
+    B2 -right-> B3
 }
 @enduml
