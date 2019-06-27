@@ -9,11 +9,11 @@ chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, extensionEnable
 });
 
 function apply(): void {
-  const availableFinders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
-  const availableDiffFinders = [new GitHubPullRequestDiffFinder()];
+  const finders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
+  const diffFinders = [new GitHubPullRequestDiffFinder()];
 
-  const finders = availableFinders.filter(f => f.canFind(location.href));
-  const diffFinders = availableDiffFinders.filter(f => f.canFind(location.href));
+  const availableFinders = finders.filter(f => f.canFind(location.href));
+  const availableDiffFinders = diffFinders.filter(f => f.canFind(location.href));
   if (finders.length + diffFinders.length === 0) return;
 
   Mutator.embedPlantUmlImages(finders, location.href, $(document.body));
@@ -22,8 +22,8 @@ function apply(): void {
   const observer = new MutationObserver(mutations => {
     const addedSomeNodes = mutations.some(mutation => mutation.addedNodes.length > 0);
     if (addedSomeNodes) {
-      Mutator.embedPlantUmlImages(finders, location.href, $(document.body));
-      DiffMutator.embedPlantUmlImages(diffFinders, location.href, $(document.body));
+      Mutator.embedPlantUmlImages(availableFinders, location.href, $(document.body));
+      DiffMutator.embedPlantUmlImages(availableDiffFinders, location.href, $(document.body));
     }
   });
   observer.observe(document.body, { childList: true });
