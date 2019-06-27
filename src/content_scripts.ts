@@ -22,8 +22,8 @@ function apply(): void {
   const observer = new MutationObserver(mutations => {
     const addedSomeNodes = mutations.some(mutation => mutation.addedNodes.length > 0);
     if (addedSomeNodes) {
-      Mutator.embedPlantUmlImages(availableFinders, location.href, $(document.body));
-      DiffMutator.embedPlantUmlImages(availableDiffFinders, location.href, $(document.body));
+      Mutator.embedPlantUmlImages(finders, location.href, $(document.body));
+      DiffMutator.embedPlantUmlImages(diffFinders, location.href, $(document.body));
     }
   });
   observer.observe(document.body, { childList: true });
