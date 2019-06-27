@@ -14,7 +14,12 @@ export const Mutator = {
           continue;
         }
 
-        const $image = $('<img>', { src: PlantUmlEncoder.getImageUrl(content.text) });
+        const textToImage = (text: string): JQuery<HTMLElement> => {
+          const $div = $('<div>').css('overflow', 'auto');
+          const $img = $('<img>', { src: PlantUmlEncoder.getImageUrl(text) });
+          return $div.append($img);
+        };
+        const $image = textToImage(content.text);
         $image.insertAfter($text);
 
         $text.on('dblclick', () => {
@@ -44,7 +49,11 @@ export const DiffMutator = {
         }
         const textsToImages = (texts: string[], noContentsMessage: string): JQuery<HTMLElement>[] =>
           texts.length > 0
-            ? texts.map(text => $('<img>', { src: PlantUmlEncoder.getImageUrl(text) }))
+            ? texts.map(text => {
+                const $div = $('<div>').css('overflow', 'auto');
+                const $img = $('<img>', { src: PlantUmlEncoder.getImageUrl(text) });
+                return $div.append($img);
+              })
             : [$(`<div>${noContentsMessage}</div>`)];
         const baseImages = textsToImages(content.baseTexts, 'Nothing');
         const headImages = textsToImages(content.headTexts, 'Deleted');

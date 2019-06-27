@@ -1,6 +1,6 @@
 import pako from 'pako';
 
-export const ImageSrcPrefix = 'https://www.plantuml.com/plantuml/img/';
+export const ImageSrcPrefix = 'https://willbooster-plantuml.herokuapp.com/svg/';
 
 export const PlantUmlEncoder = {
   getImageUrl(umlString: string) {
