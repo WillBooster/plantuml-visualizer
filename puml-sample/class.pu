@@ -1,17 +1,23 @@
 @startuml
-class A {
-    -int privateField
-    +String publicField
-    -void privateMethod()
-    +int publicMethod()
-}
+title: Test Class Diagram
+namespace Test {
+    class A {
+        -int privateField
+        +String publicField
+        -void privateMethod(argumentX: String, argumentY: String, argumentZ: int)
+        +int publicMethod(argumentX: String, argumentY: String)
+    }
 
-class B {
-}
+    class B {
+        - privateObject: Object
+        +int publicMethod(argumentX: String, argumentY: String, argumentZ: Object)
+    }
 
-class C {
-}
+    class C {
+        Object publicMethodToConvertObject(argumentZ: Object)
+    }
 
-A <|-- B
-B --> C
+    A <|-right- B
+    B -right-> C
+}
 @enduml
