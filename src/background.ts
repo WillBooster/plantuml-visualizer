@@ -18,7 +18,7 @@ chrome.webRequest.onHeadersReceived.addListener(
           continue;
         }
         if (header.value) {
-          header.value = header.value.replace('img-src', 'img-src www.plantuml.com');
+          header.value = header.value.replace('img-src', `img-src ${Constants.imgSrcUrl}`);
         }
         return { responseHeaders: details.responseHeaders };
       }

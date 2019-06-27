@@ -1,6 +1,7 @@
 import pako from 'pako';
+import { Constants } from './Constants';
 
-export const ImageSrcPrefix = 'https://www.plantuml.com/plantuml/img/';
+export const ImageSrcPrefix = `${Constants.imgSrcUrl}/svg/`;
 
 export const PlantUmlEncoder = {
   getImageUrl(umlString: string) {
