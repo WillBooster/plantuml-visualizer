@@ -9,7 +9,7 @@ export const Mutator = {
         const $text = content.$text;
 
         // To avoid embedding an image multiple times
-        if (imageIsAlreadyInsertedAfter($text)) continue;
+        if (isAlreadyEmbedded($text)) continue;
         const $image = textToImage(content.text);
         $image.insertAfter($text);
 
@@ -34,7 +34,7 @@ export const DiffMutator = {
         const $diff = content.$diff;
 
         // To avoid embedding an image multiple times
-        if (imageIsAlreadyInsertedAfter($diff)) continue;
+        if (isAlreadyEmbedded($diff)) continue;
         const textsToImages = (texts: string[], noContentsMessage: string): JQuery<HTMLElement>[] =>
           texts.length > 0 ? texts.map(textToImage) : [$(`<div>${noContentsMessage}</div>`)];
         const baseImages = textsToImages(content.baseTexts, 'Nothing');
@@ -57,13 +57,17 @@ export const DiffMutator = {
         const images = baseImages.concat(headImages);
         $diff.on('dblclick', () => {
           $diff.hide();
-          for (const $image of images) $image.show();
+          for (const $image of images) {
+            $image.show();
+          }
           $baseBranchMark.show();
           $headBranchMark.show();
         });
         for (const $image of images) {
           $image.on('dblclick', () => {
-            for (const $image of images) $image.hide();
+            for (const $image of images) {
+              $image.hide();
+            }
             $baseBranchMark.hide();
             $headBranchMark.hide();
             $diff.show();
@@ -75,7 +79,7 @@ export const DiffMutator = {
   },
 };
 
-function imageIsAlreadyInsertedAfter($content: JQuery<Node>): boolean {
+function isAlreadyEmbedded($content: JQuery<Node>): boolean {
   const nextDivElement = $content.next()[0] as HTMLDivElement;
   if (!nextDivElement || nextDivElement.tagName != 'DIV') return false;
   const nextImgElement = nextDivElement.childNodes[0] as HTMLImageElement;
