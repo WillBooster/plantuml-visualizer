@@ -1,5 +1,14 @@
 @startuml
 title: Test Class Diagram
+
+namespace Common {
+    interface I {
+        +int publicMethod(argumentX: String, argumentY: String, argumentZ: Object)
+    }
+}
+
+Common.I <|-down- TestA.A1
+Common.I <|-down- TestB.B1
 namespace TestA {
     class A1 {
         -int privateField
