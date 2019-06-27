@@ -9,11 +9,7 @@ export const Mutator = {
         const $text = content.$text;
 
         // To avoid embedding an image multiple times
-        const nextImgElement = $text.next()[0] as HTMLImageElement;
-        if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
-          continue;
-        }
-
+        if (isAlreadyEmbedded($text)) continue;
         const $image = textToImage(content.text);
         $image.insertAfter($text);
 
@@ -38,10 +34,7 @@ export const DiffMutator = {
         const $diff = content.$diff;
 
         // To avoid embedding an image multiple times
-        const nextImgElement = $diff.next()[0] as HTMLImageElement;
-        if (nextImgElement && nextImgElement.src && nextImgElement.src.startsWith(ImageSrcPrefix)) {
-          continue;
-        }
+        if (isAlreadyEmbedded($diff)) continue;
         const textsToImages = (texts: string[], noContentsMessage: string): JQuery<HTMLElement>[] =>
           texts.length > 0 ? texts.map(textToImage) : [$(`<div>${noContentsMessage}</div>`)];
         const baseImages = textsToImages(content.baseTexts, 'Nothing');
@@ -64,13 +57,17 @@ export const DiffMutator = {
         const images = baseImages.concat(headImages);
         $diff.on('dblclick', () => {
           $diff.hide();
-          for (const $image of images) $image.show();
+          for (const $image of images) {
+            $image.show();
+          }
           $baseBranchMark.show();
           $headBranchMark.show();
         });
         for (const $image of images) {
           $image.on('dblclick', () => {
-            for (const $image of images) $image.hide();
+            for (const $image of images) {
+              $image.hide();
+            }
             $baseBranchMark.hide();
             $headBranchMark.hide();
             $diff.show();
@@ -81,6 +78,13 @@ export const DiffMutator = {
     }
   },
 };
+
+function isAlreadyEmbedded($content: JQuery<Node>): boolean {
+  const nextDivElement = $content.next()[0] as HTMLDivElement;
+  if (!nextDivElement || nextDivElement.tagName != 'DIV') return false;
+  const nextImgElement = nextDivElement.childNodes[0] as HTMLImageElement;
+  return nextImgElement && nextImgElement.tagName == 'IMG' && nextImgElement.src.startsWith(ImageSrcPrefix);
+}
 
 function textToImage(text: string): JQuery<HTMLElement> {
   const $div = $('<div>').css('overflow', 'auto');
