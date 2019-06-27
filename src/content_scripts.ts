@@ -9,21 +9,21 @@ chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, extensionEnable
 });
 
 function apply(): void {
-  const finders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
-  const diffFinders = [new GitHubPullRequestDiffFinder()];
+  const allFinders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
+  const allDiffFinders = [new GitHubPullRequestDiffFinder()];
 
-  const availableFinders = finders.filter(f => f.canFind(location.href));
-  const availableDiffFinders = diffFinders.filter(f => f.canFind(location.href));
-  if (finders.length + diffFinders.length === 0) return;
+  const enabledFinders = allFinders.filter(f => f.canFind(location.href));
+  const enabledDiffFinders = allDiffFinders.filter(f => f.canFind(location.href));
+  if (enabledFinders.length + enabledDiffFinders.length === 0) return;
 
-  Mutator.embedPlantUmlImages(finders, location.href, $(document.body));
-  DiffMutator.embedPlantUmlImages(diffFinders, location.href, $(document.body));
+  Mutator.embedPlantUmlImages(enabledFinders, location.href, $(document.body));
+  DiffMutator.embedPlantUmlImages(enabledDiffFinders, location.href, $(document.body));
 
   const observer = new MutationObserver(mutations => {
     const addedSomeNodes = mutations.some(mutation => mutation.addedNodes.length > 0);
     if (addedSomeNodes) {
-      Mutator.embedPlantUmlImages(availableFinders, location.href, $(document.body));
-      DiffMutator.embedPlantUmlImages(availableDiffFinders, location.href, $(document.body));
+      Mutator.embedPlantUmlImages(enabledFinders, location.href, $(document.body));
+      DiffMutator.embedPlantUmlImages(enabledDiffFinders, location.href, $(document.body));
     }
   });
   observer.observe(document.body, { childList: true });
