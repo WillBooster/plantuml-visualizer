@@ -18,7 +18,7 @@ chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, extensionEnable
 function apply(): void {
   embedPlantUmlImages();
 
-  if (!Constants.urlRegexesShouldBeObserved.some(regex => regex.test(location.href))) {
+  if (!Constants.urlRegexesToBeObserved.some(regex => regex.test(location.href))) {
     return;
   }
 
