@@ -1,4 +1,5 @@
 export const Constants = {
-  toggleEnabled: 'toggleEnabled',
   imgSrcUrl: 'https://willbooster-plantuml.herokuapp.com',
+  toggleEnabled: 'toggleEnabled',
+  urlRegexesShouldBeObserved: [/^https:\/\/github.com/],
 };
