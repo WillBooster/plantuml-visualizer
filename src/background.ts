@@ -32,13 +32,11 @@ chrome.webRequest.onHeadersReceived.addListener(
 );
 
 let extensionEnabled = true;
-chrome.browserAction.setBadgeText({ text: 'ON' });
-chrome.browserAction.setBadgeBackgroundColor({ color: 'blue' });
+chrome.browserAction.setIcon({ path: 'icon/icon16.png' });
 
 chrome.browserAction.onClicked.addListener(tab => {
   extensionEnabled = !extensionEnabled;
-  chrome.browserAction.setBadgeText({ text: extensionEnabled ? 'ON' : 'OFF' });
-  chrome.browserAction.setBadgeBackgroundColor({ color: extensionEnabled ? 'blue' : 'red' });
+  chrome.browserAction.setIcon({ path: extensionEnabled ? 'icon/icon16.png' : 'icon/icon16mono.png' });
   if (tab.id) chrome.tabs.reload(tab.id);
 });
 
