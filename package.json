@@ -36,7 +36,7 @@
     "@types/pako": "1.0.1",
     "@willbooster/eslint-config": "0.1.0",
     "@willbooster/prettier-config": "0.1.0",
-    "@willbooster/renovate-config": "0.0.13",
+    "@willbooster/renovate-config": "0.1.0",
     "@willbooster/tsconfig": "0.0.13",
     "bestzip": "2.1.4",
     "husky": "3.0.0",
