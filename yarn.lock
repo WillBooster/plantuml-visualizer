@@ -887,10 +887,10 @@
     eslint-plugin-prettier "3.1.0"
     typescript "3.5.2"
 
-"@willbooster/prettier-config@0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-0.0.13.tgz#364c7729a1f03f3f4bea8bb0abd276b88d17e2cc"
-  integrity sha512-JGbuFCUCDFtYg9qHGNJ6dT6/4jK6T7v8UcELORuFJVeQ4nBK9LEeby22yCRfjBCI3ucwo3Vk2eMPqR1lauvu3w==
+"@willbooster/prettier-config@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-0.1.0.tgz#55d7caee3e6682540d307768ec62e904b8c394b4"
+  integrity sha512-bNhsTaz47jqVzpDLwSO2Yw8zHu0HfAdlnV1qocilWABU8pWerzZ7hsnOtlISVFdnnvX5s0Yxe06UGkCSvs4GoA==
   dependencies:
     prettier "1.18.2"
 
