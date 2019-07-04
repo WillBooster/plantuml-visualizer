@@ -35,7 +35,7 @@
     "@types/jquery": "3.3.30",
     "@types/pako": "1.0.1",
     "@willbooster/eslint-config": "0.1.0",
-    "@willbooster/prettier-config": "0.0.13",
+    "@willbooster/prettier-config": "0.1.0",
     "@willbooster/renovate-config": "0.0.13",
     "@willbooster/tsconfig": "0.0.13",
     "bestzip": "2.1.4",
