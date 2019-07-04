@@ -7,8 +7,7 @@ chrome.webRequest.onHeadersReceived.addListener(
   details => {
     const headers = details.responseHeaders;
     if (headers) {
-      for (let i = 0; i < headers.length; i++) {
-        const header = headers[i];
+      for (const header of headers) {
         const name = header.name.toLowerCase();
         if (
           name !== 'content-security-policy' &&
@@ -32,13 +31,11 @@ chrome.webRequest.onHeadersReceived.addListener(
 );
 
 let extensionEnabled = true;
-chrome.browserAction.setBadgeText({ text: 'ON' });
-chrome.browserAction.setBadgeBackgroundColor({ color: 'blue' });
+chrome.browserAction.setIcon({ path: 'icon/icon16.png' });
 
 chrome.browserAction.onClicked.addListener(tab => {
   extensionEnabled = !extensionEnabled;
-  chrome.browserAction.setBadgeText({ text: extensionEnabled ? 'ON' : 'OFF' });
-  chrome.browserAction.setBadgeBackgroundColor({ color: extensionEnabled ? 'blue' : 'red' });
+  chrome.browserAction.setIcon({ path: extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' });
   if (tab.id) chrome.tabs.reload(tab.id);
 });
 
