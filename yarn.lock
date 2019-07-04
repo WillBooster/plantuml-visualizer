@@ -894,10 +894,10 @@
   dependencies:
     prettier "1.18.2"
 
-"@willbooster/renovate-config@0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@willbooster/renovate-config/-/renovate-config-0.0.13.tgz#33d1f82253a9ce0ccc1e2a103e910426bbc28529"
-  integrity sha512-ZhB1+LtHaOn9kCqLQ2DlglXCGCWR7jLP6cJQ6cDwps0ynvc9SyXdwWZmeOOGdXjxvpDEby+PUBXYCW6BoQwEgA==
+"@willbooster/renovate-config@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@willbooster/renovate-config/-/renovate-config-0.1.0.tgz#1e2e3964d873d6961b42752639d70cff8db8ad03"
+  integrity sha512-5RjPhMNb8/2oD99emOjBMQYe7BXP8mzwnLlORnv9+PrswIvxIxhvM1TmLxIUbmOvJGNWHVBCnODck9GqzBjOAA==
 
 "@willbooster/tsconfig@0.0.13":
   version "0.0.13"
