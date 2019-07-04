@@ -7,8 +7,7 @@ chrome.webRequest.onHeadersReceived.addListener(
   details => {
     const headers = details.responseHeaders;
     if (headers) {
-      for (let i = 0; i < headers.length; i++) {
-        const header = headers[i];
+      for (const header of headers) {
         const name = header.name.toLowerCase();
         if (
           name !== 'content-security-policy' &&
