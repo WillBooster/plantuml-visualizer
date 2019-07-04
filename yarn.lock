@@ -874,15 +874,15 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-"@willbooster/eslint-config@0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@willbooster/eslint-config/-/eslint-config-0.0.13.tgz#0195b4a0668b46db13f77d8ed14f932620110c0f"
-  integrity sha512-ir8Na3pa+tnlkezlkSY0ErjtP7s8S3CuE30QKajtVAheRg955jUcm39WB+sTGy1eK4aSiL5ZedlyIQYHUKIroA==
+"@willbooster/eslint-config@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@willbooster/eslint-config/-/eslint-config-0.1.0.tgz#1247b0ebbf2ba1c2ad499c41b666ac9d71ad5251"
+  integrity sha512-uTq8PyVQAEPWOooibsxA9vr3zQOj1J83qoZCCg5ZxVcgObOuCuQRRo691MxLu9miGIaf1HY2f26TXRQ0WIPXKQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "1.11.0"
     "@typescript-eslint/parser" "1.11.0"
     eslint "6.0.1"
-    eslint-config-prettier "5.1.0"
+    eslint-config-prettier "6.0.0"
     eslint-plugin-import "2.18.0"
     eslint-plugin-prettier "3.1.0"
     typescript "3.5.2"
@@ -2452,10 +2452,10 @@ escodegen@~1.9.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-5.1.0.tgz#bf29442e7c818236a77acfe2241ec991299f9bf1"
-  integrity sha512-+tpiaLm3wl6fPW5nq0dDyVowQM0FT61lAdWZ+sDWgk6kKzgbOnCDwlcbwI38cyCBhq+Z3ret5Iofp6/gZpO0zw==
+eslint-config-prettier@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.0.0.tgz#f429a53bde9fc7660e6353910fd996d6284d3c25"
+  integrity sha512-vDrcCFE3+2ixNT5H83g28bO/uYAwibJxerXPj+E7op4qzBCsAV36QfvdAyVOoNxKAH2Os/e01T/2x++V0LPukA==
   dependencies:
     get-stdin "^6.0.0"
 
