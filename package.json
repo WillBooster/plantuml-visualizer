@@ -19,7 +19,7 @@
     "format": "yarn lint-fix && yarn prettier && yarn sort-package-json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "yarn lint --fix",
-    "package": "yarn build && shx rm -f src.zip dist.zip && yarn pack && bestzip dist.zip dist/",
+    "package": "yarn build && shx rm -f src.zip dist.zip && yarn pack && cd dist && bestzip ../dist.zip *",
     "prettier": "prettier --write {,*/}**/*.{css,htm,html,json,md,scss,yaml,yml}",
     "start-popup": "parcel src/popup.html --open",
     "typecheck": "tsc --noEmit",
