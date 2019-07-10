@@ -40,8 +40,27 @@ export const DiffMutator = {
         const baseImages = textsToImages(content.baseTexts, 'Nothing');
         const headImages = textsToImages(content.headTexts, 'Deleted');
 
+        for (const $image of baseImages) {
+          $image.css('background-color', '#ffeef0');
+        }
+        for (const $image of headImages) {
+          $image.css('background-color', '#e6ffed');
+        }
+
         const $baseBranchMark = $(`<div>${content.baseBranchName}</div>`);
         const $headBranchMark = $(`<div>${content.headBranchName}</div>`);
+
+        $baseBranchMark
+          .css('padding', '4px 10px')
+          .css('background-color', '#ffdce0')
+          .css('color', 'rgba(27,31,35,.7)')
+          .css('font-size', '12px');
+
+        $headBranchMark
+          .css('padding', '4px 10px')
+          .css('background-color', '#cdffd8')
+          .css('color', 'rgba(27,31,35,.7)')
+          .css('font-size', '12px');
 
         $baseBranchMark.insertAfter($diff);
         baseImages[0].insertAfter($baseBranchMark);
@@ -87,7 +106,9 @@ function isAlreadyEmbedded($content: JQuery<Node>): boolean {
 }
 
 function textToImage(text: string): JQuery<HTMLElement> {
-  const $div = $('<div>').css('overflow', 'auto');
+  const $div = $('<div>')
+    .css('overflow', 'auto')
+    .css('padding', '4px 10px');
   const $img = $('<img>', { src: PlantUmlEncoder.getImageUrl(text) });
   return $div.append($img);
 }
