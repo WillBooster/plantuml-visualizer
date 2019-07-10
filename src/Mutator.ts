@@ -53,12 +53,14 @@ export const DiffMutator = {
         $baseBranchMark
           .css('padding', '4px 10px')
           .css('background-color', '#ffdce0')
-          .css('color', 'rgba(27,31,35,.7)');
+          .css('color', 'rgba(27,31,35,.7)')
+          .css('font-size', '12px');
 
         $headBranchMark
           .css('padding', '4px 10px')
           .css('background-color', '#cdffd8')
-          .css('color', 'rgba(27,31,35,.7)');
+          .css('color', 'rgba(27,31,35,.7)')
+          .css('font-size', '12px');
 
         $baseBranchMark.insertAfter($diff);
         baseImages[0].insertAfter($baseBranchMark);
