@@ -40,7 +40,7 @@
     "@willbooster/tsconfig": "0.1.0",
     "bestzip": "2.1.4",
     "husky": "3.0.0",
-    "lint-staged": "9.1.0",
+    "lint-staged": "9.2.0",
     "parcel-bundler": "1.12.3",
     "shx": "0.3.2",
     "sort-package-json": "1.22.1",
