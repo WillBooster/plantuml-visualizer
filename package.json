@@ -31,7 +31,7 @@
     "pako": "1.0.10"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.86",
+    "@types/chrome": "0.0.87",
     "@types/jquery": "3.3.30",
     "@types/pako": "1.0.1",
     "@willbooster/eslint-config": "0.1.0",
