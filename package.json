@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/chrome": "0.0.88",
-    "@types/jquery": "3.3.30",
+    "@types/jquery": "3.3.31",
     "@types/pako": "1.0.1",
     "@willbooster/eslint-config": "0.1.0",
     "@willbooster/prettier-config": "0.1.0",
