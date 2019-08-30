@@ -42,7 +42,7 @@
     "@willbooster/renovate-config": "0.1.0",
     "@willbooster/tsconfig": "0.1.3",
     "bestzip": "2.1.4",
-    "eslint": "6.2.2",
+    "eslint": "6.3.0",
     "eslint-config-prettier": "6.1.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-prettier": "3.1.0",
