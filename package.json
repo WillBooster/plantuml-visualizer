@@ -15,7 +15,7 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "shx rm -Rf dist && shx mkdir dist && shx cp -r icon manifest.json dist/",
-    "build": "parcel build src/content_scripts.ts src/background.ts --public-url ./",
+    "build": "parcel build src/content_scripts.ts src/background.ts --public-url ./ --no-minify",
     "format": "yarn lint-fix && yarn prettier && yarn sort-package-json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "yarn lint --fix",
