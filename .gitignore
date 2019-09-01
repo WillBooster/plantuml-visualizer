@@ -1,7 +1,7 @@
 # Project-speicific settings
 
 dist/
-dist.zip
+dist*.zip
 
 # Created by https://www.gitignore.io/api/jetbrains
 # Edit at https://www.gitignore.io/?templates=jetbrains
