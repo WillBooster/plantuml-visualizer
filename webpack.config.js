@@ -10,13 +10,11 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   module: {
-    rules: [{test: /\.tsx?$/, loader: 'ts-loader'}],
+    rules: [{ test: /\.tsx?$/, loader: 'ts-loader' }],
   },
   optimization: {
     minimize: false,
-    minimizer: [
-      new ClosurePlugin({mode: 'STANDARD'}, {}),
-    ]
+    minimizer: [new ClosurePlugin({ mode: 'STANDARD' }, {})],
   },
   devtool: 'source-map',
 };

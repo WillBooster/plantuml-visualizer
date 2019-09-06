@@ -23,7 +23,7 @@
     "package": "shx rm -f plantuml-visualizer-v*.tgz dist-*.zip && yarn pack && yarn package-chrom && yarn package-ff",
     "package-chrom": "yarn prebuild && webpack --config webpack.config --mode production && cd dist && bestzip ../dist-chrome.zip *",
     "package-ff": "yarn build && cd dist && bestzip ../dist-ff.zip *",
-    "prettier": "prettier --write {,*/}**/*.{css,htm,html,json,md,scss,yaml,yml}",
+    "prettier": "prettier --write {,*/}**/*.{css,htm,html,js,json,md,scss,yaml,yml}",
     "start-popup": "parcel src/popup.html --open",
     "typecheck": "tsc --noEmit",
     "watch": "yarn prebuild && parcel watch src/content_scripts.ts src/background.ts --public-url ./ --no-hmr"
