@@ -8,12 +8,9 @@ export default [
       {
         file: 'dist/esm/background.js',
         format: 'esm',
-      }
+      },
     ],
-    plugins: [
-      resolve(),
-      commonjs()
-    ]
+    plugins: [resolve(), commonjs()],
   },
   {
     input: 'dist/tsc/content_scripts.js',
@@ -21,11 +18,8 @@ export default [
       {
         file: 'dist/esm/content_scripts.js',
         format: 'esm',
-      }
+      },
     ],
-    plugins: [
-      resolve(),
-      commonjs()
-    ]
-  }
+    plugins: [resolve(), commonjs()],
+  },
 ];

@@ -3,4 +3,4 @@ dist/
 node_modules/
 __generated__
 @types/
-webpack.config.js
+rollup.config.js
