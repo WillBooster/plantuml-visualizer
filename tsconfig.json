@@ -1,7 +1,11 @@
 {
   "extends": "./node_modules/@willbooster/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "target": "es2017",
+    "target": "esnext",
+    "module": "es2015",
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "outDir": "dist/tsc",
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
   "include": ["src/**/*", "__tests__/**/*"]

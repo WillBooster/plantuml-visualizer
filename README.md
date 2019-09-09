@@ -47,13 +47,13 @@ class A
 ## Development
 
 1. `yarn` to install the latest dependencies
-1. `yarn watch`
 1. Open Chrome
 1. Rewrite some code files
+1. `yarn build`
 1. Close and Reopen Chrome browser (not only tabs)
    - or reload this extension in [chrome://extensions](chrome://extensions) and reload pages
 1. Debug code
-1. Go to `step 4`
+1. Go to `step 3`
 
 ## Deployment for Chrome
 

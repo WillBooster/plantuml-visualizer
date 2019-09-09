@@ -1,14 +1,12 @@
-// import { deflate } from 'zlib.es'
-import pako from 'pako';
+import { deflate } from 'zlib.es';
 import { Constants } from './Constants';
 
 export const ImageSrcPrefix = `${Constants.imgSrcUrl}/svg/`;
 
 export const PlantUmlEncoder = {
   getImageUrl(umlString: string) {
-    const encoded = encode64(pako.deflateRaw(umlString, { level: 9 }));
-    // let textEncoder = new TextEncoder();
-    // const encoded = encode64(deflate(textEncoder.encode(umlString)));
+    const textEncoder = new TextEncoder();
+    const encoded = encode64(deflate(textEncoder.encode(umlString)));
     return `${ImageSrcPrefix}${encoded}`;
   },
 };
