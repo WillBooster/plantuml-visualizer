@@ -1,16 +1,16 @@
 import $ from 'jquery';
-import { Finder, DiffFinder } from './Finder';
+import { DiffFinder, Finder } from './Finder';
 import { ImageSrcPrefix, PlantUmlEncoder } from './PlantUmlEncoder';
 
 export const Mutator = {
-  embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {
+  async embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {
     for (const finder of finders) {
       for (const content of finder.find(webPageUrl, $root)) {
         const $text = content.$text;
 
         // To avoid embedding an image multiple times
         if (isAlreadyEmbedded($text)) continue;
-        const $image = textToImage(content.text);
+        const $image = await textToImage(content.text);
         $image.insertAfter($text);
 
         $text.on('dblclick', () => {
@@ -35,10 +35,8 @@ export const DiffMutator = {
 
         // To avoid embedding an image multiple times
         if (isAlreadyEmbedded($diff)) continue;
-        const textsToImages = (texts: string[], noContentsMessage: string): JQuery<HTMLElement>[] =>
-          texts.length > 0 ? texts.map(textToImage) : [$(`<div>${noContentsMessage}</div>`)];
-        const baseImages = textsToImages(content.baseTexts, 'Nothing');
-        const headImages = textsToImages(content.headTexts, 'Deleted');
+        const baseImages = await textsToImages(content.baseTexts, 'Nothing');
+        const headImages = await textsToImages(content.headTexts, 'Deleted');
 
         for (const $image of baseImages) {
           $image.css('background-color', '#ffeef0');
@@ -105,10 +103,22 @@ function isAlreadyEmbedded($content: JQuery<Node>): boolean {
   return nextImgElement && nextImgElement.tagName == 'IMG' && nextImgElement.src.startsWith(ImageSrcPrefix);
 }
 
-function textToImage(text: string): JQuery<HTMLElement> {
+async function textToImage(text: string): Promise<JQuery<HTMLElement>> {
   const $div = $('<div>')
     .css('overflow', 'auto')
     .css('padding', '4px 10px');
-  const $img = $('<img>', { src: PlantUmlEncoder.getImageUrl(text) });
-  return $div.append($img);
+  const res = await fetch(PlantUmlEncoder.getImageUrl(text));
+  const $svg = $.parseHTML(await res.text());
+  return $div.append($svg);
+}
+
+async function textsToImages(texts: string[], noContentsMessage: string): Promise<JQuery<HTMLElement>[]> {
+  if (texts.length == 0) {
+    return [$(`<div>${noContentsMessage}</div>`)];
+  }
+  const ret = [];
+  for (const text of texts) {
+    ret.push(await textToImage(text));
+  }
+  return ret;
 }

@@ -37,6 +37,6 @@ function embedPlantUmlImages(): void {
     enabledFinders = allFinders.filter(f => f.canFind(location.href));
     enabledDiffFinders = allDiffFinders.filter(f => f.canFind(location.href));
   }
-  Mutator.embedPlantUmlImages(enabledFinders, location.href, $(document.body));
-  DiffMutator.embedPlantUmlImages(enabledDiffFinders, location.href, $(document.body));
+  Mutator.embedPlantUmlImages(enabledFinders, location.href, $(document.body)).finally();
+  DiffMutator.embedPlantUmlImages(enabledDiffFinders, location.href, $(document.body)).finally();
 }
