@@ -178,11 +178,6 @@
   resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-0.1.1.tgz#80fec1e69771311bf81525fe459ccc6c8a9bb30c"
   integrity sha512-5UR5VuTaJl5coDrlZfFTbDC4WUrAn2J5fJfo06Qup9zqs962CDzKKfSYFxu30DdLNd9kadEa97b8/WTGWfFscQ==
 
-"@willbooster/renovate-config@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@willbooster/renovate-config/-/renovate-config-0.1.0.tgz#1e2e3964d873d6961b42752639d70cff8db8ad03"
-  integrity sha512-5RjPhMNb8/2oD99emOjBMQYe7BXP8mzwnLlORnv9+PrswIvxIxhvM1TmLxIUbmOvJGNWHVBCnODck9GqzBjOAA==
-
 "@willbooster/tsconfig@0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@willbooster/tsconfig/-/tsconfig-0.1.3.tgz#d6328a28036b1c1d0c04da1bdcd1aaab9f2b2894"
