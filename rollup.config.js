@@ -16,7 +16,7 @@ export default [
         format: 'esm',
       },
     ],
-    plugins
+    plugins,
   },
   {
     input: 'dist/tsc/content_scripts.js',
@@ -26,6 +26,6 @@ export default [
         format: 'esm',
       },
     ],
-    plugins
+    plugins,
   },
 ];
