@@ -28,7 +28,7 @@
 
 The visualization result of https://github.com/WillBooster/plantuml-visualizer/pull/24/files is as follows.
 
-![Example(example.png)
+![Example](example.png)
 
 ## Development Preparation
 

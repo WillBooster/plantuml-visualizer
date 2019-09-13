@@ -15,8 +15,8 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=development yarn build-common",
-    "build-prod": "cross-env NODE_ENV=production yarn build-common",
     "build-common": "shx rm -Rf dist && tsc && rollup -c && shx cp -r icon manifest.json dist/esm/",
+    "build-prod": "cross-env NODE_ENV=production yarn build-common",
     "format": "yarn lint-fix && yarn prettier && yarn sort-package-json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "yarn lint --fix",
