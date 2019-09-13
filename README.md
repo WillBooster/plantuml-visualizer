@@ -10,7 +10,7 @@
 - Chrome: https://chrome.google.com/webstore/detail/plantuml-visualizer/ffaloebcmkogfdkemcekamlmfkkmgkcf
 - Firefox: https://addons.mozilla.org/firefox/addon/plantuml-visualizer/
 
-## Supported Pages
+## Visualizable Examples
 
 - GitHub
   - Code: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/class.pu
