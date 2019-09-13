@@ -10,7 +10,7 @@
 - Chrome: https://chrome.google.com/webstore/detail/plantuml-visualizer/ffaloebcmkogfdkemcekamlmfkkmgkcf
 - Firefox: https://addons.mozilla.org/firefox/addon/plantuml-visualizer/
 
-## Visualizable Examples
+## Visualizable Pages
 
 - GitHub
   - Code: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/class.pu
@@ -22,16 +22,13 @@
   - Code blocks in README or something
     - README.md: https://github.com/WillBooster/plantuml-visualizer
 - Any .pu / .puml / .plantuml files
-
   - GitHub Raw File: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
 
-## Examples
+## Visualization Examples
 
-```puml
-@startuml
-class A
-@enduml
-```
+The visualization result of https://github.com/WillBooster/plantuml-visualizer/pull/24/files is as follows.
+
+![Example(example.png)
 
 ## Development Preparation
 
