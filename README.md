@@ -3,7 +3,7 @@
 [![wercker status](https://app.wercker.com/status/a6c8380156a0f46acd284e60c6d689d1/m/master 'wercker status')](https://app.wercker.com/project/byKey/a6c8380156a0f46acd284e60c6d689d1)
 [![CircleCI](https://circleci.com/gh/WillBooster/plantuml-visualizer.svg?style=svg&circle-token=79199228c723770d4b343c6be8cfa1d915e34a0e)](https://circleci.com/gh/WillBooster/plantuml-visualizer)
 
-:factory: A Chrome / Firefox exntesion for visualizing PlantUML code.
+:factory: A Chrome / Firefox extension for visualizing PlantUML descriptions.
 
 ## Release Pages
 
@@ -44,13 +44,13 @@ The visualization result of https://github.com/WillBooster/plantuml-visualizer/p
 ## Development
 
 1. `yarn` to install the latest dependencies
+1. `yarn watch`
 1. Open Chrome
 1. Rewrite some code files
-1. `yarn build`
 1. Close and Reopen Chrome browser (not only tabs)
    - or reload this extension in [chrome://extensions](chrome://extensions) and reload pages
 1. Debug code
-1. Go to `step 3`
+1. Go to `step 4`
 
 ## Deployment for Chrome
 

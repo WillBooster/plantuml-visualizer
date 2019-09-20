@@ -14,15 +14,18 @@
   "author": "WillBooster LLC",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=development yarn build-common",
-    "build-common": "shx rm -Rf dist && tsc && rollup -c && shx cp -r icon manifest.json dist/esm/",
+    "build": "yarn build-dev",
+    "build-common": "yarn recreate-dist && rollup -c",
+    "build-dev": "cross-env NODE_ENV=development yarn build-common",
     "build-prod": "cross-env NODE_ENV=production yarn build-common",
     "format": "yarn lint-fix && yarn prettier && yarn sort-package-json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "yarn lint --fix",
-    "package": "shx rm -f plantuml-visualizer-v*.tgz dist-*.zip && yarn pack && yarn build-prod && cd dist/esm && bestzip ../../dist.zip *",
+    "package": "shx rm -f plantuml-visualizer-v*.tgz dist-*.zip && yarn pack && yarn build-prod && cd dist && bestzip ../dist.zip *",
     "prettier": "prettier --write {,*/}**/*.{css,htm,html,js,json,md,scss,yaml,yml}",
-    "typecheck": "tsc --noEmit"
+    "recreate-dist": "shx rm -Rf dist && shx mkdir dist && shx cp -r icon manifest.json dist/",
+    "typecheck": "tsc --noEmit",
+    "watch": "yarn build -w"
   },
   "prettier": "@willbooster/prettier-config",
   "dependencies": {
@@ -51,6 +54,7 @@
     "rollup-plugin-closure-compile": "1.1.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-typescript2": "0.24.2",
     "shx": "0.3.2",
     "sort-package-json": "1.22.1",
     "typescript": "3.6.3"
