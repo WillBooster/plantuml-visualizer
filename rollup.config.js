@@ -1,28 +1,29 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import closureCompile from 'rollup-plugin-closure-compile';
+import typescript from 'rollup-plugin-typescript2';
 
-const plugins = [resolve(), commonjs()];
+const plugins = [resolve(), commonjs(), typescript()];
 if (process.env.NODE_ENV === 'production') {
   plugins.push(closureCompile());
 }
 
 export default [
   {
-    input: 'dist/tsc/background.js',
+    input: 'src/background.ts',
     output: [
       {
-        file: 'dist/esm/background.js',
+        file: 'dist/background.js',
         format: 'esm',
       },
     ],
     plugins,
   },
   {
-    input: 'dist/tsc/content_scripts.js',
+    input: 'src/content_scripts.ts',
     output: [
       {
-        file: 'dist/esm/content_scripts.js',
+        file: 'dist/content_scripts.js',
         format: 'esm',
       },
     ],
