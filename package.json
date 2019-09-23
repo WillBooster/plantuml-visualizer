@@ -34,7 +34,7 @@
     "zlib.es": "0.6.0"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.88",
+    "@types/chrome": "0.0.89",
     "@types/jquery": "3.3.31",
     "@typescript-eslint/eslint-plugin": "2.3.1",
     "@typescript-eslint/parser": "2.3.1",
