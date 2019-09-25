@@ -178,10 +178,10 @@
   resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-0.1.6.tgz#b0600c16a7ab59c76277384b1e8c0fec341b82ed"
   integrity sha512-jY+UPXYIERKT9tmJRY/Xxkw65V7uGORPLF4J9t2MYzctQ4nOcUWJbKIQc6S8YxzqFBkT4Nl+48VDSV4t/K3Xiw==
 
-"@willbooster/tsconfig@0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@willbooster/tsconfig/-/tsconfig-0.1.3.tgz#d6328a28036b1c1d0c04da1bdcd1aaab9f2b2894"
-  integrity sha512-/Zssxn7HTfnRaKjdScf6G0HXf3FSENaI+OsjmK2oL3B0B+Yztt3ThhpKWki4rG+q2wVp6jT0NNf9nGwuk59cJA==
+"@willbooster/tsconfig@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@willbooster/tsconfig/-/tsconfig-0.1.6.tgz#894f13fb3fb447d4827de2aa5960b22334473b2a"
+  integrity sha512-oQmqICVahk1jpbPSQiMLJCr3bqihlFuFmNUypGoN4eNq9yJDE2vImEQ4/FvxTvf/7xeSQmL8h1Qx5E63wJpDtA==
 
 acorn-jsx@^5.0.2:
   version "5.0.2"
