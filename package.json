@@ -39,7 +39,7 @@
     "@typescript-eslint/eslint-plugin": "2.3.1",
     "@typescript-eslint/parser": "2.3.1",
     "@willbooster/eslint-config": "0.1.6",
-    "@willbooster/prettier-config": "0.1.6",
+    "@willbooster/prettier-config": "1.0.0",
     "@willbooster/tsconfig": "0.1.6",
     "bestzip": "2.1.4",
     "cross-env": "6.0.0",
