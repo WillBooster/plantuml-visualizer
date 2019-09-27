@@ -168,10 +168,10 @@
     lodash.unescape "4.0.1"
     semver "^6.3.0"
 
-"@willbooster/eslint-config@0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@willbooster/eslint-config/-/eslint-config-0.1.6.tgz#ec11124006fefa64da9fb9019b8f7475204514bb"
-  integrity sha512-bGRxnTwxk3lfTwapHhvtsI2JxZ56eUFC474rIIWkg8hKHjynfc29H5SKNZUV/gSwkHuNlE39y9SqDjFrWHTZdw==
+"@willbooster/eslint-config@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@willbooster/eslint-config/-/eslint-config-1.0.0.tgz#9d8e9cc8db5bd3c45339ef664876f95c955f5dfc"
+  integrity sha512-jZIgQga6cbTPA3Deg6/eNmScrOLQcKHgQaABTJN5Ac0O9aZn7kadScI5Ne22EWZzU1oEe683gee6bRi0YKckkw==
 
 "@willbooster/prettier-config@1.0.0":
   version "1.0.0"
