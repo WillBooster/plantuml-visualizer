@@ -9,11 +9,13 @@ export class GitHubCodeBlockFinder implements Finder {
   }
 
   find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
-    const $texts = $root.find("pre[lang='pu'],pre[lang='uml'],pre[lang='puml']");
+    const $texts = $root.find('pre');
     const result = [];
-    for (let i = 0; i < $texts.length; i++) {
-      const $text = $texts.eq(i);
-      result.push({ $text, text: $text.text() });
+    for (const text of $texts) {
+      const content = (text.textContent || '').trim();
+      if (content.startsWith('@startuml') && content.endsWith('@enduml')) {
+        result.push({ $text: $(text), text: content });
+      }
     }
     return result;
   }
