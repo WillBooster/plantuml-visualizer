@@ -50,8 +50,13 @@ jobs:
       - restore-deps
       - install-deps
       - run:
+          name: Build
+          command: |
+            yarn build
+      - run:
           name: Release
-          command: yarn run semantic-release || true
+          command: |
+            yarn run semantic-release || true
 workflows:
   build-and-deploy:
     jobs:
