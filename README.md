@@ -44,7 +44,7 @@ The visualization result of https://github.com/WillBooster/plantuml-visualizer/p
 ## Development
 
 1. `yarn` to install the latest dependencies
-1. `yarn watch`
+1. `yarn start`
 1. Open Chrome
 1. Rewrite some code files
 1. Close and Reopen Chrome browser (not only tabs)
