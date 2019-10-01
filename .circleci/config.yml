@@ -1,4 +1,20 @@
 version: 2.1
+executors:
+  default:
+    docker:
+      - image: circleci/node:lts
+commands:
+  restore-deps:
+    steps:
+      - restore_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+
+  save-deps:
+    steps:
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
 jobs:
   build:
     docker:
@@ -10,16 +26,12 @@ jobs:
           command: |
             echo "node: $(node -v)"
             echo "yarn: $(yarn -v)"
-      - restore_cache:
-          key: yarn-packages-{{ checksum "yarn.lock" }}
+      - restore-deps
       - run:
           name: Install dependencies
           command: |
             yarn install
-      - save_cache:
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
+      - save-deps
       - run:
           name: Run typecheck
           command: |
@@ -28,3 +40,23 @@ jobs:
           name: Run lint
           command: |
             yarn lint
+  deploy:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - restore-deps
+      - run:
+          name: Release
+          command: yarn run semantic-release || true
+workflows:
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          name: deploy
+          requires:
+            - build
+          filters:
+            branches:
+              only: release
