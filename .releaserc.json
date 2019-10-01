@@ -3,7 +3,6 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@semantic-release/npm",
     "@semantic-release/github",
     [
       "semantic-release-chrome",
@@ -15,7 +14,7 @@
     [
       "semantic-release-firefox",
       {
-        "xpiPath": "",
+        "xpiPath": "dist.xpi",
         "distFolder": "dist",
         "addOnSlug": "plantuml-visualizer"
       }
