@@ -2,6 +2,7 @@
 
 [![wercker status](https://app.wercker.com/status/a6c8380156a0f46acd284e60c6d689d1/m/master 'wercker status')](https://app.wercker.com/project/byKey/a6c8380156a0f46acd284e60c6d689d1)
 [![CircleCI](https://circleci.com/gh/WillBooster/plantuml-visualizer.svg?style=svg&circle-token=79199228c723770d4b343c6be8cfa1d915e34a0e)](https://circleci.com/gh/WillBooster/plantuml-visualizer)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 :factory: A Chrome / Firefox extension for visualizing PlantUML descriptions.
 
