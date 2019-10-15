@@ -4015,7 +4015,6 @@ npm@^6.10.3:
     cmd-shim "^3.0.3"
     columnify "~1.5.4"
     config-chain "^1.1.12"
-    debuglog "*"
     detect-indent "~5.0.0"
     detect-newline "^2.1.0"
     dezalgo "~1.0.3"
@@ -4030,7 +4029,6 @@ npm@^6.10.3:
     has-unicode "~2.0.1"
     hosted-git-info "^2.8.5"
     iferr "^1.0.2"
-    imurmurhash "*"
     infer-owner "^1.0.4"
     inflight "~1.0.6"
     inherits "^2.0.4"
@@ -4049,14 +4047,8 @@ npm@^6.10.3:
     libnpx "^10.2.0"
     lock-verify "^2.1.0"
     lockfile "^1.0.4"
-    lodash._baseindexof "*"
     lodash._baseuniq "~4.6.0"
-    lodash._bindcallback "*"
-    lodash._cacheindexof "*"
-    lodash._createcache "*"
-    lodash._getnative "*"
     lodash.clonedeep "~4.5.0"
-    lodash.restparam "*"
     lodash.union "~4.6.0"
     lodash.uniq "~4.5.0"
     lodash.without "~4.4.0"
@@ -5175,10 +5167,9 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-chrome@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/semantic-release-chrome/-/semantic-release-chrome-1.1.1.tgz#a4a62aeead25bce1b5d87485b01e02d81ccb7799"
-  integrity sha512-FTmAWGypHDLiDseVYKpxLzfOy8IiEnULbHhJCPg4268OVc5KKTJTLeMSF7VrAU36Kj4CwbKyMdVxxMlEXgBV6g==
+semantic-release-chrome@exKAZUu/semantic-release-chrome:
+  version "0.0.0-development"
+  resolved "https://codeload.github.com/exKAZUu/semantic-release-chrome/tar.gz/7aad1b564c3c9081ec41011fd988c3df302716cb"
   dependencies:
     "@semantic-release/error" "2.2.0"
     aggregate-error "3.0.0"
