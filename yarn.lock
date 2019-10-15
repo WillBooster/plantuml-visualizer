@@ -5200,7 +5200,7 @@ semantic-release-chrome@exKAZUu/semantic-release-chrome:
 
 semantic-release-firefox@exKAZUu/semantic-release-firefox:
   version "0.0.0-DEVELOPMENT"
-  resolved "https://codeload.github.com/exKAZUu/semantic-release-firefox/tar.gz/96f7ae4262b0ebc97142c6df7f794984dad944bc"
+  resolved "https://codeload.github.com/exKAZUu/semantic-release-firefox/tar.gz/58878afe6e246760da18022b7928ca956a714bd3"
   dependencies:
     aggregate-error "^1.0.0"
     archiver "^2.1.1"
