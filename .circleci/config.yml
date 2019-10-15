@@ -48,6 +48,7 @@ jobs:
     docker:
       - image: circleci/node:lts
     steps:
+      - puppeteer/install
       - checkout
       - restore-deps
       - install-deps
@@ -63,7 +64,6 @@ workflows:
   build-and-deploy:
     jobs:
       - build
-      - puppeteer/install
       - deploy:
           name: deploy
           requires:
