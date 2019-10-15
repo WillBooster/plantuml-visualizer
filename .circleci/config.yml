@@ -48,9 +48,9 @@ jobs:
     docker:
       - image: circleci/node:lts
     steps:
-      - puppeteer/install
       - checkout
       - restore-deps
+      - puppeteer/install
       - install-deps
       - run:
           name: Build
