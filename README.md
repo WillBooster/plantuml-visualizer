@@ -23,7 +23,9 @@
   - Code blocks in README or something
     - README.md: https://github.com/WillBooster/plantuml-visualizer
 - Any .pu / .puml / .plantuml files
-  - GitHub Raw File: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
+  - GitHub Raw Files: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
+  - Local Files: file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
+    - You need to allow this extension to access file URLs in chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf
 
 ## Visualization Examples
 
