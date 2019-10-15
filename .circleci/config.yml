@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  puppeteer: threetreeslight/puppeteer@0.1.2
 executors:
   default:
     docker:
@@ -61,6 +63,7 @@ workflows:
   build-and-deploy:
     jobs:
       - build
+      - puppeteer/install
       - deploy:
           name: deploy
           requires:
