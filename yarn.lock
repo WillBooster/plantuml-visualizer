@@ -5198,10 +5198,9 @@ semantic-release-chrome@exKAZUu/semantic-release-chrome:
     chrome-webstore-upload "0.2.2"
     fs-extra "7.0.1"
 
-semantic-release-firefox@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/semantic-release-firefox/-/semantic-release-firefox-1.2.0.tgz#7c72fc28211354cdf355e29de07a97f7fe2bb146"
-  integrity sha512-rYhev/dvN9hUS+xJJsdPZJ2W8kTjVGmJ8JyjJmJ6d63CWwx6/0asvj18ji/2lJ+OmXcGorjpbBs8OixSslTRag==
+semantic-release-firefox@exKAZUu/semantic-release-firefox:
+  version "0.0.0-DEVELOPMENT"
+  resolved "https://codeload.github.com/exKAZUu/semantic-release-firefox/tar.gz/96f7ae4262b0ebc97142c6df7f794984dad944bc"
   dependencies:
     aggregate-error "^1.0.0"
     archiver "^2.1.1"
