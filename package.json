@@ -1,6 +1,6 @@
 {
   "name": "plantuml-visualizer",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "private": true,
   "description": "A Chrome / Firefox extension for visualizing PlantUML code.",
   "homepage": "https://github.com/WillBooster/plantuml-visualizer",

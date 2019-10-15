@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "PlantUML Visualizer",
   "description": "A Chrome / Firefox extension for visualizing PlantUML descriptions.",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "browser_action": {
     "default_icon": "icon/icon16.png"
   },
@@ -26,7 +26,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://github.com/*", "*://*/*.puml", "*://*/*.pu", "*://*/*.plantuml"],
+      "matches": ["https://github.com/*", "*://*/*.puml", "*://*/*.pu", "*://*/*.plantuml", "file://*/*"],
       "js": ["content_scripts.js"]
     }
   ]
