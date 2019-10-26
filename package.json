@@ -56,7 +56,7 @@
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-typescript2": "0.24.3",
-    "semantic-release": "15.13.27",
+    "semantic-release": "15.13.28",
     "semantic-release-chrome": "exKAZUu/semantic-release-chrome",
     "semantic-release-firefox": "exKAZUu/semantic-release-firefox",
     "shx": "0.3.2",
