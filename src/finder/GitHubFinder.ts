@@ -134,10 +134,9 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
         filePath += separator;
       }
     }
-    console.log(filePaths);
     if (filePaths.length == 1) return [filePaths[0], filePaths[0]];
     if (filePaths.length == 2) return [filePaths[0], filePaths[1]];
-    else return ['', ''];
+    return ['', ''];
   }
 
   private async getTexts(fileUrl: string): Promise<string[]> {
