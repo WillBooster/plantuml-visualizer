@@ -74,9 +74,9 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     return diffs;
   }
 
-  private getBaseHeadBranchNames($root: JQuery<Node>): string[] {
+  private getBaseHeadBranchNames($root: JQuery<Node>): [string, string] {
     const tableObjectTagName = 'div.TableObject-item.TableObject-item--primary';
-    const getTagName = (baseOrHead: string): string =>
+    const getTagName = (baseOrHead: 'base' | 'head'): string =>
       `span.commit-ref.css-truncate.user-select-contain.expandable.${baseOrHead}-ref`;
     const $baseRef = $root.find(tableObjectTagName + ' ' + getTagName('base'));
     const $headRef = $root.find(tableObjectTagName + ' ' + getTagName('head'));
@@ -89,9 +89,13 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     headBranchName: string,
     $diff: JQuery<Node>
   ): Promise<UmlDiffContent> {
-    const filePath = $diff.find('div.file-info a').text();
+    const [baseFilePath, headFilePath] = this.getBaseHeadFilePaths($diff);
     const $diffBlock = $diff.find('div.js-file-content.Details-content--hidden');
-    if (filePath.match('.*\\.(plantuml|pu|puml)') == null || $diffBlock.length == 0) {
+    if (
+      (baseFilePath == '' && headFilePath == '') ||
+      $diffBlock.length == 0 ||
+      $diffBlock.find('div.data.highlight.empty').length > 0
+    ) {
       return {
         $diff: $(),
         baseBranchName,
@@ -100,7 +104,10 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
         headTexts: [],
       };
     }
-    const fileUrls = [baseBranchName, headBranchName].map(branchName => blobRoot + '/' + branchName + '/' + filePath);
+    const fileUrls = [
+      blobRoot + '/' + baseBranchName + '/' + baseFilePath,
+      blobRoot + '/' + headBranchName + '/' + headFilePath,
+    ];
     const [baseTexts, headTexts] = await Promise.all(fileUrls.map(fileUrl => this.getTexts(fileUrl)));
     return {
       $diff: $diffBlock,
@@ -109,6 +116,27 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
       baseTexts,
       headTexts,
     };
+  }
+
+  private getBaseHeadFilePaths($diff: JQuery<Node>): [string, string] {
+    const title = $diff.find('div.file-info a').attr('title');
+    if (!title) return ['', ''];
+    const separator = ' → ';
+    const fragments = title.split(separator);
+    const filePaths = [];
+    let filePath = '';
+    for (const fragment of fragments) {
+      filePath += fragment;
+      if (filePath.match(/^.*\.(plantuml|pu|puml)$/)) {
+        filePaths.push(filePath);
+        filePath = '';
+      } else {
+        filePath += separator;
+      }
+    }
+    if (filePaths.length == 1) return [filePaths[0], filePaths[0]];
+    if (filePaths.length == 2) return [filePaths[0], filePaths[1]];
+    return ['', ''];
   }
 
   private async getTexts(fileUrl: string): Promise<string[]> {
