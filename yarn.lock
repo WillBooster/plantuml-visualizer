@@ -5194,7 +5194,8 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
 
 semantic-release-chrome@exKAZUu/semantic-release-chrome:
   version "0.0.0-development"
-  resolved "https://codeload.github.com/exKAZUu/semantic-release-chrome/tar.gz/6743a433490e15e9673d134d3866675d2eda5fee"
+  uid "233c476839280f53c15b08e6f511234dad3cdffe"
+  resolved "https://codeload.github.com/exKAZUu/semantic-release-chrome/tar.gz/233c476839280f53c15b08e6f511234dad3cdffe"
   dependencies:
     "@semantic-release/error" "2.2.0"
     aggregate-error "3.0.0"
