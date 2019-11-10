@@ -10,6 +10,14 @@
         "asset": "dist.zip",
         "extensionId": "ffaloebcmkogfdkemcekamlmfkkmgkcf"
       }
+    ],
+    [
+      "semantic-release-firefox",
+      {
+        "xpiPath": "dist.xpi",
+        "distFolder": "dist",
+        "addOnSlug": "plantuml-visualizer"
+      }
     ]
   ]
 }
