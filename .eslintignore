@@ -5,6 +5,7 @@
 
 __generated__/
 @types/
+test-fixtures/
 *.config.js
 
 dist.zip
