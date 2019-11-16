@@ -7,5 +7,5 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["src/**/*", "__tests__/**/*"]
+  "include": ["src/**/*", "__tests__/**/*", "packages/*/src/**/*", "packages/*/__tests__/**/*"]
 }
