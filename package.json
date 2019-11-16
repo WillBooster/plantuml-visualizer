@@ -12,7 +12,7 @@
     "url": "git+https://github.com/WillBooster/plantuml-visualizer.git"
   },
   "license": "Apache-2.0",
-  "author": "WillBooster LLC",
+  "author": "WillBooster Inc.",
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production yarn build-common",
