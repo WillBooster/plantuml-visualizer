@@ -21,7 +21,7 @@
     "lint": "eslint \"./{packages/*/,}{src,__tests__}/**/*.{js,jsx,ts,tsx}\"",
     "lint-fix": "yarn lint --fix",
     "package": "shx rm -f plantuml-visualizer-v*.tgz dist-*.zip && yarn pack && yarn build && cd dist && bestzip ../dist.zip *",
-    "prettier": "prettier --write \"**/{.*/,}*.{css,htm,html,js,json,jsx,md,scss,ts,tsx,yaml,yml}\"",
+    "prettier": "prettier --write \"**/{.*/,}*.{css,htm,html,js,json,jsx,md,scss,ts,tsx,vue,yaml,yml}\"",
     "recreate-dist": "shx rm -Rf dist && shx mkdir dist && shx cp -r icon manifest.json dist/",
     "release-test": "dotenv yarn semantic-release -d",
     "sort-package-json": "sort-package-json",
