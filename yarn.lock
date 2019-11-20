@@ -328,10 +328,10 @@
   resolved "https://registry.yarnpkg.com/@willbooster/eslint-config-ts/-/eslint-config-ts-2.0.0.tgz#bc9a106f28ea83e81ea543bf256f6979833bee50"
   integrity sha512-KfgLKlCn+Hd/VkE1HdyrHBB3l68VKXJY+wnZ32AtFNtujAY3oRCla5lA6scsaiPjIJJTyvv1iBk+AcE60h5msA==
 
-"@willbooster/prettier-config@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-2.0.0.tgz#417df70a69b8f1070c2ab889fbf1a43830b98ff9"
-  integrity sha512-JuMj/BX5PozZAz7UJSqBB9Pp/l/g2/8S8XIna3hTCznVRNOlCF+h+aKc5KaXp2L71Hcn0nQptzqA+zGPfbmsKA==
+"@willbooster/prettier-config@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-2.1.0.tgz#b9a2906e853d5f32aee1560910f833a147c2eeb2"
+  integrity sha512-8WWI0eNvBIKyOy9QF+UauwabOIhOqPlbrU1zhURU6/wSkloWmCaN/OJaVPVUEwHfnrlRS37G9M4VX/pJRNAaKg==
 
 "@willbooster/tsconfig@2.0.0":
   version "2.0.0"
