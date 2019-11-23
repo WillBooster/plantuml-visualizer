@@ -9,6 +9,7 @@ yarn.lock
 
 dist.zip
 
+.devcontainer/
 dist/
 temp/
 
