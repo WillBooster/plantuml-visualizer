@@ -63,6 +63,6 @@
     "semantic-release-firefox": "exKAZUu/semantic-release-firefox",
     "shx": "0.3.2",
     "sort-package-json": "1.30.0",
-    "typescript": "3.7.2"
+    "typescript": "3.7.3"
   }
 }
