@@ -40,7 +40,7 @@
     "@types/jquery": "3.3.31",
     "@typescript-eslint/eslint-plugin": "2.10.0",
     "@typescript-eslint/parser": "2.10.0",
-    "@willbooster/eslint-config-ts": "2.2.0",
+    "@willbooster/eslint-config-ts": "2.3.0",
     "@willbooster/prettier-config": "2.1.0",
     "@willbooster/renovate-config": "2.2.0",
     "@willbooster/tsconfig": "2.1.0",
