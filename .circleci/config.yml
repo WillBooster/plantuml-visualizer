@@ -13,7 +13,7 @@ commands:
       - run:
           name: Install dependencies
           command: |
-            yarn install --production=false --frozen-lockfile
+            yarn install --production=false --frozen-lockfile && ls -al node_modules
   save-deps:
     steps:
       - save_cache:
@@ -57,9 +57,7 @@ jobs:
             libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 \
             libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates \
             fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
-            ls -al
             ls -al node_modules
-            cat yarn.lock
       - install-deps
       - run:
           name: Build
