@@ -333,10 +333,10 @@
   resolved "https://registry.yarnpkg.com/@willbooster/eslint-config-ts/-/eslint-config-ts-2.3.0.tgz#6e126e82359b5f5e0623768ee33d5c99a7985a68"
   integrity sha512-kJ0YYuE6wsuijJTQgJN5OE1DEDj4XJMdNlcJN4INS8nNM5mItBT98JiSH7F30mL9omEN18NkDgTqLrKFwjn8WA==
 
-"@willbooster/prettier-config@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-2.1.0.tgz#b9a2906e853d5f32aee1560910f833a147c2eeb2"
-  integrity sha512-8WWI0eNvBIKyOy9QF+UauwabOIhOqPlbrU1zhURU6/wSkloWmCaN/OJaVPVUEwHfnrlRS37G9M4VX/pJRNAaKg==
+"@willbooster/prettier-config@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@willbooster/prettier-config/-/prettier-config-2.3.0.tgz#9c5bd6bc7294fda0e856e1353dc6e89612409a50"
+  integrity sha512-KlRFmYLwtYiBNDLWw8XAtGF7rHWKDItisgJXTlH7cZAbdslVRRmIUQs73yZKke2oc29tcbKvOFtetB1wqkE5Yg==
 
 "@willbooster/renovate-config@2.2.0":
   version "2.2.0"
