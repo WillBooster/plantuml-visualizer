@@ -1,0 +1,19 @@
+* text=auto
+
+*.vcproj text eol=crlf
+
+*.cpp text eol=lf
+*.dart text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.jsx text eol=lf
+*.pu text eol=lf
+*.puml text eol=lf
+*.rb text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.vue text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.gradle text eol=lf
+*.md text eol=lf
