@@ -65,7 +65,7 @@ jobs:
       - run:
           name: Release
           command: |
-            yarn upgrade && ls -al node_modules && yarn run semantic-release || true
+            yarn upgrade && ls -al node_modules && yarn run semantic-release
 workflows:
   build-and-deploy:
     jobs:
