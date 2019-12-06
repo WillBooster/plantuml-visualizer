@@ -31,9 +31,9 @@
         "*://*/*.pu*",
         "*://*/*.puml*",
         "*://*/*.plantuml*",
-        "file://*/*.pu*",
-        "file://*/*.puml*",
-        "file://*/*.plantuml*"
+        "file:///*/*.pu*",
+        "file:///*/*.puml*",
+        "file:///*/*.plantuml*"
       ],
       "js": ["content_scripts.js"]
     }

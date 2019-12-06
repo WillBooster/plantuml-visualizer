@@ -1,7 +1,7 @@
 import { Finder, UmlContent } from './Finder';
 
 export class RawFileFinder implements Finder {
-  private readonly URL_REGEX = /^.*\.(plantuml|pu|puml)/;
+  private readonly URL_REGEX = /^.*\.(plantuml|pu|puml)(\?.*)?$/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
