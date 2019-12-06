@@ -13,7 +13,7 @@ commands:
       - run:
           name: Install dependencies
           command: |
-            yarn install --production=false --frozen-lockfile && ls -al node_modules
+            ls -al node_modules && rm -Rf node_modules && yarn install --production=false --frozen-lockfile && ls -al node_modules
   save-deps:
     steps:
       - save_cache:
