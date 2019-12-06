@@ -17,9 +17,9 @@
     "webRequest",
     "webRequestBlocking",
     "https://github.com/*",
-    "*://*/*.puml",
-    "*://*/*.pu",
-    "*://*/*.plantuml"
+    "*://*/*.puml*",
+    "*://*/*.pu*",
+    "*://*/*.plantuml*"
   ],
   "background": {
     "scripts": ["background.js"]
@@ -28,12 +28,12 @@
     {
       "matches": [
         "https://github.com/*",
-        "*://*/*.pu",
-        "*://*/*.puml",
-        "*://*/*.plantuml",
-        "file://*/*.pu",
-        "file://*/*.puml",
-        "file://*/*.plantuml"
+        "*://*/*.pu*",
+        "*://*/*.puml*",
+        "*://*/*.plantuml*",
+        "file://*/*.pu*",
+        "file://*/*.puml*",
+        "file://*/*.plantuml*"
       ],
       "js": ["content_scripts.js"]
     }
