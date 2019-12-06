@@ -65,7 +65,7 @@ jobs:
       - run:
           name: Release
           command: |
-            yarn run semantic-release || true
+            yarn && yarn run semantic-release || true
 workflows:
   build-and-deploy:
     jobs:
