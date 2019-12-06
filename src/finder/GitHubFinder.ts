@@ -22,7 +22,7 @@ export class GitHubCodeBlockFinder implements Finder {
 }
 
 export class GitHubFileBlockFinder implements Finder {
-  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)$/;
+  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)(\?.*)?$/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
