@@ -22,7 +22,7 @@ export class GitHubCodeBlockFinder implements Finder {
 }
 
 export class GitHubFileBlockFinder implements Finder {
-  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)$/;
+  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
@@ -127,7 +127,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     let filePath = '';
     for (const fragment of fragments) {
       filePath += fragment;
-      if (filePath.match(/^.*\.(plantuml|pu|puml)$/)) {
+      if (filePath.match(/^.*\.(plantuml|pu|puml)/)) {
         filePaths.push(filePath);
         filePath = '';
       } else {
