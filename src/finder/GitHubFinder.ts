@@ -127,7 +127,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     let filePath = '';
     for (const fragment of fragments) {
       filePath += fragment;
-      if (filePath.match(/^.*\.(plantuml|pu|puml)/)) {
+      if (filePath.match(/^.*\.(plantuml|pu|puml)$/)) {
         filePaths.push(filePath);
         filePath = '';
       } else {
