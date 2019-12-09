@@ -1,5 +1,0 @@
-{
-  "./{packages/*/,}{src,__tests__}/**/*.{ts,tsx}": ["eslint --fix", "git add"],
-  "./**/*.{css,htm,html,js,json,jsx,md,scss,yaml,yml}": ["prettier --write", "git add"],
-  "./**/package.json": ["sort-package-json", "git add"]
-}
