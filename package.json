@@ -38,8 +38,8 @@
   "devDependencies": {
     "@types/chrome": "0.0.91",
     "@types/jquery": "3.3.31",
-    "@typescript-eslint/eslint-plugin": "2.15.0",
-    "@typescript-eslint/parser": "2.15.0",
+    "@typescript-eslint/eslint-plugin": "2.16.0",
+    "@typescript-eslint/parser": "2.16.0",
     "@willbooster/eslint-config-ts": "2.3.2",
     "@willbooster/prettier-config": "2.3.2",
     "@willbooster/renovate-config": "2.3.2",
@@ -64,6 +64,6 @@
     "semantic-release-firefox": "exKAZUu/semantic-release-firefox",
     "shx": "0.3.2",
     "sort-package-json": "1.39.0",
-    "typescript": "3.7.4"
+    "typescript": "3.7.5"
   }
 }
