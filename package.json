@@ -18,21 +18,19 @@
     "build": "cross-env NODE_ENV=production yarn build-common",
     "build-common": "yarn recreate-dist && rollup -c",
     "cleanup": "yarn format && yarn lint-fix",
-    "format": "yarn sort-package-json && yarn prettier",
+    "format": "sort-package-json && yarn prettier",
     "lint": "eslint \"./{packages/*/,}{src,__tests__}/**/*.{js,jsx,ts,tsx}\"",
     "lint-fix": "yarn lint --fix",
     "package": "shx rm -f plantuml-visualizer-v*.tgz dist-*.zip && yarn pack && yarn build && cd dist && bestzip ../dist.zip *",
     "prettier": "prettier --write \"**/{.*/,}*.{css,htm,html,js,json,jsx,md,scss,ts,tsx,vue,yaml,yml}\" \"!**/test-fixtures/**\"",
     "recreate-dist": "shx rm -Rf dist && shx mkdir dist && shx cp -r icon manifest.json dist/",
     "release-test": "dotenv yarn semantic-release -d",
-    "sort-package-json": "sort-package-json",
     "start": "cross-env NODE_ENV=development yarn build-common -w",
     "typecheck": "tsc --noEmit"
   },
   "prettier": "@willbooster/prettier-config",
   "dependencies": {
     "jquery": "3.4.1",
-    "tslib": "1.10.0",
     "zlib.es": "0.6.0"
   },
   "devDependencies": {
@@ -43,7 +41,6 @@
     "@willbooster/eslint-config-ts": "2.3.2",
     "@willbooster/prettier-config": "2.3.2",
     "@willbooster/renovate-config": "2.3.2",
-    "@willbooster/tsconfig": "2.3.3",
     "bestzip": "2.1.5",
     "cross-env": "6.0.3",
     "dotenv-cli": "3.1.0",
