@@ -42,7 +42,7 @@
     "@willbooster/prettier-config": "2.3.2",
     "@willbooster/renovate-config": "2.3.2",
     "bestzip": "2.1.5",
-    "cross-env": "6.0.3",
+    "cross-env": "7.0.0",
     "dotenv-cli": "3.1.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.9.0",
