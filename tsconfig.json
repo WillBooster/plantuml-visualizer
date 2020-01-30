@@ -1,12 +1,18 @@
 {
-  "extends": "./node_modules/@willbooster/tsconfig/tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "importHelpers": true,
+    "moduleResolution": "node",
+    "alwaysStrict": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "typeRoots": ["./node_modules/@types", "./@types"],
-    "outDir": "dist"
+    "sourceMap": true,
+    "importHelpers": true,
+    "outDir": "dist",
+    "typeRoots": ["./node_modules/@types", "./@types"]
   },
   "include": ["src/**/*", "__tests__/**/*", "packages/*/src/**/*", "packages/*/__tests__/**/*"]
 }
