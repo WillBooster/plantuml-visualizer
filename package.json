@@ -35,9 +35,9 @@
   },
   "devDependencies": {
     "@types/chrome": "0.0.93",
-    "@types/jquery": "3.3.31",
-    "@typescript-eslint/eslint-plugin": "2.18.0",
-    "@typescript-eslint/parser": "2.18.0",
+    "@types/jquery": "3.3.32",
+    "@typescript-eslint/eslint-plugin": "2.19.0",
+    "@typescript-eslint/parser": "2.19.0",
     "@willbooster/eslint-config-ts": "3.0.0",
     "@willbooster/prettier-config": "3.0.0",
     "@willbooster/renovate-config": "3.0.0",
