@@ -34,10 +34,10 @@
     "zlib.es": "0.6.0"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.96",
+    "@types/chrome": "0.0.98",
     "@types/jquery": "3.3.33",
-    "@typescript-eslint/eslint-plugin": "2.20.0",
-    "@typescript-eslint/parser": "2.20.0",
+    "@typescript-eslint/eslint-plugin": "2.21.0",
+    "@typescript-eslint/parser": "2.21.0",
     "@willbooster/eslint-config-ts": "3.0.0",
     "@willbooster/prettier-config": "3.0.0",
     "@willbooster/renovate-config": "3.0.0",
@@ -49,9 +49,9 @@
     "eslint-plugin-import": "2.20.1",
     "eslint-plugin-prettier": "3.1.2",
     "husky": "4.2.3",
-    "lint-staged": "10.0.7",
+    "lint-staged": "10.0.8",
     "prettier": "1.19.1",
-    "rollup": "1.31.1",
+    "rollup": "1.32.0",
     "rollup-plugin-closure-compile": "1.1.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0",
@@ -61,6 +61,6 @@
     "semantic-release-firefox": "exKAZUu/semantic-release-firefox",
     "shx": "0.3.2",
     "sort-package-json": "1.40.0",
-    "typescript": "3.8.2"
+    "typescript": "3.8.3"
   }
 }
