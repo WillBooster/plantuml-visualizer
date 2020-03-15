@@ -34,10 +34,10 @@
     "zlib.es": "0.6.0"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.99",
+    "@types/chrome": "0.0.100",
     "@types/jquery": "3.3.33",
-    "@typescript-eslint/eslint-plugin": "2.22.0",
-    "@typescript-eslint/parser": "2.22.0",
+    "@typescript-eslint/eslint-plugin": "2.23.0",
+    "@typescript-eslint/parser": "2.23.0",
     "@willbooster/eslint-config-ts": "3.0.0",
     "@willbooster/prettier-config": "3.0.0",
     "@willbooster/renovate-config": "3.0.0",
