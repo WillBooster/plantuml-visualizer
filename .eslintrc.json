@@ -1,1 +1,1 @@
-{ "extends": ["@willbooster/eslint-config-ts"] }
+{ "root": true, "extends": ["@willbooster/eslint-config-ts"] }

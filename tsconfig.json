@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
     "moduleResolution": "node",
     "alwaysStrict": true,
     "strict": true,
@@ -10,9 +8,11 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "outDir": "dist",
-    "typeRoots": ["./node_modules/@types", "./@types"]
+    "typeRoots": ["./node_modules/@types", "./@types"],
+    "target": "esnext",
+    "module": "esnext"
   },
   "include": ["src/**/*", "__tests__/**/*", "packages/*/src/**/*", "packages/*/__tests__/**/*"]
 }
