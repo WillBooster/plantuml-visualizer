@@ -4,7 +4,7 @@ import { markAsAlreadyProcessed, textsToImages } from './MutatorUtil';
 
 export const DiffMutator = {
   async embedPlantUmlImages(diffFinders: DiffFinder[], webPageUrl: string, $root: JQuery<Node>) {
-    const arraysOfContents = await Promise.all(diffFinders.map(finder => finder.find(webPageUrl, $root)));
+    const arraysOfContents = await Promise.all(diffFinders.map((finder) => finder.find(webPageUrl, $root)));
     for (const content of arraysOfContents.flat()) {
       // Skip if no PlantUML descriptions exist
       if (!content.baseTexts.length && !content.headTexts.length) continue;

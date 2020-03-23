@@ -12,9 +12,7 @@ export function markAsAlreadyProcessed($content: JQuery<Node>): boolean {
 }
 
 export async function textToImage(text: string): Promise<JQuery<HTMLElement>> {
-  const $div = $('<div>')
-    .css('overflow', 'auto')
-    .css('padding', '4px 10px');
+  const $div = $('<div>').css('overflow', 'auto').css('padding', '4px 10px');
   const res = await fetch(PlantUmlEncoder.getImageUrl(text));
   const encoded = `data:image/svg+xml,${encodeURIComponent(await res.text())}`;
   return $div.append($('<img>').attr('src', encoded));

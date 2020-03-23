@@ -12,7 +12,7 @@ let enabledFinders: Finder[];
 let enabledDiffFinders: DiffFinder[];
 let lastUrl: string;
 
-chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, extensionEnabled => {
+chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, (extensionEnabled) => {
   if (extensionEnabled) apply();
 });
 
@@ -21,12 +21,12 @@ let embedding = false;
 function apply(): void {
   embedPlantUmlImages().finally();
 
-  if (!Constants.urlRegexesToBeObserved.some(regex => regex.test(location.href))) {
+  if (!Constants.urlRegexesToBeObserved.some((regex) => regex.test(location.href))) {
     return;
   }
 
-  const observer = new MutationObserver(async mutations => {
-    const addedSomeNodes = mutations.some(mutation => mutation.addedNodes.length > 0);
+  const observer = new MutationObserver(async (mutations) => {
+    const addedSomeNodes = mutations.some((mutation) => mutation.addedNodes.length > 0);
     if (addedSomeNodes) {
       await embedPlantUmlImages();
       embedding = false;
@@ -35,7 +35,7 @@ function apply(): void {
   observer.observe(document.body, { childList: true, subtree: true });
 }
 
-const sleep = (msec: number): Promise<void> => new Promise(resolve => setTimeout(resolve, msec));
+const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
 async function embedPlantUmlImages(): Promise<void[]> {
   if (lastUrl === location.href && embedding) {
@@ -45,8 +45,8 @@ async function embedPlantUmlImages(): Promise<void[]> {
   embedding = true;
   if (lastUrl !== location.href) {
     lastUrl = location.href;
-    enabledFinders = allFinders.filter(f => f.canFind(location.href));
-    enabledDiffFinders = allDiffFinders.filter(f => f.canFind(location.href));
+    enabledFinders = allFinders.filter((f) => f.canFind(location.href));
+    enabledDiffFinders = allDiffFinders.filter((f) => f.canFind(location.href));
   } else {
     // Deal with re-rendering multiple times (e.g. it occurs when updating a GitHub issue)
     await sleep(1000);

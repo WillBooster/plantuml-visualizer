@@ -36,11 +36,7 @@ export class GitHubFileBlockFinder implements Finder {
       let fileText = '';
       const $fileLines = $text.find('tr');
       for (let i = 0; i < $fileLines.length; i++) {
-        fileText +=
-          $fileLines
-            .eq(i)
-            .find("[id^='LC'")
-            .text() + '\n';
+        fileText += $fileLines.eq(i).find("[id^='LC'").text() + '\n';
       }
       result.push({ $text, text: fileText });
     }
@@ -60,9 +56,9 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     const [baseBranchName, headBranchName] = this.getBaseHeadBranchNames($root);
     const diffs = this.getDiffs($root);
     const result = await Promise.all(
-      diffs.map($diff => this.getDiffContent(blobRoot, baseBranchName, headBranchName, $diff))
+      diffs.map(($diff) => this.getDiffContent(blobRoot, baseBranchName, headBranchName, $diff))
     );
-    return result.filter(content => content.$diff.length > 0);
+    return result.filter((content) => content.$diff.length > 0);
   }
 
   private getDiffs($root: JQuery<Node>): JQuery<Node>[] {
@@ -108,7 +104,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
       blobRoot + '/' + baseBranchName + '/' + baseFilePath,
       blobRoot + '/' + headBranchName + '/' + headFilePath,
     ];
-    const [baseTexts, headTexts] = await Promise.all(fileUrls.map(fileUrl => this.getTexts(fileUrl)));
+    const [baseTexts, headTexts] = await Promise.all(fileUrls.map((fileUrl) => this.getTexts(fileUrl)));
     return {
       $diff: $diffBlock,
       baseBranchName,
@@ -145,6 +141,6 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
     const contents = new GitHubFileBlockFinder().find(fileUrl, $body);
-    return contents.map(content => content.text);
+    return contents.map((content) => content.text);
   }
 }
