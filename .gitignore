@@ -38,7 +38,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/windows
-,
+
 # Created by https://www.gitignore.io/api/macos
 # Edit at https://www.gitignore.io/?templates=macos
 
@@ -71,7 +71,7 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/macos
-,
+
 # Created by https://www.gitignore.io/api/linux
 # Edit at https://www.gitignore.io/?templates=linux
 
@@ -91,7 +91,7 @@ Temporary Items
 .nfs*
 
 # End of https://www.gitignore.io/api/linux
-,
+
 # Created by https://www.gitignore.io/api/jetbrains
 # Edit at https://www.gitignore.io/?templates=jetbrains
 
@@ -184,7 +184,7 @@ fabric.properties
 .idea/**/markdown-navigator/
 
 # End of https://www.gitignore.io/api/jetbrains
-,
+
 # Created by https://www.gitignore.io/api/visualstudiocode
 # Edit at https://www.gitignore.io/?templates=visualstudiocode
 
@@ -200,7 +200,7 @@ fabric.properties
 .history
 
 # End of https://www.gitignore.io/api/visualstudiocode
-,
+
 # Created by https://www.gitignore.io/api/emacs
 # Edit at https://www.gitignore.io/?templates=emacs
 
@@ -256,7 +256,7 @@ flycheck_*.el
 
 
 # End of https://www.gitignore.io/api/emacs
-,
+
 # Created by https://www.gitignore.io/api/vim
 # Edit at https://www.gitignore.io/?templates=vim
 
@@ -286,7 +286,7 @@ tags
 .vim
 
 # End of https://www.gitignore.io/api/vim
-,
+
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node
 
