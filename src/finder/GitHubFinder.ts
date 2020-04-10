@@ -22,8 +22,8 @@ export class GitHubCodeBlockFinder implements Finder {
 }
 
 export class GitHubFileBlockFinder implements Finder {
-  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/[^/]*\.(plantuml|pu|puml)(\?.*)?$/;
-  private readonly INCLUDE_REGEX = /^\s*!include\s+([^/]*\.(plantuml|pu|puml))\s*$/;
+  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)(\?.*)?$/;
+  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml))\s*$/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
