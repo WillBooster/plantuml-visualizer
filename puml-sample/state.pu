@@ -1,0 +1,10 @@
+@startuml
+!include substate.pu
+state State1
+state State2
+
+[*] -> State1
+State1 -> SubState
+SubState -> State2
+State2 -> [*]
+@enduml
