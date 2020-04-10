@@ -59,7 +59,7 @@ export class GitHubFileBlockFinder implements Finder {
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
     const fileBlockFinder = new GitHubFileBlockFinder();
     const contents = await fileBlockFinder.find(fileUrl, $body);
-    return contents.map((content) => content.text.replace('@startuml', '').replace('@enduml', ''));
+    return contents.map((content) => content.text.replace(/@startuml/g, '').replace(/@enduml/g, ''));
   }
 }
 
