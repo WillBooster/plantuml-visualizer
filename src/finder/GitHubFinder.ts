@@ -47,7 +47,6 @@ export class GitHubFileBlockFinder implements Finder {
           fileText += lineText + '\n';
         }
       }
-      console.log(fileText);
       result.push({ $text, text: fileText });
     }
     return result;
