@@ -1,0 +1,16 @@
+@startuml
+state NextSubState {
+    state NextSub1
+    state NextSub2
+    state NextSub3
+    state NextSub4
+
+    [*] -> NextSub1
+    NextSub1 -> NextSub2
+    NextSub1 --> NextSub3
+    NextSub3 -> NextSub4
+    NextSub2 --> NextSub4
+    NextSub1 -> NextSub4
+    NextSub4 -> [*]
+}
+@enduml
