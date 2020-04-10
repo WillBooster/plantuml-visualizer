@@ -1,0 +1,13 @@
+@startuml
+state SubState {
+    state Sub1
+    state Sub2
+    state Sub3
+
+    [*] -> Sub1
+    Sub1 -> Sub2
+    Sub2 -> Sub3
+    Sub1 -> Sub3
+    Sub3 -> [*]
+}
+@enduml
