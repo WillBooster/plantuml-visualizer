@@ -31,6 +31,6 @@ export class RawFileFinder implements Finder {
     const response = await fetch(fileUrl);
     if (!response.ok) return [];
     const text = await response.text();
-    return [text.replace('@startuml', '').replace('@enduml', '')];
+    return [text.replace(/@startuml/g, '').replace(/@enduml/g, '')];
   }
 }
