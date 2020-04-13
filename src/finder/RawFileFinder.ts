@@ -7,7 +7,7 @@ export class RawFileFinder implements Finder {
     return this.URL_REGEX.test(webPageUrl);
   }
 
-  find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlContent[]> {
     const $texts = $root.find('pre');
     const result = [];
     for (let i = 0; i < Math.max($texts.length, 1); i++) {

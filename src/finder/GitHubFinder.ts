@@ -8,7 +8,7 @@ export class GitHubCodeBlockFinder implements Finder {
     return this.URL_REGEX.test(webPageUrl);
   }
 
-  find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlContent[]> {
     const $texts = $root.find('pre');
     const result = [];
     for (const text of $texts) {
@@ -23,24 +23,43 @@ export class GitHubCodeBlockFinder implements Finder {
 
 export class GitHubFileBlockFinder implements Finder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)(\?.*)?$/;
+  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml))\s*$/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
   }
 
-  find(webPageUrl: string, $root: JQuery<Node>): UmlContent[] {
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlContent[]> {
     const $texts = $root.find("div[itemprop='text']");
+    const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml)(\?.*)?$/, '');
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
       const $text = $texts.eq(i);
       let fileText = '';
       const $fileLines = $text.find('tr');
       for (let i = 0; i < $fileLines.length; i++) {
-        fileText += $fileLines.eq(i).find("[id^='LC'").text() + '\n';
+        const lineText = $fileLines.eq(i).find("[id^='LC'").text();
+        const match = this.INCLUDE_REGEX.exec(lineText);
+        if (match != null) {
+          const includedFileTexts = await this.getIncludedFileTexts(`${dirUrl}/${match[1]}`);
+          fileText = fileText.concat(...includedFileTexts);
+        } else {
+          fileText += lineText + '\n';
+        }
       }
       result.push({ $text, text: fileText });
     }
     return result;
+  }
+
+  private async getIncludedFileTexts(fileUrl: string): Promise<string[]> {
+    const response = await fetch(fileUrl);
+    if (!response.ok) return [];
+    const htmlString = await response.text();
+    const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
+    const fileBlockFinder = new GitHubFileBlockFinder();
+    const contents = await fileBlockFinder.find(fileUrl, $body);
+    return contents.map((content) => content.text.replace(/@startuml/g, '').replace(/@enduml/g, ''));
   }
 }
 
@@ -140,7 +159,8 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     if (!response.ok) return [];
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-    const contents = new GitHubFileBlockFinder().find(fileUrl, $body);
+    const fileBlockFinder = new GitHubFileBlockFinder();
+    const contents = await fileBlockFinder.find(fileUrl, $body);
     return contents.map((content) => content.text);
   }
 }
