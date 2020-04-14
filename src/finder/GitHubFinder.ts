@@ -57,9 +57,8 @@ export class GitHubFileViewFinder implements Finder {
     if (!response.ok) return null;
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-    const fileBlockFinder = new GitHubFileViewFinder();
-    const contents = await fileBlockFinder.find(fileUrl, $body);
-    return ''.concat(...contents.map((content) => content.text.replace(/@startuml/g, '').replace(/@enduml/g, '')));
+    const contents = await this.find(fileUrl, $body);
+    return contents.map((content) => content.text.replace(/@startuml/g, '').replace(/@enduml/g, '')).join();
   }
 }
 
