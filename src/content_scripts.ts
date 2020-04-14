@@ -1,12 +1,12 @@
 import $ from 'jquery';
-import { GitHubCodeBlockFinder, GitHubFileBlockFinder, GitHubPullRequestDiffFinder } from './finder/GitHubFinder';
+import { GitHubCodeBlockFinder, GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/GitHubFinder';
 import { RawFileFinder } from './finder/RawFileFinder';
 import { DescriptionMutator } from './mutator/DescriptionMutator';
 import { Constants } from './Constants';
 import { DiffFinder, Finder } from './finder/Finder';
 import { DiffMutator } from './mutator/DiffMutator';
 
-const allFinders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileBlockFinder()];
+const allFinders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileViewFinder()];
 const allDiffFinders = [new GitHubPullRequestDiffFinder()];
 let enabledFinders: Finder[];
 let enabledDiffFinders: DiffFinder[];
