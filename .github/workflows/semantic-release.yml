@@ -1,0 +1,36 @@
+name: Release plug-in
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  semantic-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Generate dot env
+        run: |
+          echo '${{ secrets.DOT_ENV }}' > .env
+      - name: Show environment information
+        run: |
+          echo "node: $(node -v)"
+          echo "yarn: $(yarn -v)"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn release

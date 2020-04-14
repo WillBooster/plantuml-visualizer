@@ -12,11 +12,10 @@
       }
     ],
     [
-      "semantic-release-firefox",
+      "semantic-release-firefox-add-on",
       {
-        "xpiPath": "dist.xpi",
-        "distFolder": "dist",
-        "addOnSlug": "plantuml-visualizer"
+        "extensionId": "plantuml-visualizer",
+        "targetXpi": "dist.xpi"
       }
     ]
   ]
