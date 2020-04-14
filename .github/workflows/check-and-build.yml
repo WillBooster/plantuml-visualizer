@@ -32,6 +32,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         if: steps.yarn-cache.outputs.cache-hit != 'true'
+      - run: ls -la node_modules/@types
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn build
