@@ -1,5 +1,1 @@
-{
-  "root": true,
-  "extends": ["@willbooster/eslint-config-ts"],
-  "rules": { "no-constant-condition": ["error", { "checkLoops": false }] }
-}
+{ "root": true, "extends": ["@willbooster/eslint-config-ts"] }

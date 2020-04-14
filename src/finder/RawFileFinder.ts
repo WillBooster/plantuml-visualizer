@@ -16,9 +16,8 @@ export class RawFileFinder implements Finder {
       const $text = $texts.eq(i);
       let content = $text.text();
       if (content.indexOf('@startuml') < 0) continue;
-      while (true) {
-        const match = this.INCLUDE_REGEX.exec(content);
-        if (match == null) break;
+      let match: RegExpExecArray | null = null;
+      while ((match = this.INCLUDE_REGEX.exec(content))) {
         const includedFileTexts = await this.getIncludedFileTexts(`${dirUrl}/${match[1]}`);
         content = content.replace(match[0], ''.concat(...includedFileTexts));
       }
