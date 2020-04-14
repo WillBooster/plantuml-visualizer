@@ -18,18 +18,18 @@ export class RawFileFinder implements Finder {
       if (content.indexOf('@startuml') < 0) continue;
       let match: RegExpExecArray | null = null;
       while ((match = this.INCLUDE_REGEX.exec(content))) {
-        const includedFileTexts = await this.getIncludedFileTexts(`${dirUrl}/${match[1]}`);
-        content = content.replace(match[0], ''.concat(...includedFileTexts));
+        const includedFileText = await this.getIncludedFileText(`${dirUrl}/${match[1]}`);
+        content = content.replace(match[0], includedFileText || '');
       }
       result.push({ $text, text: content });
     }
     return result;
   }
 
-  private async getIncludedFileTexts(fileUrl: string): Promise<string[]> {
+  private async getIncludedFileText(fileUrl: string): Promise<string | null> {
     const response = await fetch(fileUrl);
-    if (!response.ok) return [];
+    if (!response.ok) return null;
     const text = await response.text();
-    return [text.replace(/@startuml/g, '').replace(/@enduml/g, '')];
+    return text.replace(/@startuml/g, '').replace(/@enduml/g, '');
   }
 }
