@@ -21,7 +21,7 @@ export class GitHubCodeBlockFinder implements Finder {
   }
 }
 
-export class GitHubFileBlockFinder implements Finder {
+export class GitHubFileViewFinder implements Finder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)(\?.*)?$/;
   private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml))\s*$/;
 
@@ -41,8 +41,8 @@ export class GitHubFileBlockFinder implements Finder {
         const lineText = $fileLines.eq(i).find("[id^='LC'").text();
         const match = this.INCLUDE_REGEX.exec(lineText);
         if (match != null) {
-          const includedFileTexts = await this.getIncludedFileTexts(`${dirUrl}/${match[1]}`);
-          fileText = fileText.concat(...includedFileTexts);
+          const includedFileText = await this.getIncludedFileText(`${dirUrl}/${match[1]}`);
+          fileText += includedFileText || '';
         } else {
           fileText += lineText + '\n';
         }
@@ -52,14 +52,13 @@ export class GitHubFileBlockFinder implements Finder {
     return result;
   }
 
-  private async getIncludedFileTexts(fileUrl: string): Promise<string[]> {
+  private async getIncludedFileText(fileUrl: string): Promise<string | null> {
     const response = await fetch(fileUrl);
-    if (!response.ok) return [];
+    if (!response.ok) return null;
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-    const fileBlockFinder = new GitHubFileBlockFinder();
-    const contents = await fileBlockFinder.find(fileUrl, $body);
-    return contents.map((content) => content.text.replace(/@startuml/g, '').replace(/@enduml/g, ''));
+    const contents = await this.find(fileUrl, $body);
+    return contents.map((content) => content.text.replace(/@startuml/g, '').replace(/@enduml/g, '')).join('\n');
   }
 }
 
@@ -159,7 +158,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     if (!response.ok) return [];
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-    const fileBlockFinder = new GitHubFileBlockFinder();
+    const fileBlockFinder = new GitHubFileViewFinder();
     const contents = await fileBlockFinder.find(fileUrl, $body);
     return contents.map((content) => content.text);
   }
