@@ -1,0 +1,21 @@
+name: Deploy production
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Show environment information
+        run: |
+          echo "node: $(node -v)"
+          echo "yarn: $(yarn -v)"
+      - run: yarn install --frozen-lockfile
