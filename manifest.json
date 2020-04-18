@@ -11,16 +11,7 @@
     "48": "icon/icon48.png",
     "128": "icon/icon128.png"
   },
-  "permissions": [
-    "activeTab",
-    "tabs",
-    "webRequest",
-    "webRequestBlocking",
-    "https://github.com/*",
-    "*://*/*.puml*",
-    "*://*/*.pu*",
-    "*://*/*.plantuml*"
-  ],
+  "permissions": [],
   "background": {
     "scripts": ["background.js"]
   },
