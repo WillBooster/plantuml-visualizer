@@ -13,19 +13,25 @@
 ## Visualizable Pages
 
 - GitHub
-  - Code: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/class.pu
+  - File Viewer
+    - https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/class.pu
+    - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/state.pu
   - Issues: https://github.com/WillBooster/plantuml-visualizer/issues/54
   - Pull Requests
     - Added: https://github.com/WillBooster/plantuml-visualizer/pull/49/files
     - Deleted: https://github.com/WillBooster/plantuml-visualizer/pull/50/files
     - Changed: https://github.com/WillBooster/plantuml-visualizer/pull/24/files
-    - Multiple files with `!include`: https://github.com/WillBooster/plantuml-visualizer/pull/423/files
+    - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/pull/423/files
   - Code blocks in README or something
     - README.md: https://github.com/WillBooster/plantuml-visualizer
 - Any .pu / .puml / .plantuml files
-  - GitHub Raw Files: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
-  - Local Files: file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
-    - You need to allow this extension to access file URLs in chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf
+  - GitHub Raw Files
+    - https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
+    - `!include` directive: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/state.pu
+  - Local Files
+    - file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
+    - `!include` directive: coming soon ...
+    - Note: you need to allow this extension to access file URLs in chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf
 
 ## Visualization Examples
 
