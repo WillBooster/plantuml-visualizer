@@ -19,6 +19,7 @@
     - Added: https://github.com/WillBooster/plantuml-visualizer/pull/49/files
     - Deleted: https://github.com/WillBooster/plantuml-visualizer/pull/50/files
     - Changed: https://github.com/WillBooster/plantuml-visualizer/pull/24/files
+    - Multiple files with `!include`: https://github.com/WillBooster/plantuml-visualizer/pull/423/files
   - Code blocks in README or something
     - README.md: https://github.com/WillBooster/plantuml-visualizer
 - Any .pu / .puml / .plantuml files
