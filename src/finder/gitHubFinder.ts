@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { DiffFinder, Finder, UmlContent, UmlDiffContent } from './Finder';
+import { DiffFinder, Finder, UmlContent, UmlDiffContent } from './finder';
 
 export class GitHubCodeBlockFinder implements Finder {
   private readonly URL_REGEX = /^https:\/\/github\.com/;
