@@ -61,10 +61,12 @@ export const DiffMutator = {
             $visualizedDiff = $diff.next();
           }
 
+          $diff.off('dblclick');
           $diff.on('dblclick', () => {
             $diff.hide();
             $visualizedDiff.show();
           });
+          $visualizedDiff.off('dblclick');
           $visualizedDiff.on('dblclick', () => {
             $visualizedDiff.hide();
             $diff.show();

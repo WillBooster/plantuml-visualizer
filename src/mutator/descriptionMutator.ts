@@ -21,10 +21,12 @@ export const DescriptionMutator = {
             $image = $text.next();
           }
 
+          $text.off('dblclick');
           $text.on('dblclick', () => {
             $text.hide();
             $image.show();
           });
+          $image.off('dblclick');
           $image.on('dblclick', () => {
             $image.hide();
             $text.show();
