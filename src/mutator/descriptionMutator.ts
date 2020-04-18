@@ -1,5 +1,5 @@
-import { Finder } from '../finder/Finder';
-import { markAsAlreadyProcessed, textToImage } from './MutatorUtil';
+import { Finder } from '../finder/finder';
+import { markAsAlreadyProcessed, textToImage } from './mutatorUtil';
 
 export const DescriptionMutator = {
   async embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {

@@ -1,4 +1,4 @@
-import { Finder, UmlContent } from './Finder';
+import { Finder, UmlContent } from './finder';
 
 export class RawFileFinder implements Finder {
   private readonly URL_REGEX = /^.*\.(plantuml|pu|puml)(\?.*)?$/;
