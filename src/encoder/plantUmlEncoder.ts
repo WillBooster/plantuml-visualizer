@@ -1,5 +1,5 @@
 import { deflate } from 'zlib.es';
-import { Constants } from '../Constants';
+import { Constants } from '../constants';
 
 export const ImageSrcPrefix = `${Constants.imgSrcUrl}/svg/`;
 

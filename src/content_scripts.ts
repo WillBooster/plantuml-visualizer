@@ -1,22 +1,27 @@
 import $ from 'jquery';
-import { GitHubCodeBlockFinder, GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/GitHubFinder';
-import { RawFileFinder } from './finder/RawFileFinder';
-import { DescriptionMutator } from './mutator/DescriptionMutator';
-import { Constants } from './Constants';
-import { DiffFinder, Finder } from './finder/Finder';
-import { DiffMutator } from './mutator/DiffMutator';
+import { GitHubCodeBlockFinder, GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
+import { RawFileFinder } from './finder/rawFileFinder';
+import { DescriptionMutator } from './mutator/descriptionMutator';
+import { Constants } from './constants';
+import { DiffFinder, Finder } from './finder/finder';
+import { DiffMutator } from './mutator/diffMutator';
+
+const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
 const allFinders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileViewFinder()];
 const allDiffFinders = [new GitHubPullRequestDiffFinder()];
 let enabledFinders: Finder[];
 let enabledDiffFinders: DiffFinder[];
 let lastUrl: string;
-
-chrome.runtime.sendMessage({ command: Constants.toggleEnabled }, (extensionEnabled) => {
-  if (extensionEnabled) apply();
-});
-
 let embedding = false;
+
+main();
+
+function main(): void {
+  chrome.runtime.sendMessage({ command: Constants.checkExtensionEnabled }, (extensionEnabled) => {
+    if (extensionEnabled) apply();
+  });
+}
 
 function apply(): void {
   embedPlantUmlImages().finally();
@@ -34,8 +39,6 @@ function apply(): void {
   });
   observer.observe(document.body, { childList: true, subtree: true });
 }
-
-const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
 async function embedPlantUmlImages(): Promise<void[]> {
   if (lastUrl === location.href && embedding) {
