@@ -13,9 +13,13 @@ export const DescriptionMutator = {
           const $text = content.$text;
 
           // To avoid embedding an image multiple times
-          if (!markAsAlreadyProcessed($text)) continue;
-          const $image = await textToImage(content.text);
-          $image.insertAfter($text);
+          let $image: JQuery<Node>;
+          if (markAsAlreadyProcessed($text)) {
+            $image = await textToImage(content.text);
+            $image.insertAfter($text);
+          } else {
+            $image = $text.next();
+          }
 
           $text.on('dblclick', () => {
             $text.hide();
