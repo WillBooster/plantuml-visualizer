@@ -1,9 +1,10 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import closureCompile from 'rollup-plugin-closure-compile';
-import typescript from 'rollup-plugin-typescript2';
+import babel from '@rollup/plugin-babel';
+import closureCompile from '@ampproject/rollup-plugin-closure-compiler';
 
-const plugins = [resolve(), commonjs(), typescript()];
+const extensions = ['.mjs', '.js', '.json', '.ts'];
+const plugins = [resolve({ extensions }), commonjs(), babel({ extensions, babelHelpers: 'bundled' })];
 if (process.env.NODE_ENV === 'production') {
   plugins.push(closureCompile());
 }
@@ -14,7 +15,7 @@ export default [
     output: [
       {
         file: 'dist/background.js',
-        format: 'esm',
+        format: 'es',
       },
     ],
     plugins,
@@ -24,7 +25,7 @@ export default [
     output: [
       {
         file: 'dist/content_scripts.js',
-        format: 'esm',
+        format: 'es',
       },
     ],
     plugins,

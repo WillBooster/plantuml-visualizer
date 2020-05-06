@@ -1,0 +1,28 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": {
+          "version": "3.6",
+          "proposals": true
+        }
+      }
+    ],
+    "@babel/typescript"
+  ],
+  "plugins": ["@babel/proposal-class-properties", "@babel/proposal-numeric-separator"],
+  "env": {
+    "production": {
+      "plugins": [
+        [
+          "transform-remove-console",
+          {
+            "exclude": ["error", "info", "warn"]
+          }
+        ]
+      ]
+    }
+  }
+}
