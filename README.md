@@ -31,7 +31,10 @@
   - Local Files
     - file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
     - `!include` directive: coming soon ...
-    - Note: you need to allow this extension to access file URLs in chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf
+    - Note: if you use Google Chrome, you need to allow this extension to access file URLs
+      1. go to chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf
+      2. click “Allow access to file URLs”
+         ![marked-settings](https://user-images.githubusercontent.com/29433058/81283759-1af64f80-9098-11ea-94d5-0278173e94c7.png)
 
 ## Visualization Examples
 
