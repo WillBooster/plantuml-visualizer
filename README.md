@@ -39,6 +39,15 @@ The visualization result of https://github.com/WillBooster/plantuml-visualizer/p
 
 ![Example](example.png)
 
+## Requirements for Development
+
+- [Node.js](https://nodejs.org/)
+- [Yarn v1](https://classic.yarnpkg.com/)
+
+Please check the detailed versions in [GitHub Actions](https://github.com/WillBooster/plantuml-visualizer/actions?query=workflow%3A%22Check+and+build+code%22) like the below screenshot.
+
+![GitHub Actions](github-actions.png)
+
 ## Development Preparation
 
 1. `yarn` to install the latest dependencies
