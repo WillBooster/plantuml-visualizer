@@ -16,6 +16,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production yarn build-common",
     "build-common": "yarn recreate-dist && rollup -c",
+    "build-dev": "cross-env NODE_ENV=development yarn build-common",
     "cleanup": "yarn format && yarn lint-fix",
     "format": "sort-package-json && yarn prettier",
     "lint": "eslint \"./{packages/*/,}{src,__tests__}/**/*.{js,jsx,ts,tsx}\"",
