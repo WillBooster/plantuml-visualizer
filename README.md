@@ -23,7 +23,7 @@
     - Changed: https://github.com/WillBooster/plantuml-visualizer/pull/24/files
     - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/pull/423/files
   - Code blocks in README or something
-    - README.md: https://github.com/WillBooster/plantuml-visualizer/puml-sample/README.md
+    - README.md: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/README.md
 - Any .pu / .puml / .plantuml files
   - GitHub Raw Files
     - https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
