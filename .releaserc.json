@@ -7,7 +7,7 @@
     [
       "semantic-release-firefox-add-on",
       {
-        "extensionId": "plantuml-visualizer",
+        "extensionId": "{d324f64b-b423-4c2b-a9b4-d415705c26a9}",
         "targetXpi": "dist.xpi"
       }
     ],
