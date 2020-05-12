@@ -28,6 +28,7 @@
   - GitHub Raw Files
     - https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
     - `!include` directive: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/state.pu
+    - IMPORTANT NOTE: any extension on Firefox (version 76.0.1 at least) cannot work on GitHub Raw Files due to https://bugzilla.mozilla.org/show_bug.cgi?id=1637234
   - Local Files
     - file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
     - `!include` directive: coming soon ...
