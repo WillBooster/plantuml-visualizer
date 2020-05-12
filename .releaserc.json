@@ -7,7 +7,7 @@
     [
       "semantic-release-firefox-add-on",
       {
-        "extensionId": "plantuml-visualizer@willbooster.com",
+        "extensionId": "plantuml-visualizer",
         "targetXpi": "dist.xpi"
       }
     ],
