@@ -71,7 +71,7 @@ export const DiffMutator = {
             $visualizedDiff.hide();
             $diff.show();
           });
-          $diff.dblclick();
+          $diff.trigger('dblclick');
         }
       })
     );

@@ -31,7 +31,7 @@ export const DescriptionMutator = {
             $image.hide();
             $text.show();
           });
-          $text.dblclick();
+          $text.trigger('dblclick');
         }
       })
     );
