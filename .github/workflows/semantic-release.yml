@@ -1,9 +1,9 @@
-name: Release product
+name: Release
 
 on:
   push:
     branches:
-      - release
+      - 'release'
 
 jobs:
   semantic-release:
