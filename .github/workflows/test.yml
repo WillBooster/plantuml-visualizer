@@ -2,10 +2,18 @@ name: Test code
 
 on:
   pull_request:
+    branches:
+      - '!renovate/**'
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
   push:
     branches:
-      - master
-      - renovate/**
+      - 'master'
+      - 'renovate/**'
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
 
 jobs:
   check-and-build:
