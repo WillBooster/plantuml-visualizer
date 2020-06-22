@@ -1,10 +1,11 @@
-name: Check and build code
+name: Test code
 
 on:
   pull_request:
   push:
     branches:
       - master
+      - renovate/**
 
 jobs:
   check-and-build:
