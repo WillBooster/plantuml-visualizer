@@ -35,7 +35,7 @@
     - IMPORTANT NOTE: if you use Google Chrome, you need to allow this extension to access file URLs
       1. Open chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf in Chrome
       2. Enable "Allow access to file URLs"
-         ![marked-settings](https://user-images.githubusercontent.com/29433058/81283759-1af64f80-9098-11ea-94d5-0278173e94c7.png)
+         ![marked-settings](allow-access.png)
 
 ## Visualization Examples
 
