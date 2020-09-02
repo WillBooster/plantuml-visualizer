@@ -54,7 +54,7 @@
     "@willbooster/prettier-config": "3.0.0",
     "@willbooster/renovate-config": "3.0.0",
     "babel-plugin-transform-remove-console": "6.9.4",
-    "bestzip": "2.1.6",
+    "bestzip": "2.1.7",
     "cross-env": "7.0.2",
     "dotenv-cli": "3.2.0",
     "eslint": "7.7.0",
