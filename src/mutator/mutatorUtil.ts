@@ -29,3 +29,17 @@ export async function textsToImages(texts: string[], noContentsMessage: string):
   }
   return ret;
 }
+
+export function setDblclickHandlers($before: JQuery<Node>, $after: JQuery<Node>): void {
+  $before.off('dblclick');
+  $before.on('dblclick', () => {
+    $before.hide();
+    $after.show();
+  });
+  $after.off('dblclick');
+  $after.on('dblclick', () => {
+    $after.hide();
+    $before.show();
+  });
+  $before.trigger('dblclick');
+}

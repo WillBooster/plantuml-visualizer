@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 import { DiffFinder } from '../finder/finder';
 
-import { markAsAlreadyProcessed, textsToImages } from './mutatorUtil';
+import { markAsAlreadyProcessed, setDblclickHandlers, textsToImages } from './mutatorUtil';
 
 export const DiffMutator = {
   async embedPlantUmlImages(diffFinders: DiffFinder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
@@ -63,17 +63,7 @@ export const DiffMutator = {
             $visualizedDiff = $diff.next();
           }
 
-          $diff.off('dblclick');
-          $diff.on('dblclick', () => {
-            $diff.hide();
-            $visualizedDiff.show();
-          });
-          $visualizedDiff.off('dblclick');
-          $visualizedDiff.on('dblclick', () => {
-            $visualizedDiff.hide();
-            $diff.show();
-          });
-          $diff.trigger('dblclick');
+          setDblclickHandlers($diff, $visualizedDiff);
         }
       })
     );

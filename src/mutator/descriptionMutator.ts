@@ -1,6 +1,6 @@
 import { Finder } from '../finder/finder';
 
-import { markAsAlreadyProcessed, textToImage } from './mutatorUtil';
+import { markAsAlreadyProcessed, setDblclickHandlers, textToImage } from './mutatorUtil';
 
 export const DescriptionMutator = {
   async embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
@@ -22,17 +22,7 @@ export const DescriptionMutator = {
             $image = $text.next();
           }
 
-          $text.off('dblclick');
-          $text.on('dblclick', () => {
-            $text.hide();
-            $image.show();
-          });
-          $image.off('dblclick');
-          $image.on('dblclick', () => {
-            $image.hide();
-            $text.show();
-          });
-          $text.trigger('dblclick');
+          setDblclickHandlers($text, $image);
         }
       })
     );
