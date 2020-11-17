@@ -1,9 +1,11 @@
 import $ from 'jquery';
+
 import { DiffFinder } from '../finder/finder';
+
 import { markAsAlreadyProcessed, textsToImages } from './mutatorUtil';
 
 export const DiffMutator = {
-  async embedPlantUmlImages(diffFinders: DiffFinder[], webPageUrl: string, $root: JQuery<Node>) {
+  async embedPlantUmlImages(diffFinders: DiffFinder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
     await Promise.all(
       diffFinders.map(async (diffFinder) => {
         const contents = await diffFinder.find(webPageUrl, $root);

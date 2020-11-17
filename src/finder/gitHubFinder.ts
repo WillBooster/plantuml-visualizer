@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 import { DiffFinder, Finder, UmlContent, UmlDiffContent } from './finder';
 
 export class GitHubCodeBlockFinder implements Finder {

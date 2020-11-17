@@ -1,8 +1,9 @@
 import { Finder } from '../finder/finder';
+
 import { markAsAlreadyProcessed, textToImage } from './mutatorUtil';
 
 export const DescriptionMutator = {
-  async embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>) {
+  async embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
     await Promise.all(
       finders.map(async (finder) => {
         const contents = await finder.find(webPageUrl, $root);

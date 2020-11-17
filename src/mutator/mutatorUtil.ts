@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 import { PlantUmlEncoder } from '../encoder/plantUmlEncoder';
 
 const attrNameForAvoidingDuplicates = 'data-puml-vis';
