@@ -1,10 +1,11 @@
 import { deflate } from 'zlib.es';
+
 import { Constants } from '../constants';
 
 export const ImageSrcPrefix = `${Constants.imgSrcUrl}/svg/`;
 
 export const PlantUmlEncoder = {
-  getImageUrl(umlString: string) {
+  getImageUrl(umlString: string): string {
     const textEncoder = new TextEncoder();
     const encoded = encode64(deflate(textEncoder.encode(umlString)));
     return `${ImageSrcPrefix}${encoded}`;
