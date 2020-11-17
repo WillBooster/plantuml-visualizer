@@ -9,12 +9,7 @@
         "npmPublish": false
       }
     ],
-    [
-      "@semantic-release/github",
-      {
-        "successComment": false
-      }
-    ],
+    ["@semantic-release/github"],
     [
       "semantic-release-firefox-add-on",
       {
