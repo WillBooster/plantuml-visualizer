@@ -45,7 +45,7 @@
     "@babel/preset-typescript": "7.12.7",
     "@rollup/plugin-babel": "5.2.2",
     "@rollup/plugin-commonjs": "16.0.0",
-    "@rollup/plugin-node-resolve": "10.0.0",
+    "@rollup/plugin-node-resolve": "11.0.1",
     "@types/chrome": "0.0.127",
     "@types/jquery": "3.5.5",
     "@typescript-eslint/eslint-plugin": "4.10.0",
