@@ -1,0 +1,7 @@
+{
+  "typescript.tsdk": "./frontend/node_modules/typescript/lib",
+  "eslint.packageManager": "yarn",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

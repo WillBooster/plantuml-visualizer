@@ -1,9 +1,9 @@
-import { Finder } from '../finder/finder';
+import { CodeFinder } from '../finder/finder';
 
-import { markAsAlreadyProcessed, setDblclickHandlers, textToImage } from './mutatorUtil';
+import { markAsIgnore, setDblclickHandlers, textToImage } from './mutatorUtil';
 
 export const DescriptionMutator = {
-  async embedPlantUmlImages(finders: Finder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
+  async embedPlantUmlImages(finders: CodeFinder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
     await Promise.all(
       finders.map(async (finder) => {
         const contents = await finder.find(webPageUrl, $root);
@@ -15,8 +15,9 @@ export const DescriptionMutator = {
 
           // To avoid embedding an image multiple times
           let $image: JQuery<Node>;
-          if (markAsAlreadyProcessed($text)) {
+          if (markAsIgnore($text)) {
             $image = await textToImage(content.text);
+            markAsIgnore($image);
             $image.insertAfter($text);
           } else {
             $image = $text.next();

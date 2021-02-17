@@ -1,14 +1,13 @@
 import $ from 'jquery';
 
+import { Constants } from '../constants';
 import { PlantUmlEncoder } from '../encoder/plantUmlEncoder';
 
-const attrNameForAvoidingDuplicates = 'data-puml-vis';
-
-export function markAsAlreadyProcessed($content: JQuery<Node>): boolean {
-  if ($content.attr(attrNameForAvoidingDuplicates) !== undefined) {
+export function markAsIgnore($content: JQuery<Node>): boolean {
+  if ($content.attr(Constants.ignoreAttribute) !== undefined) {
     return false;
   }
-  $content.attr(attrNameForAvoidingDuplicates, '');
+  $content.attr(Constants.ignoreAttribute, '');
   return true;
 }
 
