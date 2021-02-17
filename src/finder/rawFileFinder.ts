@@ -1,3 +1,5 @@
+import { Constants } from '../constants';
+
 import { CodeFinder, UmlCodeContent } from './finder';
 
 export class RawFileFinder implements CodeFinder {
@@ -9,7 +11,7 @@ export class RawFileFinder implements CodeFinder {
   }
 
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
-    const $texts = $root.find('pre');
+    const $texts = $root.find(`pre:not([${Constants.pumlVisEmbedded}]):not([${Constants.pumlVisProcessed}])`);
     const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml)(\?.*)?$/, '');
     const result = [];
     for (let i = 0; i < Math.max($texts.length, 1); i++) {
