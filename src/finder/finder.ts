@@ -1,11 +1,11 @@
-export interface UmlContent {
+export interface UmlCodeContent {
   $text: JQuery<Node>;
   text: string;
 }
 
-export interface Finder {
+export interface CodeFinder {
   canFind(webPageUrl: string): boolean;
-  find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlContent[]>;
+  find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]>;
 }
 
 export interface UmlDiffContent {
@@ -16,7 +16,6 @@ export interface UmlDiffContent {
   headTexts: string[];
 }
 
-// DiffFinder is not a sub-interface of Finder
 export interface DiffFinder {
   canFind(webPageUrl: string): boolean;
   find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]>;

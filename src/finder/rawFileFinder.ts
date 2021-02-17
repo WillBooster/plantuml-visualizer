@@ -1,6 +1,6 @@
-import { Finder, UmlContent } from './finder';
+import { CodeFinder, UmlCodeContent } from './finder';
 
-export class RawFileFinder implements Finder {
+export class RawFileFinder implements CodeFinder {
   private readonly URL_REGEX = /^.*\.(plantuml|pu|puml)(\?.*)?$/;
   private readonly INCLUDE_REGEX = /!include\s+(.*\.(plantuml|pu|puml))/g;
 
@@ -8,7 +8,7 @@ export class RawFileFinder implements Finder {
     return this.URL_REGEX.test(webPageUrl);
   }
 
-  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlContent[]> {
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
     const $texts = $root.find('pre');
     const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml)(\?.*)?$/, '');
     const result = [];

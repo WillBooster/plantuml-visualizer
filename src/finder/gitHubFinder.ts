@@ -1,16 +1,18 @@
 import $ from 'jquery';
 
-import { DiffFinder, Finder, UmlContent, UmlDiffContent } from './finder';
+import { Constants } from '../constants';
 
-export class GitHubCodeBlockFinder implements Finder {
+import { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
+
+export class GitHubCodeBlockFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
   }
 
-  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlContent[]> {
-    const $texts = $root.find('pre');
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
+    const $texts = $root.find(`pre:not([${Constants.pumlVisEmbedded}]):not([${Constants.pumlVisProcessed}])`);
     const result = [];
     for (const text of $texts) {
       const content = (text.textContent || '').trim();
@@ -22,7 +24,7 @@ export class GitHubCodeBlockFinder implements Finder {
   }
 }
 
-export class GitHubFileViewFinder implements Finder {
+export class GitHubFileViewFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)(\?.*)?$/;
   private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml))\s*$/;
 
@@ -30,8 +32,10 @@ export class GitHubFileViewFinder implements Finder {
     return this.URL_REGEX.test(webPageUrl);
   }
 
-  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlContent[]> {
-    const $texts = $root.find("div[itemprop='text']");
+  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
+    const $texts = $root.find(
+      `div[itemprop='text']:not([${Constants.pumlVisEmbedded}]):not([${Constants.pumlVisProcessed}])`
+    );
     const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml)(\?.*)?$/, '');
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
@@ -81,7 +85,9 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
   }
 
   private getDiffs($root: JQuery<Node>): JQuery<Node>[] {
-    const $diffs = $root.find("div[id^='diff-']");
+    const $diffs = $root.find(
+      `div[id^='diff-']:not([${Constants.pumlVisEmbedded}]):not([${Constants.pumlVisProcessed}])`
+    );
     const diffs = [];
     for (let i = 0; i < $diffs.length; i++) {
       diffs.push($diffs.eq(i));
