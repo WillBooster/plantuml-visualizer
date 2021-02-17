@@ -4,10 +4,10 @@ import { Constants } from '../constants';
 import { PlantUmlEncoder } from '../encoder/plantUmlEncoder';
 
 export function markAsIgnore($content: JQuery<Node>): boolean {
-  if ($content.attr(Constants.willBoosterIgnore) !== undefined) {
+  if ($content.attr(Constants.ignoreAttribute) !== undefined) {
     return false;
   }
-  $content.attr(Constants.willBoosterIgnore, '');
+  $content.attr(Constants.ignoreAttribute, '');
   return true;
 }
 

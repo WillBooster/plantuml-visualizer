@@ -11,7 +11,7 @@ export class RawFileFinder implements CodeFinder {
   }
 
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
-    const $texts = $root.find(`pre:not([${Constants.willBoosterIgnore}])`);
+    const $texts = $root.find(`pre:not([${Constants.ignoreAttribute}])`);
     const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml)(\?.*)?$/, '');
     const result = [];
     for (let i = 0; i < Math.max($texts.length, 1); i++) {

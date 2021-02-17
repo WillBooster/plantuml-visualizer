@@ -12,7 +12,7 @@ export class GitHubCodeBlockFinder implements CodeFinder {
   }
 
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
-    const $texts = $root.find(`pre:not([${Constants.willBoosterIgnore}])`);
+    const $texts = $root.find(`pre:not([${Constants.ignoreAttribute}])`);
     const result = [];
     for (const text of $texts) {
       const content = (text.textContent || '').trim();
@@ -33,7 +33,7 @@ export class GitHubFileViewFinder implements CodeFinder {
   }
 
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
-    const $texts = $root.find(`div[itemprop='text']:not([${Constants.willBoosterIgnore}])`);
+    const $texts = $root.find(`div[itemprop='text']:not([${Constants.ignoreAttribute}])`);
     const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml)(\?.*)?$/, '');
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
@@ -83,7 +83,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
   }
 
   private getDiffs($root: JQuery<Node>): JQuery<Node>[] {
-    const $diffs = $root.find(`div[id^='diff-']:not([${Constants.willBoosterIgnore}])`);
+    const $diffs = $root.find(`div[id^='diff-']:not([${Constants.ignoreAttribute}])`);
     const diffs = [];
     for (let i = 0; i < $diffs.length; i++) {
       diffs.push($diffs.eq(i));
