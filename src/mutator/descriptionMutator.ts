@@ -1,6 +1,6 @@
 import { CodeFinder } from '../finder/finder';
 
-import { markAsAlreadyProcessed, markAsEmbedded, setDblclickHandlers, textToImage } from './mutatorUtil';
+import { markAsIgnore, setDblclickHandlers, textToImage } from './mutatorUtil';
 
 export const DescriptionMutator = {
   async embedPlantUmlImages(finders: CodeFinder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
@@ -15,9 +15,9 @@ export const DescriptionMutator = {
 
           // To avoid embedding an image multiple times
           let $image: JQuery<Node>;
-          if (markAsAlreadyProcessed($text)) {
+          if (markAsIgnore($text)) {
             $image = await textToImage(content.text);
-            markAsEmbedded($image);
+            markAsIgnore($image);
             $image.insertAfter($text);
           } else {
             $image = $text.next();
