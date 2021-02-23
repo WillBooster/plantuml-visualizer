@@ -25,6 +25,10 @@ function main(): void {
 }
 
 function apply(): void {
+  const editURL = /\/edit\//;
+  if (editURL.exec(location.href)) {
+    return;
+  }
   embedPlantUmlImages().finally();
 
   if (!Constants.urlRegexesToBeObserved.some((regex) => regex.test(location.href))) {
