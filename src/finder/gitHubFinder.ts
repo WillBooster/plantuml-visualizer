@@ -25,8 +25,8 @@ export class GitHubCodeBlockFinder implements CodeFinder {
 }
 
 export class GitHubFileViewFinder implements CodeFinder {
-  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)(\?.*)?$/;
-  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml))\s*$/;
+  private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;
+  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
@@ -34,7 +34,7 @@ export class GitHubFileViewFinder implements CodeFinder {
 
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
     const $texts = $root.find(`div[itemprop='text']:not([${Constants.ignoreAttribute}])`);
-    const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml)(\?.*)?$/, '');
+    const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml|wsd)(\?.*)?$/, '');
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
       const $text = $texts.eq(i);
@@ -143,7 +143,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     let filePath = '';
     for (const fragment of fragments) {
       filePath += fragment;
-      if (filePath.match(/^.*\.(plantuml|pu|puml)$/)) {
+      if (filePath.match(/^.*\.(plantuml|pu|puml|wsd)$/)) {
         filePaths.push(filePath);
         filePath = '';
       } else {

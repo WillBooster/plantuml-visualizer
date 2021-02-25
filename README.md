@@ -25,7 +25,7 @@
     - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/pull/423/files
   - Code blocks in README or something
     - README.md: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/README.md
-- Any .pu / .puml / .plantuml files
+- Any .pu / .puml / .plantuml / .wsd files
   - GitHub Raw Files (only Chrome)
     - https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
     - `!include` directive: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/state.pu
