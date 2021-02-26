@@ -17,7 +17,7 @@ export class RawFileFinder implements CodeFinder {
     for (let i = 0; i < Math.max($texts.length, 1); i++) {
       const $text = $texts.eq(i);
       let content = $text.text();
-      if (content.indexOf('@startuml') < 0) continue;
+      if (content.indexOf('@startuml') < 0 || content.indexOf('@enduml') < 0) continue;
       let match: RegExpExecArray | null = null;
       while ((match = this.INCLUDE_REGEX.exec(content))) {
         const includedFileText = await this.getIncludedFileText(`${dirUrl}/${match[1]}`);

@@ -6,8 +6,10 @@ import { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder
 
 export class GitHubCodeBlockFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com/;
+  private readonly EDIT_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
 
   canFind(webPageUrl: string): boolean {
+    if (this.EDIT_URL_REGEX.test(webPageUrl)) return false;
     return this.URL_REGEX.test(webPageUrl);
   }
 
@@ -27,8 +29,10 @@ export class GitHubCodeBlockFinder implements CodeFinder {
 export class GitHubFileViewFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml)(\?.*)?$/;
   private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml))\s*$/;
+  private readonly EDIT_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
 
   canFind(webPageUrl: string): boolean {
+    if (this.EDIT_URL_REGEX.test(webPageUrl)) return false;
     return this.URL_REGEX.test(webPageUrl);
   }
 
