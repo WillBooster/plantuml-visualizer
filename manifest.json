@@ -22,9 +22,11 @@
         "*://*/*.pu*",
         "*://*/*.puml*",
         "*://*/*.plantuml*",
+        "*://*/*.wsd*",
         "file:///*/*.pu*",
         "file:///*/*.puml*",
-        "file:///*/*.plantuml*"
+        "file:///*/*.plantuml*",
+        "file:///*/*.wsd*"
       ],
       "js": ["content_scripts.js"]
     }
