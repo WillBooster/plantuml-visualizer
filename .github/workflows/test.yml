@@ -1,20 +1,21 @@
 name: Test
 
-on:
-  pull_request:
-    branches:
-      - '**'
-      - '!renovate/**'
-  push:
-    branches:
-      - 'main'
-      - 'renovate/**'
-    paths-ignore:
-      - 'docs/**'
-      - '**.md'
+on: [push, pull_request]
 
 jobs:
+  pre:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@master
+        with:
+          paths_ignore: '["**/*.md", "**/docs/**"]'
+          do_not_skip: '["pull_request", "workflow_dispatch", "schedule"]'
   test:
+    needs: pre
+    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
