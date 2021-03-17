@@ -18,5 +18,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   } else if (request.command === Constants.commands.setImgSrcUrl) {
     imgSrcUrl = request.imgSrcUrl;
     sendResponse(imgSrcUrl);
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+    });
   }
 });

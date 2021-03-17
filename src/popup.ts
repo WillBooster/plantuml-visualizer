@@ -4,7 +4,7 @@ import { Constants } from './constants';
 
 function initPopup(): void {
   const $root = $(document.body).find('div#popup').css('width', '300px').css('height', '100px');
-  $root.append($('<p>').text('server: loading..'));
+  $root.append($('<p>').text(Constants.defaultImgSrcUrl));
   $root.append($('<input>').css('width', '280px'));
 
   const button = $('<button>').text('update server');

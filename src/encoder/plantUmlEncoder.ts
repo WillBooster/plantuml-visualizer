@@ -2,7 +2,11 @@ import { deflate } from 'zlib.es';
 
 import { Constants } from '../constants';
 
-export const ImageSrcPrefix = `${Constants.imgSrcUrl}/svg/`;
+let ImageSrcPrefix = `${Constants.defaultImgSrcUrl}/svg/`;
+
+chrome.runtime.sendMessage({ command: Constants.commands.getImgSrcUrl }, (imgSrcUrl) => {
+  ImageSrcPrefix = `${imgSrcUrl}/svg/`;
+});
 
 export const PlantUmlEncoder = {
   getImageUrl(umlString: string): string {
@@ -42,7 +46,7 @@ function encode6bit(code64: number): string {
   code64 -= 26;
   if (code64 < 26) return String.fromCharCode(97 + code64);
   code64 -= 26;
-  if (code64 == 0) return '-';
-  if (code64 == 1) return '_';
+  if (code64 === 0) return '-';
+  if (code64 === 1) return '_';
   return '?';
 }
