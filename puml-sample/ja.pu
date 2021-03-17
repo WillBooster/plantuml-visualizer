@@ -1,0 +1,8 @@
+@startuml
+title シーケンス図
+
+太郎->花子: 認証リクエスト
+note right of 花子: 花子が認証処理
+花子->太郎: 認証応答
+
+@enduml
