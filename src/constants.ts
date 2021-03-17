@@ -3,7 +3,8 @@ export const Constants = {
   ignoreAttribute: 'data-wb-ignore',
   urlRegexesToBeObserved: [/^https:\/\/github.com/],
   commands: {
-    checkExtensionEnabled: 'checkExtensionEnabled',
+    getExtensionEnabled: 'getExtensionEnabled',
+    toggleExtensionEnabled: 'toggleExtensionEnabled',
     getImgSrcUrl: 'getImgSrcUrl',
     setImgSrcUrl: 'setImgSrcUrl',
   },

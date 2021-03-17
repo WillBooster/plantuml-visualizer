@@ -4,22 +4,28 @@ let imgSrcUrl = Constants.defaultImgSrcUrl;
 let extensionEnabled = true;
 chrome.browserAction.setIcon({ path: 'icon/icon16.png' });
 
-chrome.browserAction.onClicked.addListener((tab) => {
-  extensionEnabled = !extensionEnabled;
-  chrome.browserAction.setIcon({ path: extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' });
-  if (tab.id) chrome.tabs.reload(tab.id);
-});
-
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.command === Constants.commands.checkExtensionEnabled) {
-    sendResponse(extensionEnabled);
-  } else if (request.command === Constants.commands.getImgSrcUrl) {
-    sendResponse(imgSrcUrl);
-  } else if (request.command === Constants.commands.setImgSrcUrl) {
-    imgSrcUrl = request.imgSrcUrl;
-    sendResponse(imgSrcUrl);
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
-    });
+  switch (request.command) {
+    case Constants.commands.getExtensionEnabled:
+      sendResponse(extensionEnabled);
+      break;
+    case Constants.commands.toggleExtensionEnabled:
+      extensionEnabled = !extensionEnabled;
+      sendResponse(extensionEnabled);
+      chrome.browserAction.setIcon({ path: extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' });
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+      });
+      break;
+    case Constants.commands.getImgSrcUrl:
+      sendResponse(imgSrcUrl);
+      break;
+    case Constants.commands.setImgSrcUrl:
+      imgSrcUrl = request.imgSrcUrl;
+      sendResponse(imgSrcUrl);
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+      });
+      break;
   }
 });
