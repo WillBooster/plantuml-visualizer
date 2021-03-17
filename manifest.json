@@ -4,7 +4,8 @@
   "description": "A Chrome / Firefox extension for visualizing PlantUML descriptions.",
   "version": "0.0.0",
   "browser_action": {
-    "default_icon": "icon/icon16.png"
+    "default_icon": "icon/icon16.png",
+    "default_popup": "popup.html"
   },
   "icons": {
     "16": "icon/icon16.png",
