@@ -19,7 +19,7 @@ let embedding = false;
 main();
 
 function main(): void {
-  chrome.runtime.sendMessage({ command: Constants.checkExtensionEnabled }, (extensionEnabled) => {
+  chrome.runtime.sendMessage({ command: Constants.commands.checkExtensionEnabled }, (extensionEnabled) => {
     if (extensionEnabled) apply();
   });
 }
