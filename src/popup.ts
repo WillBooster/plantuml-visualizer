@@ -10,7 +10,6 @@ function initPopup(): void {
   const button = $('<button>').text('update server');
   button.on('click', () => {
     const imgSrcUrl = $root.find('input').val();
-    console.log(imgSrcUrl);
     chrome.runtime.sendMessage({ command: Constants.commands.setImgSrcUrl, imgSrcUrl }, onUpdateImgSrcUrl);
   });
   $root.append(button);
