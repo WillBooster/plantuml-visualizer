@@ -10,9 +10,8 @@ chrome.storage.sync.get((storage) => {
   if (storage.imgSrcUrl !== undefined) {
     imgSrcUrl = storage.imgSrcUrl;
   }
+  chrome.browserAction.setIcon({ path: extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' });
 });
-
-chrome.browserAction.setIcon({ path: 'icon/icon16.png' });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.command) {
