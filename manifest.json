@@ -12,7 +12,7 @@
     "48": "icon/icon48.png",
     "128": "icon/icon128.png"
   },
-  "permissions": ["https://willbooster-plantuml.herokuapp.com/*"],
+  "permissions": ["https://*/*", "storage"],
   "background": {
     "scripts": ["background.js"]
   },
