@@ -3,55 +3,79 @@ import $ from 'jquery';
 import { Constants } from './constants';
 import { PlantUmlEncoder } from './encoder/plantUmlEncoder';
 
-function initPopup(): void {
-  const $root = $(document.body).find('div#popup').css('width', '500px');
+const $root = $(document.body).find('div#popup');
 
-  const toggleButton = $('<button>').attr('class', 'puml-vis-toggle');
+function initPopup(): void {
+  $root.css('width', '500px');
+  const toggleButton = $('<button>').attr('class', 'puml-vis-toggle').css('margin-bottom', '10px');
+  const serverUrlBox = $('<p>').attr('class', 'puml-vis-server-url');
+  const serverUrlInput = $('<input>').css('width', '100%');
+  const errorBox = $('<p>').attr('class', 'puml-vis-error');
+  const updateServerButton = $('<button>').attr('class', 'puml-vis-update-server-url').text('update server');
+  const versionUmlImg = $('<img>').css('width', '100%');
+  const loadingBox = $('<p>').attr('class', 'puml-vis-loading').text('Loading...');
+
+  $root.append(toggleButton, serverUrlBox, serverUrlInput, errorBox, updateServerButton, versionUmlImg, loadingBox);
+  loadingBox.hide();
+
   toggleButton.on('click', () => {
     chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, updateExtensionEnabled);
   });
-  $root.append(toggleButton);
-
-  $root.append($('<p>').attr('class', 'puml-vis-server-url').css('margin-top', '20px'));
-  $root.append($('<input>').css('width', '100%'));
-  $root.append($('<p>').attr('class', 'puml-vis-error'));
-
-  const updateServerButton = $('<button>').attr('class', 'puml-vis-update-server-url').text('update server');
   updateServerButton.on('click', () => {
     const imgSrcUrl = $root.find('input').val();
     chrome.runtime.sendMessage({ command: Constants.commands.setImgSrcUrl, imgSrcUrl }, updateImgSrcUrl);
   });
-  $root.append(updateServerButton);
-
-  $root.append($('<img>').css('width', '100%'));
 }
 
 function updateExtensionEnabled(enabled: boolean): void {
-  const $root = $(document.body).find('div#popup');
   $root.find('button.puml-vis-toggle').text(`${enabled ? 'disable' : 'enable'} plantuml-visualizer`);
 }
 
 function updateImgSrcUrl(imgSrcUrl: string): void {
-  const $root = $(document.body).find('div#popup');
   if (!/^https:\/\/.*$/.test(imgSrcUrl)) {
-    $root.find('p.puml-vis-error').text(`${imgSrcUrl} does not match https://*`);
+    showImgSrcUrlError(imgSrcUrl, `${imgSrcUrl} does not match https://*`);
     return;
   }
 
   (async () => {
+    startLoading();
     const res = await fetch(PlantUmlEncoder.getImageUrl(Constants.versionUmlText, imgSrcUrl));
-    if (res.ok) {
-      const encoded = `data:image/svg+xml,${encodeURIComponent(await res.text())}`;
-      $root.find('p.puml-vis-server-url').text(`server: ${imgSrcUrl}`);
-      $root.find('input').val(imgSrcUrl);
-      $root.find('img').attr('src', encoded);
-      $root.find('p.puml-vis-error').text('');
-    } else {
-      $root.find('input').val(imgSrcUrl);
-      $root.find('img').removeAttr('src');
-      $root.find('p.puml-vis-error').text(`${imgSrcUrl} does not refer a valid plantUML serer`);
-    }
+    if (!res.ok) showImgSrcUrlError(imgSrcUrl, `${imgSrcUrl} does not refer a valid plantUML serer`);
+    updateImgSrcInfo(imgSrcUrl, await res.text());
+    endLoading();
   })().then();
+}
+
+function updateImgSrcInfo(imgSrcUrl: string, versionUmlText: string): void {
+  const encoded = `data:image/svg+xml,${encodeURIComponent(versionUmlText)}`;
+  $root.find('p.puml-vis-server-url').text(`server: ${imgSrcUrl}`);
+  $root.find('input').val(imgSrcUrl);
+  $root.find('p.puml-vis-error').text('');
+  $root.find('img').attr('src', encoded);
+}
+
+function startLoading(): void {
+  $root.find('p.puml-vis-server-url').hide();
+  $root.find('input').hide();
+  $root.find('p.puml-vis-error').hide();
+  $root.find('button.puml-vis-update-server-url').hide();
+  $root.find('img').hide();
+  $root.find('p.puml-vis-loading').show();
+}
+
+function endLoading(): void {
+  $root.find('p.puml-vis-server-url').show();
+  $root.find('input').show();
+  $root.find('p.puml-vis-error').show();
+  $root.find('button.puml-vis-update-server-url').show();
+  $root.find('img').show();
+  $root.find('p.puml-vis-loading').hide();
+}
+
+function showImgSrcUrlError(imgSrcUrl: string, message: string): void {
+  $root.find('input').val(imgSrcUrl);
+  $root.find('p.puml-vis-error').text(message);
+  $root.find('img').removeAttr('src');
 }
 
 initPopup();
