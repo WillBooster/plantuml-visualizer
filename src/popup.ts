@@ -7,7 +7,7 @@ function initPopup(): void {
 
   const toggleButton = $('<button>').attr('data-puml-vis-toggle', '');
   toggleButton.on('click', () => {
-    chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, onUpdateExtensionEnabled);
+    chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, updateExtensionEnabled);
   });
   $root.append(toggleButton);
 
@@ -17,22 +17,22 @@ function initPopup(): void {
   const updateServerButton = $('<button>').attr('data-puml-vis-update-server', '').text('update server');
   updateServerButton.on('click', () => {
     const imgSrcUrl = $root.find('input').val();
-    chrome.runtime.sendMessage({ command: Constants.commands.setImgSrcUrl, imgSrcUrl }, onUpdateImgSrcUrl);
+    chrome.runtime.sendMessage({ command: Constants.commands.setImgSrcUrl, imgSrcUrl }, updateImgSrcUrl);
   });
   $root.append(updateServerButton);
 }
 
-function onUpdateExtensionEnabled(enabled: boolean): void {
+function updateExtensionEnabled(enabled: boolean): void {
   const $root = $(document.body).find('div#popup');
   $root.find('button[data-puml-vis-toggle]').text(`${enabled ? 'disable' : 'enable'} plantuml-visualizer`);
 }
 
-function onUpdateImgSrcUrl(imgSrcUrl: string): void {
+function updateImgSrcUrl(imgSrcUrl: string): void {
   const $root = $(document.body).find('div#popup');
   $root.find('p').text(`server: ${imgSrcUrl}`);
   $root.find('input').val(imgSrcUrl);
 }
 
 initPopup();
-chrome.runtime.sendMessage({ command: Constants.commands.getExtensionEnabled }, onUpdateExtensionEnabled);
-chrome.runtime.sendMessage({ command: Constants.commands.getImgSrcUrl }, onUpdateImgSrcUrl);
+chrome.runtime.sendMessage({ command: Constants.commands.getExtensionEnabled }, updateExtensionEnabled);
+chrome.runtime.sendMessage({ command: Constants.commands.getImgSrcUrl }, updateImgSrcUrl);

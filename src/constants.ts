@@ -1,5 +1,8 @@
 export const Constants = {
-  defaultImgSrcUrl: 'https://willbooster-plantuml.herokuapp.com',
+  defaultConfig: {
+    extensionEnabled: true,
+    imgSrcUrl: 'https://willbooster-plantuml.herokuapp.com',
+  },
   ignoreAttribute: 'data-wb-ignore',
   urlRegexesToBeObserved: [/^https:\/\/github.com/],
   commands: {
