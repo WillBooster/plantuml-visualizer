@@ -3,6 +3,7 @@ export const Constants = {
     extensionEnabled: true,
     imgSrcUrl: 'https://willbooster-plantuml.herokuapp.com',
   },
+  versionUmlText: ['@startuml', 'version', '@enduml'].join('\n'),
   ignoreAttribute: 'data-wb-ignore',
   urlRegexesToBeObserved: [/^https:\/\/github.com/],
   commands: {

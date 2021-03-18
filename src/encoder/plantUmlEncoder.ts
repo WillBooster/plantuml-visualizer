@@ -2,17 +2,17 @@ import { deflate } from 'zlib.es';
 
 import { Constants } from '../constants';
 
-let ImageSrcPrefix = `${Constants.defaultConfig.imgSrcUrl}/svg/`;
+let imageSrcUrl = Constants.defaultConfig.imgSrcUrl;
 
-chrome.runtime.sendMessage({ command: Constants.commands.getImgSrcUrl }, (imgSrcUrl) => {
-  ImageSrcPrefix = `${imgSrcUrl}/svg/`;
+chrome.runtime.sendMessage({ command: Constants.commands.getImgSrcUrl }, (url) => {
+  imageSrcUrl = url;
 });
 
 export const PlantUmlEncoder = {
-  getImageUrl(umlString: string): string {
+  getImageUrl(umlString: string, url: string = imageSrcUrl): string {
     const textEncoder = new TextEncoder();
     const encoded = encode64(deflate(textEncoder.encode(umlString)));
-    return `${ImageSrcPrefix}${encoded}`;
+    return `${url}/svg/${encoded}`;
   },
 };
 
