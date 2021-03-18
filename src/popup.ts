@@ -39,10 +39,15 @@ function updateImgSrcUrl(imgSrcUrl: string): void {
 
   startLoading();
   (async () => {
-    const res = await fetch(PlantUmlEncoder.getImageUrl(Constants.versionUmlText, imgSrcUrl));
-    if (res.ok) updateImgSrcInfo(imgSrcUrl, await res.text());
-    else showImgSrcUrlError(imgSrcUrl, `${imgSrcUrl} does not refer a valid plantUML serer`);
-    endLoading();
+    try {
+      const res = await fetch(PlantUmlEncoder.getImageUrl(Constants.versionUmlText, imgSrcUrl));
+      if (res.ok) updateImgSrcInfo(imgSrcUrl, await res.text());
+      else showImgSrcUrlError(imgSrcUrl, `${imgSrcUrl} does not refer a valid plantUML serer`);
+    } catch {
+      showImgSrcUrlError(imgSrcUrl, `${imgSrcUrl} does not refer a valid plantUML serer`);
+    } finally {
+      endLoading();
+    }
   })().then();
 }
 
