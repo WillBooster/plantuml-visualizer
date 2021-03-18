@@ -2,7 +2,7 @@ import { deflate } from 'zlib.es';
 
 import { Constants } from '../constants';
 
-let ImageSrcPrefix = `${Constants.defaultImgSrcUrl}/svg/`;
+let ImageSrcPrefix = `${Constants.defaultConfig.imgSrcUrl}/svg/`;
 
 chrome.runtime.sendMessage({ command: Constants.commands.getImgSrcUrl }, (imgSrcUrl) => {
   ImageSrcPrefix = `${imgSrcUrl}/svg/`;
