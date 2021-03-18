@@ -42,7 +42,7 @@ function encode6bit(code64: number): string {
   code64 -= 26;
   if (code64 < 26) return String.fromCharCode(97 + code64);
   code64 -= 26;
-  if (code64 == 0) return '-';
-  if (code64 == 1) return '_';
+  if (code64 === 0) return '-';
+  if (code64 === 1) return '_';
   return '?';
 }

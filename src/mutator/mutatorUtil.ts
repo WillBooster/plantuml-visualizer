@@ -19,7 +19,7 @@ export async function textToImage(text: string): Promise<JQuery<HTMLElement>> {
 }
 
 export async function textsToImages(texts: string[], noContentsMessage: string): Promise<JQuery<HTMLElement>[]> {
-  if (texts.length == 0) {
+  if (texts.length === 0) {
     return [$(`<div>${noContentsMessage}</div>`)];
   }
   const ret = [];

@@ -47,7 +47,7 @@ export class GitHubFileViewFinder implements CodeFinder {
       for (let i = 0; i < $fileLines.length; i++) {
         const lineText = $fileLines.eq(i).find("[id^='LC'").text();
         const match = this.INCLUDE_REGEX.exec(lineText);
-        if (match != null) {
+        if (match !== null) {
           const includedFileText = await this.getIncludedFileText(`${dirUrl}/${match[1]}`);
           fileText += includedFileText || '';
         } else {
@@ -112,8 +112,8 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     const [baseFilePath, headFilePath] = this.getBaseHeadFilePaths($diff);
     const $diffBlock = $diff.find('div.js-file-content.Details-content--hidden');
     if (
-      (baseFilePath == '' && headFilePath == '') ||
-      $diffBlock.length == 0 ||
+      (baseFilePath === '' && headFilePath === '') ||
+      $diffBlock.length === 0 ||
       $diffBlock.find('div.data.highlight.empty').length > 0
     ) {
       return {
@@ -154,8 +154,8 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
         filePath += separator;
       }
     }
-    if (filePaths.length == 1) return [filePaths[0], filePaths[0]];
-    if (filePaths.length == 2) return [filePaths[0], filePaths[1]];
+    if (filePaths.length === 1) return [filePaths[0], filePaths[0]];
+    if (filePaths.length === 2) return [filePaths[0], filePaths[1]];
     return ['', ''];
   }
 
