@@ -10,7 +10,7 @@ function initPopup(): void {
   const toggleButton = $('<button>').attr('class', 'puml-vis-toggle').css('margin-bottom', '10px');
   const serverUrlBox = $('<p>').attr('class', 'puml-vis-server-url');
   const serverUrlInput = $('<input>').css('width', '100%');
-  const errorBox = $('<p>').attr('class', 'puml-vis-error');
+  const errorBox = $('<p>').attr('class', 'puml-vis-error').css('color', '#ff604f');
   const updateServerButton = $('<button>').attr('class', 'puml-vis-update-server-url').text('update server');
   const versionUmlImg = $('<img>').css('width', '100%');
   const loadingBox = $('<p>').attr('class', 'puml-vis-loading').text('Loading...');
