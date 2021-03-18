@@ -1,10 +1,12 @@
 @startuml
 !include substate.pu
+!include next-substate.pu
 state State1
 state State2
 
 [*] -> State1
 State1 -> SubState
-SubState -> State2
+SubState -> NextSubState
+NextSubState -> State2
 State2 -> [*]
 @enduml
