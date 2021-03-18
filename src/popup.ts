@@ -12,7 +12,7 @@ function initPopup(): void {
   });
   $root.append(toggleButton);
 
-  $root.append($('<p>').attr('class', 'puml-vis-server-url'));
+  $root.append($('<p>').attr('class', 'puml-vis-server-url').css('margin-top', '20px'));
   $root.append($('<input>').css('width', '100%'));
   $root.append($('<p>').attr('class', 'puml-vis-error'));
 
