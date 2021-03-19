@@ -1,5 +1,6 @@
 @startuml
-state SubState {
+!startsub sub
+state IncludedState {
     state Sub1
     state Sub2
     state Sub3
@@ -10,4 +11,5 @@ state SubState {
     Sub1 -> Sub3
     Sub3 -> [*]
 }
+!endsub
 @enduml
