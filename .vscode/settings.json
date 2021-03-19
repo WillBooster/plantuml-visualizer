@@ -14,5 +14,6 @@
   },
   "editor.formatOnSave": true,
   "githubPullRequests.defaultMergeMethod": "squash",
+  "plantuml.render": "PlantUMLServer",
   "plantuml.server": "https://willbooster-plantuml.herokuapp.com/"
 }
