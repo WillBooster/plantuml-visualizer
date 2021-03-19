@@ -9,4 +9,6 @@ IncludedState1 -> IncludedState2
 IncludedState2 -> State2
 State2 -> [*]
 
+IngoredIncludedState
+
 @enduml

@@ -70,7 +70,7 @@ export class RawFileFinder implements CodeFinder {
         let text = await response.text();
         text = await this.preprocessIncludeDirective(includedFileUrl, text);
         text = await this.preprocessIncludesubDirective(includedFileUrl, text);
-        text = extractSubIncludedText(text, match[2]);
+        text = extractSubIncludedText(text, match[3]);
         return text;
       })();
       preprocessedLines.push(includedText);

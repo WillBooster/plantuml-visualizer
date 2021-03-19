@@ -98,7 +98,7 @@ export class GitHubFileViewFinder implements CodeFinder {
         const htmlString = await response.text();
         const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
         const fileTexts = await this.find(includedFileUrl, $body);
-        return fileTexts.map((fileText) => extractSubIncludedText(fileText.text, match[2])).join('\n');
+        return fileTexts.map((fileText) => extractSubIncludedText(fileText.text, match[3])).join('\n');
       })();
       preprocessedLines.push(includedText);
     }
