@@ -1,5 +1,5 @@
 @startuml
-!include includedstate.pu
+!include includedState.pu
 state State1
 state State2
 
