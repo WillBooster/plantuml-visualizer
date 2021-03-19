@@ -32,7 +32,8 @@
     - IMPORTANT NOTE: any extension on Firefox cannot work on GitHub Raw Files due to https://bugzilla.mozilla.org/show_bug.cgi?id=1411641
   - Local Files
     - file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
-    - `!include` directive: coming soon ...
+    - `!include` directive for local files will NOT be supported because of security problems
+    - Please use another software for rich rendering of local files (e.g. the official PlantUML renderer: https://plantuml.com/en/starting)
     - IMPORTANT NOTE: if you use Google Chrome, you need to allow this extension to access file URLs
       1. Open chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf in Chrome
       2. Enable "Allow access to file URLs"
@@ -46,8 +47,9 @@ The visualization result of https://github.com/WillBooster/plantuml-visualizer/p
 
 ## Default Vsualization Server
 
-The default server is https://willbooster-plantuml.herokuapp.com (source code: https://github.com/WillBooster/plantuml-service).
-You may check the PlantUML version via https://willbooster-plantuml.herokuapp.com/version.
+The default server is https://willbooster-plantuml.herokuapp.com  
+(source code: https://github.com/WillBooster/plantuml-service).  
+You may check the PlantUML version via https://willbooster-plantuml.herokuapp.com/version.  
 We plan to allow users to change the server.
 
 ## Requirements for Development
