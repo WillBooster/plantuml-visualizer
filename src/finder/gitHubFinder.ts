@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { Constants } from '../constants';
 
 import { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
+import { extractSubIncludedText } from './finderUtil';
 
 export class GitHubCodeBlockFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com/;
@@ -30,6 +31,7 @@ export class GitHubFileViewFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;
   private readonly EXCLUDE_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
   private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
+  private readonly INCLUDESUB_REGEX = /^\s*!includesub\s+(.*\.(plantuml|pu|puml|wsd))!(.*)\s*$/;
 
   canFind(webPageUrl: string): boolean {
     if (this.EXCLUDE_URL_REGEX.test(webPageUrl)) return false;
@@ -46,6 +48,7 @@ export class GitHubFileViewFinder implements CodeFinder {
         .map((lineno) => $fileLines.eq(lineno).find("[id^='LC'").text() + '\n')
         .join('');
       fileText = await this.preprocessIncludeDirective(webPageUrl, fileText);
+      fileText = await this.preprocessIncludesubDirective(webPageUrl, fileText);
       result.push({ $text, text: fileText });
     }
     return result;
@@ -70,6 +73,32 @@ export class GitHubFileViewFinder implements CodeFinder {
         const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
         const fileTexts = await this.find(includedFileUrl, $body);
         return fileTexts.map((fileText) => fileText.text.replace(/@startuml/g, '').replace(/@enduml/g, '')).join('\n');
+      })();
+      preprocessedLines.push(includedText);
+    }
+
+    return preprocessedLines.join('\n');
+  }
+
+  private async preprocessIncludesubDirective(webPageUrl: string, content: string): Promise<string> {
+    const contentLines = content.split('\n');
+    const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml|wsd)(\?.*)?$/, '');
+
+    const preprocessedLines = [];
+    for (const line of contentLines) {
+      const match = this.INCLUDESUB_REGEX.exec(line);
+      if (match === null) {
+        preprocessedLines.push(line);
+        continue;
+      }
+      const includedText = await (async () => {
+        const includedFileUrl = `${dirUrl}/${match[1]}`;
+        const response = await fetch(includedFileUrl);
+        if (!response.ok) return '';
+        const htmlString = await response.text();
+        const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
+        const fileTexts = await this.find(includedFileUrl, $body);
+        return fileTexts.map((fileText) => extractSubIncludedText(fileText.text, match[2])).join('\n');
       })();
       preprocessedLines.push(includedText);
     }

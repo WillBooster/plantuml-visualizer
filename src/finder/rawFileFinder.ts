@@ -1,10 +1,12 @@
 import { Constants } from '../constants';
 
 import { CodeFinder, UmlCodeContent } from './finder';
+import { extractSubIncludedText } from './finderUtil';
 
 export class RawFileFinder implements CodeFinder {
   private readonly URL_REGEX = /^.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;
   private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
+  private readonly INCLUDESUB_REGEX = /^\s*!includesub\s+(.*\.(plantuml|pu|puml|wsd))!(.*)\s*$/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
@@ -18,6 +20,7 @@ export class RawFileFinder implements CodeFinder {
       let content = $text.text();
       if (content.indexOf('@startuml') < 0 || content.indexOf('@enduml') < 0) continue;
       content = await this.preprocessIncludeDirective(webPageUrl, content);
+      content = await this.preprocessIncludesubDirective(webPageUrl, content);
       result.push({ $text, text: content });
     }
     return result;
@@ -40,7 +43,35 @@ export class RawFileFinder implements CodeFinder {
         if (!response.ok) return '';
         let text = await response.text();
         text = await this.preprocessIncludeDirective(includedFileUrl, text);
+        text = await this.preprocessIncludesubDirective(includedFileUrl, text);
         return text.replace(/@startuml/g, '').replace(/@enduml/g, '');
+      })();
+      preprocessedLines.push(includedText);
+    }
+
+    return preprocessedLines.join('\n');
+  }
+
+  private async preprocessIncludesubDirective(webPageUrl: string, content: string): Promise<string> {
+    const contentLines = content.split('\n');
+    const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml|wsd)(\?.*)?$/, '');
+
+    const preprocessedLines = [];
+    for (const line of contentLines) {
+      const match = this.INCLUDESUB_REGEX.exec(line);
+      if (match === null) {
+        preprocessedLines.push(line);
+        continue;
+      }
+      const includedText = await (async () => {
+        const includedFileUrl = `${dirUrl}/${match[1]}`;
+        const response = await fetch(includedFileUrl);
+        if (!response.ok) return '';
+        let text = await response.text();
+        text = await this.preprocessIncludeDirective(includedFileUrl, text);
+        text = await this.preprocessIncludesubDirective(includedFileUrl, text);
+        text = extractSubIncludedText(text, match[2]);
+        return text;
       })();
       preprocessedLines.push(includedText);
     }
