@@ -6,10 +6,10 @@ import { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder
 
 export class GitHubCodeBlockFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com/;
-  private readonly EDIT_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
+  private readonly EXCLUDE_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
 
   canFind(webPageUrl: string): boolean {
-    if (this.EDIT_URL_REGEX.test(webPageUrl)) return false;
+    if (this.EXCLUDE_URL_REGEX.test(webPageUrl)) return false;
     return this.URL_REGEX.test(webPageUrl);
   }
 
@@ -28,44 +28,47 @@ export class GitHubCodeBlockFinder implements CodeFinder {
 
 export class GitHubFileViewFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;
-  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
-  private readonly EDIT_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
+  private readonly EXCLUDE_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
+  private readonly INCLUDE_REGEX = /!include\s+(.*\.(plantuml|pu|puml|wsd))/g;
 
   canFind(webPageUrl: string): boolean {
-    if (this.EDIT_URL_REGEX.test(webPageUrl)) return false;
+    if (this.EXCLUDE_URL_REGEX.test(webPageUrl)) return false;
     return this.URL_REGEX.test(webPageUrl);
   }
 
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
     const $texts = $root.find(`div[itemprop='text']:not([${Constants.ignoreAttribute}])`);
-    const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml|wsd)(\?.*)?$/, '');
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
       const $text = $texts.eq(i);
-      let fileText = '';
       const $fileLines = $text.find('tr');
-      for (let i = 0; i < $fileLines.length; i++) {
-        const lineText = $fileLines.eq(i).find("[id^='LC'").text();
-        const match = this.INCLUDE_REGEX.exec(lineText);
-        if (match !== null) {
-          const includedFileText = await this.getIncludedFileText(`${dirUrl}/${match[1]}`);
-          fileText += includedFileText || '';
-        } else {
-          fileText += lineText + '\n';
-        }
-      }
+      let fileText = [...Array($fileLines.length).keys()]
+        .map((lineno) => $fileLines.eq(lineno).find("[id^='LC'").text() + '\n')
+        .join('');
+      fileText = await this.preprocessIncludeDirective(webPageUrl, fileText);
       result.push({ $text, text: fileText });
     }
     return result;
   }
 
-  private async getIncludedFileText(fileUrl: string): Promise<string | null> {
-    const response = await fetch(fileUrl);
-    if (!response.ok) return null;
-    const htmlString = await response.text();
-    const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-    const contents = await this.find(fileUrl, $body);
-    return contents.map((content) => content.text.replace(/@startuml/g, '').replace(/@enduml/g, '')).join('\n');
+  private async preprocessIncludeDirective(webPageUrl: string, fileText: string): Promise<string> {
+    const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml|wsd)(\?.*)?$/, '');
+    let match: RegExpExecArray | null = null;
+
+    while ((match = this.INCLUDE_REGEX.exec(fileText))) {
+      const includedText = await (async () => {
+        const includedFileUrl = `${dirUrl}/${match[1]}`;
+        const response = await fetch(includedFileUrl);
+        if (!response.ok) return '';
+        const htmlString = await response.text();
+        const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
+        const fileTexts = await this.find(includedFileUrl, $body);
+        return fileTexts.map((fileText) => fileText.text.replace(/@startuml/g, '').replace(/@enduml/g, '')).join('\n');
+      })();
+      fileText = fileText.replace(match[0], includedText);
+    }
+
+    return fileText;
   }
 }
 
@@ -86,6 +89,14 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     return result.filter((content) => content.$diff.length > 0);
   }
 
+  private getBaseHeadBranchNames($root: JQuery<Node>): [string, string] {
+    const getBranchNameSelector = (baseOrHead: 'base' | 'head'): string =>
+      `span.commit-ref.css-truncate.user-select-contain.expandable.${baseOrHead}-ref span.css-truncate-target`;
+    const $baseRef = $root.find(getBranchNameSelector('base'));
+    const $headRef = $root.find(getBranchNameSelector('head'));
+    return [$baseRef.text(), $headRef.text()];
+  }
+
   private getDiffs($root: JQuery<Node>): JQuery<Node>[] {
     const $diffs = $root.find(`div[id^='diff-']:not([${Constants.ignoreAttribute}])`);
     const diffs = [];
@@ -93,14 +104,6 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
       diffs.push($diffs.eq(i));
     }
     return diffs;
-  }
-
-  private getBaseHeadBranchNames($root: JQuery<Node>): [string, string] {
-    const getBranchNameSelector = (baseOrHead: 'base' | 'head'): string =>
-      `span.commit-ref.css-truncate.user-select-contain.expandable.${baseOrHead}-ref span.css-truncate-target`;
-    const $baseRef = $root.find(getBranchNameSelector('base'));
-    const $headRef = $root.find(getBranchNameSelector('head'));
-    return [$baseRef.text(), $headRef.text()];
   }
 
   private async getDiffContent(
