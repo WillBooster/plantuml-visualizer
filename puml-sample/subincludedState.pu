@@ -1,6 +1,32 @@
 @startuml
 !startsub sub
-state IncludedState {
+state IncludedState1 {
+    state Sub1
+    state Sub2
+    state Sub3
+
+    [*] -> Sub1
+    Sub1 -> Sub2
+    Sub2 -> Sub3
+    Sub1 -> Sub3
+    Sub3 -> [*]
+}
+!endsub
+
+state IngoredIncludedState {
+    state Sub1
+    state Sub2
+    state Sub3
+
+    [*] -> Sub1
+    Sub1 -> Sub2
+    Sub2 -> Sub3
+    Sub1 -> Sub3
+    Sub3 -> [*]
+}
+
+!startsub sub
+state IncludedState2 {
     state Sub1
     state Sub2
     state Sub3
