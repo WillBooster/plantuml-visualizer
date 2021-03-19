@@ -32,7 +32,8 @@ export class RawFileFinder implements CodeFinder {
         const includedFileUrl = `${dirUrl}/${match[1]}`;
         const response = await fetch(includedFileUrl);
         if (!response.ok) return '';
-        const text = await response.text();
+        let text = await response.text();
+        text = await this.preprocessIncludeDirective(includedFileUrl, text);
         return text.replace(/@startuml/g, '').replace(/@enduml/g, '');
       })();
       content = content.replace(match[0], includedText);
