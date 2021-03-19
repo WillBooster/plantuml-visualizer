@@ -29,7 +29,7 @@ export class GitHubCodeBlockFinder implements CodeFinder {
 export class GitHubFileViewFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;
   private readonly EXCLUDE_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
-  private readonly INCLUDE_REGEX = /!include\s+(.*\.(plantuml|pu|puml|wsd))/g;
+  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
 
   canFind(webPageUrl: string): boolean {
     if (this.EXCLUDE_URL_REGEX.test(webPageUrl)) return false;
@@ -52,10 +52,16 @@ export class GitHubFileViewFinder implements CodeFinder {
   }
 
   private async preprocessIncludeDirective(webPageUrl: string, fileText: string): Promise<string> {
+    const fileTextLines = fileText.split('\n');
     const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml|wsd)(\?.*)?$/, '');
-    let match: RegExpExecArray | null = null;
 
-    while ((match = this.INCLUDE_REGEX.exec(fileText))) {
+    const preprocessedLines = [];
+    for (const line of fileTextLines) {
+      const match = this.INCLUDE_REGEX.exec(line);
+      if (match === null) {
+        preprocessedLines.push(line);
+        continue;
+      }
       const includedText = await (async () => {
         const includedFileUrl = `${dirUrl}/${match[1]}`;
         const response = await fetch(includedFileUrl);
@@ -65,10 +71,10 @@ export class GitHubFileViewFinder implements CodeFinder {
         const fileTexts = await this.find(includedFileUrl, $body);
         return fileTexts.map((fileText) => fileText.text.replace(/@startuml/g, '').replace(/@enduml/g, '')).join('\n');
       })();
-      fileText = fileText.replace(match[0], includedText);
+      preprocessedLines.push(includedText);
     }
 
-    return fileText;
+    return preprocessedLines.join('\n');
   }
 }
 

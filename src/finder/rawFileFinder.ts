@@ -4,7 +4,7 @@ import { CodeFinder, UmlCodeContent } from './finder';
 
 export class RawFileFinder implements CodeFinder {
   private readonly URL_REGEX = /^.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;
-  private readonly INCLUDE_REGEX = /!include\s+(.*\.(plantuml|pu|puml|wsd))/g;
+  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
@@ -24,10 +24,16 @@ export class RawFileFinder implements CodeFinder {
   }
 
   private async preprocessIncludeDirective(webPageUrl: string, content: string): Promise<string> {
+    const contentLines = content.split('\n');
     const dirUrl = webPageUrl.replace(/\/[^/]*\.(plantuml|pu|puml|wsd)(\?.*)?$/, '');
-    let match: RegExpExecArray | null = null;
 
-    while ((match = this.INCLUDE_REGEX.exec(content))) {
+    const preprocessedLines = [];
+    for (const line of contentLines) {
+      const match = this.INCLUDE_REGEX.exec(line);
+      if (match === null) {
+        preprocessedLines.push(line);
+        continue;
+      }
       const includedText = await (async () => {
         const includedFileUrl = `${dirUrl}/${match[1]}`;
         const response = await fetch(includedFileUrl);
@@ -36,9 +42,9 @@ export class RawFileFinder implements CodeFinder {
         text = await this.preprocessIncludeDirective(includedFileUrl, text);
         return text.replace(/@startuml/g, '').replace(/@enduml/g, '');
       })();
-      content = content.replace(match[0], includedText);
+      preprocessedLines.push(includedText);
     }
 
-    return content;
+    return preprocessedLines.join('\n');
   }
 }
