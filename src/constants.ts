@@ -1,15 +1,20 @@
+export interface Config {
+  extensionEnabled: boolean;
+  pumlServerUrl: string;
+}
+
 export const Constants = {
   defaultConfig: {
     extensionEnabled: true,
-    imgSrcUrl: 'https://willbooster-plantuml.herokuapp.com',
-  },
+    pumlServerUrl: 'https://willbooster-plantuml.herokuapp.com',
+  } as Config,
   versionUmlText: ['@startuml', 'version', '@enduml'].join('\n'),
   ignoreAttribute: 'data-wb-ignore',
   urlRegexesToBeObserved: [/^https:\/\/github.com/],
   commands: {
     getExtensionEnabled: 'getExtensionEnabled',
     toggleExtensionEnabled: 'toggleExtensionEnabled',
-    getImgSrcUrl: 'getImgSrcUrl',
-    setImgSrcUrl: 'setImgSrcUrl',
+    getPumlServerUrl: 'getPumlServerUrl',
+    setPumlServerUrl: 'setPumlServerUrl',
   },
-};
+} as const;

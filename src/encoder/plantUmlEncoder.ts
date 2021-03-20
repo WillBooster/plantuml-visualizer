@@ -2,9 +2,9 @@ import { deflate } from 'zlib.es';
 
 import { Constants } from '../constants';
 
-let imageSrcUrl = Constants.defaultConfig.imgSrcUrl;
+let imageSrcUrl = Constants.defaultConfig.pumlServerUrl;
 
-chrome.runtime.sendMessage({ command: Constants.commands.getImgSrcUrl }, (url) => {
+chrome.runtime.sendMessage({ command: Constants.commands.getPumlServerUrl }, (url) => {
   imageSrcUrl = url;
 });
 
