@@ -6,25 +6,14 @@ import { PlantUmlEncoder } from './encoder/plantUmlEncoder';
 const $root = $(document.body).find('div#popup');
 
 function initPopup(): void {
-  $root.css('width', '500px');
-  const toggleButton = $('<button>').attr('class', 'puml-vis-toggle').css('margin-bottom', '10px');
-  const serverUrlBox = $('<p>').attr('class', 'puml-vis-server-url');
-  const serverUrlInput = $('<input>').css('width', '100%');
-  const errorBox = $('<p>').attr('class', 'puml-vis-error').css('color', '#ff604f');
-  const updateServerButton = $('<button>').attr('class', 'puml-vis-update-server-url').text('update server');
-  const versionUmlImg = $('<img>').css('width', '100%');
-  const loadingBox = $('<p>').attr('class', 'puml-vis-loading').text('Loading...');
-
-  $root.append(toggleButton, serverUrlBox, serverUrlInput, errorBox, updateServerButton, versionUmlImg, loadingBox);
-  loadingBox.hide();
-
-  toggleButton.on('click', () => {
+  $root.find('button.puml-vis-toggle').on('click', () => {
     chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, updateExtensionEnabled);
   });
-  updateServerButton.on('click', () => {
+  $root.find('button.puml-vis-update-server-url').on('click', () => {
     const imgSrcUrl = $root.find('input').val();
     chrome.runtime.sendMessage({ command: Constants.commands.setImgSrcUrl, imgSrcUrl }, updateImgSrcUrl);
   });
+  $root.find('p.puml-vis-loading').hide();
 }
 
 function updateExtensionEnabled(enabled: boolean): void {
