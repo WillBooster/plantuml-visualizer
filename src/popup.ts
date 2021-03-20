@@ -10,7 +10,7 @@ function initPopup(): void {
     chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, renderExtensionEnabled);
   });
   $root.find('.puml-vis-update-server-url').on('click', () => {
-    let pumlServerUrl = $root.find('input').val()?.toString() || '';
+    let pumlServerUrl = ($root.find('input').val() || '').toString();
     if (pumlServerUrl.endsWith('/')) {
       pumlServerUrl = pumlServerUrl.substring(0, pumlServerUrl.length - 1);
     }
