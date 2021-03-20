@@ -37,16 +37,16 @@ export class RawFileFinder implements CodeFinder {
         preprocessedLines.push(line);
         continue;
       }
-      const includedText = await (async () => {
-        const includedFileUrl = `${dirUrl}/${match[1]}`;
-        const response = await fetch(includedFileUrl);
-        if (!response.ok) return '';
+
+      const includedFileUrl = `${dirUrl}/${match[1]}`;
+      const response = await fetch(includedFileUrl);
+      if (response.ok) {
         let text = await response.text();
         text = await this.preprocessIncludeDirective(includedFileUrl, text);
         text = await this.preprocessIncludesubDirective(includedFileUrl, text);
-        return text.replace(/@startuml/g, '').replace(/@enduml/g, '');
-      })();
-      preprocessedLines.push(includedText);
+        const includedText = text.replace(/@startuml/g, '').replace(/@enduml/g, '');
+        preprocessedLines.push(includedText);
+      }
     }
 
     return preprocessedLines.join('\n');
@@ -63,17 +63,16 @@ export class RawFileFinder implements CodeFinder {
         preprocessedLines.push(line);
         continue;
       }
-      const includedText = await (async () => {
-        const includedFileUrl = `${dirUrl}/${match[1]}`;
-        const response = await fetch(includedFileUrl);
-        if (!response.ok) return '';
+
+      const includedFileUrl = `${dirUrl}/${match[1]}`;
+      const response = await fetch(includedFileUrl);
+      if (response.ok) {
         let text = await response.text();
         text = await this.preprocessIncludeDirective(includedFileUrl, text);
         text = await this.preprocessIncludesubDirective(includedFileUrl, text);
-        text = extractSubIncludedText(text, match[3]);
-        return text;
-      })();
-      preprocessedLines.push(includedText);
+        const includedText = extractSubIncludedText(text, match[3]);
+        preprocessedLines.push(includedText);
+      }
     }
 
     return preprocessedLines.join('\n');
