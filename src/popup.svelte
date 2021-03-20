@@ -92,10 +92,12 @@
     margin-bottom: 10px;
   }
 
-  input.puml-vis-server-url,
   p.puml-vis-server-url,
+  input.puml-vis-server-url,
+  p.puml-vis-error,
   img.puml-vis-version {
     width: 100%;
+    box-sizing: border-box;
   }
 
   p.puml-vis-error {
