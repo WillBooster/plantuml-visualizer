@@ -2,13 +2,17 @@ import { deflate } from 'zlib.es';
 
 import { Constants } from '../constants';
 
-export const ImageSrcPrefix = `${Constants.imgSrcUrl}/svg/`;
+let pumlServerUrl = Constants.defaultConfig.pumlServerUrl;
+
+chrome.runtime.sendMessage({ command: Constants.commands.getPumlServerUrl }, (url) => {
+  pumlServerUrl = url;
+});
 
 export const PlantUmlEncoder = {
-  getImageUrl(umlString: string): string {
+  getImageUrl(pumlContent: string, serverUrl: string = pumlServerUrl): string {
     const textEncoder = new TextEncoder();
-    const encoded = encode64(deflate(textEncoder.encode(umlString)));
-    return `${ImageSrcPrefix}${encoded}`;
+    const encoded = encode64(deflate(textEncoder.encode(pumlContent)));
+    return `${serverUrl}/svg/${encoded}`;
   },
 };
 
@@ -42,7 +46,7 @@ function encode6bit(code64: number): string {
   code64 -= 26;
   if (code64 < 26) return String.fromCharCode(97 + code64);
   code64 -= 26;
-  if (code64 == 0) return '-';
-  if (code64 == 1) return '_';
+  if (code64 === 0) return '-';
+  if (code64 === 1) return '_';
   return '?';
 }
