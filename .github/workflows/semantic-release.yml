@@ -10,13 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js 12
-        uses: actions/setup-node@v2
-        with:
-          node-version: 12
       - name: Generate dot env
         run: |
           echo '${{ secrets.DOT_ENV }}' > .env
+      - name: Read version files
+        run: |
+          echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
       - name: Show environment information
         run: |
           echo "node: $(node -v)"
