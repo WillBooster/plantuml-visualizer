@@ -5,16 +5,15 @@ import closureCompile from '@ampproject/rollup-plugin-closure-compiler';
 import svelte from 'rollup-plugin-svelte';
 import sveltePreprocess from 'svelte-preprocess';
 
-const isProduction = process.env.NODE_ENV === 'production';
 const extensions = ['.mjs', '.js', '.json', '.ts'];
 
 const plugins = [
   resolve({ extensions }),
   commonjs(),
-  svelte({ dev: !isProduction, include: 'src/**/*.svelte', preprocess: sveltePreprocess() }),
+  svelte({ include: 'src/**/*.svelte', preprocess: sveltePreprocess(), emitCss: false }),
   babel({ extensions, babelHelpers: 'bundled', exclude: 'node_modules/**' }),
 ];
-if (isProduction) plugins.push(closureCompile());
+if (process.env.NODE_ENV === 'production') plugins.push(closureCompile());
 
 export default [
   {

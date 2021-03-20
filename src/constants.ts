@@ -12,6 +12,7 @@ export const Constants = {
   ignoreAttribute: 'data-wb-ignore',
   urlRegexesToBeObserved: [/^https:\/\/github.com/],
   commands: {
+    getConfig: 'getConfig',
     getExtensionEnabled: 'getExtensionEnabled',
     toggleExtensionEnabled: 'toggleExtensionEnabled',
     getPumlServerUrl: 'getPumlServerUrl',
