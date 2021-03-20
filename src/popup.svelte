@@ -24,7 +24,7 @@
   }
 
   function handleChangeServerUrlButtonClick(): void {
-    const normalizedUrl = !inputUrl.endsWith('/') ? inputUrl : inputUrl.substring(0, -1);
+    const normalizedUrl = !inputUrl.endsWith('/') ? inputUrl : inputUrl.substring(0, inputUrl.length - 1);
     chrome.runtime.sendMessage(
       { command: Constants.commands.setPumlServerUrl, pumlServerUrl: normalizedUrl },
       updatePumlServerUrl
