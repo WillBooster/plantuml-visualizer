@@ -1,1 +1,11 @@
-{ "root": true, "extends": ["@willbooster/eslint-config-ts"] }
+{
+  "root": true,
+  "extends": ["@willbooster/eslint-config-ts"],
+  "plugins": ["svelte3"],
+  "overrides": [
+    {
+      "files": ["**/*.svelte"],
+      "processor": "svelte3/svelte3"
+    }
+  ]
+}
