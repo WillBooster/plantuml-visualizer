@@ -14,5 +14,12 @@
     "target": "esnext",
     "module": "esnext"
   },
-  "include": ["src/**/*", "__tests__/**/*", "packages/*/src/**/*", "packages/*/__tests__/**/*"]
+  "include": [
+    "src/**/*",
+    "@types/**/*",
+    "__tests__/**/*",
+    "packages/*/src/**/*",
+    "packages/*/@types/**/*",
+    "packages/*/__tests__/**/*"
+  ]
 }
