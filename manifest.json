@@ -4,14 +4,15 @@
   "description": "A Chrome / Firefox extension for visualizing PlantUML descriptions.",
   "version": "0.0.0",
   "browser_action": {
-    "default_icon": "icon/icon16.png"
+    "default_icon": "icon/icon16.png",
+    "default_popup": "popup.html"
   },
   "icons": {
     "16": "icon/icon16.png",
     "48": "icon/icon48.png",
     "128": "icon/icon128.png"
   },
-  "permissions": ["https://willbooster-plantuml.herokuapp.com/*"],
+  "permissions": ["https://*/*", "storage"],
   "background": {
     "scripts": ["background.js"]
   },
