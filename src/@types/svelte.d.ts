@@ -1,5 +1,7 @@
 declare module '*.svelte' {
-  class SvelteComponent {}
+  class SvelteComponent {
+      constructor(props: any);
+  }
   const component: SvelteComponent;
   export default { component }
 }
