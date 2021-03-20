@@ -1,6 +1,14 @@
 name: Test
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - '!renovate/**'
+  push:
+    branches:
+      - 'main'
+      - 'renovate/**'
 
 jobs:
   pre:
@@ -11,18 +19,20 @@ jobs:
       - id: skip_check
         uses: fkirc/skip-duplicate-actions@master
         with:
+          concurrent_skipping: always
           paths_ignore: '["**/*.md", "**/docs/**"]'
-          do_not_skip: '["pull_request", "workflow_dispatch", "schedule"]'
   test:
     needs: pre
     if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js 12
-        uses: actions/setup-node@v2
+      - name: Read version files
+        run: |
+          echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+      - uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: ${{ env.NODE_VERSION }}
       - name: Show environment information
         run: |
           echo "node: $(node -v)"

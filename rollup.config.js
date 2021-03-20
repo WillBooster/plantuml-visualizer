@@ -36,4 +36,15 @@ export default [
     ],
     plugins,
   },
+  {
+    input: 'src/popup.ts',
+    output: [
+      {
+        file: 'dist/popup.js',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    plugins,
+  },
 ];
