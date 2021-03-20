@@ -33,7 +33,7 @@ export class RawFileFinder implements CodeFinder {
     const preprocessedLines = [];
     for (const line of contentLines) {
       const match = this.INCLUDE_REGEX.exec(line);
-      if (match === null) {
+      if (!match) {
         preprocessedLines.push(line);
         continue;
       }
@@ -59,7 +59,7 @@ export class RawFileFinder implements CodeFinder {
     const preprocessedLines = [];
     for (const line of contentLines) {
       const match = this.INCLUDESUB_REGEX.exec(line);
-      if (match === null) {
+      if (!match) {
         preprocessedLines.push(line);
         continue;
       }

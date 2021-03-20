@@ -1,7 +1,7 @@
-export function extractSubIncludedText(content: string, tag: string): string {
-  const STARTSUB_REGEX = /^\s*!startsub\s+(.*)\s*$/;
-  const ENDSUB_REGEX = /^\s*!endsub\s*$/;
+const STARTSUB_REGEX = /^\s*!startsub\s+(.*)\s*$/;
+const ENDSUB_REGEX = /^\s*!endsub\s*$/;
 
+export function extractSubIncludedText(content: string, tag: string): string {
   const contentLines = content.split('\n');
   const subTextLines = [];
   let subDepth = 0;

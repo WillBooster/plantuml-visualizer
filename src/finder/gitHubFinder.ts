@@ -61,7 +61,7 @@ export class GitHubFileViewFinder implements CodeFinder {
     const preprocessedLines = [];
     for (const line of fileTextLines) {
       const match = this.INCLUDE_REGEX.exec(line);
-      if (match === null) {
+      if (!match) {
         preprocessedLines.push(line);
         continue;
       }
@@ -87,7 +87,7 @@ export class GitHubFileViewFinder implements CodeFinder {
     const preprocessedLines = [];
     for (const line of contentLines) {
       const match = this.INCLUDESUB_REGEX.exec(line);
-      if (match === null) {
+      if (!match) {
         preprocessedLines.push(line);
         continue;
       }
@@ -134,11 +134,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
 
   private getDiffs($root: JQuery<Node>): JQuery<Node>[] {
     const $diffs = $root.find(`div[id^='diff-']:not([${Constants.ignoreAttribute}])`);
-    const diffs = [];
-    for (let i = 0; i < $diffs.length; i++) {
-      diffs.push($diffs.eq(i));
-    }
-    return diffs;
+    return [...Array($diffs.length).keys()].map((i) => $diffs.eq(i));
   }
 
   private async getDiffContent(
@@ -150,30 +146,18 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     const [baseFilePath, headFilePath] = this.getBaseHeadFilePaths($diff);
     const $diffBlock = $diff.find('div.js-file-content.Details-content--hidden');
     if (
-      (baseFilePath === '' && headFilePath === '') ||
+      (!baseFilePath && !headFilePath) ||
       $diffBlock.length === 0 ||
       $diffBlock.find('div.data.highlight.empty').length > 0
     ) {
-      return {
-        $diff: $(),
-        baseBranchName,
-        headBranchName,
-        baseTexts: [],
-        headTexts: [],
-      };
+      return { $diff: $(), baseBranchName, headBranchName, baseTexts: [], headTexts: [] };
     }
     const fileUrls = [
       blobRoot + '/' + baseBranchName + '/' + baseFilePath,
       blobRoot + '/' + headBranchName + '/' + headFilePath,
     ];
     const [baseTexts, headTexts] = await Promise.all(fileUrls.map((fileUrl) => this.getTexts(fileUrl)));
-    return {
-      $diff: $diffBlock,
-      baseBranchName,
-      headBranchName,
-      baseTexts,
-      headTexts,
-    };
+    return { $diff: $diffBlock, baseBranchName, headBranchName, baseTexts, headTexts };
   }
 
   private getBaseHeadFilePaths($diff: JQuery<Node>): [string, string] {
