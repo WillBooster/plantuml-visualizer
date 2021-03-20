@@ -2,17 +2,17 @@ import { deflate } from 'zlib.es';
 
 import { Constants } from '../constants';
 
-let imageSrcUrl = Constants.defaultConfig.pumlServerUrl;
+let pumlServerUrl = Constants.defaultConfig.pumlServerUrl;
 
 chrome.runtime.sendMessage({ command: Constants.commands.getPumlServerUrl }, (url) => {
-  imageSrcUrl = url;
+  pumlServerUrl = url;
 });
 
 export const PlantUmlEncoder = {
-  getImageUrl(umlString: string, url: string = imageSrcUrl): string {
+  getImageUrl(pumlContent: string, serverUrl: string = pumlServerUrl): string {
     const textEncoder = new TextEncoder();
-    const encoded = encode64(deflate(textEncoder.encode(umlString)));
-    return `${url}/svg/${encoded}`;
+    const encoded = encode64(deflate(textEncoder.encode(pumlContent)));
+    return `${serverUrl}/svg/${encoded}`;
   },
 };
 
