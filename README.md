@@ -47,10 +47,11 @@ The visualization result of https://github.com/WillBooster/plantuml-visualizer/p
 
 ## Default Vsualization Server
 
-The default server is https://willbooster-plantuml.herokuapp.com  
-(source code: https://github.com/WillBooster/plantuml-service).  
-You may check the PlantUML version via https://willbooster-plantuml.herokuapp.com/version.  
-We plan to allow users to change the server.
+The default server is https://willbooster-plantuml.herokuapp.com
+([source code](https://github.com/WillBooster/plantuml-service)).
+You may check the PlantUML version via [this link](https://willbooster-plantuml.herokuapp.com/version).
+
+You may use another **HTTPS** PlantUML server by changing settings in the configuration window.
 
 ## Requirements for Development
 
