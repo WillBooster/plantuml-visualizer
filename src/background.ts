@@ -5,7 +5,7 @@ const config = { ...Constants.defaultConfig };
 chrome.storage.sync.get((storage) => {
   if (storage.extensionEnabled !== undefined) config.extensionEnabled = storage.extensionEnabled;
   if (storage.pumlServerUrl !== undefined) config.pumlServerUrl = storage.pumlServerUrl;
-  chrome.browserAction.setIcon({ path: config.extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' });
+  setIcon();
 });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       config.extensionEnabled = !config.extensionEnabled;
       sendResponse(config.extensionEnabled);
       chrome.storage.sync.set({ extensionEnabled: config.extensionEnabled });
-      chrome.browserAction.setIcon({ path: config.extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' });
+      setIcon();
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
       });
@@ -35,3 +35,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       break;
   }
 });
+
+function setIcon(): void {
+  chrome.browserAction.setIcon({ path: config.extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' });
+}
