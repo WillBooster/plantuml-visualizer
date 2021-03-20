@@ -8,15 +8,15 @@ export function extractSubIncludedText(content: string, tag: string): string {
   for (const line of contentLines) {
     if (subDepth === 0) {
       const match = STARTSUB_REGEX.exec(line);
-      if (match !== null && match[1] === tag) subDepth++;
+      if (match && match[1] === tag) subDepth++;
       continue;
     }
     const startMatch = STARTSUB_REGEX.exec(line);
     const endMatch = ENDSUB_REGEX.exec(line);
-    if (startMatch !== null) {
+    if (startMatch) {
       subDepth++;
       subTextLines.push(line);
-    } else if (endMatch !== null) {
+    } else if (endMatch) {
       subDepth--;
       if (subDepth > 0) subTextLines.push(line);
     } else {
