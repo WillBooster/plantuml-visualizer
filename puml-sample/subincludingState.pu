@@ -1,0 +1,12 @@
+@startuml
+!includesub subincludedState.pu!sub
+state State1
+state State2
+
+[*] -> State1
+State1 -> IncludedState1
+IncludedState1 -> IngoredIncludedState
+IngoredIncludedState -> IncludedState2
+IncludedState2 -> State2
+State2 -> [*]
+@enduml
