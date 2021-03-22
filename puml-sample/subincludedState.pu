@@ -1,0 +1,41 @@
+@startuml
+!startsub sub
+state IncludedState1 {
+    state Sub11
+    state Sub12
+    state Sub13
+
+    [*] -> Sub11
+    Sub11 -> Sub12
+    Sub12 -> Sub13
+    Sub11 -> Sub13
+    Sub13 -> [*]
+}
+!endsub
+
+state IngoredIncludedState {
+    state Sub1
+    state Sub2
+    state Sub3
+
+    [*] -> Sub1
+    Sub1 -> Sub2
+    Sub2 -> Sub3
+    Sub1 -> Sub3
+    Sub3 -> [*]
+}
+
+!startsub sub
+state IncludedState2 {
+    state Sub21
+    state Sub22
+    state Sub23
+
+    [*] -> Sub21
+    Sub21 -> Sub22
+    Sub22 -> Sub23
+    Sub21 -> Sub23
+    Sub23 -> [*]
+}
+!endsub
+@enduml

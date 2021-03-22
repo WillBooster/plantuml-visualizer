@@ -1,5 +1,5 @@
 @startuml
-state SubState {
+state IncludedState {
     state Sub1
     state Sub2
     state Sub3
