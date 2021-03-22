@@ -68,15 +68,14 @@ export class GitHubFileViewFinder implements CodeFinder {
 
       const includedFileUrl = `${dirUrl}/${match[1]}`;
       const response = await fetch(includedFileUrl);
-      if (response.ok) {
-        const htmlString = await response.text();
-        const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-        const fileTexts = await this.find(includedFileUrl, $body);
-        const includedText = fileTexts
-          .map((fileText) => fileText.text.replace(/@startuml/g, '').replace(/@enduml/g, ''))
-          .join('\n');
-        preprocessedLines.push(includedText);
-      }
+      if (!response.ok) continue;
+      const htmlString = await response.text();
+      const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
+      const fileTexts = await this.find(includedFileUrl, $body);
+      const includedText = fileTexts
+        .map((fileText) => fileText.text.replace(/@startuml/g, '').replace(/@enduml/g, ''))
+        .join('\n');
+      preprocessedLines.push(includedText);
     }
 
     return preprocessedLines.join('\n');
@@ -96,13 +95,12 @@ export class GitHubFileViewFinder implements CodeFinder {
 
       const includedFileUrl = `${dirUrl}/${match[1]}`;
       const response = await fetch(includedFileUrl);
-      if (response.ok) {
-        const htmlString = await response.text();
-        const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-        const fileTexts = await this.find(includedFileUrl, $body);
-        const includedText = fileTexts.map((fileText) => extractSubIncludedText(fileText.text, match[3])).join('\n');
-        preprocessedLines.push(includedText);
-      }
+      if (!response.ok) continue;
+      const htmlString = await response.text();
+      const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
+      const fileTexts = await this.find(includedFileUrl, $body);
+      const includedText = fileTexts.map((fileText) => extractSubIncludedText(fileText.text, match[3])).join('\n');
+      preprocessedLines.push(includedText);
     }
 
     return preprocessedLines.join('\n');
