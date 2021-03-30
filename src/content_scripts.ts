@@ -1,15 +1,15 @@
 import $ from 'jquery';
 
 import { Constants } from './constants';
+import { CodeBlockFinder } from './finder/codeBlockFinder';
 import { DiffFinder, CodeFinder } from './finder/finder';
 import { GitHubCodeBlockFinder, GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
-import { RawFileFinder } from './finder/rawFileFinder';
 import { DescriptionMutator } from './mutator/descriptionMutator';
 import { DiffMutator } from './mutator/diffMutator';
 
 const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
-const allFinders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileViewFinder()];
+const allFinders = [new CodeBlockFinder(), new GitHubCodeBlockFinder(), new GitHubFileViewFinder()];
 const allDiffFinders = [new GitHubPullRequestDiffFinder()];
 let enabledFinders: CodeFinder[];
 let enabledDiffFinders: DiffFinder[];
