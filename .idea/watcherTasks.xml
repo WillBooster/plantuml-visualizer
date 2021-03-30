@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectTasksOptions">
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--write $FilePathRelativeToProjectRoot$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="arguments" value="prettier --write $FilePathRelativeToProjectRoot$" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="ts" />
@@ -14,16 +14,16 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
-      <option name="runOnExternalChanges" value="true" />
+      <option name="program" value="yarn" />
+      <option name="runOnExternalChanges" value="false" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ProjectFileDir$" />
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--write $FilePathRelativeToProjectRoot$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="arguments" value="prettier --write $FilePathRelativeToProjectRoot$" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="tsx" />
@@ -34,16 +34,16 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
-      <option name="runOnExternalChanges" value="true" />
+      <option name="program" value="yarn" />
+      <option name="runOnExternalChanges" value="false" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ProjectFileDir$" />
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--write $FilePathRelativeToProjectRoot$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="arguments" value="prettier --write $FilePathRelativeToProjectRoot$" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="js" />
@@ -54,16 +54,16 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
-      <option name="runOnExternalChanges" value="true" />
+      <option name="program" value="yarn" />
+      <option name="runOnExternalChanges" value="false" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ProjectFileDir$" />
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--write $FilePathRelativeToProjectRoot$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="arguments" value="prettier --write $FilePathRelativeToProjectRoot$" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="json" />
@@ -74,16 +74,16 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
-      <option name="runOnExternalChanges" value="true" />
+      <option name="program" value="yarn" />
+      <option name="runOnExternalChanges" value="false" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ProjectFileDir$" />
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--write $FilePathRelativeToProjectRoot$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="arguments" value="prettier --write $FilePathRelativeToProjectRoot$" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="md" />
@@ -94,16 +94,16 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
-      <option name="runOnExternalChanges" value="true" />
+      <option name="program" value="yarn" />
+      <option name="runOnExternalChanges" value="false" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ProjectFileDir$" />
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--write $FilePathRelativeToProjectRoot$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="arguments" value="prettier --write $FilePathRelativeToProjectRoot$" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="html" />
@@ -114,8 +114,8 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
-      <option name="runOnExternalChanges" value="true" />
+      <option name="program" value="yarn" />
+      <option name="runOnExternalChanges" value="false" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ProjectFileDir$" />
