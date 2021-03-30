@@ -5,28 +5,6 @@ import { Constants } from '../constants';
 import { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
 import { extractSubIncludedText } from './finderUtil';
 
-export class GitHubCodeBlockFinder implements CodeFinder {
-  private readonly URL_REGEX = /^https:\/\/github\.com/;
-  private readonly EXCLUDE_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
-
-  canFind(webPageUrl: string): boolean {
-    if (this.EXCLUDE_URL_REGEX.test(webPageUrl)) return false;
-    return this.URL_REGEX.test(webPageUrl);
-  }
-
-  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
-    const $texts = $root.find(`pre:not([${Constants.ignoreAttribute}])`);
-    const result = [];
-    for (const text of $texts) {
-      const content = (text.textContent || '').trim();
-      if (content.startsWith('@startuml') && content.endsWith('@enduml')) {
-        result.push({ $text: $(text), text: content });
-      }
-    }
-    return result;
-  }
-}
-
 export class GitHubFileViewFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;
   private readonly EXCLUDE_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;

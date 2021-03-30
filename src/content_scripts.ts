@@ -3,13 +3,13 @@ import $ from 'jquery';
 import { Constants } from './constants';
 import { CodeBlockFinder } from './finder/codeBlockFinder';
 import { DiffFinder, CodeFinder } from './finder/finder';
-import { GitHubCodeBlockFinder, GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
+import { GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
 import { DescriptionMutator } from './mutator/descriptionMutator';
 import { DiffMutator } from './mutator/diffMutator';
 
 const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
-const allFinders = [new CodeBlockFinder(), new GitHubCodeBlockFinder(), new GitHubFileViewFinder()];
+const allCodeFinders = [new CodeBlockFinder(), new GitHubFileViewFinder()];
 const allDiffFinders = [new GitHubPullRequestDiffFinder()];
 let enabledFinders: CodeFinder[];
 let enabledDiffFinders: DiffFinder[];
@@ -49,7 +49,7 @@ async function embedPlantUmlImages(): Promise<void[]> {
   embedding = true;
   if (lastUrl !== location.href) {
     lastUrl = location.href;
-    enabledFinders = allFinders.filter((f) => f.canFind(location.href));
+    enabledFinders = allCodeFinders.filter((f) => f.canFind(location.href));
     enabledDiffFinders = allDiffFinders.filter((f) => f.canFind(location.href));
   } else {
     // Deal with re-rendering multiple times (e.g. it occurs when updating a GitHub issue)
