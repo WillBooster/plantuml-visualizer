@@ -5,11 +5,12 @@ import { extractSubIncludedText } from './finderUtil';
 
 export class CodeBlockFinder implements CodeFinder {
   private readonly URL_REGEX = /^(file|https?):\/\/.+$/;
+  private readonly EXCLUDING_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
   private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
   private readonly INCLUDESUB_REGEX = /^\s*!includesub\s+(.*\.(plantuml|pu|puml|wsd))!(.*)\s*$/;
 
   canFind(webPageUrl: string): boolean {
-    return this.URL_REGEX.test(webPageUrl);
+    return this.URL_REGEX.test(webPageUrl) && !this.EXCLUDING_URL_REGEX.test(webPageUrl);
   }
 
   async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
