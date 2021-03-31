@@ -9,8 +9,10 @@ import { DiffMutator } from './mutator/diffMutator';
 
 const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
-const allCodeFinders = [new CodeBlockFinder(), new GitHubFileViewFinder()];
-const allDiffFinders = [new GitHubPullRequestDiffFinder()];
+const EXCLUDING_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
+
+const allCodeFinders = [new CodeBlockFinder(), new GitHubFileViewFinder()] as const;
+const allDiffFinders = [new GitHubPullRequestDiffFinder()] as const;
 let enabledFinders: CodeFinder[];
 let enabledDiffFinders: DiffFinder[];
 let lastUrl: string;
@@ -42,9 +44,8 @@ function apply(): void {
 }
 
 async function embedPlantUmlImages(): Promise<void[]> {
-  if (lastUrl === location.href && embedding) {
-    return [];
-  }
+  if (lastUrl === location.href && embedding) return [];
+  if (EXCLUDING_URL_REGEX.test(location.href)) return [];
 
   embedding = true;
   if (lastUrl !== location.href) {
