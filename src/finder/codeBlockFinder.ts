@@ -17,8 +17,8 @@ export class CodeBlockFinder implements CodeFinder {
     const result = [];
     for (let i = 0; i < $texts.length; i++) {
       const $text = $texts.eq(i);
-      let content = $text.text();
-      if (content.indexOf('@startuml') < 0 || content.indexOf('@enduml') < 0) continue;
+      let content = $text.text().trim();
+      if (!content.startsWith('@startuml') || !content.endsWith('@enduml')) continue;
       content = await this.preprocessIncludeDirective(webPageUrl, content);
       content = await this.preprocessIncludesubDirective(webPageUrl, content);
       result.push({ $text, text: content });
