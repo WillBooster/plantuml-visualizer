@@ -21,9 +21,9 @@
     "format": "sort-package-json && yarn prettier",
     "lint": "eslint \"./{packages/*/,}{src,__tests__}/**/*.{js,jsx,ts,tsx}\"",
     "lint-fix": "yarn lint --fix",
-    "package": "shx rm -f plantuml-visualizer-v*.tgz dist-*.zip && yarn pack && yarn build && cd dist && bestzip ../dist.zip *",
+    "package": "rm -f \"*.tgz\" \"*.zip\" && yarn pack && yarn build && cd dist && bestzip ../dist.zip *",
     "prettier": "prettier --write \"**/{.*/,}*.{css,htm,html,js,json,jsx,md,scss,ts,tsx,vue,yaml,yml}\" \"!**/test-fixtures/**\"",
-    "recreate-dist": "shx rm -Rf dist && shx mkdir dist && shx cp -r src/popup.html icon manifest.json dist/",
+    "recreate-dist": "rm -Rf dist && mkdir dist && cp -r src/popup.html icon manifest.json dist/",
     "release": "dotenv -- semantic-release",
     "release-test": "yarn release -d",
     "start": "cross-env NODE_ENV=development yarn build-common -w",
@@ -68,7 +68,6 @@
     "semantic-release": "17.4.2",
     "semantic-release-chrome": "1.1.3",
     "semantic-release-firefox-add-on": "0.2.8",
-    "shx": "0.3.3",
     "sort-package-json": "1.49.0",
     "typescript": "4.2.3"
   }
