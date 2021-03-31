@@ -1,40 +1,15 @@
 import $ from 'jquery';
 
 import { Constants } from '../constants';
+import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../directiveRegexes';
 
 import { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
 import { extractSubIncludedText } from './finderUtil';
 
-export class GitHubCodeBlockFinder implements CodeFinder {
-  private readonly URL_REGEX = /^https:\/\/github\.com/;
-  private readonly EXCLUDE_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
-
-  canFind(webPageUrl: string): boolean {
-    if (this.EXCLUDE_URL_REGEX.test(webPageUrl)) return false;
-    return this.URL_REGEX.test(webPageUrl);
-  }
-
-  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
-    const $texts = $root.find(`pre:not([${Constants.ignoreAttribute}])`);
-    const result = [];
-    for (const text of $texts) {
-      const content = (text.textContent || '').trim();
-      if (content.startsWith('@startuml') && content.endsWith('@enduml')) {
-        result.push({ $text: $(text), text: content });
-      }
-    }
-    return result;
-  }
-}
-
 export class GitHubFileViewFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;
-  private readonly EXCLUDE_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
-  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
-  private readonly INCLUDESUB_REGEX = /^\s*!includesub\s+(.*\.(plantuml|pu|puml|wsd))!(.*)\s*$/;
 
   canFind(webPageUrl: string): boolean {
-    if (this.EXCLUDE_URL_REGEX.test(webPageUrl)) return false;
     return this.URL_REGEX.test(webPageUrl);
   }
 
@@ -60,7 +35,7 @@ export class GitHubFileViewFinder implements CodeFinder {
 
     const preprocessedLines = [];
     for (const line of fileTextLines) {
-      const match = this.INCLUDE_REGEX.exec(line);
+      const match = INCLUDE_REGEX.exec(line);
       if (!match) {
         preprocessedLines.push(line);
         continue;
@@ -87,7 +62,7 @@ export class GitHubFileViewFinder implements CodeFinder {
 
     const preprocessedLines = [];
     for (const line of contentLines) {
-      const match = this.INCLUDESUB_REGEX.exec(line);
+      const match = INCLUDESUB_REGEX.exec(line);
       if (!match) {
         preprocessedLines.push(line);
         continue;
@@ -143,7 +118,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     headBranchName: string,
     $diff: JQuery<Node>
   ): Promise<UmlDiffContent> {
-    const [baseFilePath, headFilePath] = this.getBaseHeadFilePaths($diff);
+    const [baseFilePath, headFilePath] = GitHubPullRequestDiffFinder.getBaseHeadFilePaths($diff);
     const $diffBlock = $diff.find('div.js-file-content.Details-content--hidden');
     if (
       (!baseFilePath && !headFilePath) ||
@@ -156,11 +131,13 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
       blobRoot + '/' + baseBranchName + '/' + baseFilePath,
       blobRoot + '/' + headBranchName + '/' + headFilePath,
     ];
-    const [baseTexts, headTexts] = await Promise.all(fileUrls.map((fileUrl) => this.getTexts(fileUrl)));
+    const [baseTexts, headTexts] = await Promise.all(
+      fileUrls.map((fileUrl) => GitHubPullRequestDiffFinder.getTexts(fileUrl))
+    );
     return { $diff: $diffBlock, baseBranchName, headBranchName, baseTexts, headTexts };
   }
 
-  private getBaseHeadFilePaths($diff: JQuery<Node>): [string, string] {
+  private static getBaseHeadFilePaths($diff: JQuery<Node>): [string, string] {
     const title = $diff.find('div.file-info a').attr('title');
     if (!title) return ['', ''];
     const separator = ' → ';
@@ -181,7 +158,7 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
     return ['', ''];
   }
 
-  private async getTexts(fileUrl: string): Promise<string[]> {
+  private static async getTexts(fileUrl: string): Promise<string[]> {
     const response = await fetch(fileUrl);
     if (!response.ok) return [];
     const htmlString = await response.text();

@@ -1,16 +1,18 @@
 import $ from 'jquery';
 
 import { Constants } from './constants';
+import { CodeBlockFinder } from './finder/codeBlockFinder';
 import { DiffFinder, CodeFinder } from './finder/finder';
-import { GitHubCodeBlockFinder, GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
-import { RawFileFinder } from './finder/rawFileFinder';
+import { GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
 import { DescriptionMutator } from './mutator/descriptionMutator';
 import { DiffMutator } from './mutator/diffMutator';
 
 const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
-const allFinders = [new RawFileFinder(), new GitHubCodeBlockFinder(), new GitHubFileViewFinder()];
-const allDiffFinders = [new GitHubPullRequestDiffFinder()];
+const EXCLUDING_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
+
+const allCodeFinders = [new CodeBlockFinder(), new GitHubFileViewFinder()] as const;
+const allDiffFinders = [new GitHubPullRequestDiffFinder()] as const;
 let enabledFinders: CodeFinder[];
 let enabledDiffFinders: DiffFinder[];
 let lastUrl: string;
@@ -42,14 +44,13 @@ function apply(): void {
 }
 
 async function embedPlantUmlImages(): Promise<void[]> {
-  if (lastUrl === location.href && embedding) {
-    return [];
-  }
+  if (lastUrl === location.href && embedding) return [];
+  if (EXCLUDING_URL_REGEX.test(location.href)) return [];
 
   embedding = true;
   if (lastUrl !== location.href) {
     lastUrl = location.href;
-    enabledFinders = allFinders.filter((f) => f.canFind(location.href));
+    enabledFinders = allCodeFinders.filter((f) => f.canFind(location.href));
     enabledDiffFinders = allDiffFinders.filter((f) => f.canFind(location.href));
   } else {
     // Deal with re-rendering multiple times (e.g. it occurs when updating a GitHub issue)

@@ -1,5 +1,4 @@
-const STARTSUB_REGEX = /^\s*!startsub\s+(.*)\s*$/;
-const ENDSUB_REGEX = /^\s*!endsub\s*$/;
+import { ENDSUB_REGEX, STARTSUB_REGEX } from '../directiveRegexes';
 
 export function extractSubIncludedText(content: string, tag: string): string {
   const contentLines = content.split('\n');

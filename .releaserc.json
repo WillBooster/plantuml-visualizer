@@ -6,7 +6,8 @@
     [
       "@semantic-release/npm",
       {
-        "npmPublish": false
+        "npmPublish": false,
+        "successComment": false
       }
     ],
     "@semantic-release/github",
