@@ -4,7 +4,7 @@ import { CodeFinder, UmlCodeContent } from './finder';
 import { extractSubIncludedText } from './finderUtil';
 
 export class CodeBlockFinder implements CodeFinder {
-  private readonly URL_REGEX = /(file)|(https?)|([A-Z]):\/\/.+/;
+  private readonly URL_REGEX = /^(file|https?):\/\/.+$/;
   private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
   private readonly INCLUDESUB_REGEX = /^\s*!includesub\s+(.*\.(plantuml|pu|puml|wsd))!(.*)\s*$/;
 
