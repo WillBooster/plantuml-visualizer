@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 import { Constants } from '../constants';
-import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../regexes';
+import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../directiveRegexes';
 
 import { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
 import { extractSubIncludedText } from './finderUtil';
