@@ -1,12 +1,11 @@
 import { Constants } from '../constants';
+import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../directiveRegexes';
 
 import { CodeFinder, UmlCodeContent } from './finder';
 import { extractSubIncludedText } from './finderUtil';
 
 export class CodeBlockFinder implements CodeFinder {
   private readonly URL_REGEX = /^(file|https?):\/\/.+$/;
-  private readonly INCLUDE_REGEX = /^\s*!include\s+(.*\.(plantuml|pu|puml|wsd))\s*$/;
-  private readonly INCLUDESUB_REGEX = /^\s*!includesub\s+(.*\.(plantuml|pu|puml|wsd))!(.*)\s*$/;
 
   canFind(webPageUrl: string): boolean {
     return this.URL_REGEX.test(webPageUrl);
@@ -32,7 +31,7 @@ export class CodeBlockFinder implements CodeFinder {
 
     const preprocessedLines = [];
     for (const line of contentLines) {
-      const match = this.INCLUDE_REGEX.exec(line);
+      const match = INCLUDE_REGEX.exec(line);
       if (!match) {
         preprocessedLines.push(line);
         continue;
@@ -57,7 +56,7 @@ export class CodeBlockFinder implements CodeFinder {
 
     const preprocessedLines = [];
     for (const line of contentLines) {
-      const match = this.INCLUDESUB_REGEX.exec(line);
+      const match = INCLUDESUB_REGEX.exec(line);
       if (!match) {
         preprocessedLines.push(line);
         continue;
