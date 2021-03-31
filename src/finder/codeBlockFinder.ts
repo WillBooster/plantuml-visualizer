@@ -1,7 +1,7 @@
 import { Constants } from '../constants';
 import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../directiveRegexes';
 
-import { CodeFinder, UmlCodeContent } from './finder';
+import type { CodeFinder, UmlCodeContent } from './finder';
 import { extractSubIncludedText } from './finderUtil';
 
 export class CodeBlockFinder implements CodeFinder {
