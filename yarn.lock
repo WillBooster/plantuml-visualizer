@@ -1927,6 +1927,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/svelte@npm:1.0.10":
+  version: 1.0.10
+  resolution: "@tsconfig/svelte@npm:1.0.10"
+  checksum: d38480e0ac7482b488083cbb8aad041862d4a178b879aac86c54ca8ce27b736d6432c79c48a25df9f4f2c03fcbbeb79c81b5e120c199a4b8b9ce38b22961d861
+  languageName: node
+  linkType: hard
+
 "@types/chrome@npm:0.0.133":
   version: 0.0.133
   resolution: "@types/chrome@npm:0.0.133"
@@ -9283,6 +9290,7 @@ fsevents@~2.3.1:
     "@rollup/plugin-babel": 5.3.0
     "@rollup/plugin-commonjs": 18.0.0
     "@rollup/plugin-node-resolve": 11.2.1
+    "@tsconfig/svelte": 1.0.10
     "@types/chrome": 0.0.133
     "@types/jquery": 3.5.5
     "@typescript-eslint/eslint-plugin": 4.20.0
