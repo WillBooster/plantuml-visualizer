@@ -18,17 +18,7 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://github.com/*",
-        "*://*/*.pu*",
-        "*://*/*.puml*",
-        "*://*/*.plantuml*",
-        "*://*/*.wsd*",
-        "file:///*/*.pu*",
-        "file:///*/*.puml*",
-        "file:///*/*.plantuml*",
-        "file:///*/*.wsd*"
-      ],
+      "matches": ["https://*/*", "http://*/*", "file:///*/*"],
       "js": ["content_scripts.js"]
     }
   ]
