@@ -67,7 +67,9 @@
 </script>
 
 <div id="popup">
-  {#if !loading}
+  {#if loading}
+    <p>loading...</p>
+  {:else}
     <button class="puml-vis-toggle" on:click={handleToggleButtonClick}
       >{config.extensionEnabled ? 'Disable' : 'Enable'} PlantUML visualization</button
     >
@@ -78,8 +80,6 @@
       >Change server URL (https is required)</button
     >
     <img class="puml-vis-version" src={versionPumlSrc} alt="PlantUML version" />
-  {:else}
-    <p>loading...</p>
   {/if}
 </div>
 
