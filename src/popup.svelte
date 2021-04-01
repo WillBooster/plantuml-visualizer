@@ -83,7 +83,7 @@
   {/if}
 </div>
 
-<style>
+<style lang="scss">
   #popup {
     width: 500px;
   }
