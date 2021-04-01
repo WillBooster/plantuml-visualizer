@@ -10,6 +10,9 @@ chrome.storage.sync.get((storage) => {
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.command) {
+    case Constants.commands.getConfig:
+      sendResponse(config);
+      break;
     case Constants.commands.getExtensionEnabled:
       sendResponse(config.extensionEnabled);
       break;

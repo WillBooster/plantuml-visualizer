@@ -1927,6 +1927,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/svelte@npm:1.0.10":
+  version: 1.0.10
+  resolution: "@tsconfig/svelte@npm:1.0.10"
+  checksum: d38480e0ac7482b488083cbb8aad041862d4a178b879aac86c54ca8ce27b736d6432c79c48a25df9f4f2c03fcbbeb79c81b5e120c199a4b8b9ce38b22961d861
+  languageName: node
+  linkType: hard
+
 "@types/chrome@npm:0.0.133":
   version: 0.0.133
   resolution: "@types/chrome@npm:0.0.133"
@@ -2051,6 +2058,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/pug@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@types/pug@npm:2.0.4"
+  checksum: f4470eb1884afd1c4659ee1dcc6d838a06ecd959e33a4d911488b4e0edebea6bf97b0964a93383df50a381f85c36e5e737891db5757defdfd2e1c4a279e7dc2b
+  languageName: node
+  linkType: hard
+
 "@types/resolve@npm:1.17.1":
   version: 1.17.1
   resolution: "@types/resolve@npm:1.17.1"
@@ -2073,6 +2087,15 @@ __metadata:
   version: 0.12.0
   resolution: "@types/retry@npm:0.12.0"
   checksum: 0755164f2c8d615a0385609c478aaa20b17e55bc8b16d5d56ffe6a5d30b0a9845d49452a2e8903ec7c43fa361f19daf5e68c60e7381ad10a95dd3d0bb5c9f7fd
+  languageName: node
+  linkType: hard
+
+"@types/sass@npm:1.16.0, @types/sass@npm:^1.16.0":
+  version: 1.16.0
+  resolution: "@types/sass@npm:1.16.0"
+  dependencies:
+    "@types/node": "*"
+  checksum: e95d14da2d05dea49e913db55922857234b01f2b1b513dd8cc556b64ffa6d89fb81ce4c1f21a6b4cd20f39d61455975e623ed681502b3d06b2d24a2ddd03a21e
   languageName: node
   linkType: hard
 
@@ -2421,14 +2444,14 @@ __metadata:
   linkType: hard
 
 "ajv@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "ajv@npm:8.0.1"
+  version: 8.0.2
+  resolution: "ajv@npm:8.0.2"
   dependencies:
     fast-deep-equal: ^3.1.1
     json-schema-traverse: ^1.0.0
     require-from-string: ^2.0.2
     uri-js: ^4.2.2
-  checksum: 6ec271f8a4e2d938d5a28f21e927b31bec16c72e05cac68d21c53d71ec2c9360d504db529e5e891c11cc2939c9fdf922bece8a4500b0cfb0877bdd6acfef3949
+  checksum: e91e21e2512fdad58d4891057ed9a221e704f98003cefd846543c82859c50dc09a94be8bf727c39def45f3fcc8b983e51d82ef9646f6af805bf3ede2817175d7
   languageName: node
   linkType: hard
 
@@ -3354,9 +3377,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001181":
-  version: 1.0.30001204
-  resolution: "caniuse-lite@npm:1.0.30001204"
-  checksum: 650f320ece8aa5eb1caf406a143d93097af97b84070b9a01028f41a8feab1eae8364478c4e0e0571a962ef245c9b6fbf3ea611295c9882e5f97b8b83d97de2de
+  version: 1.0.30001205
+  resolution: "caniuse-lite@npm:1.0.30001205"
+  checksum: 7be985a0817531780134e698b159f4a135a95b1650703db6e0c4f6a04152e32860ad8fde748b7f91c3b343e541f8d39125b237fd7d497a4a888a6971bd8eb6fc
   languageName: node
   linkType: hard
 
@@ -3431,6 +3454,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chokidar@npm:>=2.0.0 <4.0.0, chokidar@npm:^3.4.1":
+  version: 3.5.1
+  resolution: "chokidar@npm:3.5.1"
+  dependencies:
+    anymatch: ~3.1.1
+    braces: ~3.0.2
+    fsevents: ~2.3.1
+    glob-parent: ~5.1.0
+    is-binary-path: ~2.1.0
+    is-glob: ~4.0.1
+    normalize-path: ~3.0.0
+    readdirp: ~3.5.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: 61b3f710f9e7dc69d76f638d8b0d37bad586497444165125ca8062f7192695f35403b5f622cbd7dfdd06805201ceaba40ff90e53ea2974df9a8087861192a99b
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^2.1.8":
   version: 2.1.8
   resolution: "chokidar@npm:2.1.8"
@@ -3451,25 +3493,6 @@ __metadata:
     fsevents:
       optional: true
   checksum: 0758dcc7c6c7ace5924cf3c68088210932d391ab41026376b0adb8e07013ac87232e029f13468dfc9ca4dd59adae62a2b7eaedebb6c4e4f0ba92cbf3ac9e3721
-  languageName: node
-  linkType: hard
-
-"chokidar@npm:^3.4.1":
-  version: 3.5.1
-  resolution: "chokidar@npm:3.5.1"
-  dependencies:
-    anymatch: ~3.1.1
-    braces: ~3.0.2
-    fsevents: ~2.3.1
-    glob-parent: ~5.1.0
-    is-binary-path: ~2.1.0
-    is-glob: ~4.0.1
-    normalize-path: ~3.0.0
-    readdirp: ~3.5.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  checksum: 61b3f710f9e7dc69d76f638d8b0d37bad586497444165125ca8062f7192695f35403b5f622cbd7dfdd06805201ceaba40ff90e53ea2974df9a8087861192a99b
   languageName: node
   linkType: hard
 
@@ -3985,12 +4008,12 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.8.1, core-js-compat@npm:^3.9.0":
-  version: 3.9.1
-  resolution: "core-js-compat@npm:3.9.1"
+  version: 3.10.0
+  resolution: "core-js-compat@npm:3.10.0"
   dependencies:
     browserslist: ^4.16.3
     semver: 7.0.0
-  checksum: 46c8bf3b40b1f5124527e969c41de6419da21399630230a3ba1679c7ad6c43469a67a8fcf9123b11eb13ec76a39229d48025c1f5d23e3dd5453056644d7fc0bd
+  checksum: c3d2f2fab12929f0fb0e2f60d8d44dd40eff79517737b8e241b47bb0bdba29ee13ddb358a79401b2efbe6ffe1103e01a398206579b8c71860d49e88e4b3282d5
   languageName: node
   linkType: hard
 
@@ -4588,9 +4611,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.649":
-  version: 1.3.703
-  resolution: "electron-to-chromium@npm:1.3.703"
-  checksum: 892c6c21d461ad5e7f1ac42b96e09b9a50914b690b17116891779dc5e7ec095bc755448619bc2176415867e1f08bb86075c8932701608ba6684b0a37f199af8a
+  version: 1.3.704
+  resolution: "electron-to-chromium@npm:1.3.704"
+  checksum: 725d3c36109bebd3d92b7dab15f453e80953a4df061ca9609f000a60cd3b242e7c544a1a88fd89bd1c5dc439ff3f893bc510c45e66a7e519a388e95cbb5cd7bd
   languageName: node
   linkType: hard
 
@@ -4837,6 +4860,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-svelte3@npm:3.1.2":
+  version: 3.1.2
+  resolution: "eslint-plugin-svelte3@npm:3.1.2"
+  peerDependencies:
+    eslint: ">=6.0.0"
+    svelte: ^3.2.0
+  checksum: a20088f614f6306ba69305c74ff72effdf2f150038f08de375a10a947e41078b82d2394916b1a566d9723a7724cd0c6984d1e78913fc3ecf4b26f885b609207e
+  languageName: node
+  linkType: hard
+
 "eslint-scope@npm:^5.0.0, eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
@@ -5032,6 +5065,13 @@ __metadata:
   version: 2.0.1
   resolution: "estree-walker@npm:2.0.1"
   checksum: 51ae3892e256162f942b6cc433f9fe313c30ffc71c9b07099168383fe211ef001a50f1df543ea8ed0753eb768079e0c1a0712540b228bbe3b544260fd113017d
+  languageName: node
+  linkType: hard
+
+"estree-walker@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "estree-walker@npm:0.6.1"
+  checksum: a63b94b841fcda2d79ff8e313b4ea8439b3364094ba66547289814bd7da4399a54cd33849b23504d239266430f219a142627071201a9fb6eb488bd025575f8fc
   languageName: node
   linkType: hard
 
@@ -7503,8 +7543,8 @@ fsevents@~2.3.1:
   linkType: hard
 
 "listr2@npm:^3.2.2":
-  version: 3.4.3
-  resolution: "listr2@npm:3.4.3"
+  version: 3.4.4
+  resolution: "listr2@npm:3.4.4"
   dependencies:
     chalk: ^4.1.0
     cli-truncate: ^2.1.0
@@ -7512,12 +7552,12 @@ fsevents@~2.3.1:
     indent-string: ^4.0.0
     log-update: ^4.0.0
     p-map: ^4.0.0
-    rxjs: ^6.6.6
+    rxjs: ^6.6.7
     through: ^2.3.8
     wrap-ansi: ^7.0.0
   peerDependencies:
     enquirer: ">= 2.3.0 < 3"
-  checksum: e5c2a8561c2abafb439d858a0e815c5385aefb6de1cd6c66470f7846691b80fef7e89e6f83a7035e4a9e9cb35bf375d3dfe3d8da35c563d2fb3f428054452972
+  checksum: a6df59e972f55b93d8ebf7340a57b5fc1d90d07848e8199020fb4c17fddde00938c350aeaa6ab45f159fd748f822d6526e222169acc2023d0ff8db5648686fca
   languageName: node
   linkType: hard
 
@@ -9250,8 +9290,10 @@ fsevents@~2.3.1:
     "@rollup/plugin-babel": 5.3.0
     "@rollup/plugin-commonjs": 18.0.0
     "@rollup/plugin-node-resolve": 11.2.1
+    "@tsconfig/svelte": 1.0.10
     "@types/chrome": 0.0.133
     "@types/jquery": 3.5.5
+    "@types/sass": 1.16.0
     "@typescript-eslint/eslint-plugin": 4.20.0
     "@typescript-eslint/parser": 4.20.0
     "@willbooster/eslint-config-ts": 6.2.1
@@ -9265,15 +9307,21 @@ fsevents@~2.3.1:
     eslint-config-prettier: 8.1.0
     eslint-plugin-import: 2.22.1
     eslint-plugin-prettier: 3.3.1
+    eslint-plugin-svelte3: 3.1.2
     husky: 4.3.8
     jquery: 3.6.0
     lint-staged: 10.5.4
     prettier: 2.2.1
+    prettier-plugin-svelte: 2.2.0
     rollup: 2.44.0
+    rollup-plugin-svelte: 7.1.0
+    sass: 1.32.8
     semantic-release: 17.4.2
     semantic-release-chrome: 1.1.3
     semantic-release-firefox-add-on: 0.2.8
     sort-package-json: 1.49.0
+    svelte: 3.35.0
+    svelte-preprocess: 4.6.9
     typescript: 4.2.3
     zlib.es: 0.6.0
   languageName: unknown
@@ -9334,6 +9382,16 @@ fsevents@~2.3.1:
   dependencies:
     fast-diff: ^1.1.2
   checksum: 6d698b9c8dc28e52c8d69df520cde3410cc06cc40471acf81b4b7c18ca08e73d0efb0f878654985bb02fce4f8d3d64cdf64fe9f3ffad3e1dc7e17b837d4ddcb2
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-svelte@npm:2.2.0":
+  version: 2.2.0
+  resolution: "prettier-plugin-svelte@npm:2.2.0"
+  peerDependencies:
+    prettier: ^1.16.4 || ^2.0.0
+    svelte: ^3.2.0
+  checksum: 80835696c33995c0fac921f4d1f0481aa712bbaafa52ae1f663b2582d11be2937f0597bd6e9d14b23e4093bc2ff17b6b42ee0ffa9c0d8200bf982a708a2f362d
   languageName: node
   linkType: hard
 
@@ -9879,6 +9937,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"require-relative@npm:^0.8.7":
+  version: 0.8.7
+  resolution: "require-relative@npm:0.8.7"
+  checksum: d07306c1ebfae4aaebeba64ff06ac453483fef1a18ee7bd2ef0460a94020f32f5135291ee0ae579ae7dde1d2d4bdc7bf3731fccb03fda937e07485245fbaadf3
+  languageName: node
+  linkType: hard
+
 "resolve-from@npm:^4.0.0":
   version: 4.0.0
   resolution: "resolve-from@npm:4.0.0"
@@ -9993,6 +10058,28 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"rollup-plugin-svelte@npm:7.1.0":
+  version: 7.1.0
+  resolution: "rollup-plugin-svelte@npm:7.1.0"
+  dependencies:
+    require-relative: ^0.8.7
+    rollup-pluginutils: ^2.8.2
+  peerDependencies:
+    rollup: ">=2.0.0"
+    svelte: ">=3.5.0"
+  checksum: fa19a0cbed6e706d0206c58f9c5877a32a4c24b231f5b2f948c6062c8e0c3e15fe18551ff030af42d4198e79879e4e100d99329842e771e6c0d224527121039f
+  languageName: node
+  linkType: hard
+
+"rollup-pluginutils@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "rollup-pluginutils@npm:2.8.2"
+  dependencies:
+    estree-walker: ^0.6.1
+  checksum: 6922c1a26df033cc3da4650106244fb2211b5ddf72a93be5010cbe51a0817c9abcab08f61cbc3f5fc906b2701df123d8c9b0dae0a34e69dd07218e34e5d357b8
+  languageName: node
+  linkType: hard
+
 "rollup@npm:2.44.0":
   version: 2.44.0
   resolution: "rollup@npm:2.44.0"
@@ -10016,7 +10103,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.6.6":
+"rxjs@npm:^6.6.7":
   version: 6.6.7
   resolution: "rxjs@npm:6.6.7"
   dependencies:
@@ -10059,6 +10146,17 @@ fsevents@~2.3.1:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: 549ba83f5b314b59898efe3422120ce1ca7987a6eae5925a5fa5db930dc414d4a9dde0a5594f89638cd6ea60b6840ea961872908933ac2428d1726489db46fa5
+  languageName: node
+  linkType: hard
+
+"sass@npm:1.32.8":
+  version: 1.32.8
+  resolution: "sass@npm:1.32.8"
+  dependencies:
+    chokidar: ">=2.0.0 <4.0.0"
+  bin:
+    sass: sass.js
+  checksum: d319b3d7459451b6532b492984e3cbb37381e6c6379622f668900b196c0d545f5a2c32819cf02b5405fb2ef79720fe1f8f16b7614a2fef3fb7af8dfec83a6597
   languageName: node
   linkType: hard
 
@@ -10904,6 +11002,60 @@ fsevents@~2.3.1:
     has-flag: ^4.0.0
     supports-color: ^7.0.0
   checksum: 8b3b6d71ee298d7f9a3ff4bfb928bd037c0b691b01bdfebb77deb3384976cd78c180d564dc3689ce5fe254d323252f7064efa1364bf24ab81efa6b080e51eddb
+  languageName: node
+  linkType: hard
+
+"svelte-preprocess@npm:4.6.9":
+  version: 4.6.9
+  resolution: "svelte-preprocess@npm:4.6.9"
+  dependencies:
+    "@types/pug": ^2.0.4
+    "@types/sass": ^1.16.0
+    detect-indent: ^6.0.0
+    strip-indent: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.10.2
+    coffeescript: ^2.5.1
+    less: ^3.11.3
+    postcss: ^7 || ^8
+    postcss-load-config: ^2.1.0 || ^3.0.0
+    pug: ^3.0.0
+    sass: ^1.26.8
+    stylus: ^0.54.7
+    sugarss: ^2.0.0
+    svelte: ^3.23.0
+    typescript: ^3.9.5 || ^4.0.0
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    coffeescript:
+      optional: true
+    less:
+      optional: true
+    node-sass:
+      optional: true
+    postcss:
+      optional: true
+    postcss-load-config:
+      optional: true
+    pug:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    typescript:
+      optional: true
+  checksum: a227290640d185e22d23a6f2dd5b583e3fb0fbb2d4681c01aaf909bfc0996898f54688095b5951d4cf8d5fe6b7fd46ed7d7d5d4acbcf22a871cc38f14d668ac6
+  languageName: node
+  linkType: hard
+
+"svelte@npm:3.35.0":
+  version: 3.35.0
+  resolution: "svelte@npm:3.35.0"
+  checksum: de6041dee98f82e0bfc44ba010d5f03f7bdcd4c9fc2647f5627d619bed3d3683bd28d0422c83907ac9a92e86fe96763e2340bb0d83ea23478d2ca3237eed3da8
   languageName: node
   linkType: hard
 

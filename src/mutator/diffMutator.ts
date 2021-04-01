@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import { DiffFinder } from '../finder/finder';
+import type { DiffFinder } from '../finder/finder';
 
 import { markAsIgnore, setDblclickHandlers, textsToImages } from './mutatorUtil';
 

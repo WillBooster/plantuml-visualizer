@@ -1,4 +1,4 @@
-import { CodeFinder } from '../finder/finder';
+import type { CodeFinder } from '../finder/finder';
 
 import { markAsIgnore, setDblclickHandlers, textToImage } from './mutatorUtil';
 

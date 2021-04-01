@@ -2,16 +2,18 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import closureCompile from '@ampproject/rollup-plugin-closure-compiler';
+import svelte from 'rollup-plugin-svelte';
+import sveltePreprocess from 'svelte-preprocess';
 
 const extensions = ['.mjs', '.js', '.json', '.ts'];
+
 const plugins = [
   resolve({ extensions }),
   commonjs(),
+  svelte({ include: 'src/**/*.svelte', preprocess: sveltePreprocess(), emitCss: false }),
   babel({ extensions, babelHelpers: 'bundled', exclude: 'node_modules/**' }),
 ];
-if (process.env.NODE_ENV === 'production') {
-  plugins.push(closureCompile());
-}
+if (process.env.NODE_ENV === 'production') plugins.push(closureCompile());
 
 export default [
   {

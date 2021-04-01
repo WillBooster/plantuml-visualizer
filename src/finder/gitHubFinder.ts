@@ -3,7 +3,7 @@ import $ from 'jquery';
 import { Constants } from '../constants';
 import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../directiveRegexes';
 
-import { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
+import type { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
 import { extractSubIncludedText } from './finderUtil';
 
 export class GitHubFileViewFinder implements CodeFinder {
