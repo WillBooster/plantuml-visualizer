@@ -16,10 +16,10 @@ export const Constants = {
   commands: {
     getConfig: 'getConfig',
     getExtensionEnabled: 'getExtensionEnabled',
-    getPumlServerUrl: 'getPumlServerUrl',
     getDeniedUrlRegexes: 'getDeniedUrlRegexes',
+    getPumlServerUrl: 'getPumlServerUrl',
     toggleExtensionEnabled: 'toggleExtensionEnabled',
-    setPumlServerUrl: 'setPumlServerUrl',
     setDeniedUrlRegexes: 'setDeniedUrlRegexes',
+    setPumlServerUrl: 'setPumlServerUrl',
   },
 } as const;

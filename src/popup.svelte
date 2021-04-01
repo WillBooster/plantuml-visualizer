@@ -7,11 +7,11 @@
 
   let config: Config = { ...Constants.defaultConfig };
 
+  let deniedUrlRegexesText = '';
+
   let inputUrl = '';
   let versionPumlSrc = '';
   let inputUrlErrorMessage = '';
-
-  let deniedUrlRegexesText = '';
 
   let loading = false;
 
@@ -28,14 +28,6 @@
     chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, updateExtensionEnabled);
   }
 
-  function handleChangeServerUrlButtonClick(): void {
-    const normalizedUrl = !inputUrl.endsWith('/') ? inputUrl : inputUrl.substring(0, inputUrl.length - 1);
-    chrome.runtime.sendMessage(
-      { command: Constants.commands.setPumlServerUrl, pumlServerUrl: normalizedUrl },
-      updatePumlServerUrl
-    );
-  }
-
   function handleUpdateDeniedUrlRegexesButtonClick(): void {
     const deniedUrlRegexes = deniedUrlRegexesText
       .trim()
@@ -47,8 +39,20 @@
     );
   }
 
+  function handleChangeServerUrlButtonClick(): void {
+    const normalizedUrl = !inputUrl.endsWith('/') ? inputUrl : inputUrl.substring(0, inputUrl.length - 1);
+    chrome.runtime.sendMessage(
+      { command: Constants.commands.setPumlServerUrl, pumlServerUrl: normalizedUrl },
+      updatePumlServerUrl
+    );
+  }
+
   function updateExtensionEnabled(extensionEnabled: boolean): void {
     config.extensionEnabled = extensionEnabled;
+  }
+
+  function updateDeniedUrlRegexes(deniedUrlRegexes: string[]): void {
+    deniedUrlRegexesText = deniedUrlRegexes.join(',\n');
   }
 
   function updatePumlServerUrl(pumlServerUrl: string): void {
@@ -80,10 +84,6 @@
   function invalidPumlServerUrl(invalidUrl: string): string {
     return `${invalidUrl} does not refer a valid plantUML serer`;
   }
-
-  function updateDeniedUrlRegexes(deniedUrlRegexes: string[]): void {
-    deniedUrlRegexesText = deniedUrlRegexes.join(',\n');
-  }
 </script>
 
 <div id="popup">
@@ -94,6 +94,12 @@
       >{config.extensionEnabled ? 'Disable' : 'Enable'} PlantUML visualization</button
     >
 
+    <p class="puml-vis-denined-list">denied URLs (csv format)</p>
+    <textarea class="puml-vis-denined-list" bind:value={deniedUrlRegexesText} />
+    <button class="puml-vis-denined-list" on:click={handleUpdateDeniedUrlRegexesButtonClick}
+      >Update denied URLs (regex is avairable)</button
+    >
+
     <p class="puml-vis-server-url">server: {config.pumlServerUrl}</p>
     <input class="puml-vis-server-url" bind:value={inputUrl} />
     <p class="puml-vis-error">{inputUrlErrorMessage}</p>
@@ -101,12 +107,6 @@
       >Change server URL (https is required)</button
     >
     <img class="puml-vis-version" src={versionPumlSrc} alt="PlantUML version" />
-
-    <p class="puml-vis-denined-list">denied URLs (csv format)</p>
-    <textarea class="puml-vis-denined-list" bind:value={deniedUrlRegexesText} />
-    <button class="puml-vis-denined-list" on:click={handleUpdateDeniedUrlRegexesButtonClick}
-      >Update denied URLs (regex is avairable)</button
-    >
   {/if}
 </div>
 

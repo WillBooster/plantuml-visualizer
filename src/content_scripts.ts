@@ -19,27 +19,35 @@ let embedding = false;
 main();
 
 function main(): void {
-  chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (config) => apply(config));
+  chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (config: Config) => {
+    if (
+      config.extensionEnabled &&
+      !config.deniedUrlRegexes.some((regex) => new RegExp(`^${regex}$`).test(location.href))
+    ) {
+      apply();
+    }
+  });
 }
 
-function apply(config: Config): void {
-  if (!config.extensionEnabled) return;
-  embedPlantUmlImages(config).finally();
+function apply(): void {
+  embedPlantUmlImages().finally();
 
-  if (!Constants.urlRegexesToBeObserved.some((regex) => regex.test(location.href))) return;
+  if (!Constants.urlRegexesToBeObserved.some((regex) => regex.test(location.href))) {
+    return;
+  }
+
   const observer = new MutationObserver(async (mutations) => {
     const addedSomeNodes = mutations.some((mutation) => mutation.addedNodes.length > 0);
     if (addedSomeNodes) {
-      await embedPlantUmlImages(config);
+      await embedPlantUmlImages();
       embedding = false;
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });
 }
 
-async function embedPlantUmlImages(config: Config): Promise<void[]> {
+async function embedPlantUmlImages(): Promise<void[]> {
   if (lastUrl === location.href && embedding) return [];
-  if (config.deniedUrlRegexes.some((regex) => new RegExp(`^${regex}$`).test(location.href))) return [];
 
   embedding = true;
   if (lastUrl !== location.href) {
