@@ -1,12 +1,20 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  import BodyContainer from './components/BodyContainer.svelte';
+  import Footer from './components/Footer.svelte';
+  import Header from './components/Header.svelte';
+  import ItemContainer from './components/ItemContainer.svelte';
+  import ItemLabel from './components/ItemLabel.svelte';
+  import Switch from './components/Switch.svelte';
+  import TextField from './components/TextField.svelte';
   import { Constants } from './constants';
   import type { Config } from './constants';
   import { PlantUmlEncoder } from './encoder/plantUmlEncoder';
 
   let config: Config = { ...Constants.defaultConfig };
   let inputUrl = '';
+  let previousInputUrl = '';
   let versionPumlSrc = '';
   let errorMessage = '';
   let loading = false;
@@ -15,6 +23,7 @@
     chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (initialConfig: Config) => {
       config = initialConfig;
       inputUrl = initialConfig.pumlServerUrl;
+      previousInputUrl = initialConfig.pumlServerUrl;
       updatePumlServerUrl(initialConfig.pumlServerUrl);
     });
   });
@@ -24,6 +33,9 @@
   }
 
   function handleChangeServerUrlButtonClick(): void {
+    if (inputUrl === previousInputUrl) return;
+    previousInputUrl = inputUrl;
+
     const normalizedUrl = !inputUrl.endsWith('/') ? inputUrl : inputUrl.substring(0, inputUrl.length - 1);
     chrome.runtime.sendMessage(
       { command: Constants.commands.setPumlServerUrl, pumlServerUrl: normalizedUrl },
@@ -64,43 +76,109 @@
   function invalidPumlServerUrl(invalidUrl: string): string {
     return `${invalidUrl} does not refer a valid plantUML serer`;
   }
+
+  function setAsDefault() {
+    inputUrl = Constants.defaultConfig.pumlServerUrl;
+    handleChangeServerUrlButtonClick();
+  }
 </script>
 
-<div id="popup">
-  {#if loading}
-    <p>loading...</p>
-  {:else}
-    <button class="puml-vis-toggle" on:click={handleToggleButtonClick}
-      >{config.extensionEnabled ? 'Disable' : 'Enable'} PlantUML visualization</button
-    >
-    <p class="puml-vis-server-url">server: {config.pumlServerUrl}</p>
-    <input class="puml-vis-server-url" bind:value={inputUrl} />
-    <p class="puml-vis-error">{errorMessage}</p>
-    <button class="puml-vis-server-url" on:click={handleChangeServerUrlButtonClick}
-      >Change server URL (https is required)</button
-    >
-    <img class="puml-vis-version" src={versionPumlSrc} alt="PlantUML version" />
-  {/if}
-</div>
+<Header />
+
+<ItemContainer>
+  <ItemLabel>Visualize PlantUML code</ItemLabel>
+  <Switch id="switch" onChange={handleToggleButtonClick} value={config.extensionEnabled} />
+</ItemContainer>
+
+<ItemContainer>
+  <ItemLabel>Server URL</ItemLabel>
+  <TextField
+    bind:value={inputUrl}
+    isDisabled={loading}
+    onBlur={handleChangeServerUrlButtonClick}
+    onKeyPress={(event) => {
+      if (event.key === 'Enter') handleChangeServerUrlButtonClick();
+    }}
+    placeHolder="https://*"
+  />
+</ItemContainer>
+
+<BodyContainer>
+  <div class="puml-server-version-image">
+    {#if loading}
+      <div class="loading">Loading...</div>
+    {:else if errorMessage}
+      <div class="error">{errorMessage}</div>
+    {:else if !versionPumlSrc}
+      No server
+    {:else}
+      <img src={versionPumlSrc} alt="PlantUML version" />
+    {/if}
+  </div>
+</BodyContainer>
+
+<Footer isDisabled={loading} onClickSetAsDefault={setAsDefault} />
 
 <style lang="scss">
-  #popup {
-    width: 500px;
+  :global(body) {
+    --color-background: #f9f9fa;
+    --color-text-primary: #0c0c0d;
+    --color-text-secondary: #737373;
+    --color-text-caution: #d70022;
+    --color-surface-primary: #ffffff;
+    --color-surface-secondary: #d7d7db;
+    --color-surface-secondary-hover: #b1b1b3;
+    --color-surface-accent: #0a84ff;
+    --color-surface-accent-hover: #0060df;
+    --color-border-primary: #d7d7db;
+    --color-border-secondary: #ededf0;
+    --color-border-accent: #0060df;
+    --space-window: 20px;
+    --space-md: 16px;
+    --space-sm: 8px;
+    --border-radius-md: 6px;
+    --font-size-body: 14px;
+
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 100%;
+    width: 600px;
   }
 
-  button.puml-vis-toggle {
-    margin-bottom: 10px;
-  }
+  .puml-server-version-image {
+    display: flex;
+    flex-direction: column;
+    height: 200px; // The size of a version image is 505x187.
+    justify-content: center;
+    padding: var(--space-sm) 0;
 
-  p.puml-vis-server-url,
-  input.puml-vis-server-url,
-  p.puml-vis-error,
-  img.puml-vis-version {
-    width: 100%;
-    box-sizing: border-box;
-  }
+    @keyframes blink {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.5;
+      }
+    }
 
-  p.puml-vis-error {
-    color: #ff604f;
+    .loading {
+      animation: 0.5s ease-in-out infinite alternate blink;
+      text-align: center;
+    }
+
+    .error {
+      color: var(--color-text-caution);
+    }
+
+    img {
+      background-color: var(--color-surface-primary);
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--color-border-secondary);
+      width: 100%;
+      user-select: none;
+    }
   }
 </style>
