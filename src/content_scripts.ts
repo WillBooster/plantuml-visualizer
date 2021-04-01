@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import { Constants } from './constants';
+import { Config, Constants } from './constants';
 import { CodeBlockFinder } from './finder/codeBlockFinder';
 import type { DiffFinder, CodeFinder } from './finder/finder';
 import { GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
@@ -8,8 +8,6 @@ import { DescriptionMutator } from './mutator/descriptionMutator';
 import { DiffMutator } from './mutator/diffMutator';
 
 const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
-
-const EXCLUDING_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
 
 const allCodeFinders = [new CodeBlockFinder(), new GitHubFileViewFinder()] as const;
 const allDiffFinders = [new GitHubPullRequestDiffFinder()] as const;
@@ -21,31 +19,27 @@ let embedding = false;
 main();
 
 function main(): void {
-  chrome.runtime.sendMessage({ command: Constants.commands.getExtensionEnabled }, (extensionEnabled) => {
-    if (extensionEnabled) apply();
-  });
+  chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (config) => apply(config));
 }
 
-function apply(): void {
-  embedPlantUmlImages().finally();
+function apply(config: Config): void {
+  if (!config.extensionEnabled) return;
+  embedPlantUmlImages(config).finally();
 
-  if (!Constants.urlRegexesToBeObserved.some((regex) => regex.test(location.href))) {
-    return;
-  }
-
+  if (!Constants.urlRegexesToBeObserved.some((regex) => regex.test(location.href))) return;
   const observer = new MutationObserver(async (mutations) => {
     const addedSomeNodes = mutations.some((mutation) => mutation.addedNodes.length > 0);
     if (addedSomeNodes) {
-      await embedPlantUmlImages();
+      await embedPlantUmlImages(config);
       embedding = false;
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });
 }
 
-async function embedPlantUmlImages(): Promise<void[]> {
+async function embedPlantUmlImages(config: Config): Promise<void[]> {
   if (lastUrl === location.href && embedding) return [];
-  if (EXCLUDING_URL_REGEX.test(location.href)) return [];
+  if (config.deniedUrlRegexes.some((regex) => new RegExp(`^${regex}$`).test(location.href))) return [];
 
   embedding = true;
   if (lastUrl !== location.href) {
