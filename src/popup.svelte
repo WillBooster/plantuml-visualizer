@@ -13,7 +13,7 @@
 
   onMount(() => {
     chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (initialConfig: Config) => {
-      config = { ...initialConfig };
+      config = initialConfig;
       inputUrl = initialConfig.pumlServerUrl;
       updatePumlServerUrl(initialConfig.pumlServerUrl);
     });
