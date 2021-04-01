@@ -32,7 +32,7 @@
   }
 
   function updateExtensionEnabled(extensionEnabled: boolean): void {
-    config = { ...config, extensionEnabled };
+    config.extensionEnabled = extensionEnabled;
   }
 
   function updatePumlServerUrl(pumlServerUrl: string): void {
@@ -46,7 +46,7 @@
         const res = await fetch(PlantUmlEncoder.getImageUrl(Constants.versionUmlText, pumlServerUrl));
         if (res.ok) {
           const versionUmlText = await res.text();
-          config = { ...config, pumlServerUrl };
+          config.pumlServerUrl = pumlServerUrl;
           inputUrl = pumlServerUrl;
           versionPumlSrc = `data:image/svg+xml,${encodeURIComponent(versionUmlText)}`;
           errorMessage = '';
