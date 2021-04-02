@@ -4,7 +4,7 @@ export const Constants = {
   defaultConfig: {
     extensionEnabled: true,
     pumlServerUrl: 'https://willbooster-plantuml.herokuapp.com',
-    deniedUrls: ['https://github.com/*/edit/*'],
+    deniedUrls: ['https://plantuml.com*', 'https://github.com/*/edit/*'],
   } as Config,
   versionUmlText: ['@startuml', 'version', '@enduml'].join('\n'),
   ignoreAttribute: 'data-wb-ignore',
