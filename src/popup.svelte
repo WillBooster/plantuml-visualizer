@@ -91,9 +91,9 @@
       >{config.extensionEnabled ? 'Disable' : 'Enable'} PlantUML visualization</button
     >
 
-    <p class="puml-vis-denined-list">denied URLs (csv format)</p>
-    <textarea class="puml-vis-denined-list" bind:value={deniedUrlsText} />
-    <button class="puml-vis-denined-list" on:click={handleUpdateDeniedUrlsButtonClick}
+    <p class="puml-vis-denined-urls">denied URLs (csv format)</p>
+    <textarea class="puml-vis-denined-urls" bind:value={deniedUrlsText} />
+    <button class="puml-vis-denined-urls" on:click={handleUpdateDeniedUrlsButtonClick}
       >Update denied URLs (wildcard * is avairable)</button
     >
 
@@ -120,13 +120,13 @@
   p.puml-vis-server-url,
   input.puml-vis-server-url,
   img.puml-vis-version,
-  textarea.puml-vis-denined-list,
+  textarea.puml-vis-denined-urls,
   p.puml-vis-error {
     width: 100%;
     box-sizing: border-box;
   }
 
-  textarea.puml-vis-denined-list {
+  textarea.puml-vis-denined-urls {
     resize: none;
   }
 
