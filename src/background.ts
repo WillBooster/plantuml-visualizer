@@ -1,4 +1,5 @@
-import { Config, Constants } from './constants';
+import type { Config } from './config';
+import { Constants } from './constants';
 
 const config = { ...Constants.defaultConfig };
 
