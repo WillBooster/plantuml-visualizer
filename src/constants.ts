@@ -1,25 +1,21 @@
-export interface Config {
-  extensionEnabled: boolean;
-  pumlServerUrl: string;
-  deniedUrlRegexes: string[];
-}
+import type { Config } from './config';
 
 export const Constants = {
   defaultConfig: {
     extensionEnabled: true,
     pumlServerUrl: 'https://willbooster-plantuml.herokuapp.com',
-    deniedUrlRegexes: ['https://github\\.com/.*/edit/.*'],
+    deniedUrls: ['https://github.com/*/edit/*'],
   } as Config,
   versionUmlText: ['@startuml', 'version', '@enduml'].join('\n'),
   ignoreAttribute: 'data-wb-ignore',
-  urlRegexesToBeObserved: [/^https?:\/\/.+$/, /^file:\/\/.+$/],
+  urlsToBeObserved: [/^https?:\/\/.+$/, /^file:\/\/.+$/],
   commands: {
     getConfig: 'getConfig',
     getExtensionEnabled: 'getExtensionEnabled',
-    getDeniedUrlRegexes: 'getDeniedUrlRegexes',
+    getDeniedUrls: 'getDeniedUrls',
     getPumlServerUrl: 'getPumlServerUrl',
     toggleExtensionEnabled: 'toggleExtensionEnabled',
-    setDeniedUrlRegexes: 'setDeniedUrlRegexes',
+    setDeniedUrls: 'setDeniedUrls',
     setPumlServerUrl: 'setPumlServerUrl',
   },
 } as const;

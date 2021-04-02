@@ -1,6 +1,8 @@
 import $ from 'jquery';
 
-import { Config, Constants } from './constants';
+import type { Config } from './config';
+import { deniedUrlToRegExp } from './config';
+import { Constants } from './constants';
 import { CodeBlockFinder } from './finder/codeBlockFinder';
 import type { DiffFinder, CodeFinder } from './finder/finder';
 import { GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
@@ -20,10 +22,7 @@ main();
 
 function main(): void {
   chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (config: Config) => {
-    if (
-      config.extensionEnabled &&
-      !config.deniedUrlRegexes.some((regex) => new RegExp(`^${regex}$`).test(location.href))
-    ) {
+    if (config.extensionEnabled && !config.deniedUrls.some((url) => deniedUrlToRegExp(url).test(location.href))) {
       apply();
     }
   });
@@ -32,7 +31,7 @@ function main(): void {
 function apply(): void {
   embedPlantUmlImages().finally();
 
-  if (!Constants.urlRegexesToBeObserved.some((regex) => regex.test(location.href))) {
+  if (!Constants.urlsToBeObserved.some((regex) => regex.test(location.href))) {
     return;
   }
 

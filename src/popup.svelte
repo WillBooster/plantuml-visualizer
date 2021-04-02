@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  import type { Config } from './config';
   import { Constants } from './constants';
-  import type { Config } from './constants';
   import { PlantUmlEncoder } from './encoder/plantUmlEncoder';
 
   let config: Config = { ...Constants.defaultConfig };
 
-  let deniedUrlRegexesText = '';
+  let deniedUrlsText = '';
 
   let inputUrl = '';
   let versionPumlSrc = '';
@@ -19,7 +19,7 @@
     chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (initialConfig: Config) => {
       config = initialConfig;
       inputUrl = initialConfig.pumlServerUrl;
-      deniedUrlRegexesText = initialConfig.deniedUrlRegexes.join(',\n');
+      deniedUrlsText = initialConfig.deniedUrls.join(',\n');
       updatePumlServerUrl(initialConfig.pumlServerUrl);
     });
   });
@@ -28,15 +28,12 @@
     chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, updateExtensionEnabled);
   }
 
-  function handleUpdateDeniedUrlRegexesButtonClick(): void {
-    const deniedUrlRegexes = deniedUrlRegexesText
+  function handleUpdateDeniedUrlsButtonClick(): void {
+    const deniedUrls = deniedUrlsText
       .trim()
       .split(/\s*,\s*/)
-      .filter((regex) => !!regex);
-    chrome.runtime.sendMessage(
-      { command: Constants.commands.setDeniedUrlRegexes, deniedUrlRegexes },
-      updateDeniedUrlRegexes
-    );
+      .filter((url) => !!url);
+    chrome.runtime.sendMessage({ command: Constants.commands.setDeniedUrls, deniedUrls }, updateDeniedUrls);
   }
 
   function handleChangeServerUrlButtonClick(): void {
@@ -51,8 +48,8 @@
     config.extensionEnabled = extensionEnabled;
   }
 
-  function updateDeniedUrlRegexes(deniedUrlRegexes: string[]): void {
-    deniedUrlRegexesText = deniedUrlRegexes.join(',\n');
+  function updateDeniedUrls(deniedUrls: string[]): void {
+    deniedUrlsText = deniedUrls.join(',\n');
   }
 
   function updatePumlServerUrl(pumlServerUrl: string): void {
@@ -95,9 +92,9 @@
     >
 
     <p class="puml-vis-denined-list">denied URLs (csv format)</p>
-    <textarea class="puml-vis-denined-list" bind:value={deniedUrlRegexesText} />
-    <button class="puml-vis-denined-list" on:click={handleUpdateDeniedUrlRegexesButtonClick}
-      >Update denied URLs (regex is avairable)</button
+    <textarea class="puml-vis-denined-list" bind:value={deniedUrlsText} />
+    <button class="puml-vis-denined-list" on:click={handleUpdateDeniedUrlsButtonClick}
+      >Update denied URLs (wildcard * is avairable)</button
     >
 
     <p class="puml-vis-server-url">server: {config.pumlServerUrl}</p>
