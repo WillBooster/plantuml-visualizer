@@ -1,12 +1,10 @@
 <script lang="ts">
-  export let isDisabled: boolean = false;
-  export let onBlur: svelte.JSX.FocusEventHandler<HTMLInputElement> | undefined = undefined;
-  export let onKeyPress: svelte.JSX.KeyboardEventHandler<HTMLInputElement> | undefined = undefined;
-  export let placeHolder = '';
+  export let disabled: boolean = false;
+  export let placeholder = '';
   export let value: string;
 </script>
 
-<input on:blur={onBlur} on:keypress={onKeyPress} bind:value disabled={isDisabled} placeholder={placeHolder} />
+<input on:blur on:keypress bind:value {disabled} {placeholder} />
 
 <style lang="scss">
   input {

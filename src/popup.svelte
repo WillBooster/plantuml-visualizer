@@ -87,19 +87,19 @@
 
 <ItemContainer>
   <ItemLabel>Visualize PlantUML code</ItemLabel>
-  <Switch id="switch" onChange={handleToggleButtonClick} value={config.extensionEnabled} />
+  <Switch id="switch" on:change={handleToggleButtonClick} value={config.extensionEnabled} />
 </ItemContainer>
 
 <ItemContainer>
   <ItemLabel>Server URL</ItemLabel>
   <TextField
     bind:value={inputUrl}
-    isDisabled={loading}
-    onBlur={handleChangeServerUrlButtonClick}
-    onKeyPress={(event) => {
+    on:blur={handleChangeServerUrlButtonClick}
+    on:keypress={(event) => {
       if (event.key === 'Enter') handleChangeServerUrlButtonClick();
     }}
-    placeHolder="https://*"
+    disabled={loading}
+    placeholder="https://*"
   />
 </ItemContainer>
 
@@ -117,7 +117,7 @@
   </div>
 </BodyContainer>
 
-<Footer isDisabled={loading} onClickSetAsDefault={setAsDefault} />
+<Footer disabled={loading} on:clickSetAsDefault={setAsDefault} />
 
 <style lang="scss">
   :global(body) {

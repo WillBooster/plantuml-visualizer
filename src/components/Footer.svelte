@@ -1,11 +1,14 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
+
   import Button from './Button.svelte';
 
-  export let isDisabled: boolean | undefined = undefined;
-  export let onClickSetAsDefault: () => void;
+  export let disabled: boolean = false;
+
+  const dispatch = createEventDispatcher<{ clickSetAsDefault: undefined }>();
 </script>
 
-<div><Button {isDisabled} onClick={onClickSetAsDefault}>Set as default</Button></div>
+<div><Button {disabled} on:click={() => dispatch('clickSetAsDefault')}>Set as default</Button></div>
 
 <style lang="scss">
   div {

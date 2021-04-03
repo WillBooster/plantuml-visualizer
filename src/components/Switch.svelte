@@ -1,20 +1,11 @@
 <script lang="ts">
-  export let isDisabled: boolean = false;
+  export let disabled: boolean = false;
   export let id: string;
-  export let onChange: (value: boolean) => void = () => undefined;
   export let value: boolean = false;
 </script>
 
 <span>
-  <input
-    {id}
-    disabled={isDisabled}
-    type="checkbox"
-    bind:checked={value}
-    on:change={(event) => {
-      onChange(event.currentTarget.checked);
-    }}
-  />
+  <input {id} {disabled} type="checkbox" bind:checked={value} on:change />
   <label for={id} />
 </span>
 
