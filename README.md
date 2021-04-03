@@ -31,7 +31,7 @@
 
 - Any page containing `<pre>` tag with prefix `@startuml` and suffix `@enduml`
 
-(We will list webpages with testing urls later)
+(We will list GitLab pages with testing urls later)
 
 ### .pu / .puml / .plantuml / .wsd files
 
