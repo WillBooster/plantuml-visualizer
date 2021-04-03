@@ -9,8 +9,6 @@ import { DiffMutator } from './mutator/diffMutator';
 
 const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
-const EXCLUDING_URL_REGEX = /^https:\/\/github\.com\/.*\/edit\/.*/;
-
 const allCodeFinders = [new CodeBlockFinder(), new GitHubFileViewFinder()] as const;
 const allDiffFinders = [new GitHubPullRequestDiffFinder()] as const;
 let enabledFinders: CodeFinder[];
@@ -22,16 +20,12 @@ main();
 
 function main(): void {
   chrome.runtime.sendMessage({ command: Constants.commands.getExtensionEnabled }, (extensionEnabled) => {
-    if (extensionEnabled) apply();
+    if (extensionEnabled && !Constants.denyList.some((regex) => regex.test(location.href))) apply();
   });
 }
 
 function apply(): void {
   embedPlantUmlImages().finally();
-
-  if (!Constants.urlRegexesToBeObserved.some((regex) => regex.test(location.href))) {
-    return;
-  }
 
   const observer = new MutationObserver(async (mutations) => {
     const addedSomeNodes = mutations.some((mutation) => mutation.addedNodes.length > 0);
@@ -45,7 +39,6 @@ function apply(): void {
 
 async function embedPlantUmlImages(): Promise<void[]> {
   if (lastUrl === location.href && embedding) return [];
-  if (EXCLUDING_URL_REGEX.test(location.href)) return [];
 
   embedding = true;
   if (lastUrl !== location.href) {
