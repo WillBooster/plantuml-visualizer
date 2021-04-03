@@ -29,7 +29,7 @@
 
 ### GitLab
 
-- Any page containing `<pre>` tag with `@startuml`
+- Any page containing `<pre>` tag with prefix `@startuml` and suffix `@enduml`
 
 (We will list webpages with testing urls later)
 
