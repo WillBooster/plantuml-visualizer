@@ -48,6 +48,15 @@
     2. Enable "Allow access to file URLs"
        ![marked-settings](allow-access.png)
 
+### You wanna enable/disable visualization of a webpage?
+
+We are waiting issues and pull requests!
+
+- issue
+  - https://github.com/WillBooster/plantuml-visualizer/issues
+- pull request
+  - https://github.com/WillBooster/plantuml-visualizer/pulls
+
 ## Visualization Examples
 
 The visualization result of https://github.com/WillBooster/plantuml-visualizer/pull/24/files is as follows.
