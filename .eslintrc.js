@@ -9,6 +9,7 @@ module.exports = {
     },
   ],
   settings: {
+    'svelte3/ignore-styles': (attributes) => attributes.lang === 'scss',
     'svelte3/typescript': require('typescript'),
   },
 };
