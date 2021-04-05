@@ -12,9 +12,8 @@
   import type { Config } from './constants';
   import { PlantUmlEncoder } from './encoder/plantUmlEncoder';
 
-  let config: Config = { ...Constants.defaultConfig };
+  let config: Config = { ...Constants.defaultConfig }; // sync of storage
   let inputUrl = '';
-  let previousInputUrl = '';
   let versionPumlSrc = '';
   let errorMessage = '';
   let loading = false;
@@ -23,7 +22,6 @@
     chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (initialConfig: Config) => {
       config = initialConfig;
       inputUrl = initialConfig.pumlServerUrl;
-      previousInputUrl = initialConfig.pumlServerUrl;
       updatePumlServerUrl(initialConfig.pumlServerUrl);
     });
   });
@@ -33,14 +31,9 @@
   }
 
   function handleChangeServerUrlButtonClick(): void {
-    if (inputUrl === previousInputUrl) return;
-    previousInputUrl = inputUrl;
-
-    const normalizedUrl = !inputUrl.endsWith('/') ? inputUrl : inputUrl.substring(0, inputUrl.length - 1);
-    chrome.runtime.sendMessage(
-      { command: Constants.commands.setPumlServerUrl, pumlServerUrl: normalizedUrl },
-      updatePumlServerUrl
-    );
+    const pumlServerUrl = !inputUrl.endsWith('/') ? inputUrl : inputUrl.substring(0, inputUrl.length - 1);
+    if (config.pumlServerUrl == pumlServerUrl) return;
+    chrome.runtime.sendMessage({ command: Constants.commands.setPumlServerUrl, pumlServerUrl }, updatePumlServerUrl);
   }
 
   function updateExtensionEnabled(extensionEnabled: boolean): void {
@@ -48,24 +41,27 @@
   }
 
   function updatePumlServerUrl(pumlServerUrl: string): void {
+    config.pumlServerUrl = pumlServerUrl;
+
     if (!/^https:\/\/.*$/.test(pumlServerUrl)) {
       errorMessage = `${pumlServerUrl} does not match https://*`;
       return;
     }
+
     loading = true;
     (async () => {
       try {
         const res = await fetch(PlantUmlEncoder.getImageUrl(Constants.versionUmlText, pumlServerUrl));
         if (res.ok) {
           const versionUmlText = await res.text();
-          config.pumlServerUrl = pumlServerUrl;
-          inputUrl = pumlServerUrl;
           versionPumlSrc = `data:image/svg+xml,${encodeURIComponent(versionUmlText)}`;
           errorMessage = '';
         } else {
+          versionPumlSrc = '';
           errorMessage = invalidPumlServerUrl(pumlServerUrl);
         }
       } catch {
+        versionPumlSrc = '';
         errorMessage = invalidPumlServerUrl(pumlServerUrl);
       } finally {
         loading = false;
