@@ -8,9 +8,10 @@ export const Constants = {
     extensionEnabled: true,
     pumlServerUrl: 'https://willbooster-plantuml.herokuapp.com',
   } as Config,
+  // allowList is defined in manifest.json as content_scripts.matches
+  denyList: [/^https:\/\/github\.com\/.*\/edit\/.*/],
   versionUmlText: ['@startuml', 'version', '@enduml'].join('\n'),
   ignoreAttribute: 'data-wb-ignore',
-  urlRegexesToBeObserved: [/^https:\/\/github.com/],
   commands: {
     getConfig: 'getConfig',
     getExtensionEnabled: 'getExtensionEnabled',

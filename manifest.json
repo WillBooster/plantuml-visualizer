@@ -18,7 +18,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*/*", "http://*/*", "file:///*/*"],
+      "matches": ["https://github.com/*", "https://gitlab.com/*", "file:///*/*"],
       "js": ["content_scripts.js"]
     }
   ]
