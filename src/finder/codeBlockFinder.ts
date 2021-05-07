@@ -39,7 +39,9 @@ export class CodeBlockFinder implements CodeFinder {
 
       const includedFileUrl = `${dirUrl}/${match[1]}`;
       const response = await fetch(includedFileUrl);
-      if (!response.ok) continue;
+      if (!response.ok) {
+        continue;
+      }
       let text = await response.text();
       text = await this.preprocessIncludeDirective(includedFileUrl, text);
       text = await this.preprocessIncludesubDirective(includedFileUrl, text);
@@ -64,7 +66,9 @@ export class CodeBlockFinder implements CodeFinder {
 
       const includedFileUrl = `${dirUrl}/${match[1]}`;
       const response = await fetch(includedFileUrl);
-      if (!response.ok) continue;
+      if (!response.ok) {
+        continue;
+      }
       let text = await response.text();
       text = await this.preprocessIncludeDirective(includedFileUrl, text);
       text = await this.preprocessIncludesubDirective(includedFileUrl, text);
