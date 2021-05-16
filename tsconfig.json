@@ -1,5 +1,4 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "moduleResolution": "node",
     "alwaysStrict": true,
@@ -14,5 +13,6 @@
     "target": "esnext",
     "module": "esnext"
   },
-  "include": ["src/**/*", "__tests__/**/*", "./node_modules/@types", "./@types"]
+  "include": ["src/**/*", "__tests__/**/*", "./node_modules/@types", "./@types"],
+  "extends": "@tsconfig/svelte/tsconfig.json"
 }
