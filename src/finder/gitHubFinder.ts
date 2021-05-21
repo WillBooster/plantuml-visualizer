@@ -3,8 +3,9 @@ import $ from 'jquery';
 import { Constants } from '../constants';
 import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../directiveRegexes';
 
-import type { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
 import { extractSubIncludedText } from './finderUtil';
+
+import type { DiffFinder, CodeFinder, UmlCodeContent, UmlDiffContent } from './finder';
 
 export class GitHubFileViewFinder implements CodeFinder {
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/.*\.(plantuml|pu|puml|wsd)(\?.*)?$/;

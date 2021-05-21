@@ -1,6 +1,6 @@
-import type { CodeFinder } from '../finder/finder';
-
 import { markAsIgnore, setDblclickHandlers, textToImage } from './mutatorUtil';
+
+import type { CodeFinder } from '../finder/finder';
 
 export const DescriptionMutator = {
   async embedPlantUmlImages(finders: CodeFinder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {

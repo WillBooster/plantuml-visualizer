@@ -2,10 +2,11 @@ import $ from 'jquery';
 
 import { Constants } from './constants';
 import { CodeBlockFinder } from './finder/codeBlockFinder';
-import type { DiffFinder, CodeFinder } from './finder/finder';
 import { GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
 import { DescriptionMutator } from './mutator/descriptionMutator';
 import { DiffMutator } from './mutator/diffMutator';
+
+import type { DiffFinder, CodeFinder } from './finder/finder';
 
 const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
