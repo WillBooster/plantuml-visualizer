@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
-import type { DiffFinder } from '../finder/finder';
-
 import { markAsIgnore, setDblclickHandlers, textsToImages } from './mutatorUtil';
+
+import type { DiffFinder } from '../finder/finder';
 
 export const DiffMutator = {
   async embedPlantUmlImages(diffFinders: DiffFinder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
