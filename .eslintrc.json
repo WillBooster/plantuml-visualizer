@@ -1,0 +1,1 @@
+{ "root": true, "extends": ["@willbooster/eslint-config-ts"] }

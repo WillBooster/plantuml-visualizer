@@ -13,32 +13,49 @@
 
 ## Visualizable Pages
 
-- GitHub
-  - File Viewer
-    - https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/class.pu
-    - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/state.pu
-  - Issues: https://github.com/WillBooster/plantuml-visualizer/issues/54
-  - Pull Requests
-    - Added: https://github.com/WillBooster/plantuml-visualizer/pull/49/files
-    - Deleted: https://github.com/WillBooster/plantuml-visualizer/pull/50/files
-    - Changed: https://github.com/WillBooster/plantuml-visualizer/pull/24/files
-    - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/pull/423/files
-  - Code blocks in README or something
-    - README.md: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/README.md
-- Any page containing `<pre>` tag with `@startuml` prefix and `@enduml` suffix
-- Any .pu / .puml / .plantuml / .wsd files
-  - GitHub Raw Files (only Chrome)
-    - https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
-    - `!include` directive: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/state.pu
-    - IMPORTANT NOTE: any extension on Firefox cannot work on GitHub Raw Files due to https://bugzilla.mozilla.org/show_bug.cgi?id=1411641
-  - Local Files
-    - file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
-    - `!include` directive for local files will NOT be supported because of security problems
-    - Please use another software for rich rendering of local files (e.g. the official PlantUML renderer: https://plantuml.com/en/starting)
-    - IMPORTANT NOTE: if you use Google Chrome, you need to allow this extension to access file URLs
-      1. Open chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf in Chrome
-      2. Enable "Allow access to file URLs"
-         ![marked-settings](allow-access.png)
+### GitHub
+
+- File Viewer
+  - https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/class.pu
+  - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/state.pu
+- Issues: https://github.com/WillBooster/plantuml-visualizer/issues/54
+- Pull Requests
+  - Added: https://github.com/WillBooster/plantuml-visualizer/pull/49/files
+  - Deleted: https://github.com/WillBooster/plantuml-visualizer/pull/50/files
+  - Changed: https://github.com/WillBooster/plantuml-visualizer/pull/24/files
+  - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/pull/423/files
+- Code blocks in README or something
+  - README.md: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/README.md
+
+### GitLab
+
+- Any page containing `<pre>` tag with prefix `@startuml` and suffix `@enduml`
+
+(We will list GitLab pages with testing urls later)
+
+### .pu / .puml / .plantuml / .wsd files
+
+- GitHub Raw Files (only Chrome)
+  - https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
+  - `!include` directive: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/state.pu
+  - IMPORTANT NOTE: any extension on Firefox cannot work on GitHub Raw Files due to https://bugzilla.mozilla.org/show_bug.cgi?id=1411641
+- Local Files
+  - file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
+  - `!include` directive for local files will NOT be supported because of security problems
+  - Please use another software for rich rendering of local files (e.g. the official PlantUML renderer: https://plantuml.com/en/starting)
+  - IMPORTANT NOTE: if you use Google Chrome, you need to allow this extension to access file URLs
+    1. Open chrome://extensions/?id=ffaloebcmkogfdkemcekamlmfkkmgkcf in Chrome
+    2. Enable "Allow access to file URLs"
+       ![marked-settings](allow-access.png)
+
+### You wanna enable/disable visualization of a webpage?
+
+We are waiting issues and pull requests!
+
+- issue
+  - https://github.com/WillBooster/plantuml-visualizer/issues
+- pull request
+  - https://github.com/WillBooster/plantuml-visualizer/pulls
 
 ## Visualization Examples
 
@@ -46,7 +63,7 @@ The visualization result of https://github.com/WillBooster/plantuml-visualizer/p
 
 ![Example](example.png)
 
-## Default Vsualization Server
+## Default Visualization Server
 
 The default server is https://willbooster-plantuml.herokuapp.com
 ([source code](https://github.com/WillBooster/plantuml-service)).

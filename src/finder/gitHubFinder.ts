@@ -43,7 +43,10 @@ export class GitHubFileViewFinder implements CodeFinder {
 
       const includedFileUrl = `${dirUrl}/${match[1]}`;
       const response = await fetch(includedFileUrl);
-      if (!response.ok) continue;
+      if (!response.ok) {
+        preprocessedLines.push(line);
+        continue;
+      }
       const htmlString = await response.text();
       const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
       const fileTexts = await this.find(includedFileUrl, $body);
@@ -70,7 +73,10 @@ export class GitHubFileViewFinder implements CodeFinder {
 
       const includedFileUrl = `${dirUrl}/${match[1]}`;
       const response = await fetch(includedFileUrl);
-      if (!response.ok) continue;
+      if (!response.ok) {
+        preprocessedLines.push(line);
+        continue;
+      }
       const htmlString = await response.text();
       const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
       const fileTexts = await this.find(includedFileUrl, $body);

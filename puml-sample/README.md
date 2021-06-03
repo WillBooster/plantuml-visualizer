@@ -1,5 +1,7 @@
 # Sample README
 
+## Sample code block
+
 The following code block should be visualized by our extension.
 
 ```
@@ -16,5 +18,7 @@ class A {
 ## Sample PlantUML files
 
 - [class.pu](./class.pu)
-- [state.pu](./state.pu)
-- [substate.pu](./substate.pu)
+- [sequence.wsd](./sequence.wsd)
+- [japanese.pu](./japanese.pu)
+- [including.pu](./including.pu)
+- [subincluding.pu](./subincluding.pu)

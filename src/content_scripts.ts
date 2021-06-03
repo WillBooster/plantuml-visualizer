@@ -31,10 +31,6 @@ function main(): void {
 function apply(): void {
   embedPlantUmlImages().finally();
 
-  if (!Constants.urlsToBeObserved.some((regex) => regex.test(location.href))) {
-    return;
-  }
-
   const observer = new MutationObserver(async (mutations) => {
     const addedSomeNodes = mutations.some((mutation) => mutation.addedNodes.length > 0);
     if (addedSomeNodes) {
