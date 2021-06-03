@@ -63,7 +63,7 @@ The visualization result of https://github.com/WillBooster/plantuml-visualizer/p
 
 ![Example](example.png)
 
-## Default Vsualization Server
+## Default Visualization Server
 
 The default server is https://willbooster-plantuml.herokuapp.com
 ([source code](https://github.com/WillBooster/plantuml-service)).
