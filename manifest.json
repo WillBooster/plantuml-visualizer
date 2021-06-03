@@ -12,7 +12,7 @@
     "48": "icon/icon48.png",
     "128": "icon/icon128.png"
   },
-  "permissions": ["https://*/*", "storage"],
+  "permissions": ["https://*/*", "http://*/*", "storage"],
   "background": {
     "scripts": ["background.js"]
   },
