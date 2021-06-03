@@ -1,13 +1,19 @@
 <script lang="ts">
+  export let multiline = false;
   export let disabled: boolean = false;
   export let placeholder = '';
   export let value: string;
 </script>
 
-<input on:blur on:keypress bind:value {disabled} {placeholder} />
+{#if multiline}
+  <textarea on:blur on:keypress bind:value {disabled} {placeholder} />
+{:else}
+  <input on:blur on:keypress bind:value {disabled} {placeholder} />
+{/if}
 
 <style lang="scss">
-  input {
+  input,
+  textarea {
     appearance: none;
     background-color: var(--color-surface-secondary);
     border-radius: var(--border-radius-md);
@@ -17,6 +23,7 @@
     flex-grow: 1;
     font: inherit;
     outline: none;
+    resize: none;
     padding: calc(0.5 * var(--space-sm) + 1px) calc(var(--space-sm) + 1px);
 
     &:hover {

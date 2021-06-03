@@ -9,6 +9,7 @@
   import ItemLabel from './components/ItemLabel.svelte';
   import Switch from './components/Switch.svelte';
   import TextField from './components/TextField.svelte';
+  import Button from './components/Button.svelte';
   import { Constants } from './constants';
   import { PlantUmlEncoder } from './encoder/plantUmlEncoder';
 
@@ -53,10 +54,6 @@
     config.extensionEnabled = extensionEnabled;
   }
 
-  function updateDeniedUrls(deniedUrls: string[]): void {
-    deniedUrlsText = deniedUrls.join(',\n');
-  }
-
   function updatePumlServerUrl(pumlServerUrl: string): void {
     config.pumlServerUrl = pumlServerUrl;
 
@@ -69,25 +66,21 @@
     (async () => {
       try {
         const res = await fetch(PlantUmlEncoder.getImageUrl(Constants.versionUmlText, pumlServerUrl));
-        if (res.ok) {
-          const versionUmlText = await res.text();
-          versionPumlSrc = `data:image/svg+xml,${encodeURIComponent(versionUmlText)}`;
-          inputUrlErrorMessage = '';
-        } else {
-          versionPumlSrc = '';
-          inputUrlErrorMessage = invalidPumlServerUrl(pumlServerUrl);
-        }
+        if (!res.ok) throw Error();
+        const versionUmlText = await res.text();
+        versionPumlSrc = `data:image/svg+xml,${encodeURIComponent(versionUmlText)}`;
+        inputUrlErrorMessage = '';
       } catch {
         versionPumlSrc = '';
-        inputUrlErrorMessage = invalidPumlServerUrl(pumlServerUrl);
+        inputUrlErrorMessage = `${pumlServerUrl} does not refer a valid plantUML serer`;
       } finally {
         loading = false;
       }
     })().then();
   }
 
-  function invalidPumlServerUrl(invalidUrl: string): string {
-    return `${invalidUrl} does not refer a valid plantUML serer`;
+  function updateDeniedUrls(deniedUrls: string[]): void {
+    deniedUrlsText = deniedUrls.join(',\n');
   }
 
   function setAsDefault() {
@@ -131,15 +124,9 @@
 </BodyContainer>
 
 <ItemContainer>
-  <ItemLabel>Denied URLs (csv format)</ItemLabel>
-  <TextField
-    bind:value={deniedUrlsText}
-    on:blur={handleUpdateDeniedUrlsButtonClick}
-    on:keypress={(event) => {
-      if (event.key === 'Enter') handleUpdateDeniedUrlsButtonClick();
-    }}
-    disabled={loading}
-  />
+  <ItemLabel>Denied URLs</ItemLabel>
+  <TextField bind:value={deniedUrlsText} multiline={true} disabled={loading} placeholder="foo.com" />
+  <Button on:click={handleUpdateDeniedUrlsButtonClick}>apply</Button>
 </ItemContainer>
 
 <Footer disabled={loading} on:clickSetAsDefault={setAsDefault} />
