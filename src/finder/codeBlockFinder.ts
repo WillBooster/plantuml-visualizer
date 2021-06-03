@@ -1,9 +1,8 @@
 import { Constants } from '../constants';
 import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../directiveRegexes';
 
-import { extractSubIncludedText } from './finderUtil';
-
 import type { CodeFinder, UmlCodeContent } from './finder';
+import { extractSubIncludedText } from './finderUtil';
 
 export class CodeBlockFinder implements CodeFinder {
   private readonly URL_REGEX = /^(file|https?):\/\/.+$/;
