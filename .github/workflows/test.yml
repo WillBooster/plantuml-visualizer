@@ -1,4 +1,4 @@
-name: Test
+name: Test & Release
 
 on:
   pull_request:
@@ -23,7 +23,7 @@ jobs:
           skip_after_successful_duplicate: true
           concurrent_skipping: always
           paths_ignore: '["**/*.md", "**/docs/**"]'
-  test:
+  test-and-release:
     needs: pre
     if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
@@ -49,3 +49,7 @@ jobs:
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn build
+      - run: |
+          echo '${{ secrets.DOT_ENV }}' > .env
+          yarn release
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
