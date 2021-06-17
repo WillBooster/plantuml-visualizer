@@ -57,8 +57,8 @@
   function updatePumlServerUrl(pumlServerUrl: string): void {
     config.pumlServerUrl = pumlServerUrl;
 
-    if (!/^https:\/\/.*$/.test(pumlServerUrl)) {
-      inputUrlErrorMessage = `${pumlServerUrl} does not match https://*`;
+    if (!/^https?:\/\/.*$/.test(pumlServerUrl)) {
+      errorMessage = `${pumlServerUrl} does not match https://* or http://* `;
       return;
     }
 
@@ -105,7 +105,7 @@
       if (event.key === 'Enter') handleChangeServerUrlButtonClick();
     }}
     disabled={loading}
-    placeholder="https://*"
+    placeholder="https://* or http://*"
   />
 </ItemContainer>
 
