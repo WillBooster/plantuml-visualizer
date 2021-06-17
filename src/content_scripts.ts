@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import type { Config } from './config';
+import { deniedUrlToRegExp } from './config';
 import { Constants } from './constants';
 import { CodeBlockFinder } from './finder/codeBlockFinder';
 import type { DiffFinder, CodeFinder } from './finder/finder';
@@ -19,8 +21,10 @@ let embedding = false;
 main();
 
 function main(): void {
-  chrome.runtime.sendMessage({ command: Constants.commands.getExtensionEnabled }, (extensionEnabled) => {
-    if (extensionEnabled && !Constants.denyList.some((regex) => regex.test(location.href))) apply();
+  chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (config: Config) => {
+    if (config.extensionEnabled && !config.deniedUrls.some((url) => deniedUrlToRegExp(url).test(location.href))) {
+      apply();
+    }
   });
 }
 
