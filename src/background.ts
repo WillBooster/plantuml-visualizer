@@ -18,6 +18,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     case Constants.commands.getExtensionEnabled:
       sendResponse(config.extensionEnabled);
       break;
+    case Constants.commands.getAllowedUrls:
+      sendResponse(config.allowedUrls);
+      break;
     case Constants.commands.getDeniedUrls:
       sendResponse(config.deniedUrls);
       break;
@@ -29,6 +32,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       sendResponse(config.extensionEnabled);
       chrome.storage.sync.set({ extensionEnabled: config.extensionEnabled });
       setIcon();
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+      });
+      break;
+    case Constants.commands.setAllowedUrls:
+      config.allowedUrls = request.allowedUrls;
+      sendResponse(config.allowedUrls);
+      chrome.storage.sync.set({ allowedUrls: config.allowedUrls });
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
       });

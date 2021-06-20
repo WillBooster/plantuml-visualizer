@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 import type { Config } from './config';
-import { deniedUrlToRegExp } from './config';
+import { urlToRegExp } from './config';
 import { Constants } from './constants';
 import { CodeBlockFinder } from './finder/codeBlockFinder';
 import type { DiffFinder, CodeFinder } from './finder/finder';
@@ -22,7 +22,7 @@ main();
 
 function main(): void {
   chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (config: Config) => {
-    if (config.extensionEnabled && !config.deniedUrls.some((url) => deniedUrlToRegExp(url).test(location.href))) {
+    if (config.extensionEnabled && !config.deniedUrls.some((url) => urlToRegExp(url).test(location.href))) {
       apply();
     }
   });
