@@ -5,6 +5,7 @@ const config = { ...Constants.defaultConfig };
 
 chrome.storage.sync.get((storage: Partial<Config>) => {
   if (storage.extensionEnabled !== undefined) config.extensionEnabled = storage.extensionEnabled;
+  if (storage.allowedUrls !== undefined) config.allowedUrls = storage.allowedUrls;
   if (storage.deniedUrls !== undefined) config.deniedUrls = storage.deniedUrls;
   if (storage.pumlServerUrl !== undefined) config.pumlServerUrl = storage.pumlServerUrl;
   setIcon();
