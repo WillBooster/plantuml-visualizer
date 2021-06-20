@@ -1,34 +1,17 @@
-name: Test
+name: Release
 
 on:
-  pull_request:
-    branches:
-      - 'main'
-      - '!renovate/**'
-  push:
-    branches:
-      - 'main'
-      - 'renovate/**'
+  schedule:
+    - cron: '0 5 * * 0'
 
 jobs:
-  pre:
-    runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@master
-        with:
-          cancel_others: true
-          skip_after_successful_duplicate: true
-          concurrent_skipping: always
-          paths_ignore: '["**/*.md", "**/docs/**"]'
-  test:
-    needs: pre
-    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+  semantic-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Generate dot env
+        run: |
+          echo '${{ secrets.DOT_ENV }}' > .env
       - name: Read version files
         run: |
           echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
@@ -46,6 +29,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install
-      - run: yarn typecheck
-      - run: yarn lint
       - run: yarn build
+      - run: yarn release
