@@ -58,7 +58,7 @@
     config.pumlServerUrl = pumlServerUrl;
 
     if (!/^https?:\/\/.*$/.test(pumlServerUrl)) {
-      errorMessage = `${pumlServerUrl} does not match https://* or http://* `;
+      inputUrlErrorMessage = `${pumlServerUrl} does not match https://* or http://* `;
       return;
     }
 
