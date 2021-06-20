@@ -22,7 +22,11 @@ main();
 
 function main(): void {
   chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (config: Config) => {
-    if (config.extensionEnabled && !config.deniedUrls.some((url) => urlToRegExp(url).test(location.href))) {
+    if (
+      config.extensionEnabled &&
+      config.allowedUrls.some((url) => urlToRegExp(url).test(location.href)) &&
+      !config.deniedUrls.some((url) => urlToRegExp(url).test(location.href))
+    ) {
       apply();
     }
   });
