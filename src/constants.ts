@@ -11,7 +11,7 @@ export const Constants = {
       'https://gist.github.com/*',
       'file:///*/*',
     ],
-    deniedUrls: ['https://plantuml.com*', 'https://github.com/*/edit/*'],
+    deniedUrls: ['https://github.com/*/edit/*'],
   } as Config,
   versionUmlText: ['@startuml', 'version', '@enduml'].join('\n'),
   ignoreAttribute: 'data-wb-ignore',
