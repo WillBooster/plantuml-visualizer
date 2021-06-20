@@ -28,6 +28,7 @@
     chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (initialConfig: Config) => {
       config = initialConfig;
       inputServerUrl = initialConfig.pumlServerUrl;
+      allowedUrlsText = initialConfig.allowedUrls.join(',\n');
       deniedUrlsText = initialConfig.deniedUrls.join(',\n');
       updatePumlServerUrl(initialConfig.pumlServerUrl);
     });
@@ -35,6 +36,14 @@
 
   function handleToggleExtensionEnabled(): void {
     chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, updateExtensionEnabled);
+  }
+
+  function handleChangeServerUrl(): void {
+    const pumlServerUrl = !inputServerUrl.endsWith('/')
+      ? inputServerUrl
+      : inputServerUrl.substring(0, inputServerUrl.length - 1);
+    if (config.pumlServerUrl == pumlServerUrl) return;
+    chrome.runtime.sendMessage({ command: Constants.commands.setPumlServerUrl, pumlServerUrl }, updatePumlServerUrl);
   }
 
   function handleUpdateAllowedUrlsButtonClick(): void {
@@ -51,14 +60,6 @@
       .split(/\s*,\s*/)
       .filter((url) => !!url);
     chrome.runtime.sendMessage({ command: Constants.commands.setDeniedUrls, deniedUrls }, updateDeniedUrls);
-  }
-
-  function handleChangeServerUrl(): void {
-    const pumlServerUrl = !inputServerUrl.endsWith('/')
-      ? inputServerUrl
-      : inputServerUrl.substring(0, inputServerUrl.length - 1);
-    if (config.pumlServerUrl == pumlServerUrl) return;
-    chrome.runtime.sendMessage({ command: Constants.commands.setPumlServerUrl, pumlServerUrl }, updatePumlServerUrl);
   }
 
   function updateExtensionEnabled(extensionEnabled: boolean): void {
@@ -91,16 +92,26 @@
   }
 
   function updateAllowedUrls(allowedUrls: string[]): void {
+    config.allowedUrls = allowedUrls;
     allowedUrlsText = allowedUrls.join(',\n');
   }
 
   function updateDeniedUrls(deniedUrls: string[]): void {
+    config.deniedUrls = deniedUrls;
     deniedUrlsText = deniedUrls.join(',\n');
   }
 
-  function setAsDefault() {
-    inputServerUrl = Constants.defaultConfig.pumlServerUrl;
-    handleChangeServerUrl();
+  function backToDefault() {
+    chrome.runtime.sendMessage(
+      { command: Constants.commands.setConfig, config: Constants.defaultConfig },
+      (newConfig: Config) => {
+        config = newConfig;
+        inputServerUrl = newConfig.pumlServerUrl;
+        allowedUrlsText = newConfig.allowedUrls.join(',\n');
+        deniedUrlsText = newConfig.deniedUrls.join(',\n');
+        updatePumlServerUrl(newConfig.pumlServerUrl);
+      }
+    );
   }
 </script>
 
@@ -150,7 +161,7 @@
   <Button on:click={handleUpdateDeniedUrlsButtonClick}>apply</Button>
 </ItemContainer>
 
-<Footer disabled={loading} on:clickSetAsDefault={setAsDefault} />
+<Footer disabled={loading} on:clickBackToDefault={backToDefault} />
 
 <style lang="scss">
   :global(body) {

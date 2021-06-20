@@ -21,6 +21,7 @@ export const Constants = {
     getAllowedUrls: 'getAllowedUrls',
     getDeniedUrls: 'getDeniedUrls',
     getPumlServerUrl: 'getPumlServerUrl',
+    setConfig: 'setConfig',
     toggleExtensionEnabled: 'toggleExtensionEnabled',
     setAllowedUrls: 'setAllowedUrls',
     setDeniedUrls: 'setDeniedUrls',

@@ -5,10 +5,10 @@
 
   export let disabled: boolean = false;
 
-  const dispatch = createEventDispatcher<{ clickSetAsDefault: undefined }>();
+  const dispatch = createEventDispatcher<{ clickBackToDefault: undefined }>();
 </script>
 
-<div><Button {disabled} on:click={() => dispatch('clickSetAsDefault')}>Set as default</Button></div>
+<div><Button {disabled} on:click={() => dispatch('clickBackToDefault')}>Back to default</Button></div>
 
 <style lang="scss">
   div {

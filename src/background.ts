@@ -1,7 +1,7 @@
 import type { Config } from './config';
 import { Constants } from './constants';
 
-const config = { ...Constants.defaultConfig };
+let config = { ...Constants.defaultConfig };
 
 chrome.storage.sync.get((storage: Partial<Config>) => {
   if (storage.extensionEnabled !== undefined) config.extensionEnabled = storage.extensionEnabled;
@@ -27,6 +27,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       break;
     case Constants.commands.getPumlServerUrl:
       sendResponse(config.pumlServerUrl);
+      break;
+    case Constants.commands.setConfig:
+      config = request.config;
+      sendResponse(config);
+      chrome.storage.sync.set(config);
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+      });
       break;
     case Constants.commands.toggleExtensionEnabled:
       config.extensionEnabled = !config.extensionEnabled;
