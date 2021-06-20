@@ -1,10 +1,11 @@
 export interface Config {
   extensionEnabled: boolean;
   pumlServerUrl: string;
+  allowedUrls: string[];
   deniedUrls: string[];
 }
 
-export function deniedUrlToRegExp(deniedUrl: string): RegExp {
+export function urlToRegExp(deniedUrl: string): RegExp {
   return new RegExp(
     '^' +
       deniedUrl

@@ -15,10 +15,11 @@
 
   let config: Config = { ...Constants.defaultConfig };
 
-  let inputUrl = '';
+  let inputServerUrl = '';
   let versionPumlSrc = '';
-  let inputUrlErrorMessage = '';
+  let inputServerUrlErrorMessage = '';
 
+  let allowedUrlsText = '';
   let deniedUrlsText = '';
 
   let loading = false;
@@ -26,14 +27,31 @@
   onMount(() => {
     chrome.runtime.sendMessage({ command: Constants.commands.getConfig }, (initialConfig: Config) => {
       config = initialConfig;
-      inputUrl = initialConfig.pumlServerUrl;
+      inputServerUrl = initialConfig.pumlServerUrl;
+      allowedUrlsText = initialConfig.allowedUrls.join(',\n');
       deniedUrlsText = initialConfig.deniedUrls.join(',\n');
       updatePumlServerUrl(initialConfig.pumlServerUrl);
     });
   });
 
-  function handleToggleButtonClick(): void {
+  function handleToggleExtensionEnabled(): void {
     chrome.runtime.sendMessage({ command: Constants.commands.toggleExtensionEnabled }, updateExtensionEnabled);
+  }
+
+  function handleChangeServerUrl(): void {
+    const pumlServerUrl = !inputServerUrl.endsWith('/')
+      ? inputServerUrl
+      : inputServerUrl.substring(0, inputServerUrl.length - 1);
+    if (config.pumlServerUrl == pumlServerUrl) return;
+    chrome.runtime.sendMessage({ command: Constants.commands.setPumlServerUrl, pumlServerUrl }, updatePumlServerUrl);
+  }
+
+  function handleUpdateAllowedUrlsButtonClick(): void {
+    const allowedUrls = allowedUrlsText
+      .trim()
+      .split(/\s*,\s*/)
+      .filter((url) => !!url);
+    chrome.runtime.sendMessage({ command: Constants.commands.setAllowedUrls, allowedUrls }, updateAllowedUrls);
   }
 
   function handleUpdateDeniedUrlsButtonClick(): void {
@@ -44,12 +62,6 @@
     chrome.runtime.sendMessage({ command: Constants.commands.setDeniedUrls, deniedUrls }, updateDeniedUrls);
   }
 
-  function handleChangeServerUrlButtonClick(): void {
-    const pumlServerUrl = !inputUrl.endsWith('/') ? inputUrl : inputUrl.substring(0, inputUrl.length - 1);
-    if (config.pumlServerUrl == pumlServerUrl) return;
-    chrome.runtime.sendMessage({ command: Constants.commands.setPumlServerUrl, pumlServerUrl }, updatePumlServerUrl);
-  }
-
   function updateExtensionEnabled(extensionEnabled: boolean): void {
     config.extensionEnabled = extensionEnabled;
   }
@@ -58,7 +70,7 @@
     config.pumlServerUrl = pumlServerUrl;
 
     if (!/^https?:\/\/.*$/.test(pumlServerUrl)) {
-      inputUrlErrorMessage = `${pumlServerUrl} does not match https://* or http://* `;
+      inputServerUrlErrorMessage = `${pumlServerUrl} does not match https://* or http://* `;
       return;
     }
 
@@ -69,23 +81,37 @@
         if (!res.ok) throw Error();
         const versionUmlText = await res.text();
         versionPumlSrc = `data:image/svg+xml,${encodeURIComponent(versionUmlText)}`;
-        inputUrlErrorMessage = '';
+        inputServerUrlErrorMessage = '';
       } catch {
         versionPumlSrc = '';
-        inputUrlErrorMessage = `${pumlServerUrl} does not refer a valid plantUML serer`;
+        inputServerUrlErrorMessage = `${pumlServerUrl} does not refer a valid plantUML serer`;
       } finally {
         loading = false;
       }
     })().then();
   }
 
+  function updateAllowedUrls(allowedUrls: string[]): void {
+    config.allowedUrls = allowedUrls;
+    allowedUrlsText = allowedUrls.join(',\n');
+  }
+
   function updateDeniedUrls(deniedUrls: string[]): void {
+    config.deniedUrls = deniedUrls;
     deniedUrlsText = deniedUrls.join(',\n');
   }
 
-  function setAsDefault() {
-    inputUrl = Constants.defaultConfig.pumlServerUrl;
-    handleChangeServerUrlButtonClick();
+  function backToDefault() {
+    chrome.runtime.sendMessage(
+      { command: Constants.commands.setConfig, config: Constants.defaultConfig },
+      (newConfig: Config) => {
+        config = newConfig;
+        inputServerUrl = newConfig.pumlServerUrl;
+        allowedUrlsText = newConfig.allowedUrls.join(',\n');
+        deniedUrlsText = newConfig.deniedUrls.join(',\n');
+        updatePumlServerUrl(newConfig.pumlServerUrl);
+      }
+    );
   }
 </script>
 
@@ -93,16 +119,16 @@
 
 <ItemContainer>
   <ItemLabel>Visualize PlantUML code</ItemLabel>
-  <Switch id="switch" on:change={handleToggleButtonClick} value={config.extensionEnabled} />
+  <Switch id="switch" on:change={handleToggleExtensionEnabled} value={config.extensionEnabled} />
 </ItemContainer>
 
 <ItemContainer>
   <ItemLabel>Server URL</ItemLabel>
   <TextField
-    bind:value={inputUrl}
-    on:blur={handleChangeServerUrlButtonClick}
+    bind:value={inputServerUrl}
+    on:blur={handleChangeServerUrl}
     on:keypress={(event) => {
-      if (event.key === 'Enter') handleChangeServerUrlButtonClick();
+      if (event.key === 'Enter') handleChangeServerUrl();
     }}
     disabled={loading}
     placeholder="https://* or http://*"
@@ -113,8 +139,8 @@
   <div class="puml-server-version-image">
     {#if loading}
       <div class="loading">Loading...</div>
-    {:else if inputUrlErrorMessage}
-      <div class="error">{inputUrlErrorMessage}</div>
+    {:else if inputServerUrlErrorMessage}
+      <div class="error">{inputServerUrlErrorMessage}</div>
     {:else if !versionPumlSrc}
       No server
     {:else}
@@ -124,12 +150,18 @@
 </BodyContainer>
 
 <ItemContainer>
+  <ItemLabel>Allowed URLs</ItemLabel>
+  <TextField bind:value={allowedUrlsText} multiline={true} disabled={loading} placeholder="foo.com" />
+  <Button on:click={handleUpdateAllowedUrlsButtonClick}>apply</Button>
+</ItemContainer>
+
+<ItemContainer>
   <ItemLabel>Denied URLs</ItemLabel>
   <TextField bind:value={deniedUrlsText} multiline={true} disabled={loading} placeholder="foo.com" />
   <Button on:click={handleUpdateDeniedUrlsButtonClick}>apply</Button>
 </ItemContainer>
 
-<Footer disabled={loading} on:clickSetAsDefault={setAsDefault} />
+<Footer disabled={loading} on:clickBackToDefault={backToDefault} />
 
 <style lang="scss">
   :global(body) {
