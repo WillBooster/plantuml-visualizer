@@ -4,13 +4,11 @@
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     [
-      "@semantic-release/npm",
+      "@semantic-release/github",
       {
-        "npmPublish": false,
         "successComment": true
       }
     ],
-    "@semantic-release/github",
     [
       "semantic-release-firefox-add-on",
       {
