@@ -2035,9 +2035,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:19.0.0":
-  version: 19.0.0
-  resolution: "@rollup/plugin-commonjs@npm:19.0.0"
+"@rollup/plugin-commonjs@npm:19.0.1":
+  version: 19.0.1
+  resolution: "@rollup/plugin-commonjs@npm:19.0.1"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     commondir: ^1.0.1
@@ -2048,13 +2048,13 @@ __metadata:
     resolve: ^1.17.0
   peerDependencies:
     rollup: ^2.38.3
-  checksum: 83216ccd83c205f5b6ce278ce5233289a1ebf47fd859d6349d738b58e967bbb845395011f8605cf6a74175b728ed3b97fbfd9169bd0391caf5ee80c523652815
+  checksum: 49942cec59876a5ab3b576fe8ade861123c55d76e538fc43f225bb034dbc3c94934aba6df284350af19e50838fa0e3f8a239d9f6284e3b090bd0f4a708d097f3
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:13.0.0":
-  version: 13.0.0
-  resolution: "@rollup/plugin-node-resolve@npm:13.0.0"
+"@rollup/plugin-node-resolve@npm:13.0.2":
+  version: 13.0.2
+  resolution: "@rollup/plugin-node-resolve@npm:13.0.2"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     "@types/resolve": 1.17.1
@@ -2064,7 +2064,7 @@ __metadata:
     resolve: ^1.19.0
   peerDependencies:
     rollup: ^2.42.0
-  checksum: c0237e65f50d593efc176e07a2ddf734918bc7344f739fe2254a3bfaa4be37c6d4787d045ab79d741811d3658f7e8bbb1484e6aa25bbb9fe2a3c33472b3f371d
+  checksum: c4860734d5969076a5b26dc86a8f26ef1400fdd5ae54ef1ea565a728642cc25c80ca08d0027ca222fac824a992477769d3d81d761c165ac2a56392727eb1b94a
   languageName: node
   linkType: hard
 
@@ -2211,13 +2211,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:0.0.145":
-  version: 0.0.145
-  resolution: "@types/chrome@npm:0.0.145"
+"@types/chrome@npm:0.0.147":
+  version: 0.0.147
+  resolution: "@types/chrome@npm:0.0.147"
   dependencies:
     "@types/filesystem": "*"
     "@types/har-format": "*"
-  checksum: f53387d77157bb7cf549dd4ee037f29bbe9f2eb3723d02e77aa80c3d8497be0fdce555b2cca2d3045818a0e80779e83a8d0a02e694978fb98f3b397c1fa6742f
+  checksum: bc4839599151dc208d612c91d82816c734f1472384c8357a34b939c96d940a0922cfaa27ba7e950393b0a6ed0662d66801d4adfdbcc267de961c66d9d31a7718
   languageName: node
   linkType: hard
 
@@ -2278,12 +2278,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.5":
-  version: 3.5.5
-  resolution: "@types/jquery@npm:3.5.5"
+"@types/jquery@npm:3.5.6":
+  version: 3.5.6
+  resolution: "@types/jquery@npm:3.5.6"
   dependencies:
     "@types/sizzle": "*"
-  checksum: b8fb9ebc09e3d29c9867016426cb038f3d3baa25a2e631c14b07c827feab12fc03c4a1cd5782090840d1f3b1f52113bf5eaabda76f861fd3d4856217a60e5af7
+  checksum: 0ff97741ed79463545e2fd6969639579d112aeb316b70a9928c39ae031d68386e8096755d4b3c1b3aa252e024ae11d30a4ba47bc454e4fb9e232d5ded09f8f81
   languageName: node
   linkType: hard
 
@@ -2310,12 +2310,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/micromatch@npm:4":
-  version: 4.0.1
-  resolution: "@types/micromatch@npm:4.0.1"
+"@types/micromatch@npm:4.0.2":
+  version: 4.0.2
+  resolution: "@types/micromatch@npm:4.0.2"
   dependencies:
     "@types/braces": "*"
-  checksum: 4f9fea285778c579055c83fbb025f576c3adc9541ec89e12f1e192e53c0885a04d1a5863b44001606f01964f12b26f8b08b033c06de11ca9de78d58e7a672850
+  checksum: 6c678e9c625d5b422c6d2c1001da1c502ecc4457248343bbd324b79fd798a6563e336a4d79630d80e8202312013dd7cf8b4440afa644d04477abd26fde6fba24
   languageName: node
   linkType: hard
 
@@ -2386,7 +2386,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sass@npm:1.16.0, @types/sass@npm:^1.16.0":
+"@types/sass@npm:1.16.1":
+  version: 1.16.1
+  resolution: "@types/sass@npm:1.16.1"
+  dependencies:
+    "@types/node": "*"
+  checksum: 3f86d2eaf4988a2775fc0fc164d35e73ce82d71228191da7b11d97ad5e8ac129f1c5f798307e31482f8cfebab758bd3b24e731860bed81afe5a1bbe13fa2b2df
+  languageName: node
+  linkType: hard
+
+"@types/sass@npm:^1.16.0":
   version: 1.16.0
   resolution: "@types/sass@npm:1.16.0"
   dependencies:
@@ -7859,9 +7868,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:11.0.0":
-  version: 11.0.0
-  resolution: "lint-staged@npm:11.0.0"
+"lint-staged@npm:11.0.1":
+  version: 11.0.1
+  resolution: "lint-staged@npm:11.0.1"
   dependencies:
     chalk: ^4.1.1
     cli-truncate: ^2.1.0
@@ -7880,7 +7889,7 @@ fsevents@^1.2.7:
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 3be24b4a88799264bbb9baeedfc5be278d25aa85dc766c5328da23d5d92300c0a163563b455d530ca2a74510a161f17623e846e1aca81e44f389108274ad2acd
+  checksum: 5046fbaa020e573ca31a4b7a3819cdd5383912c53dc55f5e68db4a525eba1fc23312f4cf0162742ef6a358464394e584b718049cd62b883b1d4f06fdfb163022
   languageName: node
   linkType: hard
 
@@ -9608,14 +9617,14 @@ fsevents@^1.2.7:
     "@babel/preset-react": 7.14.5
     "@babel/preset-typescript": 7.14.5
     "@rollup/plugin-babel": 5.3.0
-    "@rollup/plugin-commonjs": 19.0.0
-    "@rollup/plugin-node-resolve": 13.0.0
+    "@rollup/plugin-commonjs": 19.0.1
+    "@rollup/plugin-node-resolve": 13.0.2
     "@tsconfig/svelte": 1.0.13
-    "@types/chrome": 0.0.145
+    "@types/chrome": 0.0.147
     "@types/eslint": 7.2.13
-    "@types/jquery": 3.5.5
-    "@types/micromatch": 4
-    "@types/sass": 1.16.0
+    "@types/jquery": 3.5.6
+    "@types/micromatch": 4.0.2
+    "@types/sass": 1.16.1
     "@typescript-eslint/eslint-plugin": 4.27.0
     "@typescript-eslint/parser": 4.27.0
     "@willbooster/eslint-config-ts": 6.3.0
@@ -9632,21 +9641,21 @@ fsevents@^1.2.7:
     eslint-plugin-svelte3: 3.2.0
     husky: 6.0.0
     jquery: 3.6.0
-    lint-staged: 11.0.0
+    lint-staged: 11.0.1
     micromatch: 4.0.4
     pinst: 2.1.6
-    prettier: 2.3.1
-    prettier-plugin-svelte: 2.3.0
-    rollup: 2.52.0
+    prettier: 2.3.2
+    prettier-plugin-svelte: 2.3.1
+    rollup: 2.53.2
     rollup-plugin-svelte: 7.1.0
-    sass: 1.35.1
+    sass: 1.35.2
     semantic-release: 17.4.4
     semantic-release-chrome: 1.1.3
     semantic-release-firefox-add-on: 0.2.8
     sort-package-json: 1.50.0
-    svelte: 3.38.2
-    svelte-preprocess: 4.7.3
-    typescript: 4.3.2
+    svelte: 3.38.3
+    svelte-preprocess: 4.7.4
+    typescript: 4.3.5
     zlib.es: 0.6.0
   languageName: unknown
   linkType: soft
@@ -9700,22 +9709,22 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prettier-plugin-svelte@npm:2.3.0":
-  version: 2.3.0
-  resolution: "prettier-plugin-svelte@npm:2.3.0"
+"prettier-plugin-svelte@npm:2.3.1":
+  version: 2.3.1
+  resolution: "prettier-plugin-svelte@npm:2.3.1"
   peerDependencies:
     prettier: ^1.16.4 || ^2.0.0
     svelte: ^3.2.0
-  checksum: 11121675db86278d519e07b296d5efc695c626376279c9212713aa26ee8b4d53b644d53a94d40ba7d8207b50ff43fab5c7720334beed5b744e550eb3c00acb49
+  checksum: 44a3d1050c28d5ec66d06efd6f2a629a0747ab3d51143c443080c9092088b342bcf7bc25290c98da6e728c626b5c18cb93574f6b4328a23ed3c4df1987620138
   languageName: node
   linkType: hard
 
-"prettier@npm:2.3.1":
-  version: 2.3.1
-  resolution: "prettier@npm:2.3.1"
+"prettier@npm:2.3.2":
+  version: 2.3.2
+  resolution: "prettier@npm:2.3.2"
   bin:
     prettier: bin-prettier.js
-  checksum: 3b37731ff7150feecf19736c77c790e7e276b404ac9af81cbaf87cfecefc48ef9a864f34c2a5caf5955378b8f2525984b8611703a0d9c1f052b4cfa6eb35899f
+  checksum: 17ce5784ac67621c292df58e2da60b2ee150c2d6aebea22a6ad9e52fcd6a5e66c349d0a8436ea3bd8ff9d778920a5f68000d7625b74f43558718a49755aa5259
   languageName: node
   linkType: hard
 
@@ -10395,9 +10404,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rollup@npm:2.52.0":
-  version: 2.52.0
-  resolution: "rollup@npm:2.52.0"
+"rollup@npm:2.53.2":
+  version: 2.53.2
+  resolution: "rollup@npm:2.53.2"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -10405,7 +10414,7 @@ fsevents@^1.2.7:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 5b2afeefafc717762f80e8f45c6f1f2982c0a7b0a98dc2b28644872d5e657549f48710aeedc5635372cd441a9e9f2fe73053bd1fd47561b742bd0f6aa3cb9333
+  checksum: 0b64def8f0a6e16abff59397e21328ec0605c2f5f2623a5d276603c696e244593f86773b0dd965aa7aae8970f72bf3c723b5bc50f9b3e800c105290e6c62c690
   languageName: node
   linkType: hard
 
@@ -10464,14 +10473,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"sass@npm:1.35.1":
-  version: 1.35.1
-  resolution: "sass@npm:1.35.1"
+"sass@npm:1.35.2":
+  version: 1.35.2
+  resolution: "sass@npm:1.35.2"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: f49e738d637971f5985ab07aeda79629a9b555cca5e414ae2750b90bc9ce94703beada7f8cb5cbf972942e4c6ea941457846846618f2c6a8cd138087ee0502b2
+  checksum: bae338ac88d5a2f6d99dd3fc8f3ac84a93419eaa2d38ee877ddd844f6996f21b0005ed074e9eadb28bb08c4a3c2dc379a01cd6fe47352a9857870d33f69273ef
   languageName: node
   linkType: hard
 
@@ -11320,9 +11329,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"svelte-preprocess@npm:4.7.3":
-  version: 4.7.3
-  resolution: "svelte-preprocess@npm:4.7.3"
+"svelte-preprocess@npm:4.7.4":
+  version: 4.7.4
+  resolution: "svelte-preprocess@npm:4.7.4"
   dependencies:
     "@types/pug": ^2.0.4
     "@types/sass": ^1.16.0
@@ -11363,14 +11372,14 @@ fsevents@^1.2.7:
       optional: true
     typescript:
       optional: true
-  checksum: fca103348445558a196649d727c3997de624c2e350fa1d051593839b420a5b98738f089029e13adede6612525f1b93eae10aeae08c3564fa52a4c7cefa775f8c
+  checksum: 566fd75e501673a956ddcd26347fbb8ede032b90c124d73b51be5bebeb056239788fceece70ed0a32e400a474e4498f0529844ea0e3ed0dab16831b0b719f258
   languageName: node
   linkType: hard
 
-"svelte@npm:3.38.2":
-  version: 3.38.2
-  resolution: "svelte@npm:3.38.2"
-  checksum: e76e7c1408961160e55d5bf93745276804122da8f2896da7b877203cbe7e947f7654695a8bc3fdaf9506465c9cbc1daa3d68ee56811a56476ed7bb17b2c9ff94
+"svelte@npm:3.38.3":
+  version: 3.38.3
+  resolution: "svelte@npm:3.38.3"
+  checksum: 945f5f509014dde991d1d2508acd4dfa01ca3ca1ad1c8432b178d6698a6429c3428213a4dab4a876c01cff6588fe6598996a78241368394c77ed6b7775442561
   languageName: node
   linkType: hard
 
@@ -11792,23 +11801,23 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-typescript@4.3.2:
-  version: 4.3.2
-  resolution: "typescript@npm:4.3.2"
+typescript@4.3.5:
+  version: 4.3.5
+  resolution: "typescript@npm:4.3.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: c2a86fa03ce03b255adc13ccd70a55173ca6539ae12114feca59f34a4e9bb69f14fb7cd5adc6c2416e568cff05c870b89d1366768ec55fce04fbdffb429a1cee
+  checksum: bab033b5e2b0790dd35b77fd005df976ef80b8d84fd2c6e63cc31808151875beae9216e5a315fe7068e8499905c3c354248fe83272cdfc13b7705635f0c66c97
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.3.2#~builtin<compat/typescript>":
-  version: 4.3.2
-  resolution: "typescript@patch:typescript@npm%3A4.3.2#~builtin<compat/typescript>::version=4.3.2&hash=d8b4e7"
+"typescript@patch:typescript@4.3.5#~builtin<compat/typescript>":
+  version: 4.3.5
+  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 3d3dec06ba6e5b05caa292355712ed9db813fa1c2377630b1f24b42e5ee8957f0bcdd5efd1500c970a11a6f684897f5728f5542ac822932227159a0611499a5e
+  checksum: bc2c4fdf0f1557fdafe4ef74848c72ebd9c8c60829568248f869121aea2bb20e16649a252431d0acb185ec118143be22bed73d08f64379557810d82756afedde
   languageName: node
   linkType: hard
 
