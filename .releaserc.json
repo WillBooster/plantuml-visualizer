@@ -3,12 +3,7 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    [
-      "@semantic-release/github",
-      {
-        "successComment": true
-      }
-    ],
+    "@semantic-release/github",
     [
       "semantic-release-firefox-add-on",
       {
