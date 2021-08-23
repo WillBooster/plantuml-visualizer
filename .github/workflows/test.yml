@@ -19,9 +19,9 @@ jobs:
       - id: skip_check
         uses: fkirc/skip-duplicate-actions@master
         with:
-          cancel_others: true
+          cancel_others: false
           skip_after_successful_duplicate: true
-          concurrent_skipping: always
+          concurrent_skipping: same_content_newer
           paths_ignore: '["**/*.md", "**/docs/**"]'
   test:
     needs: pre
@@ -46,6 +46,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install
+      - run: yarn svelte-check
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn build
