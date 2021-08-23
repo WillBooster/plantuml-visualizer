@@ -46,6 +46,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - run: yarn install
+      - run: yarn svelte-check
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn build
