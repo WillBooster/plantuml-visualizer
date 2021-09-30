@@ -2261,9 +2261,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:13.0.4":
-  version: 13.0.4
-  resolution: "@rollup/plugin-node-resolve@npm:13.0.4"
+"@rollup/plugin-node-resolve@npm:13.0.5":
+  version: 13.0.5
+  resolution: "@rollup/plugin-node-resolve@npm:13.0.5"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     "@types/resolve": 1.17.1
@@ -2273,7 +2273,7 @@ __metadata:
     resolve: ^1.19.0
   peerDependencies:
     rollup: ^2.42.0
-  checksum: 9013d3b2c2e5a31be12e74fdf1ade209d3ce8c52cc47c2bb724ba67727efec7275a4e987874c5b6d6a3f9f25c5364df95bfba5b2f8b874a9dbb33c3fcb927731
+  checksum: d7d5b55d3623f8869237187aa1e2895f4a81ced125be67548b15b6aa590eec5a0569a1add3cf1918e9e82686e6115c67c596b963aff7f8bf229194b058243e50
   languageName: node
   linkType: hard
 
@@ -2427,13 +2427,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:0.0.157":
-  version: 0.0.157
-  resolution: "@types/chrome@npm:0.0.157"
+"@types/chrome@npm:0.0.158":
+  version: 0.0.158
+  resolution: "@types/chrome@npm:0.0.158"
   dependencies:
     "@types/filesystem": "*"
     "@types/har-format": "*"
-  checksum: 56edd77a108320674eae6f01688559a4fed3f0a7df2a718b4ad9cd50eaff2f59532e8fa0eb7881e473aea4507d9dc72d0c2fe84ff2ff394c72322ddca7f586f1
+  checksum: 5a397830b386b30e3ecd2df9a3709db4e3944c176d06c91c85e629478c6fc8e4d2126bc5c176a05af2a54c27553a8b81b2115ed2cf8b530ff6d949e5a376df2d
   languageName: node
   linkType: hard
 
@@ -9900,9 +9900,9 @@ fsevents@^1.2.7:
     "@babel/preset-typescript": 7.15.0
     "@rollup/plugin-babel": 5.3.0
     "@rollup/plugin-commonjs": 20.0.0
-    "@rollup/plugin-node-resolve": 13.0.4
+    "@rollup/plugin-node-resolve": 13.0.5
     "@tsconfig/svelte": 2.0.1
-    "@types/chrome": 0.0.157
+    "@types/chrome": 0.0.158
     "@types/eslint": 7.28.0
     "@types/jquery": 3.5.6
     "@types/micromatch": 4
@@ -9928,14 +9928,14 @@ fsevents@^1.2.7:
     pinst: 2.1.6
     prettier: 2.4.1
     prettier-plugin-svelte: 2.4.0
-    rollup: 2.56.3
+    rollup: 2.57.0
     rollup-plugin-svelte: 7.1.0
-    sass: 1.41.1
+    sass: 1.42.1
     semantic-release: 18.0.0
     semantic-release-chrome: 1.1.3
     semantic-release-firefox-add-on: 0.2.8
-    sort-package-json: 1.51.0
-    svelte: 3.42.6
+    sort-package-json: 1.52.0
+    svelte: 3.43.0
     svelte-check: 2.2.6
     svelte-preprocess: 4.9.5
     typescript: 4.4.3
@@ -10698,9 +10698,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rollup@npm:2.56.3":
-  version: 2.56.3
-  resolution: "rollup@npm:2.56.3"
+"rollup@npm:2.57.0":
+  version: 2.57.0
+  resolution: "rollup@npm:2.57.0"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -10708,7 +10708,7 @@ fsevents@^1.2.7:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: e4c5a6e871f0340f18fc795cbb6b76bfbc5827580c443a7c4f5d9f9b1fec8c3d1553dae5e45bd7fc9dea4de56e01c244b1583f8f08f401d2ba81f5eb3ff83101
+  checksum: 72427487d1f956ac1431b0db7a88ea542475630c9f0cc279a2f6be68138107bff00506d49d189780f77f189a17dcf83ee7be712a58145a6a910a3e23deb5f85d
   languageName: node
   linkType: hard
 
@@ -10788,14 +10788,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"sass@npm:1.41.1":
-  version: 1.41.1
-  resolution: "sass@npm:1.41.1"
+"sass@npm:1.42.1":
+  version: 1.42.1
+  resolution: "sass@npm:1.42.1"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: a5dcf0e80f068ecaf0feb7603acfbb0ce30885dde58ef1f03b2f153973aed075525d4e539ab5fdf7fbff47a66033716270f64579eafa17b7e4591f404281e1d6
+  checksum: 467817475b23a3da3aac2f5e401f3b3d9431845b31ff1bc6269d4677852b4e1445e50d6ed1a8daffa4a76398cff6c531670171823466137ed8c2721c17983973
   languageName: node
   linkType: hard
 
@@ -11187,9 +11187,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"sort-package-json@npm:1.51.0":
-  version: 1.51.0
-  resolution: "sort-package-json@npm:1.51.0"
+"sort-package-json@npm:1.52.0":
+  version: 1.52.0
+  resolution: "sort-package-json@npm:1.52.0"
   dependencies:
     detect-indent: ^6.0.0
     detect-newline: 3.1.0
@@ -11199,7 +11199,7 @@ fsevents@^1.2.7:
     sort-object-keys: ^1.1.3
   bin:
     sort-package-json: cli.js
-  checksum: e9a5bd43ed1d7ae0b74646cb4778d4a5c1217f415795dcc25c80634887dd7e664242d34589e9007b53c722f048c03a3424969db3b01d8df82d3cb1679b885c7d
+  checksum: 0ac65776ec96a451e618e00ed87dabe0d9ef872d1f00083efed889841dcf966778c715fc612c1c042ecdebf5b5cbe88b54a04e0e6ebda8f5b9190c393072e991
   languageName: node
   linkType: hard
 
@@ -11793,10 +11793,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"svelte@npm:3.42.6":
-  version: 3.42.6
-  resolution: "svelte@npm:3.42.6"
-  checksum: afba567e8e9ba23cbb7a286230005f17f0237d72ca60481a48a31a6a343ee8229a24823948b0403058be32f0e21716b9339e43aa37f14d97c8e7d518fc92aea4
+"svelte@npm:3.43.0":
+  version: 3.43.0
+  resolution: "svelte@npm:3.43.0"
+  checksum: d987b11ebdead9ea5c0a25ba2ed010ce591a7ca853fdb13421aa68b5e965c28a2cc1fd72944eaed605fe652c1a8384e386140bedaa77a2f47a5e66fe53aa65b2
   languageName: node
   linkType: hard
 
