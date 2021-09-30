@@ -2853,9 +2853,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@willbooster/eslint-config-ts@npm:6.3.0":
-  version: 6.3.0
-  resolution: "@willbooster/eslint-config-ts@npm:6.3.0"
+"@willbooster/eslint-config-ts@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@willbooster/eslint-config-ts@npm:6.4.0"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ">=4"
     "@typescript-eslint/parser": ">=4"
@@ -2864,23 +2864,23 @@ __metadata:
     eslint-config-prettier: ">=8"
     eslint-plugin-import: ">=2"
     typescript: ">=4"
-  checksum: 713a52e8fb0aa5036f10cc812d802a653f424525abbf956fcb6ca22b9dde230a8b28edb37de09be1a61ddb2e0a2df3164eabcd67241d1acff8da111b7ea9f0fd
+  checksum: 94e28088934d4611be285e7f8543b8daac3e4dbe43e684c4fc869db8bf9fdf90287dc3a6cb7364c1663f0c9ee79c7c1a0503a784029ab62a60ccaca095038f7b
   languageName: node
   linkType: hard
 
-"@willbooster/prettier-config@npm:6.2.1":
-  version: 6.2.1
-  resolution: "@willbooster/prettier-config@npm:6.2.1"
+"@willbooster/prettier-config@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@willbooster/prettier-config@npm:6.4.0"
   peerDependencies:
     prettier: ">=2"
-  checksum: f86da2d18a23c357497b9f6b8d95ebd7de4238c01eb89f73cc17f38c3f20b06287f89cdbfab949f1ab0e79ca38bdc708ce6cf9c38fd7aa66626e54e86abd6a39
+  checksum: 7d745aa49c6b86cc210ba90bef1734b98a8314e523dafac3dc90ea0997efcd2b2e496a9c921901dafd9734385ba2ce48a0e4071097bc3e4b60f2dbca17d04555
   languageName: node
   linkType: hard
 
-"@willbooster/renovate-config@npm:6.3.0":
-  version: 6.3.0
-  resolution: "@willbooster/renovate-config@npm:6.3.0"
-  checksum: 3442af126e5288ed8e235b5910172e145438819c2ded8ca06a7df54b69e5312ea3dd89a1b0f5c036e1124ac144cd84ed95cd00f72f5fd952b8e29220118c95f5
+"@willbooster/renovate-config@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@willbooster/renovate-config@npm:6.4.0"
+  checksum: cc61659b3b2e50aaa1cbb65aeb55e79bda0851520852427063c7ca69b119abc044f4ff2a9ae388f8ba2b3657f2730f6c01aacc870524af58eb6fe0ac767cc28d
   languageName: node
   linkType: hard
 
@@ -10045,9 +10045,9 @@ fsevents@^1.2.7:
     "@types/sass": 1.16.1
     "@typescript-eslint/eslint-plugin": 4.32.0
     "@typescript-eslint/parser": 4.32.0
-    "@willbooster/eslint-config-ts": 6.3.0
-    "@willbooster/prettier-config": 6.2.1
-    "@willbooster/renovate-config": 6.3.0
+    "@willbooster/eslint-config-ts": 6.4.0
+    "@willbooster/prettier-config": 6.4.0
+    "@willbooster/renovate-config": 6.4.0
     babel-plugin-transform-remove-console: 6.9.4
     bestzip: 2.2.0
     cross-env: 7.0.3
