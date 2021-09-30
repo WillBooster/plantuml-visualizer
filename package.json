@@ -51,7 +51,7 @@
     "@types/chrome": "0.0.158",
     "@types/eslint": "7.28.0",
     "@types/jquery": "3.5.6",
-    "@types/micromatch": "4",
+    "@types/micromatch": "4.0.2",
     "@types/sass": "1.16.1",
     "@typescript-eslint/eslint-plugin": "4.32.0",
     "@typescript-eslint/parser": "4.32.0",
