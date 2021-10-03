@@ -10073,7 +10073,7 @@ fsevents@^1.2.7:
     sort-package-json: 1.52.0
     svelte: 3.43.1
     svelte-check: 2.2.6
-    svelte-preprocess: 4.9.7
+    svelte-preprocess: 4.9.8
     typescript: 4.4.3
     zlib.es: 0.6.0
   languageName: unknown
@@ -11833,9 +11833,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"svelte-preprocess@npm:4.9.7":
-  version: 4.9.7
-  resolution: "svelte-preprocess@npm:4.9.7"
+"svelte-preprocess@npm:4.9.8":
+  version: 4.9.8
+  resolution: "svelte-preprocess@npm:4.9.8"
   dependencies:
     "@types/pug": ^2.0.4
     "@types/sass": ^1.16.0
@@ -11878,7 +11878,7 @@ fsevents@^1.2.7:
       optional: true
     typescript:
       optional: true
-  checksum: 7e44d2e69e9ed984b8c8a5185a0fd6c7225103758ea11ef406929022aab2ad565590dd74fc1902dd61b2f64f128786cc5ffd5d1ec0f0bea4d92719fd85f887da
+  checksum: 4a270ca101628ef816b3e3db75b504004bbf4f69334e1c201a8ce72ef26a2900b75cb514d283a9a6297e8ac481425a179e50973487d7d031762064c9d99b242a
   languageName: node
   linkType: hard
 
