@@ -19,16 +19,16 @@
     "build-dev": "cross-env NODE_ENV=development yarn build-common",
     "cleanup": "yarn format && yarn lint-fix",
     "format": "sort-package-json && yarn prettify",
+    "postinstall": "husky install",
     "lint": "eslint --color \"./{src,__tests__}/**/*.{js,jsx,ts,tsx}\"",
     "lint-fix": "yarn lint --fix",
     "package": "rm -f \"*.tgz\" \"*.zip\" && yarn pack && yarn build && cd dist && bestzip ../dist.zip *",
+    "prettify": "prettier --color --write \"**/{.*/,}*.{css,htm,html,js,json,json5,jsx,md,scss,ts,tsx,vue,yaml,yml}\" \"!**/test-fixtures/**\"",
     "recreate-dist": "rm -Rf dist && mkdir dist && cp -r src/popup.html icon manifest.json dist/",
     "release": "dotenv -- semantic-release",
     "release-test": "yarn release -d",
     "start": "cross-env NODE_ENV=development yarn build-common -w",
-    "typecheck": "tsc --noEmit --Pretty",
-    "postinstall": "husky install",
-    "prettify": "prettier --color --write \"**/{.*/,}*.{css,htm,html,js,json,json5,jsx,md,scss,ts,tsx,vue,yaml,yml}\" \"!**/test-fixtures/**\""
+    "typecheck": "tsc --noEmit --Pretty"
   },
   "prettier": "@willbooster/prettier-config",
   "dependencies": {
@@ -84,5 +84,6 @@
     "svelte-check": "2.2.6",
     "svelte-preprocess": "4.9.8",
     "typescript": "4.4.3"
-  }
+  },
+  "packageManager": "yarn@3.0.2"
 }
