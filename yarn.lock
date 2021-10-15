@@ -2373,18 +2373,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@willbooster/eslint-config-ts@npm:6.4.0":
-  version: 6.4.0
-  resolution: "@willbooster/eslint-config-ts@npm:6.4.0"
+"@willbooster/eslint-config-ts@npm:6.4.1":
+  version: 6.4.1
+  resolution: "@willbooster/eslint-config-ts@npm:6.4.1"
   peerDependencies:
-    "@typescript-eslint/eslint-plugin": ">=4"
-    "@typescript-eslint/parser": ">=4"
-    "@willbooster/prettier-config": ">=5"
-    eslint: ">=7"
+    "@typescript-eslint/eslint-plugin": ">=5"
+    "@typescript-eslint/parser": ">=5"
+    "@willbooster/prettier-config": ">=6"
+    eslint: ">=8"
     eslint-config-prettier: ">=8"
     eslint-plugin-import: ">=2"
     typescript: ">=4"
-  checksum: 94e28088934d4611be285e7f8543b8daac3e4dbe43e684c4fc869db8bf9fdf90287dc3a6cb7364c1663f0c9ee79c7c1a0503a784029ab62a60ccaca095038f7b
+  checksum: 32de2e1c9c2b763b4b4ef969b79f6b97a8bf45605a13d50a1a7a085f9ab55a70fdcc319645fab23decbf557afce02b2bffa8b7c91920b5a50c6c44ca182c6e94
   languageName: node
   linkType: hard
 
@@ -9599,7 +9599,7 @@ fsevents@~2.3.2:
     "@types/sass": 1.16.1
     "@typescript-eslint/eslint-plugin": 4.33.0
     "@typescript-eslint/parser": 4.33.0
-    "@willbooster/eslint-config-ts": 6.4.0
+    "@willbooster/eslint-config-ts": 6.4.1
     "@willbooster/prettier-config": 6.4.0
     "@willbooster/renovate-config": 6.4.0
     babel-plugin-transform-remove-console: 6.9.4
