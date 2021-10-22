@@ -1883,9 +1883,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:21.0.0":
-  version: 21.0.0
-  resolution: "@rollup/plugin-commonjs@npm:21.0.0"
+"@rollup/plugin-commonjs@npm:21.0.1":
+  version: 21.0.1
+  resolution: "@rollup/plugin-commonjs@npm:21.0.1"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     commondir: ^1.0.1
@@ -1896,13 +1896,13 @@ __metadata:
     resolve: ^1.17.0
   peerDependencies:
     rollup: ^2.38.3
-  checksum: 5402cd971b0d171bdf37814a5ad8369bbc5809a1a74893ea21818d45905c0c0d2e48989ee476ce1221e69a1369fd552b00c5831a3ba8897400b9bc51b3f3697a
+  checksum: 3e56be58c72d655face6f361f85923ddcc3cc07760b5a3a91cfc728115dfed358fc595781148c512d53a03be8c703133379f228e78fd2aed8655fae9d83800b6
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:13.0.5":
-  version: 13.0.5
-  resolution: "@rollup/plugin-node-resolve@npm:13.0.5"
+"@rollup/plugin-node-resolve@npm:13.0.6":
+  version: 13.0.6
+  resolution: "@rollup/plugin-node-resolve@npm:13.0.6"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     "@types/resolve": 1.17.1
@@ -1912,7 +1912,7 @@ __metadata:
     resolve: ^1.19.0
   peerDependencies:
     rollup: ^2.42.0
-  checksum: d7d5b55d3623f8869237187aa1e2895f4a81ced125be67548b15b6aa590eec5a0569a1add3cf1918e9e82686e6115c67c596b963aff7f8bf229194b058243e50
+  checksum: da304025ca898f3ad70e3a24d788634298f2ca6e139517adff43f27ea9cf821af3ee3530ca6f8abaf7e697294b59803837cd8f0ec22e3b1d34d3411c39e9a32c
   languageName: node
   linkType: hard
 
@@ -2140,12 +2140,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.7":
-  version: 3.5.7
-  resolution: "@types/jquery@npm:3.5.7"
+"@types/jquery@npm:3.5.8":
+  version: 3.5.8
+  resolution: "@types/jquery@npm:3.5.8"
   dependencies:
     "@types/sizzle": "*"
-  checksum: 0884a691dde4c6af22d1de8316df271f88bfb40b9c68260010d2a2f4767628cb1fcf2b85366351b9d7b118449d76989580426f10679b445430f393f97e3c9fb6
+  checksum: 8e561efb52737f38276e1aabf25f26d89bf46c537410625e80fa828bbcd49a1d452c60f160d88eb17b2e85e98300662248a70f4ba678dbee27c2846672f66859
   languageName: node
   linkType: hard
 
@@ -6491,12 +6491,12 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"husky@npm:7.0.2":
-  version: 7.0.2
-  resolution: "husky@npm:7.0.2"
+"husky@npm:7.0.4":
+  version: 7.0.4
+  resolution: "husky@npm:7.0.4"
   bin:
     husky: lib/bin.js
-  checksum: 2ccfe6ddc51dc05ae8ea1e2fbb893344e93a813e00c595d6b5f5e704b7b998d6b0e2adda7c57f99b5e46a60dc07c7d860269a2ea91661c6bacef0eca8e0b8e96
+  checksum: c6ec4af63da2c9522da8674a20ad9b48362cc92704896cc8a58c6a2a39d797feb2b806f93fbd83a6d653fbdceb2c3b6e0b602c6b2e8565206ffc2882ef7db9e9
   languageName: node
   linkType: hard
 
@@ -9579,12 +9579,12 @@ fsevents@~2.3.2:
     "@babel/preset-react": 7.14.5
     "@babel/preset-typescript": 7.15.0
     "@rollup/plugin-babel": 5.3.0
-    "@rollup/plugin-commonjs": 21.0.0
-    "@rollup/plugin-node-resolve": 13.0.5
+    "@rollup/plugin-commonjs": 21.0.1
+    "@rollup/plugin-node-resolve": 13.0.6
     "@tsconfig/svelte": 2.0.1
     "@types/chrome": 0.0.159
     "@types/eslint": 7.28.1
-    "@types/jquery": 3.5.7
+    "@types/jquery": 3.5.8
     "@types/micromatch": 4.0.2
     "@types/sass": 1.16.1
     "@typescript-eslint/eslint-plugin": 4.33.0
@@ -9601,7 +9601,7 @@ fsevents@~2.3.2:
     eslint-import-resolver-node: 0.3.6
     eslint-plugin-import: 2.25.2
     eslint-plugin-svelte3: 3.2.1
-    husky: 7.0.2
+    husky: 7.0.4
     jquery: 3.6.0
     lint-staged: 11.2.3
     micromatch: 4.0.4
@@ -9610,12 +9610,12 @@ fsevents@~2.3.2:
     prettier-plugin-svelte: 2.4.0
     rollup: 2.58.0
     rollup-plugin-svelte: 7.1.0
-    sass: 1.43.2
+    sass: 1.43.3
     semantic-release: 18.0.0
     semantic-release-chrome: 1.1.3
     semantic-release-firefox-add-on: 0.2.8
     sort-package-json: 1.52.0
-    svelte: 3.43.2
+    svelte: 3.44.0
     svelte-check: 2.2.7
     svelte-preprocess: 4.9.8
     typescript: 4.4.4
@@ -10461,14 +10461,14 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"sass@npm:1.43.2":
-  version: 1.43.2
-  resolution: "sass@npm:1.43.2"
+"sass@npm:1.43.3":
+  version: 1.43.3
+  resolution: "sass@npm:1.43.3"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: 96bafc42f01395011347c54b31d974a5949866079bb511ec879d1fb56f88d5d8e0c19961aa37e5e4d039d5a3bc536f06159ff432a3de97dfd0e1315a94fbf45d
+  checksum: d253980cdafe6eab223cd57a44a49a43fc3123c0459c3d09d7f95ab4d4f2a8e3559996c6bfeed5be8dc428c85fd5b8f3cd165a0ede695df9fbd002f2094f8ea1
   languageName: node
   linkType: hard
 
@@ -11449,10 +11449,10 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"svelte@npm:3.43.2":
-  version: 3.43.2
-  resolution: "svelte@npm:3.43.2"
-  checksum: fe0162be9b13e115607dfbee8b83a50f1156f4c82269fae192cf1f68eaaf5757f44d5c3851527710775f1be3656ee0d042d65ac97ad5c40659768154628f986c
+"svelte@npm:3.44.0":
+  version: 3.44.0
+  resolution: "svelte@npm:3.44.0"
+  checksum: f02a9b5aa27f40c4b5bde8f44b4357c8da4ca4c0009b3c5b41ed556cf34bd0c5bcdeb5023dac71374926b1158a5ead314f96a75292d9b310e1d3f98f0284f712
   languageName: node
   linkType: hard
 
