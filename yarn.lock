@@ -2073,13 +2073,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:0.0.159":
-  version: 0.0.159
-  resolution: "@types/chrome@npm:0.0.159"
+"@types/chrome@npm:0.0.162":
+  version: 0.0.162
+  resolution: "@types/chrome@npm:0.0.162"
   dependencies:
     "@types/filesystem": "*"
     "@types/har-format": "*"
-  checksum: 4da826d8f7755333e7519b6e1d8c691d1aba0eb84d4ec93e854650cf09a40c0ce6cefcaecde71b1c0af74d538a6f2e1721cfc4deeab0c8db6cb392214eb030b4
+  checksum: 3f403051de07f5d5d6b3bcb8ded1e104e2c73f1add84e41317da05a3bbfa20e3ad50c41be34aecee16f9bebef7453c7ac5a2afd394669677730c115cd4e0faaa
   languageName: node
   linkType: hard
 
@@ -2248,7 +2248,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sass@npm:1.16.1, @types/sass@npm:^1.16.0":
+"@types/sass@npm:1.43.0":
+  version: 1.43.0
+  resolution: "@types/sass@npm:1.43.0"
+  dependencies:
+    "@types/node": "*"
+  checksum: a362349c157fb319f2f27fa1fc0f2e0dee3d8fb249b6914047a227319f08197bc3f0a5e909a520478ed9048a241dbf53b75ecb58b299077bd3efd8324a44f297
+  languageName: node
+  linkType: hard
+
+"@types/sass@npm:^1.16.0":
   version: 1.16.1
   resolution: "@types/sass@npm:1.16.1"
   dependencies:
@@ -7798,9 +7807,9 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:11.2.3":
-  version: 11.2.3
-  resolution: "lint-staged@npm:11.2.3"
+"lint-staged@npm:11.2.6":
+  version: 11.2.6
+  resolution: "lint-staged@npm:11.2.6"
   dependencies:
     cli-truncate: 2.1.0
     colorette: ^1.4.0
@@ -7818,7 +7827,7 @@ fsevents@~2.3.2:
     supports-color: 8.1.1
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: cf3a1612a8cb3790030fb1eaf98071b97be0c71e9ee87f2f65741321974178e9b15b480dac695bb126d2cd8751dd7d72071b13d7ea0e1a97a735d88bd3cc8bb7
+  checksum: b9071621db351c553579bd18df3d80fb753f851c4f1f72db0aaf12e713eab25b6d8a044dab2957817de7da02054a63f7725a49c763aee09295133f0d554f4d3f
   languageName: node
   linkType: hard
 
@@ -9588,11 +9597,11 @@ fsevents@~2.3.2:
     "@rollup/plugin-commonjs": 21.0.1
     "@rollup/plugin-node-resolve": 13.0.6
     "@tsconfig/svelte": 2.0.1
-    "@types/chrome": 0.0.159
+    "@types/chrome": 0.0.162
     "@types/eslint": 7.28.2
     "@types/jquery": 3.5.8
     "@types/micromatch": 4.0.2
-    "@types/sass": 1.16.1
+    "@types/sass": 1.43.0
     "@typescript-eslint/eslint-plugin": 5.2.0
     "@typescript-eslint/parser": 5.2.0
     "@willbooster/eslint-config-ts": 6.4.1
@@ -9609,14 +9618,14 @@ fsevents@~2.3.2:
     eslint-plugin-svelte3: 3.2.1
     husky: 7.0.4
     jquery: 3.6.0
-    lint-staged: 11.2.3
+    lint-staged: 11.2.6
     micromatch: 4.0.4
     pinst: 2.1.6
     prettier: 2.4.1
     prettier-plugin-svelte: 2.4.0
-    rollup: 2.58.0
+    rollup: 2.58.3
     rollup-plugin-svelte: 7.1.0
-    sass: 1.43.3
+    sass: 1.43.4
     semantic-release: 18.0.0
     semantic-release-chrome: 1.1.3
     semantic-release-firefox-add-on: 0.2.8
@@ -10377,9 +10386,9 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"rollup@npm:2.58.0":
-  version: 2.58.0
-  resolution: "rollup@npm:2.58.0"
+"rollup@npm:2.58.3":
+  version: 2.58.3
+  resolution: "rollup@npm:2.58.3"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -10387,7 +10396,7 @@ fsevents@~2.3.2:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: a5e5642f2b1e239e3698eeee93b19d905e55e3012c63978cebc71e76c0a4eb2de5cff06a2a80d68bf87fe6869c57647cccc335daba280a5449a9214abdeca247
+  checksum: 20305ac3aea2a62be1728cfd3477419431bad2931532cc136da1904841fa03c318b231027b3a3da077baa0a874c20d72985bf74ed42dad103e88de610eb447a9
   languageName: node
   linkType: hard
 
@@ -10467,14 +10476,14 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"sass@npm:1.43.3":
-  version: 1.43.3
-  resolution: "sass@npm:1.43.3"
+"sass@npm:1.43.4":
+  version: 1.43.4
+  resolution: "sass@npm:1.43.4"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: d253980cdafe6eab223cd57a44a49a43fc3123c0459c3d09d7f95ab4d4f2a8e3559996c6bfeed5be8dc428c85fd5b8f3cd165a0ede695df9fbd002f2094f8ea1
+  checksum: 9af80105dabd32752c60b4557115832982cf1019c02c952db6a26c61a3e18dc95044c896685e6e9a6d6dd6643fc411ecf2ea4a8a431a8a08a7510a45d5a492ae
   languageName: node
   linkType: hard
 
