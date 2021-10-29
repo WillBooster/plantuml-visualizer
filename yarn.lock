@@ -2382,9 +2382,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@willbooster/eslint-config-ts@npm:6.4.1":
-  version: 6.4.1
-  resolution: "@willbooster/eslint-config-ts@npm:6.4.1"
+"@willbooster/eslint-config-ts@npm:6.4.2":
+  version: 6.4.2
+  resolution: "@willbooster/eslint-config-ts@npm:6.4.2"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ">=5"
     "@typescript-eslint/parser": ">=5"
@@ -2393,7 +2393,7 @@ __metadata:
     eslint-config-prettier: ">=8"
     eslint-plugin-import: ">=2"
     typescript: ">=4"
-  checksum: 32de2e1c9c2b763b4b4ef969b79f6b97a8bf45605a13d50a1a7a085f9ab55a70fdcc319645fab23decbf557afce02b2bffa8b7c91920b5a50c6c44ca182c6e94
+  checksum: 8bccd9fe7a6bb398fb6686a0826e6fd2429d44eda2fa718b62c91aff3151fdf8a353857c9670d6b932a6ac8fc3d1102fb6a29718704bfb4aa40d6629f3756b5c
   languageName: node
   linkType: hard
 
@@ -2406,10 +2406,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@willbooster/renovate-config@npm:6.4.0":
-  version: 6.4.0
-  resolution: "@willbooster/renovate-config@npm:6.4.0"
-  checksum: cc61659b3b2e50aaa1cbb65aeb55e79bda0851520852427063c7ca69b119abc044f4ff2a9ae388f8ba2b3657f2730f6c01aacc870524af58eb6fe0ac767cc28d
+"@willbooster/renovate-config@npm:6.4.2":
+  version: 6.4.2
+  resolution: "@willbooster/renovate-config@npm:6.4.2"
+  checksum: ba1bf1813b4f8d74983ec2ae84acc25e3927ba1f5cabfba091a362f03d7eaa58c665ef50c4fd8f9bd8e2ac66a42351be05b65902d859ae4c2124b6e47837fcb2
   languageName: node
   linkType: hard
 
@@ -9604,9 +9604,9 @@ fsevents@~2.3.2:
     "@types/sass": 1.43.0
     "@typescript-eslint/eslint-plugin": 5.2.0
     "@typescript-eslint/parser": 5.2.0
-    "@willbooster/eslint-config-ts": 6.4.1
+    "@willbooster/eslint-config-ts": 6.4.2
     "@willbooster/prettier-config": 6.4.0
-    "@willbooster/renovate-config": 6.4.0
+    "@willbooster/renovate-config": 6.4.2
     babel-plugin-transform-remove-console: 6.9.4
     bestzip: 2.2.0
     cross-env: 7.0.3
