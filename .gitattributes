@@ -2,6 +2,7 @@
 
 *.vcproj text eol=crlf
 
+*.cjs text eol=lf
 *.cpp text eol=lf
 *.dart text eol=lf
 *.htm text eol=lf
@@ -10,6 +11,7 @@
 *.json text eol=lf
 *.json5 text eol=lf
 *.jsx text eol=lf
+*.mjs text eol=lf
 *.pu text eol=lf
 *.puml text eol=lf
 *.rb text eol=lf

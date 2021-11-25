@@ -2,9 +2,9 @@ const path = require('path');
 const micromatch = require('micromatch');
 
 module.exports = {
-  './{src,__tests__}/**/*.{js,jsx,ts,tsx}': ['eslint --fix', 'prettier --write'],
-  './**/*.{css,htm,html,js,json,json5,jsx,md,scss,ts,tsx,vue,yaml,yml}': (files) => {
-    files = micromatch.not(files, './{src,__tests__}/**/*.{js,jsx,ts,tsx}');
+  './{src,__tests__}/**/*.{cjs,js,jsx,mjs,ts,tsx}': ['eslint --fix', 'prettier --write'],
+  './**/*.{cjs,css,htm,html,js,json,json5,jsx,md,mjs,scss,ts,tsx,vue,yaml,yml}': (files) => {
+    files = micromatch.not(files, './{src,__tests__}/**/*.{cjs,js,jsx,mjs,ts,tsx}');
     const filteredFiles = files
       .filter((file) => !file.includes('/test-fixtures/') && !file.includes('/packages/'))
       .map((file) => path.relative('', file));
