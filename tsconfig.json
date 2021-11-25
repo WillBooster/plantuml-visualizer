@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "alwaysStrict": true,
-    "strict": true,
-    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "sourceMap": true,
     "importHelpers": false,
+    "module": "esnext",
+    "moduleResolution": "node",
     "outDir": "dist",
-    "target": "esnext",
-    "module": "esnext"
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext"
   },
   "include": ["src/**/*", "__tests__/**/*", "./node_modules/@types", "./@types"],
   "extends": "@tsconfig/svelte/tsconfig.json"
