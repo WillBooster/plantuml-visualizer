@@ -49,7 +49,7 @@
     "@rollup/plugin-node-resolve": "13.0.6",
     "@tsconfig/svelte": "2.0.1",
     "@types/chrome": "0.0.166",
-    "@types/eslint": "8.2.0",
+    "@types/eslint": "8.2.1",
     "@types/jquery": "3.5.9",
     "@types/micromatch": "4.0.2",
     "@types/sass": "1.43.1",
@@ -85,5 +85,5 @@
     "svelte-preprocess": "4.9.8",
     "typescript": "4.5.2"
   },
-  "packageManager": "yarn@3.2.0-rc.6"
+  "packageManager": "yarn@3.2.0-rc.7"
 }
