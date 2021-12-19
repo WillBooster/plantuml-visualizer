@@ -47,7 +47,7 @@
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-node-resolve": "13.1.1",
-    "@tsconfig/svelte": "2.0.1",
+    "@tsconfig/svelte": "3.0.0",
     "@types/chrome": "0.0.171",
     "@types/eslint": "8.2.1",
     "@types/jquery": "3.5.10",
