@@ -89,6 +89,35 @@ export class GitHubFileViewFinder implements CodeFinder {
 }
 
 export class GitHubPullRequestDiffFinder implements DiffFinder {
+  private static getBaseHeadFilePaths($diff: JQuery<Node>): [string, string] {
+    const title = $diff.find('div.file-info a').attr('title');
+    if (!title) return ['', ''];
+    const separator = ' → ';
+    const fragments = title.split(separator);
+    const filePaths = [];
+    let filePath = '';
+    for (const fragment of fragments) {
+      filePath += fragment;
+      if (filePath.match(/^.*\.(plantuml|pu|puml|wsd)$/)) {
+        filePaths.push(filePath);
+        filePath = '';
+      } else {
+        filePath += separator;
+      }
+    }
+    if (filePaths.length === 1) return [filePaths[0], filePaths[0]];
+    if (filePaths.length === 2) return [filePaths[0], filePaths[1]];
+    return ['', ''];
+  }
+  private static async getTexts(fileUrl: string): Promise<string[]> {
+    const response = await fetch(fileUrl);
+    if (!response.ok) return [];
+    const htmlString = await response.text();
+    const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
+    const fileBlockFinder = new GitHubFileViewFinder();
+    const contents = await fileBlockFinder.find(fileUrl, $body);
+    return contents.map((content) => content.text);
+  }
   private readonly URL_REGEX = /^https:\/\/github\.com\/.*\/pull\/\d+\/files/;
 
   canFind(webPageUrl: string): boolean {
@@ -141,36 +170,5 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
       fileUrls.map((fileUrl) => GitHubPullRequestDiffFinder.getTexts(fileUrl))
     );
     return { $diff: $diffBlock, baseBranchName, headBranchName, baseTexts, headTexts };
-  }
-
-  private static getBaseHeadFilePaths($diff: JQuery<Node>): [string, string] {
-    const title = $diff.find('div.file-info a').attr('title');
-    if (!title) return ['', ''];
-    const separator = ' → ';
-    const fragments = title.split(separator);
-    const filePaths = [];
-    let filePath = '';
-    for (const fragment of fragments) {
-      filePath += fragment;
-      if (filePath.match(/^.*\.(plantuml|pu|puml|wsd)$/)) {
-        filePaths.push(filePath);
-        filePath = '';
-      } else {
-        filePath += separator;
-      }
-    }
-    if (filePaths.length === 1) return [filePaths[0], filePaths[0]];
-    if (filePaths.length === 2) return [filePaths[0], filePaths[1]];
-    return ['', ''];
-  }
-
-  private static async getTexts(fileUrl: string): Promise<string[]> {
-    const response = await fetch(fileUrl);
-    if (!response.ok) return [];
-    const htmlString = await response.text();
-    const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
-    const fileBlockFinder = new GitHubFileViewFinder();
-    const contents = await fileBlockFinder.find(fileUrl, $body);
-    return contents.map((content) => content.text);
   }
 }

@@ -1,0 +1,10 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    uses: WillBooster/reusable-workflows/.github/workflows/release.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_BOT_PAT }}

@@ -1,52 +1,15 @@
 name: Test
-
 on:
   pull_request:
     branches:
-      - 'main'
+      - main
       - '!renovate/**'
   push:
     branches:
-      - 'main'
-      - 'renovate/**'
-
+      - main
+      - renovate/**
 jobs:
-  pre:
-    runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@master
-        with:
-          cancel_others: false
-          skip_after_successful_duplicate: true
-          concurrent_skipping: same_content_newer
-          paths_ignore: '["**/*.md", "**/docs/**"]'
   test:
-    needs: pre
-    if: ${{ needs.pre.outputs.should_skip != 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Read version files
-        run: |
-          echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Show environment information
-        run: |
-          echo "node: $(node -v)"
-          echo "yarn: $(yarn -v)"
-      - uses: actions/cache@v2
-        with:
-          path: .yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - run: yarn install
-      - run: yarn svelte-check
-      - run: yarn typecheck
-      - run: yarn lint
-      - run: yarn build
+    uses: WillBooster/reusable-workflows/.github/workflows/test.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_BOT_PAT }}
