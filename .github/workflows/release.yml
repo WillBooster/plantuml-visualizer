@@ -1,8 +1,7 @@
 name: Release
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 5 * * 0'
 jobs:
   release:
     uses: WillBooster/reusable-workflows/.github/workflows/release.yml@main
