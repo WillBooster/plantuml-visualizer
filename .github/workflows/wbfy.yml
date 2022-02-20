@@ -6,5 +6,7 @@ on:
 jobs:
   wbfy:
     uses: WillBooster/reusable-workflows/.github/workflows/wbfy.yml@main
+    with:
+      non_self_hosted: true
     secrets:
-      GH_TOKEN: ${{ secrets.GH_BOT_PAT }}
+      GH_TOKEN: ${{ secrets.PUBLIC_GH_BOT_PAT }}
