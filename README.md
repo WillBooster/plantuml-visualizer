@@ -48,14 +48,10 @@
     2. Enable "Allow access to file URLs"
        ![marked-settings](allow-access.png)
 
-### You wanna enable/disable visualization of a webpage?
+### Improve Default Allow/Deny Lists
 
-We are waiting issues and pull requests!
-
-- issue
-  - https://github.com/WillBooster/plantuml-visualizer/issues
-- pull request
-  - https://github.com/WillBooster/plantuml-visualizer/pulls
+The default lists are defined at https://github.com/WillBooster/plantuml-visualizer/blob/main/src/constants.ts
+Please help us to improve the default lists for enabling/disabling visualization on specific web pages!
 
 ## Visualization Examples
 
@@ -74,44 +70,40 @@ You may use another **HTTPS** PlantUML server by changing settings in the config
 ## Requirements for Development
 
 - [Node.js](https://nodejs.org/)
+  - We define a recommended version on https://github.com/WillBooster/plantuml-visualizer/blob/main/.node-version
 - [Yarn v1](https://classic.yarnpkg.com/)
-
-Please check the detailed versions in [GitHub Actions](https://github.com/WillBooster/plantuml-visualizer/actions?query=workflow%3A%22Check+and+build+code%22) like the below screenshot.
-
-![GitHub Actions](github-actions.png)
 
 ## Development Preparation
 
 1. `yarn` to install the latest dependencies
-1. `yarn build`
-1. Open Chrome browser
-1. Open [chrome://extensions](chrome://extensions)
-1. Enable `Developer Mode`
-1. Click `Load Unpacked` and open `dist` directory (`plantuml-visualizer/dist`)
-
-![Screenshot](screen.png)
+2. `yarn build`
+3. Open Chrome browser
+4. Open [chrome://extensions](chrome://extensions)
+5. Enable `Developer Mode`
+6. Click `Load Unpacked` and open `dist` directory (`plantuml-visualizer/dist`)
+   - `Load Unpacked` is `パッケージ化されていない拡張機能を読み込む` in Japanese
 
 ## Development
 
 1. `yarn` to install the latest dependencies
-1. `yarn start`
-1. Open Chrome
-1. Rewrite some code files
-1. Close and Reopen Chrome browser (not only tabs)
+2. `yarn start`
+3. Open Chrome
+4. Rewrite some code files
+5. Close and Reopen Chrome browser (not only tabs)
    - or reload this extension in [chrome://extensions](chrome://extensions) and reload pages
-1. Debug code
-1. Go to `step 4`
+6. Debug code
+7. Go to `step 4`
 
 ## Deployment for Chrome
 
 1. Bump version in `manifest.json` and `package.json`
-1. `yarn package`
-1. Open https://chrome.google.com/webstore/developer/dashboard
-1. Upload `dist.zip`
+2. `yarn package`
+3. Open https://chrome.google.com/webstore/developer/dashboard
+4. Upload `dist.zip`
 
 ## Deployment for Firefox
 
 1. Bump version in `manifest.json` and `package.json`
-1. `yarn package`
-1. Open https://addons.mozilla.org/en-US/developers/addon/plantuml-visualizer/edit
-1. Upload `dist.zip` file
+2. `yarn package`
+3. Open https://addons.mozilla.org/en-US/developers/addon/plantuml-visualizer/edit
+4. Upload `dist.zip` file
