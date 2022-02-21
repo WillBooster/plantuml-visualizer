@@ -23,6 +23,7 @@
     "prettify": "prettier --color --write \"**/{.*/,}*.{cjs,css,htm,html,js,json,json5,jsx,md,mjs,scss,ts,tsx,vue,yaml,yml}\" \"!**/test-fixtures/**\"",
     "recreate-dist": "rm -Rf dist && mkdir dist && cp -r src/popup.html icon manifest.json dist/",
     "release": "yarn build && dotenv -- semantic-release",
+    "release-test": "dotenv -- semantic-release --dry-run",
     "start": "cross-env NODE_ENV=development yarn build-common -w",
     "typecheck": "tsc --noEmit --Pretty"
   },
