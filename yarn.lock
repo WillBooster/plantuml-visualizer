@@ -5,39 +5,12 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@ampproject/remapping@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@ampproject/remapping@npm:0.2.0"
-  dependencies:
-    "@jridgewell/resolve-uri": 1.0.0
-    sourcemap-codec: 1.4.8
-  checksum: cd867274328f5b05197957d1be0d097dadd99ade7c198ba73d0f5460be7e9b96b2b8956481493d60ce61ef79c3237b87413a6f17495038f2819bdabd1c517325
-  languageName: node
-  linkType: hard
-
 "@ampproject/remapping@npm:^2.1.0":
   version: 2.1.2
   resolution: "@ampproject/remapping@npm:2.1.2"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.0
   checksum: e023f92cdd9723f3042cde3b4d922adfeef0e198aa73486b0b6c034ad36af5f96e5c0cc72b335b30b2eb9852d907efc92af6bfcd3f4b4d286177ee32a189cf92
-  languageName: node
-  linkType: hard
-
-"@ampproject/rollup-plugin-closure-compiler@npm:0.27.0":
-  version: 0.27.0
-  resolution: "@ampproject/rollup-plugin-closure-compiler@npm:0.27.0"
-  dependencies:
-    "@ampproject/remapping": 0.2.0
-    acorn: 7.3.1
-    acorn-walk: 7.1.1
-    estree-walker: 2.0.1
-    google-closure-compiler: 20210808.0.0
-    magic-string: 0.25.7
-    uuid: 8.1.0
-  peerDependencies:
-    rollup: ">=1.27"
-  checksum: 0f1507eb84a530c0c7e6b09121256aa02593ee40714e4cdae6ac84105b9bc9e55e8d5149e84718ce76657284657e1b4bff483a27f6f819bd83ca518330b6a0fe
   languageName: node
   linkType: hard
 
@@ -1519,13 +1492,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/resolve-uri@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@jridgewell/resolve-uri@npm:1.0.0"
-  checksum: 46ae6bb9c3fdd17d2ad1e7d77044c6541ff14ccf878d0cd39545c7d74446444fea5adb6c96363d3c3d45426504fadca6585bb7eadffd86a0bd8421ce5392f4b3
-  languageName: node
-  linkType: hard
-
 "@jridgewell/resolve-uri@npm:^3.0.3":
   version: 3.0.5
   resolution: "@jridgewell/resolve-uri@npm:3.0.5"
@@ -2521,22 +2487,6 @@ __metadata:
   peerDependencies:
     acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
   checksum: c3d3b2a89c9a056b205b69530a37b972b404ee46ec8e5b341666f9513d3163e2a4f214a71f4dfc7370f5a9c07472d2fd1c11c91c3f03d093e37637d95da98950
-  languageName: node
-  linkType: hard
-
-"acorn-walk@npm:7.1.1":
-  version: 7.1.1
-  resolution: "acorn-walk@npm:7.1.1"
-  checksum: 046be0b8094b16459d94dadc550adb0cf5ace3fad02880cb4fd968e2250e988d0022f1f169c60b2fecc77bc711c46f91a6b1b7b72d6c458b008c9e821e89cfff
-  languageName: node
-  linkType: hard
-
-"acorn@npm:7.3.1":
-  version: 7.3.1
-  resolution: "acorn@npm:7.3.1"
-  bin:
-    acorn: bin/acorn
-  checksum: 5b0295c8a34276c4bed7c606d38f83a3330e139514acc615aabdce3b0a0b3954e3a138530bdb1a67acde5666e6d652f569e054cadadec2434f017de4d8aa4e1f
   languageName: node
   linkType: hard
 
@@ -3675,17 +3625,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:2.x, chalk@npm:^2.0.0, chalk@npm:^2.3.2, chalk@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "chalk@npm:2.4.2"
-  dependencies:
-    ansi-styles: ^3.2.1
-    escape-string-regexp: ^1.0.5
-    supports-color: ^5.3.0
-  checksum: ec3661d38fe77f681200f878edbd9448821924e0f93a9cefc0e26a33b145f1027a2084bf19967160d11e1f03bfe4eaffcabf5493b89098b2782c3fe0b03d80c2
-  languageName: node
-  linkType: hard
-
 "chalk@npm:4.1.0":
   version: 4.1.0
   resolution: "chalk@npm:4.1.0"
@@ -3693,6 +3632,17 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: 5561c7b4c063badee3e16d04bce50bd033e1be1bf4c6948639275683ffa7a1993c44639b43c22b1c505f0f813a24b1889037eb182546b48946f9fe7cdd0e7d13
+  languageName: node
+  linkType: hard
+
+"chalk@npm:^2.0.0, chalk@npm:^2.3.2, chalk@npm:^2.4.2":
+  version: 2.4.2
+  resolution: "chalk@npm:2.4.2"
+  dependencies:
+    ansi-styles: ^3.2.1
+    escape-string-regexp: ^1.0.5
+    supports-color: ^5.3.0
+  checksum: ec3661d38fe77f681200f878edbd9448821924e0f93a9cefc0e26a33b145f1027a2084bf19967160d11e1f03bfe4eaffcabf5493b89098b2782c3fe0b03d80c2
   languageName: node
   linkType: hard
 
@@ -3918,13 +3868,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clone-buffer@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "clone-buffer@npm:1.0.0"
-  checksum: a39a35e7fd081e0f362ba8195bd15cbc8205df1fbe4598bb4e09c1f9a13c0320a47ab8a61a8aa83561e4ed34dc07666d73254ee952ddd3985e4286b082fe63b9
-  languageName: node
-  linkType: hard
-
 "clone-response@npm:^1.0.2":
   version: 1.0.2
   resolution: "clone-response@npm:1.0.2"
@@ -3934,35 +3877,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clone-stats@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "clone-stats@npm:1.0.0"
-  checksum: 654c0425afc5c5c55a4d95b2e0c6eccdd55b5247e7a1e7cca9000b13688b96b0a157950c72c5307f9fd61f17333ad796d3cd654778f2d605438012391cc4ada5
-  languageName: node
-  linkType: hard
-
 "clone@npm:^1.0.2":
   version: 1.0.4
   resolution: "clone@npm:1.0.4"
   checksum: d06418b7335897209e77bdd430d04f882189582e67bd1f75a04565f3f07f5b3f119a9d670c943b6697d0afb100f03b866b3b8a1f91d4d02d72c4ecf2bb64b5dd
-  languageName: node
-  linkType: hard
-
-"clone@npm:^2.1.1":
-  version: 2.1.2
-  resolution: "clone@npm:2.1.2"
-  checksum: aaf106e9bc025b21333e2f4c12da539b568db4925c0501a1bf4070836c9e848c892fa22c35548ce0d1132b08bbbfa17a00144fe58fccdab6fa900fec4250f67d
-  languageName: node
-  linkType: hard
-
-"cloneable-readable@npm:^1.0.0":
-  version: 1.1.3
-  resolution: "cloneable-readable@npm:1.1.3"
-  dependencies:
-    inherits: ^2.0.1
-    process-nextick-args: ^2.0.0
-    readable-stream: ^2.3.5
-  checksum: 23b3741225a80c1760dff58aafb6a45383d5ee2d42de7124e4e674387cfad2404493d685b35ebfca9098f99c296e5c5719e748c9750c13838a2016ea2d2bb83a
   languageName: node
   linkType: hard
 
@@ -5450,13 +5368,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:2.0.1":
-  version: 2.0.1
-  resolution: "estree-walker@npm:2.0.1"
-  checksum: c8e89c1e0dced789554c2c76152ef748ef226aa792eead6eee1777b6faa24e56a539639b8024f3952e80c451dd2c51f9ca8e7a360771dcaa794ad7b92243929c
-  languageName: node
-  linkType: hard
-
 "estree-walker@npm:^0.6.1":
   version: 0.6.1
   resolution: "estree-walker@npm:0.6.1"
@@ -6321,59 +6232,6 @@ __metadata:
     merge2: ^1.4.1
     slash: ^3.0.0
   checksum: b4be8885e0cfa018fc783792942d53926c35c50b3aefd3fdcfb9d22c627639dc26bd2327a40a0b74b074100ce95bb7187bfeae2f236856aa3de183af7a02aea6
-  languageName: node
-  linkType: hard
-
-"google-closure-compiler-java@npm:^20210808.0.0":
-  version: 20210808.0.0
-  resolution: "google-closure-compiler-java@npm:20210808.0.0"
-  checksum: eee006799460ca911a2274e8c8d6c5b4fd89a78f2424e0c867eaa8c15cfe77d2f27316dec4cb950167a1daad2ffb1f8bb534a67825155c4344a70f6e53e20a36
-  languageName: node
-  linkType: hard
-
-"google-closure-compiler-linux@npm:^20210808.0.0":
-  version: 20210808.0.0
-  resolution: "google-closure-compiler-linux@npm:20210808.0.0"
-  conditions: os=linux & (cpu=x64 | cpu=x86)
-  languageName: node
-  linkType: hard
-
-"google-closure-compiler-osx@npm:^20210808.0.0":
-  version: 20210808.0.0
-  resolution: "google-closure-compiler-osx@npm:20210808.0.0"
-  conditions: os=darwin & (cpu=x64 | cpu=x86 | cpu=arm64)
-  languageName: node
-  linkType: hard
-
-"google-closure-compiler-windows@npm:^20210808.0.0":
-  version: 20210808.0.0
-  resolution: "google-closure-compiler-windows@npm:20210808.0.0"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"google-closure-compiler@npm:20210808.0.0":
-  version: 20210808.0.0
-  resolution: "google-closure-compiler@npm:20210808.0.0"
-  dependencies:
-    chalk: 2.x
-    google-closure-compiler-java: ^20210808.0.0
-    google-closure-compiler-linux: ^20210808.0.0
-    google-closure-compiler-osx: ^20210808.0.0
-    google-closure-compiler-windows: ^20210808.0.0
-    minimist: 1.x
-    vinyl: 2.x
-    vinyl-sourcemaps-apply: ^0.2.0
-  dependenciesMeta:
-    google-closure-compiler-linux:
-      optional: true
-    google-closure-compiler-osx:
-      optional: true
-    google-closure-compiler-windows:
-      optional: true
-  bin:
-    google-closure-compiler: cli.js
-  checksum: c12148740451bc3cbc7d8fda4067f375f724f09a3878c286b57620f2afbccd6392b162d021d292d5d11242b715e652d6d75a2bd25a47df8d5ee5b7390dc52f98
   languageName: node
   linkType: hard
 
@@ -8233,7 +8091,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:0.25.7, magic-string@npm:^0.25.7":
+"magic-string@npm:^0.25.7":
   version: 0.25.7
   resolution: "magic-string@npm:0.25.7"
   dependencies:
@@ -8520,7 +8378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:1.x, minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
+"minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
   version: 1.2.5
   resolution: "minimist@npm:1.2.5"
   checksum: 86706ce5b36c16bfc35c5fe3dbb01d5acdc9a22f2b6cc810b6680656a1d2c0e44a0159c9a3ba51fb072bb5c203e49e10b51dcd0eec39c481f4c42086719bae52
@@ -9773,7 +9631,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "plantuml-visualizer@workspace:."
   dependencies:
-    "@ampproject/rollup-plugin-closure-compiler": 0.27.0
     "@babel/core": 7.17.5
     "@babel/plugin-proposal-class-properties": 7.16.7
     "@babel/plugin-proposal-numeric-separator": 7.16.7
@@ -9925,7 +9782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"process-nextick-args@npm:^2.0.0, process-nextick-args@npm:~2.0.0":
+"process-nextick-args@npm:~2.0.0":
   version: 2.0.1
   resolution: "process-nextick-args@npm:2.0.1"
   checksum: 1d38588e520dab7cea67cbbe2efdd86a10cc7a074c09657635e34f035277b59fbb57d09d8638346bf7090f8e8ebc070c96fa5fd183b777fff4f5edff5e9466cf
@@ -10365,13 +10222,6 @@ __metadata:
   version: 1.6.1
   resolution: "repeat-string@npm:1.6.1"
   checksum: 1b809fc6db97decdc68f5b12c4d1a671c8e3f65ec4a40c238bc5200e44e85bcc52a54f78268ab9c29fcf5fe4f1343e805420056d1f30fa9a9ee4c2d93e3cc6c0
-  languageName: node
-  linkType: hard
-
-"replace-ext@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "replace-ext@npm:1.0.1"
-  checksum: 4994ea1aaa3d32d152a8d98ff638988812c4fa35ba55485630008fe6f49e3384a8a710878e6fd7304b42b38d1b64c1cd070e78ece411f327735581a79dd88571
   languageName: node
   linkType: hard
 
@@ -11171,7 +11021,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map@npm:^0.5.0, source-map@npm:^0.5.1, source-map@npm:^0.5.6":
+"source-map@npm:^0.5.0, source-map@npm:^0.5.6":
   version: 0.5.7
   resolution: "source-map@npm:0.5.7"
   checksum: 5dc2043b93d2f194142c7f38f74a24670cd7a0063acdaf4bf01d2964b402257ae843c2a8fa822ad5b71013b5fcafa55af7421383da919752f22ff488bc553f4d
@@ -11192,7 +11042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sourcemap-codec@npm:1.4.8, sourcemap-codec@npm:^1.3.0, sourcemap-codec@npm:^1.4.4":
+"sourcemap-codec@npm:^1.3.0, sourcemap-codec@npm:^1.4.4":
   version: 1.4.8
   resolution: "sourcemap-codec@npm:1.4.8"
   checksum: b57981c05611afef31605732b598ccf65124a9fcb03b833532659ac4d29ac0f7bfacbc0d6c5a28a03e84c7510e7e556d758d0bb57786e214660016fb94279316
@@ -12367,15 +12217,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:8.1.0":
-  version: 8.1.0
-  resolution: "uuid@npm:8.1.0"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 4fc4f12e5c704947cce132df07e6e8a20ca34dcbba4a5aef7a24cf76e0e13830cf7cdd69035a916caf2a00fa011876ceabc098d01f5827adc174ca5defdc8c99
-  languageName: node
-  linkType: hard
-
 "uuid@npm:^3.0.0, uuid@npm:^3.3.2":
   version: 3.4.0
   resolution: "uuid@npm:3.4.0"
@@ -12435,29 +12276,6 @@ __metadata:
   version: 3.2.0
   resolution: "vfile-location@npm:3.2.0"
   checksum: 9bb3df6d0be31b5dd2d8da0170c27b7045c64493a8ba7b6ff7af8596c524fc8896924b8dd85ae12d201eead2709217a0fbc44927b7264f4bbf0aa8027a78be9c
-  languageName: node
-  linkType: hard
-
-"vinyl-sourcemaps-apply@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "vinyl-sourcemaps-apply@npm:0.2.1"
-  dependencies:
-    source-map: ^0.5.1
-  checksum: c1a81b085fc2ee7c140ab26cb1a87031b79590c22a992dafcbc47f8db74e58fbfca2689200df6a08c341e65a67b539dcee14a7fd80e6fdeaa2e88bfe2622f361
-  languageName: node
-  linkType: hard
-
-"vinyl@npm:2.x":
-  version: 2.2.1
-  resolution: "vinyl@npm:2.2.1"
-  dependencies:
-    clone: ^2.1.1
-    clone-buffer: ^1.0.0
-    clone-stats: ^1.0.0
-    cloneable-readable: ^1.0.0
-    remove-trailing-separator: ^1.0.1
-    replace-ext: ^1.0.0
-  checksum: 1f663973f1362f2d074b554f79ff7673187667082373b3d3e628beb1fc2a7ff33024f10b492fbd8db421a09ea3b7b22c3d3de4a0f0e73ead7b4685af570b906f
   languageName: node
   linkType: hard
 
