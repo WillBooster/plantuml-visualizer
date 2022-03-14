@@ -17,7 +17,7 @@
     "cleanup": "yarn format && yarn lint-fix",
     "format": "sort-package-json && yarn prettify",
     "postinstall": "husky install",
-    "lint": "eslint --color \"./{src,__tests__}/**/*.{cjs,js,jsx,mjs,ts,tsx}\"",
+    "lint": "eslint --color \"./{src,__tests__,scripts}/**/*.{cjs,js,jsx,mjs,ts,tsx}\"",
     "lint-fix": "yarn lint --fix",
     "package": "rm -f \"*.tgz\" \"*.zip\" && yarn pack && yarn build && cd dist && bestzip ../dist.zip *",
     "prettify": "prettier --color --write \"**/{.*/,}*.{cjs,css,htm,html,js,json,json5,jsx,md,mjs,scss,ts,tsx,vue,yaml,yml}\" \"!**/test-fixtures/**\"",
