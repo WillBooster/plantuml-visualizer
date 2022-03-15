@@ -6,7 +6,7 @@ jobs:
   semantic-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Generate dot env
         run: |
           echo '${{ secrets.DOT_ENV }}' > .env
