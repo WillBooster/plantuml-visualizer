@@ -1893,9 +1893,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:21.0.2":
-  version: 21.0.2
-  resolution: "@rollup/plugin-commonjs@npm:21.0.2"
+"@rollup/plugin-commonjs@npm:21.0.3":
+  version: 21.0.3
+  resolution: "@rollup/plugin-commonjs@npm:21.0.3"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     commondir: ^1.0.1
@@ -1906,7 +1906,7 @@ __metadata:
     resolve: ^1.17.0
   peerDependencies:
     rollup: ^2.38.3
-  checksum: 5fd4c7b75d7881070f4395d7ba5f9035934f53b25e92d136583cc794461a456efc1e2a2204f946ec567dfea58073c38cb48f24d27155b89af0df0447c2cd0758
+  checksum: 23307d3b7eb8d64dd966fbe380b85bf3b5f4908c7344427d45918d570cf6b48710ef6f155bea74545127c10de9d64f87dd2219078e83dbccf927505d38774de8
   languageName: node
   linkType: hard
 
@@ -9540,7 +9540,7 @@ __metadata:
     "@babel/preset-react": 7.16.7
     "@babel/preset-typescript": 7.16.7
     "@rollup/plugin-babel": 5.3.1
-    "@rollup/plugin-commonjs": 21.0.2
+    "@rollup/plugin-commonjs": 21.0.3
     "@rollup/plugin-node-resolve": 13.1.3
     "@tsconfig/svelte": 3.0.0
     "@types/chrome": 0.0.180
@@ -9575,12 +9575,12 @@ __metadata:
     rollup: 2.70.1
     rollup-plugin-svelte: 7.1.0
     rollup-plugin-terser: 7.0.2
-    sass: 1.49.9
+    sass: 1.49.10
     semantic-release: 19.0.2
     semantic-release-chrome: 1.1.3
     semantic-release-firefox-add-on: 0.2.8
     sort-package-json: 1.55.0
-    svelte: 3.46.4
+    svelte: 3.46.6
     svelte-check: 2.4.6
     svelte-preprocess: 4.10.4
     typescript: 4.6.3
@@ -10439,16 +10439,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.49.9":
-  version: 1.49.9
-  resolution: "sass@npm:1.49.9"
+"sass@npm:1.49.10":
+  version: 1.49.10
+  resolution: "sass@npm:1.49.10"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: e5653e3499274c5127dcb5c9e7c5f6930378fc61764d999a5d8965782e027181ed09714f94836dec74ef55e3a858107fe6c571954c0cab0ad0be5ab8e586829c
+  checksum: 7b767ece77df47382ac80ff279f5c1cff24dec6684ccaf3f9657f52a793e7ba7b85e4d30a45fb6c70f9fc46da507559fe83e771dcb804341d03af908ad6404c9
   languageName: node
   linkType: hard
 
@@ -11421,10 +11421,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:3.46.4":
-  version: 3.46.4
-  resolution: "svelte@npm:3.46.4"
-  checksum: 929e6790cdd6d94c123b4b8a7b5a541164dbea6d4f4ed311f4e65cde60caa1c704e531bbf2e63519d1a96163cd3f812c6e5be5b2fd05f72d0177af5fd8ca8637
+"svelte@npm:3.46.6":
+  version: 3.46.6
+  resolution: "svelte@npm:3.46.6"
+  checksum: 0a502f16097010dfe028ee93df3714add39cb608e4c23b2d9cc2190b305838c9020d42c57ad8a285b9c003e43c0dd23e8d24dacc0034678dcba2df5879992efa
   languageName: node
   linkType: hard
 
