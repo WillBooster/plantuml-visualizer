@@ -49,8 +49,8 @@
     "@types/jquery": "3.5.14",
     "@types/micromatch": "4.0.2",
     "@types/sass": "1.43.1",
-    "@typescript-eslint/eslint-plugin": "5.18.0",
-    "@typescript-eslint/parser": "5.18.0",
+    "@typescript-eslint/eslint-plugin": "5.20.0",
+    "@typescript-eslint/parser": "5.20.0",
     "@willbooster/eslint-config-ts": "9.0.0",
     "@willbooster/prettier-config": "9.0.0",
     "@willbooster/renovate-config": "9.2.0",
@@ -59,7 +59,7 @@
     "conventional-changelog-conventionalcommits": "4.6.3",
     "cross-env": "7.0.3",
     "dotenv-cli": "5.1.0",
-    "eslint": "8.13.0",
+    "eslint": "8.14.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-typescript": "2.7.1",
     "eslint-plugin-import": "2.26.0",
@@ -67,7 +67,7 @@
     "eslint-plugin-sort-destructure-keys": "1.4.0",
     "eslint-plugin-svelte3": "3.4.1",
     "husky": "7.0.4",
-    "lint-staged": "12.3.7",
+    "lint-staged": "12.4.0",
     "micromatch": "4.0.5",
     "pinst": "3.0.0",
     "prettier": "2.6.2",
@@ -85,5 +85,5 @@
     "svelte-preprocess": "4.10.5",
     "typescript": "4.6.3"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@4.0.0-rc.2"
 }
