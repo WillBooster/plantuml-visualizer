@@ -53,7 +53,7 @@
     "@typescript-eslint/parser": "5.20.0",
     "@willbooster/eslint-config-ts": "9.0.0",
     "@willbooster/prettier-config": "9.0.0",
-    "@willbooster/renovate-config": "9.2.0",
+    "@willbooster/renovate-config": "9.3.0",
     "babel-plugin-transform-remove-console": "6.9.4",
     "bestzip": "2.2.0",
     "conventional-changelog-conventionalcommits": "4.6.3",
