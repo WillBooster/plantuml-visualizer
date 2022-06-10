@@ -1,0 +1,10 @@
+name: Merge wbfy
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 8 15 * * *
+jobs:
+  wbfy-merge:
+    uses: WillBooster/reusable-workflows/.github/workflows/wbfy-merge.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.PUBLIC_GH_BOT_PAT }}
