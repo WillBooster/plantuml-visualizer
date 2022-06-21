@@ -9671,7 +9671,7 @@ __metadata:
     rollup-plugin-svelte: "npm:7.1.0"
     rollup-plugin-terser: "npm:7.0.2"
     sass: "npm:1.50.0"
-    semantic-release: "npm:19.0.2"
+    semantic-release: "npm:19.0.3"
     semantic-release-chrome: "npm:1.1.3"
     semantic-release-firefox-add-on: "npm:0.2.8"
     sort-package-json: "npm:1.57.0"
@@ -10570,9 +10570,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:19.0.2":
-  version: 19.0.2
-  resolution: "semantic-release@npm:19.0.2"
+"semantic-release@npm:19.0.3":
+  version: 19.0.3
+  resolution: "semantic-release@npm:19.0.3"
   dependencies:
     "@semantic-release/commit-analyzer": "npm:^9.0.2"
     "@semantic-release/error": "npm:^3.0.0"
@@ -10604,7 +10604,7 @@ __metadata:
     yargs: "npm:^16.2.0"
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: 02234967d77a653479ebfa75e7c19027c036c7375ddf3d18e07481adffd9ea9abd3ee5286386099404bfb4741ca730b5aac5064361c6d87de867353570121d85
+  checksum: ce8ea4fd201fa0be322222fa0ac79a1df3b84649f8c84ac6f87cb8641c9a4305e23cc5ce67f2edab115e504f795446bd8522326ec19e2abb62e9ebd995a41e4e
   languageName: node
   linkType: hard
 
