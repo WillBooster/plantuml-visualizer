@@ -40,6 +40,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows
+
 # Created by https://www.toptal.com/developers/gitignore/api/macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos
 
@@ -76,6 +77,7 @@ Temporary Items
 *.icloud
 
 # End of https://www.toptal.com/developers/gitignore/api/macos
+
 # Created by https://www.toptal.com/developers/gitignore/api/linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux
 
@@ -95,6 +97,7 @@ Temporary Items
 .nfs*
 
 # End of https://www.toptal.com/developers/gitignore/api/linux
+
 # Created by https://www.toptal.com/developers/gitignore/api/jetbrains
 # Edit at https://www.toptal.com/developers/gitignore?templates=jetbrains
 
@@ -212,6 +215,7 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains
+
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode
 
@@ -241,6 +245,7 @@ fabric.properties
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+
 # Created by https://www.toptal.com/developers/gitignore/api/emacs
 # Edit at https://www.toptal.com/developers/gitignore?templates=emacs
 
@@ -296,6 +301,7 @@ flycheck_*.el
 
 
 # End of https://www.toptal.com/developers/gitignore/api/emacs
+
 # Created by https://www.toptal.com/developers/gitignore/api/vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim
 
@@ -321,6 +327,7 @@ tags
 [._]*.un~
 
 # End of https://www.toptal.com/developers/gitignore/api/vim
+
 # Created by https://www.toptal.com/developers/gitignore/api/yarn
 # Edit at https://www.toptal.com/developers/gitignore?templates=yarn
 
@@ -342,6 +349,7 @@ tags
 .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/yarn
+
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
