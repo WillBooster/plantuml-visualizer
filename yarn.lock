@@ -2089,9 +2089,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:21.1.0":
-  version: 21.1.0
-  resolution: "@rollup/plugin-commonjs@npm:21.1.0"
+"@rollup/plugin-commonjs@npm:22.0.0":
+  version: 22.0.0
+  resolution: "@rollup/plugin-commonjs@npm:22.0.0"
   dependencies:
     "@rollup/pluginutils": "npm:^3.1.0"
     commondir: "npm:^1.0.1"
@@ -2101,8 +2101,8 @@ __metadata:
     magic-string: "npm:^0.25.7"
     resolve: "npm:^1.17.0"
   peerDependencies:
-    rollup: ^2.38.3
-  checksum: fabfda32b3e543aea4106f02ab48b5c2421b64350cf58b120c68e2aa5d83977afcb9c299075ac0289e4327b16347ca9927a7f21bf916593e9e5f6e1f81b878b2
+    rollup: ^2.68.0
+  checksum: e4fd4ddb5006812b4e96227d3a71c10c3c8722fa3f599a8303d38b8b27ac3c6e2e91ac45cb17e30c52d26cde2a444ae08c93db0c92f580393605f679df2ee6e2
   languageName: node
   linkType: hard
 
@@ -9886,7 +9886,7 @@ __metadata:
     "@babel/preset-react": "npm:7.17.12"
     "@babel/preset-typescript": "npm:7.17.12"
     "@rollup/plugin-babel": "npm:5.3.1"
-    "@rollup/plugin-commonjs": "npm:21.1.0"
+    "@rollup/plugin-commonjs": "npm:22.0.0"
     "@rollup/plugin-node-resolve": "npm:13.3.0"
     "@tsconfig/svelte": "npm:3.0.0"
     "@types/chrome": "npm:0.0.190"
