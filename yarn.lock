@@ -5109,13 +5109,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-svelte3@npm:3.4.1":
-  version: 3.4.1
-  resolution: "eslint-plugin-svelte3@npm:3.4.1"
+"eslint-plugin-svelte3@npm:4.0.0":
+  version: 4.0.0
+  resolution: "eslint-plugin-svelte3@npm:4.0.0"
   peerDependencies:
-    eslint: ">=6.0.0"
+    eslint: ">=8.0.0"
     svelte: ^3.2.0
-  checksum: 7088ff7bf1adde7b8b7ef123b9d9e30b6f5cbe99f749f3b2ebd0a13e92c557e3e70347a4ca0ff041778915f6b95a3ab640cf9d1466c1b52d8c6b7f4e44ad3bb7
+  checksum: 2bebdcdf0ed9c7ce857f0e1cc12eb56d6b35f2eb83ddf0898bad0ed2cda7ee4cdc66fab403dc8a807e3782f67996fc31bc786584e40f6948d8a63d916cf24d86
   languageName: node
   linkType: hard
 
@@ -9659,7 +9659,7 @@ __metadata:
     eslint-plugin-import: "npm:2.26.0"
     eslint-plugin-sort-class-members: "npm:1.14.1"
     eslint-plugin-sort-destructure-keys: "npm:1.4.0"
-    eslint-plugin-svelte3: "npm:3.4.1"
+    eslint-plugin-svelte3: "npm:4.0.0"
     husky: "npm:8.0.1"
     jquery: "npm:3.6.0"
     lint-staged: "npm:13.0.2"
