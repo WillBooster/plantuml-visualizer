@@ -1973,9 +1973,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:22.0.0":
-  version: 22.0.0
-  resolution: "@rollup/plugin-commonjs@npm:22.0.0"
+"@rollup/plugin-commonjs@npm:22.0.1":
+  version: 22.0.1
+  resolution: "@rollup/plugin-commonjs@npm:22.0.1"
   dependencies:
     "@rollup/pluginutils": "npm:^3.1.0"
     commondir: "npm:^1.0.1"
@@ -1986,7 +1986,7 @@ __metadata:
     resolve: "npm:^1.17.0"
   peerDependencies:
     rollup: ^2.68.0
-  checksum: e4fd4ddb5006812b4e96227d3a71c10c3c8722fa3f599a8303d38b8b27ac3c6e2e91ac45cb17e30c52d26cde2a444ae08c93db0c92f580393605f679df2ee6e2
+  checksum: ed7ed41ec05a73a788f68a21b3078949cecba7606f1ad7859b80f87e74f2601baee7d14c7c1b2eee276cd370845215380f8905ed97fe1e7ef391bab504491604
   languageName: node
   linkType: hard
 
@@ -8007,9 +8007,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:13.0.2":
-  version: 13.0.2
-  resolution: "lint-staged@npm:13.0.2"
+"lint-staged@npm:13.0.3":
+  version: 13.0.3
+  resolution: "lint-staged@npm:13.0.3"
   dependencies:
     cli-truncate: "npm:^3.1.0"
     colorette: "npm:^2.0.17"
@@ -8026,7 +8026,7 @@ __metadata:
     yaml: "npm:^2.1.1"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: d8b836059f916eee8b827ba7093ad86b8ddacf7c6260c5cc54aa91773a629edba20f99916455526c2b5211e02d49d853a858b3d9f7a8114c251abc5570961359
+  checksum: f79ace053d4666d29f70519b3067b2f42df0de06414502ea51ec6fb9440e98b58bcaae4661f2d70b92ae02cd46a809d16e84f4f91df7ba9ed0cb47290429c4f7
   languageName: node
   linkType: hard
 
@@ -9826,7 +9826,7 @@ __metadata:
     "@babel/preset-react": "npm:7.17.12"
     "@babel/preset-typescript": "npm:7.17.12"
     "@rollup/plugin-babel": "npm:5.3.1"
-    "@rollup/plugin-commonjs": "npm:22.0.0"
+    "@rollup/plugin-commonjs": "npm:22.0.1"
     "@rollup/plugin-node-resolve": "npm:13.3.0"
     "@tsconfig/svelte": "npm:3.0.0"
     "@types/chrome": "npm:0.0.190"
@@ -9853,7 +9853,7 @@ __metadata:
     eslint-plugin-svelte3: "npm:4.0.0"
     husky: "npm:8.0.1"
     jquery: "npm:3.6.0"
-    lint-staged: "npm:13.0.2"
+    lint-staged: "npm:13.0.3"
     micromatch: "npm:4.0.5"
     pinst: "npm:3.0.0"
     prettier: "npm:2.7.1"
@@ -9861,7 +9861,7 @@ __metadata:
     rollup: "npm:2.75.7"
     rollup-plugin-svelte: "npm:7.1.0"
     rollup-plugin-terser: "npm:7.0.2"
-    sass: "npm:1.52.3"
+    sass: "npm:1.53.0"
     semantic-release: "npm:19.0.3"
     semantic-release-chrome: "npm:1.1.3"
     semantic-release-firefox-add-on: "npm:0.2.8"
@@ -10717,16 +10717,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.52.3":
-  version: 1.52.3
-  resolution: "sass@npm:1.52.3"
+"sass@npm:1.53.0":
+  version: 1.53.0
+  resolution: "sass@npm:1.53.0"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: c3d2864012dc91d4da4d6d1cae3d28a5ae1b6a3c76d9e25518b798c31b56ac729cc0928e5ca2c93253d4f5f5cf892f1286d573a45fe87ad2a1918d192099d13c
+  checksum: 1e77425b8a9dec0870d78ba63315cfb1896d79a6703113b8ba37ec5f07f0a6a2ecb4681e2ff4e22180bfe3e27b0605da4a4bacc76122bec75ede30ff946de127
   languageName: node
   linkType: hard
 
