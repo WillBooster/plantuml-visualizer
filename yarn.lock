@@ -5094,9 +5094,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:3.1.0":
-  version: 3.1.0
-  resolution: "eslint-import-resolver-typescript@npm:3.1.0"
+"eslint-import-resolver-typescript@npm:3.1.1":
+  version: 3.1.1
+  resolution: "eslint-import-resolver-typescript@npm:3.1.1"
   dependencies:
     debug: "npm:^4.3.4"
     enhanced-resolve: "npm:^5.9.3"
@@ -5108,7 +5108,7 @@ __metadata:
   peerDependencies:
     eslint: "*"
     eslint-plugin-import: "*"
-  checksum: 6163fe10812307e0e3b1f2cdbe056f7e2daf78b4c3c5cc97ed83ef30419e9422b62ad1ec12ab53c3cb9f2cc47646e0d4b8c4824f8e02da9380483f2b3561f018
+  checksum: 354ff20bae3a2a509e228177c9fef2d5b1b575f6ffd1009cfb516901601eb56d397757488fc1263b3a733a0343b64e702900eadd4a6c320b3f967c3b2531c3a2
   languageName: node
   linkType: hard
 
@@ -9790,7 +9790,7 @@ __metadata:
     dotenv-cli: "npm:5.1.0"
     eslint: "npm:8.18.0"
     eslint-config-prettier: "npm:8.5.0"
-    eslint-import-resolver-typescript: "npm:3.1.0"
+    eslint-import-resolver-typescript: "npm:3.1.1"
     eslint-plugin-import: "npm:2.26.0"
     eslint-plugin-sort-class-members: "npm:1.14.1"
     eslint-plugin-sort-destructure-keys: "npm:1.4.0"
