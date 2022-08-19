@@ -4807,9 +4807,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-cli@npm:5.1.0":
-  version: 5.1.0
-  resolution: "dotenv-cli@npm:5.1.0"
+"dotenv-cli@npm:6.0.0":
+  version: 6.0.0
+  resolution: "dotenv-cli@npm:6.0.0"
   dependencies:
     cross-spawn: "npm:^7.0.3"
     dotenv: "npm:^16.0.0"
@@ -4817,7 +4817,7 @@ __metadata:
     minimist: "npm:^1.2.5"
   bin:
     dotenv: cli.js
-  checksum: 567c969247be7a5cae7f2ed458ab5d319294367a1e6e4cbbc43febc83e26230a7c48a939603cc561eda0d84dcb37c805d612518f7f8adfbb59583e715ee1c537
+  checksum: 5d0c5aaa1ca219d5cee1b02066b29e017772da088062a8069954ba9c5a0bb491c3390fd36ebdbdcd713b34819202bf2a04a94f57bf721f40237abbfc146efaad
   languageName: node
   linkType: hard
 
@@ -9920,7 +9920,7 @@ __metadata:
     bestzip: "npm:2.2.1"
     conventional-changelog-conventionalcommits: "npm:5.0.0"
     cross-env: "npm:7.0.3"
-    dotenv-cli: "npm:5.1.0"
+    dotenv-cli: "npm:6.0.0"
     eslint: "npm:8.21.0"
     eslint-config-prettier: "npm:8.5.0"
     eslint-import-resolver-typescript: "npm:3.4.1"
