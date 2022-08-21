@@ -8435,11 +8435,11 @@ __metadata:
   linkType: hard
 
 "marked@npm:^4.0.10":
-  version: 4.0.18
-  resolution: "marked@npm:4.0.18"
+  version: 4.0.19
+  resolution: "marked@npm:4.0.19"
   bin:
     marked: bin/marked.js
-  checksum: 7b52c86992279cb317b2ad7846e20111d1df827111ec22bf300269b98c7a0306325bb68aacb989bf2d407f637029ac7e91f5ab4602941fe6af2b9459c695d7a8
+  checksum: 576ea6cdee86109077653565c62d39eb6c27331bcc7818c5c789578802a2f5b141b287177295d51136a67680c909195bf2dd40dd10e9b6be495be3c22d7a717a
   languageName: node
   linkType: hard
 
