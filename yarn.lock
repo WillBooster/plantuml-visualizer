@@ -2246,13 +2246,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:0.0.196":
-  version: 0.0.196
-  resolution: "@types/chrome@npm:0.0.196"
+"@types/chrome@npm:0.0.197":
+  version: 0.0.197
+  resolution: "@types/chrome@npm:0.0.197"
   dependencies:
     "@types/filesystem": "npm:*"
     "@types/har-format": "npm:*"
-  checksum: ffdfb78234d417e68411a7d2490eca04118cf158dbdebcb591e4b9f93b106c4400716d6a93739fa5c1f9c67375005474593d367c70039b7d305006318456969e
+  checksum: c31e92f55fd3c0dd44ac7cb20fa6d5168bc9819b35621a39fac112cb1ad920400f60684abb9853a98f6b485453a5f89c005256f687125ece6ed4b4a065bdf6bf
   languageName: node
   linkType: hard
 
@@ -9970,7 +9970,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:22.0.2"
     "@rollup/plugin-node-resolve": "npm:13.3.0"
     "@tsconfig/svelte": "npm:3.0.0"
-    "@types/chrome": "npm:0.0.196"
+    "@types/chrome": "npm:0.0.197"
     "@types/eslint": "npm:8.4.6"
     "@types/jquery": "npm:3.5.14"
     "@types/micromatch": "npm:4.0.2"
