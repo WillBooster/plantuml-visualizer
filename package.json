@@ -44,7 +44,7 @@
     "@rollup/plugin-commonjs": "22.0.2",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@tsconfig/svelte": "3.0.0",
-    "@types/chrome": "0.0.196",
+    "@types/chrome": "0.0.197",
     "@types/eslint": "8.4.6",
     "@types/jquery": "3.5.14",
     "@types/micromatch": "4.0.2",
