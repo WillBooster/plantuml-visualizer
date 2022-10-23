@@ -12259,11 +12259,11 @@ __metadata:
   linkType: hard
 
 "uglify-js@npm:^3.1.4":
-  version: 3.17.3
-  resolution: "uglify-js@npm:3.17.3"
+  version: 3.17.4
+  resolution: "uglify-js@npm:3.17.4"
   bin:
     uglifyjs: bin/uglifyjs
-  checksum: 8707c6aae1ff5c36318332a370459d6172941c78f386d851803e1bdf7485990a36c1071334b0ee552fec15db8b0ab5d9844fbd70abcc591cb1bbb9cc071429e1
+  checksum: d7f8092c29f9edb176389a495147cb5e6aeaebcc701d8ce92640c4df42de723dc4502d6c4789c8572277aea01e222f13588cfa210b205323abfaa74b0af2557b
   languageName: node
   linkType: hard
 
