@@ -2239,16 +2239,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/glob@npm:^7.1.1":
-  version: 7.2.0
-  resolution: "@types/glob@npm:7.2.0"
-  dependencies:
-    "@types/minimatch": "npm:*"
-    "@types/node": "npm:*"
-  checksum: 28f927f9e0d7f5cecafc843e0c97f79fd3afe5874d71f35ad9343352fe14fd4d6e4136cc07688e46680d1972561751fdf4468762c7de5ac32f8cf902cd1f230f
-  languageName: node
-  linkType: hard
-
 "@types/har-format@npm:*":
   version: 1.2.9
   resolution: "@types/har-format@npm:1.2.9"
@@ -2301,13 +2291,6 @@ __metadata:
   dependencies:
     "@types/braces": "npm:*"
   checksum: ac7ec28d57ac61a85bd2859c69d096192e8ef66cc9d3c5fcb4531eeec3b090b1ff1be132e65eff6a16be14b9a30083cf488a402c094890c654db861aafee4669
-  languageName: node
-  linkType: hard
-
-"@types/minimatch@npm:*":
-  version: 5.1.2
-  resolution: "@types/minimatch@npm:5.1.2"
-  checksum: 698855336a92f768d02526d019efcf80e32d65ea5d044a5a0a909a923a9cfccc55e61284fd2c5dc71a51e9b5f0b4dc651cb187683f811582815a5206f534d04b
   languageName: node
   linkType: hard
 
@@ -4647,10 +4630,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-newline@npm:3.1.0":
-  version: 3.1.0
-  resolution: "detect-newline@npm:3.1.0"
-  checksum: cd4fd05735c6964f5d5a8cfa03aba5e9e89c491fb47f37c89b85f02b2581a1a7e9a2c8b3d904fa575463db59b706aaa494413dd11e10323daf990c33fc2d85bd
+"detect-indent@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "detect-indent@npm:7.0.1"
+  checksum: f5cd42359a6ac9e3a62c52a2b38934829b935ddd976c90a42fac4e8bddad9cc2baa25a8ee2e9c03cc23b3026df9202308f6d515ca8a6422b631d87cb6e4c75e5
+  languageName: node
+  linkType: hard
+
+"detect-newline@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "detect-newline@npm:4.0.0"
+  checksum: 940e3da7ef1838b966401f54a54a5a38d112f3504d6279a2b253ff6fc098a7db49d8a0b62371d2206120759186905240de1eceedb21f583ab330af6e7748b1f5
   languageName: node
   linkType: hard
 
@@ -5618,7 +5608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.0.3, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
   dependencies:
@@ -6187,10 +6177,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"git-hooks-list@npm:1.0.3":
-  version: 1.0.3
-  resolution: "git-hooks-list@npm:1.0.3"
-  checksum: 4540ed77021f90d33fe77771a58cd5abe406793abe3aa939b61a36fee578cda353ed2ba2af4388a5a20f7c12823fe3b1ed80cd5e5ca617009aae8498a03cc928
+"git-hooks-list@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "git-hooks-list@npm:3.0.0"
+  checksum: 6ffb49c1b22b27cf18debcdb5bb5692a518f03c7801c1e181fb2c1611fcb02b2adda9b3c314b10dc8f6bca3bd53628cdc8199130af30c877a2366649f6e819c3
   languageName: node
   linkType: hard
 
@@ -6328,22 +6318,6 @@ __metadata:
   version: 0.1.0
   resolution: "globalyzer@npm:0.1.0"
   checksum: e52e064b89ef5a42ce76b92a4919e518c80615c80839f7d214f51c96ce5945308147a422a11c853760fc7a9a41cf8cc8fb7813c5816f2808d8fd4c066d0805a9
-  languageName: node
-  linkType: hard
-
-"globby@npm:10.0.0":
-  version: 10.0.0
-  resolution: "globby@npm:10.0.0"
-  dependencies:
-    "@types/glob": "npm:^7.1.1"
-    array-union: "npm:^2.1.0"
-    dir-glob: "npm:^3.0.1"
-    fast-glob: "npm:^3.0.3"
-    glob: "npm:^7.1.3"
-    ignore: "npm:^5.1.1"
-    merge2: "npm:^1.2.3"
-    slash: "npm:^3.0.0"
-  checksum: 9b3ba3d82b9b90821cb3d517303edf6f98fd8854a1c60d2e1aecdb544b078a17eaf10c0b50449df6438f52d0f960501578c650e4cf3ef6336667511cb2756318
   languageName: node
   linkType: hard
 
@@ -6763,7 +6737,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.1.1, ignore@npm:^5.2.0":
+"ignore@npm:^5.2.0":
   version: 5.2.0
   resolution: "ignore@npm:5.2.0"
   checksum: 0086b6992b2e2c9ec23f009e5939022323f1b4ad291607507045cc67b0a3b5d9724fc425f5300b3ba6d10ef74311bdf71cd26040227c30a182cf1b2a5971226b
@@ -7268,17 +7242,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-plain-obj@npm:2.1.0":
-  version: 2.1.0
-  resolution: "is-plain-obj@npm:2.1.0"
-  checksum: d07f99715f51b58ef452a809a416bd75da7ea10152f53adf469dd30b1e262e60f6f9c1182534a7ceb3e82a5516cd9aa9548d6dfd5df7ce03f6298b19691c81df
-  languageName: node
-  linkType: hard
-
 "is-plain-obj@npm:^1.1.0":
   version: 1.1.0
   resolution: "is-plain-obj@npm:1.1.0"
   checksum: 7a5a59a544ab648951b6c6c44cd021dbfc30ae051c78b53b442abdc4e340b9b03a63f8d37281a59924bc5364ed6f6bb90f7d82a95033b9ab57e42510aa7ed46f
+  languageName: node
+  linkType: hard
+
+"is-plain-obj@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "is-plain-obj@npm:4.1.0"
+  checksum: 9d6bfe46ad30eda62cc2f0caec2ee980257a84a0a003523588c8c0e5eb33b6e42e73910f42c323490bfdfdd1bf7fd7854e8f156c275da7c12bebebb1be11c73a
   languageName: node
   linkType: hard
 
@@ -8474,7 +8448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"merge2@npm:^1.2.3, merge2@npm:^1.3.0, merge2@npm:^1.4.1":
+"merge2@npm:^1.3.0, merge2@npm:^1.4.1":
   version: 1.4.1
   resolution: "merge2@npm:1.4.1"
   checksum: d58d7c31e24ccb93509def2af306eca9a55ad8b8862a26ea7deda3c9338e5d33365f57197ad37af68c319e5e2a1faf089e5d05894d0dc29ff07025b30b8ff8b0
@@ -9936,7 +9910,7 @@ __metadata:
     semantic-release: "npm:19.0.5"
     semantic-release-chrome: "npm:3.1.0"
     semantic-release-firefox-add-on: "npm:0.2.8"
-    sort-package-json: "npm:1.57.0"
+    sort-package-json: "npm:2.1.0"
     svelte: "npm:3.53.1"
     svelte-check: "npm:2.9.2"
     svelte-preprocess: "npm:4.10.7"
@@ -11237,19 +11211,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sort-package-json@npm:1.57.0":
-  version: 1.57.0
-  resolution: "sort-package-json@npm:1.57.0"
+"sort-package-json@npm:2.1.0":
+  version: 2.1.0
+  resolution: "sort-package-json@npm:2.1.0"
   dependencies:
-    detect-indent: "npm:^6.0.0"
-    detect-newline: "npm:3.1.0"
-    git-hooks-list: "npm:1.0.3"
-    globby: "npm:10.0.0"
-    is-plain-obj: "npm:2.1.0"
+    detect-indent: "npm:^7.0.1"
+    detect-newline: "npm:^4.0.0"
+    git-hooks-list: "npm:^3.0.0"
+    globby: "npm:^13.1.2"
+    is-plain-obj: "npm:^4.1.0"
     sort-object-keys: "npm:^1.1.3"
   bin:
     sort-package-json: cli.js
-  checksum: adb9a154a6c1023155c3add97325ed1277919e8c9a428ad5b2dd64db78a95305db867bf429e3e4b8bafc1dc598b961480f2e03e04db95b6c9d6f75c7ed64b619
+  checksum: 11051ac4071565a57f5cf7c0e027ee4779e4d787def3e1de12354c0dd64ef59f969f7e46115b67fc2f736f260effd0120e630373b5a6dadf26dec3fe3a416511
   languageName: node
   linkType: hard
 
