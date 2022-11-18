@@ -12,7 +12,7 @@ export const PlantUmlEncoder = {
   getImageUrl(pumlContent: string, serverUrl: string = pumlServerUrl): string {
     const textEncoder = new TextEncoder();
     const encoded = encode64(deflate(textEncoder.encode(pumlContent)));
-    return `${serverUrl}/svg/${encoded}`;
+    return `${serverUrl}/svg/~1${encoded}`;
   },
 };
 
