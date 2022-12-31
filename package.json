@@ -46,7 +46,7 @@
     "@tsconfig/svelte": "3.0.0",
     "@types/chrome": "0.0.206",
     "@types/eslint": "8.4.10",
-    "@types/jquery": "3.5.14",
+    "@types/jquery": "3.5.15",
     "@types/micromatch": "4.0.2",
     "@types/sass": "1.43.1",
     "@typescript-eslint/eslint-plugin": "5.47.1",

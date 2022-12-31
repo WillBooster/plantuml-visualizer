@@ -2259,12 +2259,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.14":
-  version: 3.5.14
-  resolution: "@types/jquery@npm:3.5.14"
+"@types/jquery@npm:3.5.15":
+  version: 3.5.15
+  resolution: "@types/jquery@npm:3.5.15"
   dependencies:
     "@types/sizzle": "npm:*"
-  checksum: 26ceabe899fff95ace674b4d19f135e2aba028282b10ef36b1c52661923f4cba98fcb082bcc1bb4c65ce9727ef69d0f48c22ef6dc0eca83007e5fc874a07b707
+  checksum: 0b7fb235300eddde4e152a7aec7aa636e7907aadd6cc51797ca293abb1fb9e501f45d47c48b2252f759bb1bc0136054235b9714739668766cdc774b1a352326b
   languageName: node
   linkType: hard
 
@@ -9921,7 +9921,7 @@ __metadata:
     "@tsconfig/svelte": "npm:3.0.0"
     "@types/chrome": "npm:0.0.206"
     "@types/eslint": "npm:8.4.10"
-    "@types/jquery": "npm:3.5.14"
+    "@types/jquery": "npm:3.5.15"
     "@types/micromatch": "npm:4.0.2"
     "@types/sass": "npm:1.43.1"
     "@typescript-eslint/eslint-plugin": "npm:5.47.1"
