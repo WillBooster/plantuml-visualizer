@@ -10,7 +10,6 @@ jobs:
   test:
     uses: WillBooster/reusable-workflows/.github/workflows/test.yml@main
     with:
-      dot_env_path: .env
+      github_hosted_runner: true
     secrets:
-      DOT_ENV: ${{ secrets.DOT_ENV }}
       GH_TOKEN: ${{ secrets.PUBLIC_GH_BOT_PAT }}

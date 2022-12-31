@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/prefer-code-point */
+
 import { deflate } from 'zlib.es';
 
 import { Constants } from '../constants';

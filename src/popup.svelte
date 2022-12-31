@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import {onMount} from 'svelte';
 
-  import type { Config } from './config';
+  import type {Config} from './config';
   import BodyContainer from './components/BodyContainer.svelte';
   import Footer from './components/Footer.svelte';
   import Header from './components/Header.svelte';
@@ -10,8 +10,8 @@
   import Switch from './components/Switch.svelte';
   import TextField from './components/TextField.svelte';
   import Button from './components/Button.svelte';
-  import { Constants } from './constants';
-  import { PlantUmlEncoder } from './encoder/plantUmlEncoder';
+  import {Constants} from './constants';
+  import {PlantUmlEncoder} from './encoder/plantUmlEncoder';
 
   let config: Config = { ...Constants.defaultConfig };
 

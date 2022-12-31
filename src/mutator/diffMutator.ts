@@ -4,14 +4,14 @@ import type { DiffFinder } from '../finder/finder';
 
 import { markAsIgnore, setDblclickHandlers, textsToImages } from './mutatorUtil';
 
-export const DiffMutator = {
+class DiffMutator {
   async embedPlantUmlImages(diffFinders: DiffFinder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
     await Promise.all(
       diffFinders.map(async (diffFinder) => {
-        const contents = await diffFinder.find(webPageUrl, $root);
+        const contents = await diffFinder.findContents(webPageUrl, $root);
         for (const content of contents) {
           // Skip if no PlantUML descriptions exist
-          if (!content.baseTexts.length && !content.headTexts.length) continue;
+          if (content.baseTexts.length === 0 && content.headTexts.length === 0) continue;
 
           const $diff = content.$diff;
 
@@ -67,5 +67,7 @@ export const DiffMutator = {
         }
       })
     );
-  },
-};
+  }
+}
+
+export const diffMutator = new DiffMutator();

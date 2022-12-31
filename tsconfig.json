@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
+    "declaration": true,
     "esModuleInterop": true,
     "importHelpers": false,
     "module": "esnext",
@@ -11,8 +12,9 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["src/**/*", "__tests__/**/*", "scripts/**/*", "./node_modules/@types", "./@types"],
+  "include": ["src/**/*", "__tests__/**/*", "scripts/**/*"],
   "extends": "@tsconfig/svelte/tsconfig.json"
 }

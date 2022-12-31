@@ -2,14 +2,14 @@ import type { CodeFinder } from '../finder/finder';
 
 import { markAsIgnore, setDblclickHandlers, textToImage } from './mutatorUtil';
 
-export const DescriptionMutator = {
+class DescriptionMutator {
   async embedPlantUmlImages(finders: CodeFinder[], webPageUrl: string, $root: JQuery<Node>): Promise<void> {
     await Promise.all(
       finders.map(async (finder) => {
-        const contents = await finder.find(webPageUrl, $root);
+        const contents = await finder.findContents(webPageUrl, $root);
         for (const content of contents) {
           // Skip if no PlantUML descriptions exist
-          if (!content.text.length) continue;
+          if (content.text.length === 0) continue;
 
           const $text = content.$text;
 
@@ -27,5 +27,7 @@ export const DescriptionMutator = {
         }
       })
     );
-  },
-};
+  }
+}
+
+export const descriptionMutator = new DescriptionMutator();
