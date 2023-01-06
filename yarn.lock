@@ -2544,10 +2544,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@willbooster/renovate-config@npm:9.4.2":
-  version: 9.4.2
-  resolution: "@willbooster/renovate-config@npm:9.4.2"
-  checksum: f1391769aadddd78ddca9fca24d6c182872f39e58bce04e3f9bff0aabae02c565f45bbc358ec7ad4d0c87b5ea27cbead29e26a0b9e691a9f14e7f88a59ccb5a3
+"@willbooster/renovate-config@npm:9.5.0":
+  version: 9.5.0
+  resolution: "@willbooster/renovate-config@npm:9.5.0"
+  checksum: 5ed4b8b26f05cf8fa3ccc2a28e9752535b0540b5ba8e728c6b40c93545a198180055b79503bf9e08045da993be5d2f6652e3356dde8f801ad992168369492e34
   languageName: node
   linkType: hard
 
@@ -9928,7 +9928,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:5.47.1"
     "@willbooster/eslint-config-ts": "npm:9.2.1"
     "@willbooster/prettier-config": "npm:9.1.1"
-    "@willbooster/renovate-config": "npm:9.4.2"
+    "@willbooster/renovate-config": "npm:9.5.0"
     babel-plugin-transform-remove-console: "npm:6.9.4"
     bestzip: "npm:2.2.1"
     conventional-changelog-conventionalcommits: "npm:5.0.0"
