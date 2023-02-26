@@ -2562,13 +2562,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@willbooster/eslint-config-ts@npm:9.2.1":
-  version: 9.2.1
-  resolution: "@willbooster/eslint-config-ts@npm:9.2.1"
+"@willbooster/eslint-config-ts@npm:10.0.8":
+  version: 10.0.8
+  resolution: "@willbooster/eslint-config-ts@npm:10.0.8"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ">=5"
     "@typescript-eslint/parser": ">=5"
-    "@willbooster/prettier-config": 9.1.0
+    "@willbooster/prettier-config": 9.1.1
     eslint: ">=8"
     eslint-config-prettier: ">=8"
     eslint-import-resolver-typescript: ">=2"
@@ -2576,7 +2576,7 @@ __metadata:
     eslint-plugin-sort-class-members: ">=1.14"
     eslint-plugin-sort-destructure-keys: ">=1.4"
     typescript: ">=4"
-  checksum: 8d61536e925a1af76a545282f6aee48fafff6a2589b5df571751d6bb653d08ce468f2a84d0e6e97cf7b3c891896dc027e6a157907513342871a5d781d8159b66
+  checksum: 9b5311fa094cf1f7dd4b3dcf499126bbe25edd114b860a4f9ed833e527bc1c28f034b245d2acca2552b670bc7e5d92a1ed45854470bc9d96cac19d39664233b1
   languageName: node
   linkType: hard
 
@@ -10139,7 +10139,7 @@ __metadata:
     "@types/sass": "npm:1.43.1"
     "@typescript-eslint/eslint-plugin": "npm:5.52.0"
     "@typescript-eslint/parser": "npm:5.52.0"
-    "@willbooster/eslint-config-ts": "npm:9.2.1"
+    "@willbooster/eslint-config-ts": "npm:10.0.8"
     "@willbooster/prettier-config": "npm:9.1.1"
     "@willbooster/renovate-config": "npm:9.5.0"
     babel-plugin-transform-remove-console: "npm:6.9.4"

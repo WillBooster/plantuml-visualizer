@@ -51,7 +51,7 @@
     "@types/sass": "1.43.1",
     "@typescript-eslint/eslint-plugin": "5.52.0",
     "@typescript-eslint/parser": "5.52.0",
-    "@willbooster/eslint-config-ts": "9.2.1",
+    "@willbooster/eslint-config-ts": "10.0.8",
     "@willbooster/prettier-config": "9.1.1",
     "@willbooster/renovate-config": "9.5.0",
     "babel-plugin-transform-remove-console": "6.9.4",
