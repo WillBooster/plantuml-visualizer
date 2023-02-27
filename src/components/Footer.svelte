@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+    import {createEventDispatcher} from 'svelte';
 
-  import Button from './Button.svelte';
+    import Button from './Button.svelte';
 
-  export let disabled: boolean = false;
+    export let disabled: boolean = false;
 
   const dispatch = createEventDispatcher<{ clickBackToDefault: undefined }>();
 </script>

@@ -1,0 +1,10 @@
+name: Notify ready
+on:
+  issues:
+    types:
+      - labeled
+jobs:
+  notify-ready:
+    uses: WillBooster/reusable-workflows/.github/workflows/notify-ready.yml@main
+    secrets:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL_FOR_READY }}

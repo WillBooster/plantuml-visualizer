@@ -4,10 +4,11 @@ import type { Config } from './config';
 import { urlToRegExp } from './config';
 import { Constants } from './constants';
 import { CodeBlockFinder } from './finder/codeBlockFinder';
-import type { DiffFinder, CodeFinder } from './finder/finder';
-import { GitHubFileViewFinder, GitHubPullRequestDiffFinder } from './finder/gitHubFinder';
-import { DescriptionMutator } from './mutator/descriptionMutator';
-import { DiffMutator } from './mutator/diffMutator';
+import type { CodeFinder, DiffFinder } from './finder/finder';
+import { GitHubFileViewFinder } from './finder/github/gitHubFileViewFinder';
+import { GitHubPullRequestDiffFinder } from './finder/github/gitHubPullRequestDiffFinder';
+import { descriptionMutator } from './mutator/descriptionMutator';
+import { diffMutator } from './mutator/diffMutator';
 
 const sleep = (msec: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, msec));
 
@@ -49,16 +50,16 @@ async function embedPlantUmlImages(): Promise<void[]> {
   if (lastUrl === location.href && embedding) return [];
 
   embedding = true;
-  if (lastUrl !== location.href) {
+  if (lastUrl === location.href) {
+    // Deal with re-rendering multiple times (e.g. it occurs when updating a GitHub issue)
+    await sleep(1000);
+  } else {
     lastUrl = location.href;
     enabledFinders = allCodeFinders.filter((f) => f.canFind(location.href));
     enabledDiffFinders = allDiffFinders.filter((f) => f.canFind(location.href));
-  } else {
-    // Deal with re-rendering multiple times (e.g. it occurs when updating a GitHub issue)
-    await sleep(1000);
   }
   return Promise.all([
-    DescriptionMutator.embedPlantUmlImages(enabledFinders, location.href, $(document.body)),
-    DiffMutator.embedPlantUmlImages(enabledDiffFinders, location.href, $(document.body)),
+    descriptionMutator.embedPlantUmlImages(enabledFinders, location.href, $(document.body)),
+    diffMutator.embedPlantUmlImages(enabledDiffFinders, location.href, $(document.body)),
   ]);
 }

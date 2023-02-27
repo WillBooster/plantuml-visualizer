@@ -5,7 +5,7 @@ export interface UmlCodeContent {
 
 export interface CodeFinder {
   canFind(webPageUrl: string): boolean;
-  find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]>;
+  findContents(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]>;
 }
 
 export interface UmlDiffContent {
@@ -18,5 +18,5 @@ export interface UmlDiffContent {
 
 export interface DiffFinder {
   canFind(webPageUrl: string): boolean;
-  find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]>;
+  findContents(webPageUrl: string, $root: JQuery<Node>): Promise<UmlDiffContent[]>;
 }

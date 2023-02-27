@@ -3,7 +3,10 @@
   "plugins": [
     ["@semantic-release/commit-analyzer", { "preset": "conventionalcommits" }],
     "@semantic-release/release-notes-generator",
-    "@semantic-release/github",
+    [
+      "@semantic-release/github",
+      { "successComment": false, "labels": ["r: semantic-release"], "releasedLabels": ["released :bookmark:"] }
+    ],
     [
       "semantic-release-firefox-add-on",
       { "extensionId": "{d324f64b-b423-4c2b-a9b4-d415705c26a9}", "targetXpi": "dist.xpi", "channel": "listed" }

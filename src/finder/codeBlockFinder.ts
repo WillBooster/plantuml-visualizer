@@ -11,7 +11,7 @@ export class CodeBlockFinder implements CodeFinder {
     return this.URL_REGEX.test(webPageUrl);
   }
 
-  async find(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
+  async findContents(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
     const $texts = $root.find(`pre:not([${Constants.ignoreAttribute}])`);
     const result = [];
     for (let i = 0; i < $texts.length; i++) {

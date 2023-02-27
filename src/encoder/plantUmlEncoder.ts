@@ -1,3 +1,6 @@
+/* eslint-disable unicorn/prefer-code-point */
+// fromCharCode is faster than codePointAt and enough for our use case.
+
 import { deflate } from 'zlib.es';
 
 import { Constants } from '../constants';

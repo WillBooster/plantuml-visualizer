@@ -1,4 +1,4 @@
-# Project-specific settings
+# Project-specific settings (head)
 
 dist.zip
 
@@ -8,8 +8,7 @@ dist.zip
 dist/
 temp/
 Icon[]
-*.sqlite3
-*.sqlite3-journal
+!.keep
 # Created by https://www.toptal.com/developers/gitignore/api/windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows
 
@@ -237,12 +236,6 @@ fabric.properties
 # Ignore all local history of files
 .history
 .ionide
-
-# Support for Project snippet scope
-.vscode/*.code-snippets
-
-# Ignore code-workspaces
-*.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
 
@@ -494,3 +487,5 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+# Project-specific settings (tail)
