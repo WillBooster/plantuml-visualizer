@@ -15,28 +15,13 @@ test-fixtures/
 *.min.*js
 .yarn/
 .pnp.js
-
-3rd-party/
-@types/
-__generated__/
-android/
-ios/
-no-format/
-test-fixtures/
-*.config.*js
-*.d.ts
-*.min.*js
-.yarn/
-.pnp.js
 dist.zip
 
 .devcontainer/
-.venv/
 dist/
 temp/
 Icon[]
-*.sqlite3
-*.sqlite3-journal
+!.keep
 # Created by https://www.toptal.com/developers/gitignore/api/windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows
 

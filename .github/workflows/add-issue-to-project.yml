@@ -4,8 +4,8 @@ on:
     types:
       - labeled
 jobs:
-  add-to-project:
+  add-issue-to-project:
     uses: WillBooster/reusable-workflows/.github/workflows/add-issue-to-project.yml@main
     secrets:
-      GH_BOT_PAT: ${{ secrets.GH_BOT_PAT }}
       GH_PROJECT_URL: ${{ secrets.GH_PROJECT_URL }}
+      GH_TOKEN: ${{ secrets.PUBLIC_GH_BOT_PAT }}

@@ -17,7 +17,7 @@
     "cleanup": "yarn format && yarn lint-fix",
     "format": "sort-package-json && yarn prettify",
     "postinstall": "husky install",
-    "lint": "eslint --color \"./{__tests__,scripts,src}/**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}\"",
+    "lint": "eslint --color \"./{scripts,src,tests}/**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}\"",
     "lint-fix": "yarn lint --fix",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",

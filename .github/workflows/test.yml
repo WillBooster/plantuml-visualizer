@@ -1,11 +1,20 @@
 name: Test
 on:
   pull_request:
+    paths-ignore:
+      - '**.md'
+      - '**/docs/**'
   push:
     branches:
       - main
       - wbfy
       - renovate/**
+    paths-ignore:
+      - '**.md'
+      - '**/docs/**'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 jobs:
   test:
     uses: WillBooster/reusable-workflows/.github/workflows/test.yml@main

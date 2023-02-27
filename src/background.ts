@@ -45,37 +45,37 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     case Constants.commands.toggleExtensionEnabled: {
       config.extensionEnabled = !config.extensionEnabled;
       sendResponse(config.extensionEnabled);
-      chrome.storage.sync.set({ extensionEnabled: config.extensionEnabled });
+      void chrome.storage.sync.set({ extensionEnabled: config.extensionEnabled });
       setIcon();
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+        if (tabs[0].id) void chrome.tabs.reload(tabs[0].id);
       });
       break;
     }
     case Constants.commands.setAllowedUrls: {
       config.allowedUrls = request.allowedUrls;
       sendResponse(config.allowedUrls);
-      chrome.storage.sync.set({ allowedUrls: config.allowedUrls });
+      void chrome.storage.sync.set({ allowedUrls: config.allowedUrls });
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+        if (tabs[0].id) void chrome.tabs.reload(tabs[0].id);
       });
       break;
     }
     case Constants.commands.setDeniedUrls: {
       config.deniedUrls = request.deniedUrls;
       sendResponse(config.deniedUrls);
-      chrome.storage.sync.set({ deniedUrls: config.deniedUrls });
+      void chrome.storage.sync.set({ deniedUrls: config.deniedUrls });
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+        if (tabs[0].id) void chrome.tabs.reload(tabs[0].id);
       });
       break;
     }
     case Constants.commands.setPumlServerUrl: {
       config.pumlServerUrl = request.pumlServerUrl;
       sendResponse(config.pumlServerUrl);
-      chrome.storage.sync.set({ pumlServerUrl: config.pumlServerUrl });
+      void chrome.storage.sync.set({ pumlServerUrl: config.pumlServerUrl });
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        if (tabs[0].id) chrome.tabs.reload(tabs[0].id);
+        if (tabs[0].id) void chrome.tabs.reload(tabs[0].id);
       });
       break;
     }
@@ -83,5 +83,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 function setIcon(): void {
-  chrome.browserAction.setIcon({ path: config.extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' });
+  chrome.browserAction.setIcon({ path: config.extensionEnabled ? 'icon/icon16.png' : 'icon/icon16gray.png' }, () => {
+    // do nothing
+  });
 }
