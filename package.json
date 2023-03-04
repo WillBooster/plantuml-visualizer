@@ -27,6 +27,7 @@
     "release": "yarn build && dotenv -- semantic-release",
     "release-test": "dotenv -- semantic-release --dry-run",
     "start": "cross-env NODE_ENV=development yarn build-common -w",
+    "test/ci-setup": "playwright install chromium",
     "typecheck": "tsc --noEmit --Pretty"
   },
   "prettier": "@willbooster/prettier-config",
@@ -42,6 +43,7 @@
     "@babel/preset-env": "7.20.2",
     "@babel/preset-react": "7.18.6",
     "@babel/preset-typescript": "7.21.0",
+    "@playwright/test": "1.31.2",
     "@rollup/plugin-babel": "6.0.3",
     "@rollup/plugin-commonjs": "24.0.1",
     "@rollup/plugin-node-resolve": "15.0.1",
