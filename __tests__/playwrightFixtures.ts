@@ -1,3 +1,5 @@
+// https://playwright.dev/docs/chrome-extensions
+
 import path from 'node:path';
 
 import { test as base, chromium, type BrowserContext } from '@playwright/test';
