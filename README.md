@@ -17,7 +17,8 @@
 
 - File Viewer
   - https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/class.pu
-  - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/state.pu
+  - `!include` directive: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/including.pu
+  - `!includesub` directive: https://github.com/WillBooster/plantuml-visualizer/blob/master/puml-sample/subincluding.pu
 - Issues: https://github.com/WillBooster/plantuml-visualizer/issues/54
 - Pull Requests
   - Added: https://github.com/WillBooster/plantuml-visualizer/pull/49/files
@@ -37,7 +38,8 @@
 
 - GitHub Raw Files (only Chrome)
   - https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/class.pu
-  - `!include` directive: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/state.pu
+  - `!include` directive: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/including.pu
+  - `!includesub` directive: https://raw.githubusercontent.com/WillBooster/plantuml-visualizer/master/puml-sample/subincluding.pu
   - IMPORTANT NOTE: any extension on Firefox cannot work on GitHub Raw Files due to https://bugzilla.mozilla.org/show_bug.cgi?id=1411641
 - Local Files
   - file:///C:/Users/XXX/Projects/plantuml-visualizer/puml-sample/class.pu
@@ -61,9 +63,9 @@ The visualization result of https://github.com/WillBooster/plantuml-visualizer/p
 
 ## Default Visualization Server
 
-The default server is https://willbooster-plantuml.herokuapp.com
+The default server is https://plantuml-service-willbooster.fly.dev
 ([source code](https://github.com/WillBooster/plantuml-service)).
-You may check the PlantUML version via [this link](https://willbooster-plantuml.herokuapp.com/version).
+You may check the PlantUML version via [this link](https://plantuml-service-willbooster.fly.dev/version).
 
 You may use another **HTTPS** PlantUML server by changing settings in the configuration window.
 
