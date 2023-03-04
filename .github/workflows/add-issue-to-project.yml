@@ -1,0 +1,11 @@
+name: Add issue to github project
+on:
+  issues:
+    types:
+      - labeled
+jobs:
+  add-issue-to-project:
+    uses: WillBooster/reusable-workflows/.github/workflows/add-issue-to-project.yml@main
+    secrets:
+      GH_PROJECT_URL: ${{ secrets.GH_PROJECT_URL }}
+      GH_TOKEN: ${{ secrets.PUBLIC_GH_BOT_PAT }}

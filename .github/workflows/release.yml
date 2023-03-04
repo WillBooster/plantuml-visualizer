@@ -1,12 +1,16 @@
 name: Release
 on:
+  workflow_dispatch:
   schedule:
     - cron: 0 5 * * 0
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 jobs:
   release:
     uses: WillBooster/reusable-workflows/.github/workflows/release.yml@main
     with:
-      dot_env_path: .env
+      github_hosted_runner: true
     secrets:
       DOT_ENV: ${{ secrets.DOT_ENV }}
       GH_TOKEN: ${{ secrets.PUBLIC_GH_BOT_PAT }}

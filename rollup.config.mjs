@@ -28,7 +28,7 @@ export default [
     plugins,
   },
   {
-    input: 'src/content_scripts.ts',
+    input: 'src/contentScripts.ts',
     output: [
       {
         file: 'dist/content_scripts.js',
