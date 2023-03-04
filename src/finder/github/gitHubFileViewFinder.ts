@@ -19,7 +19,7 @@ export class GitHubFileViewFinder implements CodeFinder {
       const $text = $texts.eq(i);
       const $fileLines = $text.find('tr');
       let fileText = [...Array.from({ length: $fileLines.length }).keys()]
-        .map((lineno) => $fileLines.eq(lineno).find("[id^='LC'").text() + '\n')
+        .map((lineno) => $fileLines.eq(lineno).find("[id^='LC']").text() + '\n')
         .join('');
       fileText = await this.preprocessIncludeDirective(webPageUrl, fileText);
       fileText = await this.preprocessIncludeSubDirective(webPageUrl, fileText);
