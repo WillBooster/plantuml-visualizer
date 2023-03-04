@@ -15,6 +15,8 @@ export const Constants = {
   } as Config,
   versionUmlText: ['@startuml', 'version', '@enduml'].join('\n'),
   ignoreAttribute: 'data-wb-ignore',
+  imageTestIdAttribute: 'puml-vis-wb-img',
+  textTestIdAttribute: 'puml-vis-wb-txt',
   commands: {
     getConfig: 'getConfig',
     getExtensionEnabled: 'getExtensionEnabled',

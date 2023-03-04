@@ -13,12 +13,12 @@ class DiffMutator {
           // Skip if no PlantUML descriptions exist
           if (content.baseTexts.length === 0 && content.headTexts.length === 0) continue;
 
-          const $diff = content.$diff;
+          const $diffText = content.$diff;
 
           // To avoid embedding an image multiple times
-          let $visualizedDiff: JQuery<Node>;
-          if (markAsIgnore($diff)) {
-            $visualizedDiff = $(`<div></div>`);
+          let $idffImage: JQuery<Node>;
+          if (markAsIgnore($diffText)) {
+            $idffImage = $(`<div></div>`);
 
             const $baseBranchMark = $(`<div>${content.baseBranchName}</div>`);
             const $headBranchMark = $(`<div>${content.headBranchName}</div>`);
@@ -47,7 +47,7 @@ class DiffMutator {
               $image.css('background-color', '#e6ffed');
             }
 
-            $visualizedDiff.append($baseBranchMark);
+            $idffImage.append($baseBranchMark);
             baseImages[0].insertAfter($baseBranchMark);
             for (let i = 1; i < baseImages.length; i++) {
               baseImages[i].insertAfter(baseImages[i - 1]);
@@ -57,13 +57,13 @@ class DiffMutator {
             for (let i = 1; i < headImages.length; i++) {
               headImages[i].insertAfter(headImages[i - 1]);
             }
-            markAsIgnore($visualizedDiff);
-            $visualizedDiff.insertAfter($diff);
+            markAsIgnore($idffImage);
+            $idffImage.insertAfter($diffText);
           } else {
-            $visualizedDiff = $diff.next();
+            $idffImage = $diffText.next();
           }
 
-          setDblclickHandlers($diff, $visualizedDiff);
+          setDblclickHandlers($diffText, $idffImage);
         }
       })
     );
