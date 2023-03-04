@@ -27,6 +27,7 @@
     "release": "yarn build && dotenv -- semantic-release",
     "release-test": "dotenv -- semantic-release --dry-run",
     "start": "cross-env NODE_ENV=development yarn build-common -w",
+    "test": "playwright test",
     "test/ci-setup": "playwright install chromium",
     "typecheck": "tsc --noEmit --Pretty"
   },
