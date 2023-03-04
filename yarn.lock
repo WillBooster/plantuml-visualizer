@@ -5336,9 +5336,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:45.0.2":
-  version: 45.0.2
-  resolution: "eslint-plugin-unicorn@npm:45.0.2"
+"eslint-plugin-unicorn@npm:46.0.0":
+  version: 46.0.0
+  resolution: "eslint-plugin-unicorn@npm:46.0.0"
   dependencies:
     "@babel/helper-validator-identifier": "npm:^7.19.1"
     "@eslint-community/eslint-utils": "npm:^4.1.2"
@@ -5358,7 +5358,7 @@ __metadata:
     strip-indent: "npm:^3.0.0"
   peerDependencies:
     eslint: ">=8.28.0"
-  checksum: 65e5fa10190376c2b7958767aa79963832a1fad576b8d3ad57d9d579bd788577123c5002c1129f445bba2780deca0b4dd72b0dcb046385b1c6e0f484dcda940b
+  checksum: d2154869d930c715e6b9ab4907cb433aad464d3533a170d8d7612fbf3c5e1433b1214b10c60b4d4501b765205f2f5ccbf851543bf558f4e99d759c5843bd1983
   languageName: node
   linkType: hard
 
@@ -10202,7 +10202,7 @@ __metadata:
     eslint-plugin-sort-class-members: "npm:1.16.0"
     eslint-plugin-sort-destructure-keys: "npm:1.5.0"
     eslint-plugin-svelte3: "npm:4.0.0"
-    eslint-plugin-unicorn: "npm:45.0.2"
+    eslint-plugin-unicorn: "npm:46.0.0"
     husky: "npm:8.0.3"
     jquery: "npm:3.6.3"
     lint-staged: "npm:13.1.2"

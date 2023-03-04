@@ -68,7 +68,7 @@
     "eslint-plugin-sort-class-members": "1.16.0",
     "eslint-plugin-sort-destructure-keys": "1.5.0",
     "eslint-plugin-svelte3": "4.0.0",
-    "eslint-plugin-unicorn": "45.0.2",
+    "eslint-plugin-unicorn": "46.0.0",
     "husky": "8.0.3",
     "lint-staged": "13.1.2",
     "micromatch": "4.0.5",
