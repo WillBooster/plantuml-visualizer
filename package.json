@@ -62,7 +62,7 @@
     "cross-env": "7.0.3",
     "dotenv-cli": "7.0.0",
     "eslint": "8.35.0",
-    "eslint-config-prettier": "8.6.0",
+    "eslint-config-prettier": "8.7.0",
     "eslint-import-resolver-typescript": "3.5.3",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-sort-class-members": "1.16.0",
@@ -88,5 +88,5 @@
     "svelte-preprocess": "5.0.1",
     "typescript": "4.9.5"
   },
-  "packageManager": "yarn@4.0.0-rc.39"
+  "packageManager": "yarn@4.0.0-rc.40"
 }
