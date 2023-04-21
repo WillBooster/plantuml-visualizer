@@ -2273,13 +2273,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:0.0.231":
-  version: 0.0.231
-  resolution: "@types/chrome@npm:0.0.231"
+"@types/chrome@npm:0.0.233":
+  version: 0.0.233
+  resolution: "@types/chrome@npm:0.0.233"
   dependencies:
     "@types/filesystem": "npm:*"
     "@types/har-format": "npm:*"
-  checksum: 40046e10bdf6ec371ccc298bbca732d68f8648ccc3bba3f10909f90db38e447ee6cdf7562521abd61ab95e1e8ddc2c1edddfc04b8e5c76baa447a38ae2e8bded
+  checksum: 61f9397d8f940379bba50b5bb5cd43d8593420b66a7073d7dfac01c702fec870b1907119a1a754b3a613458f8d2eb7554eaae7aac84a042415de9a48fbc12c1d
   languageName: node
   linkType: hard
 
@@ -10227,7 +10227,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:24.1.0"
     "@rollup/plugin-node-resolve": "npm:15.0.2"
     "@tsconfig/svelte": "npm:3.0.0"
-    "@types/chrome": "npm:0.0.231"
+    "@types/chrome": "npm:0.0.233"
     "@types/eslint": "npm:8.37.0"
     "@types/jquery": "npm:3.5.16"
     "@types/micromatch": "npm:4.0.2"
@@ -10257,7 +10257,7 @@ __metadata:
     pinst: "npm:3.0.0"
     prettier: "npm:2.8.7"
     prettier-plugin-svelte: "npm:2.10.0"
-    rollup: "npm:3.20.4"
+    rollup: "npm:3.20.7"
     rollup-plugin-svelte: "npm:7.1.4"
     rollup-plugin-terser: "npm:7.0.2"
     sass: "npm:1.62.0"
@@ -11091,9 +11091,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.20.4":
-  version: 3.20.4
-  resolution: "rollup@npm:3.20.4"
+"rollup@npm:3.20.7":
+  version: 3.20.7
+  resolution: "rollup@npm:3.20.7"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -11101,7 +11101,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: df427b4018a89a32196de6308e3e0803585f14862919dd99d1dce7c522e56f1944315a56763199e06c1ab123d92f5920a1fe4df33d3583ad740d8f0814936c39
+  checksum: b49fc9d0af432b8cd577ef7054f2b80a3f4439f9fb069316502ac6640ac0c439b929818c76a0051bf4fcc6e0a6dd8b64713f4b9af85f5f0d3881c7f7323b1275
   languageName: node
   linkType: hard
 
