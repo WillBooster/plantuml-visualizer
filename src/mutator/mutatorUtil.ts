@@ -29,16 +29,19 @@ export async function textsToImages(texts: string[], noContentsMessage: string):
   return ret;
 }
 
-export function setDblclickHandlers($before: JQuery<Node>, $after: JQuery<Node>): void {
-  $before.off('dblclick');
-  $before.on('dblclick', () => {
-    $before.hide();
-    $after.show();
+export function setDblclickHandlers($text: JQuery<Node>, $image: JQuery<Node>): void {
+  $text.attr('data-testid', Constants.textTestIdAttribute);
+  $image.attr('data-testid', Constants.imageTestIdAttribute);
+
+  $text.off('dblclick');
+  $text.on('dblclick', () => {
+    $text.hide();
+    $image.show();
   });
-  $after.off('dblclick');
-  $after.on('dblclick', () => {
-    $after.hide();
-    $before.show();
+  $image.off('dblclick');
+  $image.on('dblclick', () => {
+    $image.hide();
+    $text.show();
   });
-  $before.trigger('dblclick');
+  $text.trigger('dblclick');
 }
