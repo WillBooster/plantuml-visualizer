@@ -10398,7 +10398,7 @@ __metadata:
     svelte: "npm:3.58.0"
     svelte-check: "npm:3.2.0"
     svelte-preprocess: "npm:5.0.3"
-    typescript: "npm:4.9.5"
+    typescript: "npm:5.0.4"
     zlib.es: "npm:0.6.0"
   languageName: unknown
   linkType: soft
@@ -12764,17 +12764,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.9.5":
-  version: 4.9.5
-  resolution: "typescript@npm:4.9.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 550217a465c00b1d7ef0e0ddc3a6a0b2ae1fd7c1b9f53cde5a1cfe56aa457c7a43fa83792c1b98b2185d2156d0467c9ad6f6600515ad4f4fc2acee54c4bd320e
-  languageName: node
-  linkType: hard
-
-"typescript@npm:^5.0.3":
+"typescript@npm:5.0.4, typescript@npm:^5.0.3":
   version: 5.0.4
   resolution: "typescript@npm:5.0.4"
   bin:
@@ -12784,17 +12774,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>":
-  version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 0b1a831cfef3e967a806ff1d4b28cfe4d3b71d06195ae0c8ece14c6353ec20165ae9b79c18be93ecd33529690648189aef56234c88b26aadb500b81ddb902cfc
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^5.0.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.0.3#optional!builtin<compat/typescript>":
   version: 5.0.4
   resolution: "typescript@patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"
   bin:
