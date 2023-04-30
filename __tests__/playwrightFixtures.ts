@@ -1,9 +1,8 @@
-// https://playwright.dev/docs/chrome-extensions
-
 import path from 'node:path';
 
 import { test as base, chromium, type BrowserContext } from '@playwright/test';
 
+// cf. https://playwright.dev/docs/chrome-extensions
 export const test = base.extend<{ context: BrowserContext; extensionId: string }>({
   // eslint-disable-next-line no-empty-pattern
   context: async ({}, use) => {
