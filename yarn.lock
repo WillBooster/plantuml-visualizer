@@ -2377,10 +2377,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/svelte@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@tsconfig/svelte@npm:3.0.0"
-  checksum: 6f30ebe427ea122b5929bfa6f95d3f07e2cca27b41a2264708d4d1ed6e2ff6264e8fb6af96625ca605c03687a24638ccce5d88cc126a284e327370e0c52114f8
+"@tsconfig/svelte@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@tsconfig/svelte@npm:4.0.1"
+  checksum: d653317808f56df109d50f7db530aab7465c693826d34fbb5d1f564dbf5cf0c1c2334a3e1722b8dbf345af09b9be21cc54c046a61fcd24fdcc7c153b95d3fb0c
   languageName: node
   linkType: hard
 
@@ -10356,7 +10356,7 @@ __metadata:
     "@rollup/plugin-babel": "npm:6.0.3"
     "@rollup/plugin-commonjs": "npm:24.1.0"
     "@rollup/plugin-node-resolve": "npm:15.0.2"
-    "@tsconfig/svelte": "npm:3.0.0"
+    "@tsconfig/svelte": "npm:4.0.1"
     "@types/chrome": "npm:0.0.234"
     "@types/eslint": "npm:8.37.0"
     "@types/jquery": "npm:3.5.16"
