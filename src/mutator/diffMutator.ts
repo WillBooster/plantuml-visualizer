@@ -52,7 +52,7 @@ class DiffMutator {
             for (let i = 1; i < baseImages.length; i++) {
               baseImages[i].insertAfter(baseImages[i - 1]);
             }
-            $headBranchMark.insertAfter(baseImages.at(-1));
+            $headBranchMark.insertAfter(baseImages.at(-1) as JQuery<HTMLElement>);
             headImages[0].insertAfter($headBranchMark);
             for (let i = 1; i < headImages.length; i++) {
               headImages[i].insertAfter(headImages[i - 1]);
