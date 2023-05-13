@@ -1,1 +1,4 @@
-{ "extends": ["@willbooster"] }
+{
+  "extends": ["@willbooster"],
+  "packageRules": [{ "packageNames": ["semantic-release"], "enabled": false }]
+}
