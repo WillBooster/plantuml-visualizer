@@ -2071,9 +2071,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:24.1.0":
-  version: 24.1.0
-  resolution: "@rollup/plugin-commonjs@npm:24.1.0"
+"@rollup/plugin-commonjs@npm:25.0.0":
+  version: 25.0.0
+  resolution: "@rollup/plugin-commonjs@npm:25.0.0"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     commondir: "npm:^1.0.1"
@@ -2086,7 +2086,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 2e005ea2b310427b0c6acabab6a8e1d90c945cad222c244655dee09cd7a038f834a2d796a39dd209a3a60f1b7706e3eb1fb7ad1a59ac2298b21c0b64d8a76b50
+  checksum: 9b38d32839508126a70647c95d2ab6ff11583fb45578e20de80836fd12b26bf294dc6d663a07aa0afea7deeff4c6b3609d91bf49bca08cb208ffa44614504dff
   languageName: node
   linkType: hard
 
@@ -10259,7 +10259,7 @@ __metadata:
     "@babel/preset-typescript": "npm:7.21.5"
     "@playwright/test": "npm:1.33.0"
     "@rollup/plugin-babel": "npm:6.0.3"
-    "@rollup/plugin-commonjs": "npm:24.1.0"
+    "@rollup/plugin-commonjs": "npm:25.0.0"
     "@rollup/plugin-node-resolve": "npm:15.0.2"
     "@tsconfig/svelte": "npm:4.0.1"
     "@types/chrome": "npm:0.0.234"
