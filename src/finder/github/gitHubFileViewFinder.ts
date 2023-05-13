@@ -50,7 +50,7 @@ export class GitHubFileViewFinder implements CodeFinder {
       const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
       const fileTexts = await this.findContents(includedFileUrl, $body);
       const includedText = fileTexts
-        .map((fileText) => fileText.text.replace(/@startuml/g, '').replace(/@enduml/g, ''))
+        .map((fileText) => fileText.text.replaceAll('@startuml', '').replaceAll('@enduml', ''))
         .join('\n');
       preprocessedLines.push(includedText);
     }

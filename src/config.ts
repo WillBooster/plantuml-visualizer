@@ -10,7 +10,7 @@ export function urlToRegExp(deniedUrl: string): RegExp {
     '^' +
       deniedUrl
         .split('*')
-        .map((str) => str.replace(/([!$()*+./:=?[\\\]^{|}])/g, '\\$1'))
+        .map((str) => str.replaceAll(/([!$()*+./:=?[\\\]^{|}])/g, '\\$1'))
         .join('.*') +
       '$'
   );
