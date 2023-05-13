@@ -31,9 +31,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.21.5":
-  version: 7.21.5
-  resolution: "@babel/core@npm:7.21.5"
+"@babel/core@npm:7.21.8":
+  version: 7.21.8
+  resolution: "@babel/core@npm:7.21.8"
   dependencies:
     "@ampproject/remapping": "npm:^2.2.0"
     "@babel/code-frame": "npm:^7.21.4"
@@ -41,7 +41,7 @@ __metadata:
     "@babel/helper-compilation-targets": "npm:^7.21.5"
     "@babel/helper-module-transforms": "npm:^7.21.5"
     "@babel/helpers": "npm:^7.21.5"
-    "@babel/parser": "npm:^7.21.5"
+    "@babel/parser": "npm:^7.21.8"
     "@babel/template": "npm:^7.20.7"
     "@babel/traverse": "npm:^7.21.5"
     "@babel/types": "npm:^7.21.5"
@@ -50,7 +50,7 @@ __metadata:
     gensync: "npm:^1.0.0-beta.2"
     json5: "npm:^2.2.2"
     semver: "npm:^6.3.0"
-  checksum: fe1abf0bde9f3776534801ca4a59234a1b90bb99ddef071e74f91ef741f5225c92f1644011d8bc78dc62c042d66bb4bffee7d10d6a04ff74ff5e3f9e84cb0d4f
+  checksum: 81e8853407b3a6b0808f7d8f196612f9a510dec1cec0a45a07bc7b0982c24abe848944fe0d8efc6840842e272ef55825537c5870e5a52def9e0111231d020fd8
   languageName: node
   linkType: hard
 
@@ -339,6 +339,15 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: 05b612bebd65737a33c244de41e103305da4498081c05a1a7d6a164c304829d19ed07e9e91b3c2da63d0f78435745d9426e5bec142972758a3decfde9d81d390
+  languageName: node
+  linkType: hard
+
+"@babel/parser@npm:^7.21.8":
+  version: 7.21.8
+  resolution: "@babel/parser@npm:7.21.8"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: bd71a12bc76ff70317a20d10b9a9de9142b00608eeb45904e40a1337af82538aae8c18f30ee0ef16b384de28584197e39c960cdd10576a8e72f34f7ecdadff5e
   languageName: node
   linkType: hard
 
@@ -2293,13 +2302,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:0.0.234":
-  version: 0.0.234
-  resolution: "@types/chrome@npm:0.0.234"
+"@types/chrome@npm:0.0.235":
+  version: 0.0.235
+  resolution: "@types/chrome@npm:0.0.235"
   dependencies:
     "@types/filesystem": "npm:*"
     "@types/har-format": "npm:*"
-  checksum: d2cfe75e5508043b7619483e15d1e2402f3993a83aa51db049f2ea0f7e5b56da08de3407b63a61acb49d7be73640179e9f51ae1341f9a6eadd03b818d714004d
+  checksum: c34d541d329f5d13bdcbe40cd6339eda7816332f9de39cdafca9a8140eb8430605a0c2e24c23281dd44b3b451c0c10ab0f21ce80ad9d60491e8a73f4db6c245f
   languageName: node
   linkType: hard
 
@@ -7797,10 +7806,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery@npm:3.6.4":
-  version: 3.6.4
-  resolution: "jquery@npm:3.6.4"
-  checksum: b36851196c15c64597ef09d88373688e402496469f52c2214c8148b9bfcdb9aa618d112d50f318d6e61489322509b1305ca89ed8b793d034f7a84920787c2ccb
+"jquery@npm:3.7.0":
+  version: 3.7.0
+  resolution: "jquery@npm:3.7.0"
+  checksum: ccc6db47ec488a347a188d94ef028fa60fa9fb76631f34e9cd13316762f1bc67a9952a942c46cd7a7ba9406933ae27834f87f0839a0566d95660af7d8be79013
   languageName: node
   linkType: hard
 
@@ -10250,7 +10259,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "plantuml-visualizer@workspace:."
   dependencies:
-    "@babel/core": "npm:7.21.5"
+    "@babel/core": "npm:7.21.8"
     "@babel/plugin-proposal-class-properties": "npm:7.18.6"
     "@babel/plugin-proposal-numeric-separator": "npm:7.18.6"
     "@babel/plugin-proposal-optional-chaining": "npm:7.21.0"
@@ -10262,7 +10271,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:25.0.0"
     "@rollup/plugin-node-resolve": "npm:15.0.2"
     "@tsconfig/svelte": "npm:4.0.1"
-    "@types/chrome": "npm:0.0.234"
+    "@types/chrome": "npm:0.0.235"
     "@types/eslint": "npm:8.37.0"
     "@types/jquery": "npm:3.5.16"
     "@types/micromatch": "npm:4.0.2"
@@ -10286,13 +10295,13 @@ __metadata:
     eslint-plugin-svelte3: "npm:4.0.0"
     eslint-plugin-unicorn: "npm:47.0.0"
     husky: "npm:8.0.3"
-    jquery: "npm:3.6.4"
+    jquery: "npm:3.7.0"
     lint-staged: "npm:13.2.2"
     micromatch: "npm:4.0.5"
     pinst: "npm:3.0.0"
     prettier: "npm:2.8.8"
     prettier-plugin-svelte: "npm:2.10.0"
-    rollup: "npm:3.21.0"
+    rollup: "npm:3.21.7"
     rollup-plugin-svelte: "npm:7.1.4"
     rollup-plugin-terser: "npm:7.0.2"
     sass: "npm:1.62.1"
@@ -10300,8 +10309,8 @@ __metadata:
     semantic-release-chrome: "npm:3.2.0"
     semantic-release-firefox-add-on: "npm:0.2.8"
     sort-package-json: "npm:2.4.1"
-    svelte: "npm:3.58.0"
-    svelte-check: "npm:3.2.0"
+    svelte: "npm:3.59.1"
+    svelte-check: "npm:3.3.2"
     svelte-preprocess: "npm:5.0.3"
     typescript: "npm:5.0.4"
     zlib.es: "npm:0.6.0"
@@ -11146,9 +11155,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.21.0":
-  version: 3.21.0
-  resolution: "rollup@npm:3.21.0"
+"rollup@npm:3.21.7":
+  version: 3.21.7
+  resolution: "rollup@npm:3.21.7"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -11156,7 +11165,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 8e30e76e0133599aa2cfab1df053aed36c165ac0b0ad261fe925ffb5732eb5fd88b827664e0e7b5024303aa9d96a4726de5de988c354d5fa642be8ae65bd8b8b
+  checksum: cfc759aa4a495154c0e212a66bb7a56429b30cec50b85f3e19666522c9a8fc14677768e516e3063ca3f080356c5a709380fb2e380437636a47054668cbfe4f3b
   languageName: node
   linkType: hard
 
@@ -12168,9 +12177,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:3.2.0":
-  version: 3.2.0
-  resolution: "svelte-check@npm:3.2.0"
+"svelte-check@npm:3.3.2":
+  version: 3.3.2
+  resolution: "svelte-check@npm:3.3.2"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.17"
     chokidar: "npm:^3.4.1"
@@ -12184,7 +12193,7 @@ __metadata:
     svelte: ^3.55.0
   bin:
     svelte-check: bin/svelte-check
-  checksum: 78fd9373da9df6bbf0b0a3d30397c1864739e3f8d7cfef8c3d3915b8a8260bbac456b115f504d353319e3ff992d15b623a85ec4f2d3f6ef94c641dcf068dd61e
+  checksum: 6bd71493934687716d56fcbcb704a837cb5867051cd61108b94e5f0a1658ef299f2b08cc5cc6ac566b9c598fd7b58f438e86b06f6fda7e58e729b4cd28b2c75b
   languageName: node
   linkType: hard
 
@@ -12234,10 +12243,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:3.58.0":
-  version: 3.58.0
-  resolution: "svelte@npm:3.58.0"
-  checksum: cc3ef8f5b28fd806304fc2ac2cbf13f9f1830efed554ca20a41906ae2457d35112640ac0507b186aefc43360055e55a813b1d74687759ce15e57d497143bb4c3
+"svelte@npm:3.59.1":
+  version: 3.59.1
+  resolution: "svelte@npm:3.59.1"
+  checksum: 434ff48c9ee9f53260afd2b6eabf48f1f4a79af5c9ed3e62f4631e26f35787b97e20fd19555228c62a71c3f881e4d13b29a900469a0d679a7bd7a542dcdc27a5
   languageName: node
   linkType: hard
 
