@@ -45,7 +45,7 @@ export class CodeBlockFinder implements CodeFinder {
       let text = await response.text();
       text = await this.preprocessIncludeDirective(includedFileUrl, text);
       text = await this.preprocessIncludesubDirective(includedFileUrl, text);
-      const includedText = text.replace(/@startuml/g, '').replace(/@enduml/g, '');
+      const includedText = text.replaceAll('@startuml', '').replaceAll('@enduml', '');
       preprocessedLines.push(includedText);
     }
 
