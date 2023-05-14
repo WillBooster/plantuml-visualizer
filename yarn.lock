@@ -1917,7 +1917,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/plugin-paginate-rest@npm:^6.0.0":
+"@octokit/plugin-paginate-rest@npm:^6.1.0":
   version: 6.1.0
   resolution: "@octokit/plugin-paginate-rest@npm:6.1.0"
   dependencies:
@@ -1937,7 +1937,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/plugin-rest-endpoint-methods@npm:^7.0.0":
+"@octokit/plugin-rest-endpoint-methods@npm:^7.1.0":
   version: 7.1.0
   resolution: "@octokit/plugin-rest-endpoint-methods@npm:7.1.0"
   dependencies:
@@ -1975,14 +1975,14 @@ __metadata:
   linkType: hard
 
 "@octokit/rest@npm:^19.0.0":
-  version: 19.0.7
-  resolution: "@octokit/rest@npm:19.0.7"
+  version: 19.0.8
+  resolution: "@octokit/rest@npm:19.0.8"
   dependencies:
     "@octokit/core": "npm:^4.1.0"
-    "@octokit/plugin-paginate-rest": "npm:^6.0.0"
+    "@octokit/plugin-paginate-rest": "npm:^6.1.0"
     "@octokit/plugin-request-log": "npm:^1.0.4"
-    "@octokit/plugin-rest-endpoint-methods": "npm:^7.0.0"
-  checksum: 32f2d756e1aab8e44a64d9db38ef5e647681b9a1df9bf75c5cb36c04d11ba65f639fd683c4feb6eb7b53477a2baddb7ade301a67cb1e1496edf125a68db16efc
+    "@octokit/plugin-rest-endpoint-methods": "npm:^7.1.0"
+  checksum: e9713b0c63dd8a71dc4ca5aa83a347f8899654625f317f9352074ca5118792a50d70bb6f29cbafe5bffc929cdaaecb73ec309aef3e091184d52553fa3e08d7e9
   languageName: node
   linkType: hard
 
@@ -6384,13 +6384,14 @@ __metadata:
   linkType: hard
 
 "get-intrinsic@npm:^1.0.2, get-intrinsic@npm:^1.1.1, get-intrinsic@npm:^1.1.3, get-intrinsic@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "get-intrinsic@npm:1.2.0"
+  version: 1.2.1
+  resolution: "get-intrinsic@npm:1.2.1"
   dependencies:
     function-bind: "npm:^1.1.1"
     has: "npm:^1.0.3"
+    has-proto: "npm:^1.0.1"
     has-symbols: "npm:^1.0.3"
-  checksum: 6db1e521478d0a0f4e61c94c23e7a731b163d2904067b1b6efcac78e8b015404883dab4acb5570517df55aab6eb23eeef6a8d7310de76d9570fcbce4a3f80b18
+  checksum: d1d5511cfe4fc46c1a7ec7e127cb4ac0b9e131124282724d7bd94ae5014db5d12403e6873dfd5feeca44cd57baa39f8b4dbda2147ec9bb3533a7d02ab033e352
   languageName: node
   linkType: hard
 
