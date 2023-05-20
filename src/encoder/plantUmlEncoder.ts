@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/prefer-code-point */
 // fromCharCode is faster than codePointAt and enough for our use case.
 
-import { deflate } from 'zlib.es';
+import { deflateRaw } from 'pako';
 
 import { Constants } from '../constants';
 
@@ -14,7 +14,7 @@ chrome.runtime.sendMessage({ command: Constants.commands.getPumlServerUrl }, (ur
 export const PlantUmlEncoder = {
   getImageUrl(pumlContent: string, serverUrl: string = pumlServerUrl): string {
     const textEncoder = new TextEncoder();
-    const encoded = encode64(deflate(textEncoder.encode(pumlContent)));
+    const encoded = encode64(deflateRaw(textEncoder.encode(pumlContent)));
     return `${serverUrl}/svg/${encoded}`;
   },
 };
