@@ -1515,10 +1515,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.40.0":
-  version: 8.40.0
-  resolution: "@eslint/js@npm:8.40.0"
-  checksum: 3548fb40196129bb640851e7ca8db79a1c065716bbd9ff7b67778236abe81a080d4f19fc0320cb87c5f3fa1fcd23f652f5772a9d0172cff43705acf227bdee55
+"@eslint/js@npm:8.41.0":
+  version: 8.41.0
+  resolution: "@eslint/js@npm:8.41.0"
+  checksum: 7f4b1d920b5216c2c6a14574e5fc970c7858784c007358e5271c17bd8a8c51fcd5972ac4904c082722bb0fdf404bfe67f7d518c4b1e90ec77a82c92b3ef1e484
   languageName: node
   linkType: hard
 
@@ -2293,13 +2293,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:0.0.235":
-  version: 0.0.235
-  resolution: "@types/chrome@npm:0.0.235"
+"@types/chrome@npm:0.0.236":
+  version: 0.0.236
+  resolution: "@types/chrome@npm:0.0.236"
   dependencies:
     "@types/filesystem": "npm:*"
     "@types/har-format": "npm:*"
-  checksum: c34d541d329f5d13bdcbe40cd6339eda7816332f9de39cdafca9a8140eb8430605a0c2e24c23281dd44b3b451c0c10ab0f21ce80ad9d60491e8a73f4db6c245f
+  checksum: 6a29198b3f01da41ea4f3051ec8b7b676018205adb6e9fc403762c919c49a07d278247952841acb6d6c003a1229ddf83e4c755664991cf854a44c04e6bd872f0
   languageName: node
   linkType: hard
 
@@ -5567,14 +5567,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.40.0":
-  version: 8.40.0
-  resolution: "eslint@npm:8.40.0"
+"eslint@npm:8.41.0":
+  version: 8.41.0
+  resolution: "eslint@npm:8.41.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.4.0"
     "@eslint/eslintrc": "npm:^2.0.3"
-    "@eslint/js": "npm:8.40.0"
+    "@eslint/js": "npm:8.41.0"
     "@humanwhocodes/config-array": "npm:^0.11.8"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
     "@nodelib/fs.walk": "npm:^1.2.8"
@@ -5594,13 +5594,12 @@ __metadata:
     find-up: "npm:^5.0.0"
     glob-parent: "npm:^6.0.2"
     globals: "npm:^13.19.0"
-    grapheme-splitter: "npm:^1.0.4"
+    graphemer: "npm:^1.4.0"
     ignore: "npm:^5.2.0"
     import-fresh: "npm:^3.0.0"
     imurmurhash: "npm:^0.1.4"
     is-glob: "npm:^4.0.0"
     is-path-inside: "npm:^3.0.3"
-    js-sdsl: "npm:^4.1.4"
     js-yaml: "npm:^4.1.0"
     json-stable-stringify-without-jsonify: "npm:^1.0.1"
     levn: "npm:^0.4.1"
@@ -5613,7 +5612,7 @@ __metadata:
     text-table: "npm:^0.2.0"
   bin:
     eslint: bin/eslint.js
-  checksum: bd17385067c8d43fa757370f5e3356de6f14639cf7d64d545a0ffbdabd678d87c5b8bc7e00b949ab36e466460a788a7ed98a4f13a3c795f720ae0f417903a749
+  checksum: 82a4a6fd28d88b15e2c8769d291449b93a2241934883d15236eccddce7154f60bf84657923a4840d62988ab099118b71b4ffa1bb7e3039bf1c69aad2ba15f236
   languageName: node
   linkType: hard
 
@@ -6705,6 +6704,13 @@ __metadata:
   version: 1.0.4
   resolution: "grapheme-splitter@npm:1.0.4"
   checksum: c67a8e522758dd907770a78ad750e6dfdcce327b0696fdd82f4b7acb8bb22b0574c88f806afb3c6597a536fa9016e6e3486071535fd0e9226b8505c67cf2fb01
+  languageName: node
+  linkType: hard
+
+"graphemer@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "graphemer@npm:1.4.0"
+  checksum: a4ee139533e1d1683edb24eaf3e598451e7f1577da3dfc68f247f0601d5d11d264d0ccfad3de3bfcabbed891140fbae84c0403b9d68f4fcb6431c418f971434e
   languageName: node
   linkType: hard
 
@@ -7855,13 +7861,6 @@ __metadata:
   version: 3.7.0
   resolution: "jquery@npm:3.7.0"
   checksum: ccc6db47ec488a347a188d94ef028fa60fa9fb76631f34e9cd13316762f1bc67a9952a942c46cd7a7ba9406933ae27834f87f0839a0566d95660af7d8be79013
-  languageName: node
-  linkType: hard
-
-"js-sdsl@npm:^4.1.4":
-  version: 4.4.0
-  resolution: "js-sdsl@npm:4.4.0"
-  checksum: 8c85413f74e8bce8390d49474c8b0ff9d99626bd913ab41ad36f92ad297b89c50198daca84ff56bfb0dd1d5b4e64abfbd0e3ea8b016739dc64b5f076784d3b79
   languageName: node
   linkType: hard
 
@@ -10317,7 +10316,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:25.0.0"
     "@rollup/plugin-node-resolve": "npm:15.0.2"
     "@tsconfig/svelte": "npm:4.0.1"
-    "@types/chrome": "npm:0.0.235"
+    "@types/chrome": "npm:0.0.236"
     "@types/eslint": "npm:8.37.0"
     "@types/jquery": "npm:3.5.16"
     "@types/micromatch": "npm:4.0.2"
@@ -10333,7 +10332,7 @@ __metadata:
     conventional-changelog-conventionalcommits: "npm:5.0.0"
     cross-env: "npm:7.0.3"
     dotenv-cli: "npm:7.2.1"
-    eslint: "npm:8.40.0"
+    eslint: "npm:8.41.0"
     eslint-config-prettier: "npm:8.8.0"
     eslint-import-resolver-typescript: "npm:3.5.5"
     eslint-plugin-import: "npm:2.27.5"
@@ -10349,7 +10348,7 @@ __metadata:
     pinst: "npm:3.0.0"
     prettier: "npm:2.8.8"
     prettier-plugin-svelte: "npm:2.10.0"
-    rollup: "npm:3.21.7"
+    rollup: "npm:3.22.0"
     rollup-plugin-svelte: "npm:7.1.4"
     rollup-plugin-terser: "npm:7.0.2"
     sass: "npm:1.62.1"
@@ -11202,9 +11201,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.21.7":
-  version: 3.21.7
-  resolution: "rollup@npm:3.21.7"
+"rollup@npm:3.22.0":
+  version: 3.22.0
+  resolution: "rollup@npm:3.22.0"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -11212,7 +11211,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: cfc759aa4a495154c0e212a66bb7a56429b30cec50b85f3e19666522c9a8fc14677768e516e3063ca3f080356c5a709380fb2e380437636a47054668cbfe4f3b
+  checksum: 5712d260f69aba5f252588a683a779bef3dd470f30469e8bfdb878273fa811fba81866fa4e9f4a5cc850303a2b825911902d6946f3b7795f77f03c0bad786457
   languageName: node
   linkType: hard
 
