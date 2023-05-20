@@ -2419,6 +2419,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/pako@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@types/pako@npm:2.0.0"
+  checksum: 0e79b43daa11dab8d35f7915bd03ce90fe5f2aaa600e9d8297198d0b804aee9edc36cfd5e03d8fedd35b595ef00fa8f81e2b9a69f51b6fa7ec0f312da3d3a304
+  languageName: node
+  linkType: hard
+
 "@types/pug@npm:^2.0.6":
   version: 2.0.6
   resolution: "@types/pug@npm:2.0.6"
@@ -10061,6 +10068,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pako@npm:2.1.0":
+  version: 2.1.0
+  resolution: "pako@npm:2.1.0"
+  checksum: b355836dead8b796347a6662fbc1bf7fe2dbb101b6d0ca9fcbb5fed6dba13ad3909d0e4f952574d1fdad6409e3c55f0967b97a443b9adc1ab2b441324501fdd1
+  languageName: node
+  linkType: hard
+
 "pako@npm:~1.0.2":
   version: 1.0.11
   resolution: "pako@npm:1.0.11"
@@ -10307,6 +10321,7 @@ __metadata:
     "@types/eslint": "npm:8.37.0"
     "@types/jquery": "npm:3.5.16"
     "@types/micromatch": "npm:4.0.2"
+    "@types/pako": "npm:2.0.0"
     "@types/sass": "npm:1.43.1"
     "@typescript-eslint/eslint-plugin": "npm:5.59.6"
     "@typescript-eslint/parser": "npm:5.59.6"
@@ -10330,6 +10345,7 @@ __metadata:
     jquery: "npm:3.7.0"
     lint-staged: "npm:13.2.2"
     micromatch: "npm:4.0.5"
+    pako: "npm:2.1.0"
     pinst: "npm:3.0.0"
     prettier: "npm:2.8.8"
     prettier-plugin-svelte: "npm:2.10.0"
@@ -10345,7 +10361,6 @@ __metadata:
     svelte-check: "npm:3.3.2"
     svelte-preprocess: "npm:5.0.3"
     typescript: "npm:5.0.4"
-    zlib.es: "npm:0.6.0"
   languageName: unknown
   linkType: soft
 
@@ -13546,12 +13561,5 @@ __metadata:
     compress-commons: "npm:^4.1.0"
     readable-stream: "npm:^3.6.0"
   checksum: 1d32379d2bf1475e71c3c6b62ebd2c407938075d597b39835458958cfeb6ed459126581abeaa1a991a6d497968f9b58202272e74eb9d813c8c900b372ee93739
-  languageName: node
-  linkType: hard
-
-"zlib.es@npm:0.6.0":
-  version: 0.6.0
-  resolution: "zlib.es@npm:0.6.0"
-  checksum: 95d99b12697fe322aef42c6cc06f54a2dc6d5da3a5701b09682f856fada8926b14f55256f802baa4c9a42d85cf5d9a2630fcfc75c6b111d5b96e0b615cc8380e
   languageName: node
   linkType: hard
