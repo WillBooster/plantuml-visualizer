@@ -4452,14 +4452,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:5.0.0":
-  version: 5.0.0
-  resolution: "conventional-changelog-conventionalcommits@npm:5.0.0"
+"conventional-changelog-conventionalcommits@npm:6.0.0":
+  version: 6.0.0
+  resolution: "conventional-changelog-conventionalcommits@npm:6.0.0"
   dependencies:
     compare-func: "npm:^2.0.0"
-    lodash: "npm:^4.17.15"
-    q: "npm:^1.5.1"
-  checksum: cd39e90a9637925b99c425197436f6cec1257f3ae82b437edeb93390d4cea90702cff31c06ab4d9dde71ea243cf64f7665eafa019bbfd7735ce2e4d30b9362bf
+  checksum: e911423fcd6e9f32a74965830673ff6525b8a2e688bd6ae099e1dfe1847c7b32af900248f462037c11ff472dcbe7170345f1294d6fa12863775dba83d56edd33
   languageName: node
   linkType: hard
 
@@ -10445,7 +10443,7 @@ __metadata:
     "@willbooster/renovate-config": "npm:9.5.0"
     babel-plugin-transform-remove-console: "npm:6.9.4"
     bestzip: "npm:2.2.1"
-    conventional-changelog-conventionalcommits: "npm:5.0.0"
+    conventional-changelog-conventionalcommits: "npm:6.0.0"
     cross-env: "npm:7.0.3"
     dotenv-cli: "npm:7.2.1"
     eslint: "npm:8.42.0"
