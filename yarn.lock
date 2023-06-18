@@ -2436,9 +2436,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:25.0.0":
-  version: 25.0.0
-  resolution: "@rollup/plugin-commonjs@npm:25.0.0"
+"@rollup/plugin-commonjs@npm:25.0.1":
+  version: 25.0.1
+  resolution: "@rollup/plugin-commonjs@npm:25.0.1"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     commondir: "npm:^1.0.1"
@@ -2451,7 +2451,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 9b38d32839508126a70647c95d2ab6ff11583fb45578e20de80836fd12b26bf294dc6d663a07aa0afea7deeff4c6b3609d91bf49bca08cb208ffa44614504dff
+  checksum: 60dab070990ee36c1c2b95b622456f292e10fdab6263c5df055d37134048012a0e9efee7b78fa24c94de9c2d04192b739c320aa43607fad1b7117a324042d54e
   languageName: node
   linkType: hard
 
@@ -2669,13 +2669,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.40.1":
-  version: 8.40.1
-  resolution: "@types/eslint@npm:8.40.1"
+"@types/eslint@npm:8.40.2":
+  version: 8.40.2
+  resolution: "@types/eslint@npm:8.40.2"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: 0d7e883e03a9f4f51ec69f579399065dd9221838dcc01608569988a4a8f7ebb72e062ecd80da3feef83de520a69bce44407e8a989af898c9f93533f88103d153
+  checksum: 84f4da669a839830e3696494ec7ba659f7fa064eb87e3f1d4b60204b4db9c9093bbbd9f59b7bf46370bdba97cae0b959d4b2391c743d69297a8df5d100d35191
   languageName: node
   linkType: hard
 
@@ -4716,12 +4716,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-conventionalcommits@npm:6.0.0":
-  version: 6.0.0
-  resolution: "conventional-changelog-conventionalcommits@npm:6.0.0"
+"conventional-changelog-conventionalcommits@npm:6.1.0":
+  version: 6.1.0
+  resolution: "conventional-changelog-conventionalcommits@npm:6.1.0"
   dependencies:
     compare-func: "npm:^2.0.0"
-  checksum: e911423fcd6e9f32a74965830673ff6525b8a2e688bd6ae099e1dfe1847c7b32af900248f462037c11ff472dcbe7170345f1294d6fa12863775dba83d56edd33
+  checksum: 75f983f548b0769d2a1f486d6a3cf97426b694bdb13974861ab491fcb03e87c9cf0af031206e7a29c6ec22afb476a97e3ec2f64b3a4cc0b07f6fc257eef3ea9d
   languageName: node
   linkType: hard
 
@@ -10691,11 +10691,11 @@ __metadata:
     "@babel/preset-typescript": "npm:7.22.5"
     "@playwright/test": "npm:1.35.1"
     "@rollup/plugin-babel": "npm:6.0.3"
-    "@rollup/plugin-commonjs": "npm:25.0.0"
+    "@rollup/plugin-commonjs": "npm:25.0.1"
     "@rollup/plugin-node-resolve": "npm:15.1.0"
     "@tsconfig/svelte": "npm:4.0.1"
     "@types/chrome": "npm:0.0.237"
-    "@types/eslint": "npm:8.40.1"
+    "@types/eslint": "npm:8.40.2"
     "@types/jquery": "npm:3.5.16"
     "@types/micromatch": "npm:4.0.2"
     "@types/pako": "npm:2.0.0"
@@ -10707,7 +10707,7 @@ __metadata:
     "@willbooster/renovate-config": "npm:9.5.0"
     babel-plugin-transform-remove-console: "npm:6.9.4"
     bestzip: "npm:2.2.1"
-    conventional-changelog-conventionalcommits: "npm:6.0.0"
+    conventional-changelog-conventionalcommits: "npm:6.1.0"
     cross-env: "npm:7.0.3"
     dotenv-cli: "npm:7.2.1"
     eslint: "npm:8.43.0"
@@ -10726,10 +10726,10 @@ __metadata:
     pinst: "npm:3.0.0"
     prettier: "npm:2.8.8"
     prettier-plugin-svelte: "npm:2.10.1"
-    rollup: "npm:3.24.0"
+    rollup: "npm:3.25.1"
     rollup-plugin-svelte: "npm:7.1.5"
     rollup-plugin-terser: "npm:7.0.2"
-    sass: "npm:1.63.3"
+    sass: "npm:1.63.4"
     semantic-release: "npm:20.1.3"
     semantic-release-chrome: "npm:3.2.0"
     semantic-release-firefox-add-on: "npm:0.2.8"
@@ -11579,9 +11579,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:3.24.0":
-  version: 3.24.0
-  resolution: "rollup@npm:3.24.0"
+"rollup@npm:3.25.1":
+  version: 3.25.1
+  resolution: "rollup@npm:3.25.1"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -11589,7 +11589,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 16448f57a968c9712ef32db12fbb4d9b414c7b1c47c0236b359ec3289c185f0c02b4babe97e379e1b209d87f25a61f122f9d4b6cc64b1cd7b99f38e2d40d9126
+  checksum: 06824c736c6aea24e138077bb28d8976f3c75b7c8593f7cc77ea0b31a2c37253d983187e2e8b9ff984d311550d0dd37f359360c4ce99fb4cb1ada3c0a20e48c5
   languageName: node
   linkType: hard
 
@@ -11698,16 +11698,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.63.3":
-  version: 1.63.3
-  resolution: "sass@npm:1.63.3"
+"sass@npm:1.63.4":
+  version: 1.63.4
+  resolution: "sass@npm:1.63.4"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 27bb50f2e00d238d66f0d3b1c139db3a2c9f1050b7c5aeba917046040a9ad059dbfd3963522e3ec1b21b66e47ef5767a4d937eaf9785115f5041f3ea131ec076
+  checksum: bd0602c9ef9e1b264fb2081a47ff925310415aa9f9a635e3afd04d29237446e108903d58461f2e8471150eedcc0bfff206abfd0b139590b01717e5f4ca471c2f
   languageName: node
   linkType: hard
 
