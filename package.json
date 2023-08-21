@@ -74,7 +74,7 @@
     "eslint-plugin-svelte3": "4.0.0",
     "eslint-plugin-unicorn": "47.0.0",
     "husky": "8.0.3",
-    "lint-staged": "13.2.3",
+    "lint-staged": "14.0.1",
     "micromatch": "4.0.5",
     "pinst": "3.0.0",
     "prettier": "2.8.8",
