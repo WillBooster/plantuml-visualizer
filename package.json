@@ -62,7 +62,7 @@
     "@willbooster/renovate-config": "9.5.0",
     "babel-plugin-transform-remove-console": "6.9.4",
     "bestzip": "2.2.1",
-    "conventional-changelog-conventionalcommits": "6.1.0",
+    "conventional-changelog-conventionalcommits": "7.0.2",
     "cross-env": "7.0.3",
     "dotenv-cli": "7.2.1",
     "eslint": "8.43.0",
