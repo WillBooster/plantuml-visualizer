@@ -23,6 +23,18 @@ export class GitHubFileViewFinder implements CodeFinder {
     const $textarea = $text.find('textarea#read-only-cursor-text-area');
     let fileText = $textarea.text();
 
+    if (fileText.trim().length === 0) {
+      // in case were processing raw HTML response passed in by the GitHubPullRequestDiffFinder
+      // we cannot rely on the DOM being preprocessed by react
+
+      // getting the file contents from script tag is the only way that
+      // also works when not logged in
+      const $scriptEmbeddedData = $root.find(`script[data-target='react-app.embeddedData']`);
+      const embeddedData = JSON.parse($scriptEmbeddedData.text());
+      const fileLines = embeddedData.payload.blob.rawLines;
+      fileText = fileLines.join('\n');
+    }
+
     fileText = await this.preprocessIncludeDirective(webPageUrl, fileText);
     fileText = await this.preprocessIncludeSubDirective(webPageUrl, fileText);
     result.push({ $text, text: fileText });
