@@ -1,11 +1,13 @@
-name: Add issue to GitHub project
+name: Add ready issue to GitHub project
 on:
   issues:
     types:
       - labeled
 jobs:
-  add-issue-to-project:
+  add-ready-issue-to-project:
     uses: WillBooster/reusable-workflows/.github/workflows/add-issue-to-project.yml@main
+    with:
+      label: 'ready :rocket:'
     secrets:
-      GH_PROJECT_URL: ${{ secrets.GH_PROJECT_URL }}
+      GH_PROJECT_URL: https://github.com/orgs/WillBoosterLab/projects/5
       GH_TOKEN: ${{ secrets.PUBLIC_GH_BOT_PAT }}
