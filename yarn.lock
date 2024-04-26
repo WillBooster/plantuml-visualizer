@@ -2731,13 +2731,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@willbooster/eslint-config-ts@npm:10.2.0":
-  version: 10.2.0
-  resolution: "@willbooster/eslint-config-ts@npm:10.2.0"
+"@willbooster/eslint-config-ts@npm:10.6.0":
+  version: 10.6.0
+  resolution: "@willbooster/eslint-config-ts@npm:10.6.0"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ">=5"
     "@typescript-eslint/parser": ">=5"
-    "@willbooster/prettier-config": 9.1.1
+    "@willbooster/prettier-config": 9.1.2
     eslint: ">=8"
     eslint-config-prettier: ">=8"
     eslint-import-resolver-typescript: ">=2"
@@ -2745,16 +2745,16 @@ __metadata:
     eslint-plugin-sort-class-members: ">=1.14"
     eslint-plugin-sort-destructure-keys: ">=1.4"
     typescript: ">=4"
-  checksum: 5526ab9182466a7e493db69e5182355b91d2698461152750c1de8d2a5129f6e107a0107fce0f6116213cd7196e6dea60c0a0535d11b636f2630440a44a1ead1d
+  checksum: f403804cd9f04aeb7af08bc801bfa6ed653f650f10667bd8986cf0cf2e700e166edad26f3b60c5784508984039abd729b510d9dbc64be454597274b2c6881c3b
   languageName: node
   linkType: hard
 
-"@willbooster/prettier-config@npm:9.1.1":
-  version: 9.1.1
-  resolution: "@willbooster/prettier-config@npm:9.1.1"
+"@willbooster/prettier-config@npm:9.1.2":
+  version: 9.1.2
+  resolution: "@willbooster/prettier-config@npm:9.1.2"
   peerDependencies:
     prettier: ">=2"
-  checksum: 28e8237e9c7d180e723ea10e7a9710c318320b8fada694d6b15d8baa867339f4236f28e6c5254fc12a3725264e399ca7e3e43b94b043eff608c262693d8aab42
+  checksum: 814c5ca454f809f391b1884a9243764aaa3bd2d2ccbc853be925bf7d1cb395c0d2a5df9165eb2239cf72fa19b56b22597d375221674c229da6ffcc55cdcdc9dc
   languageName: node
   linkType: hard
 
@@ -10718,8 +10718,8 @@ __metadata:
     "@types/sass": "npm:1.43.1"
     "@typescript-eslint/eslint-plugin": "npm:5.60.1"
     "@typescript-eslint/parser": "npm:5.60.1"
-    "@willbooster/eslint-config-ts": "npm:10.2.0"
-    "@willbooster/prettier-config": "npm:9.1.1"
+    "@willbooster/eslint-config-ts": "npm:10.6.0"
+    "@willbooster/prettier-config": "npm:9.1.2"
     "@willbooster/renovate-config": "npm:9.5.0"
     babel-plugin-transform-remove-console: "npm:6.9.4"
     bestzip: "npm:2.2.1"
