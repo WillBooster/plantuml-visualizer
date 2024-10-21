@@ -5,7 +5,12 @@
     "@semantic-release/release-notes-generator",
     [
       "@semantic-release/github",
-      { "successComment": false, "labels": ["r: semantic-release"], "releasedLabels": ["released :bookmark:"] }
+      {
+        "successComment": false,
+        "labels": ["r: semantic-release"],
+        "releasedLabels": ["released :bookmark:"],
+        "failComment": false
+      }
     ],
     [
       "semantic-release-firefox-add-on",

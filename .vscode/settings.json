@@ -1,22 +1,30 @@
 {
-  "typescript.tsdk": "./node_modules/typescript/lib",
-  "eslint.packageManager": "yarn",
-  "[typescript]": {
-    "editor.rulers": [120],
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[javascript]": {
-    "editor.rulers": [120],
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [120]
   },
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [120]
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
   "editor.formatOnSave": true,
+  "eslint.packageManager": "yarn",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/dist/**": true,
+    "**/node_modules/**": true,
+    "**/temp/**": true,
+    "**/tmp/**": true
+  },
   "githubPullRequests.defaultMergeMethod": "squash",
   "plantuml.render": "PlantUMLServer",
-  "plantuml.server": "https://willbooster-plantuml.herokuapp.com/"
+  "plantuml.server": "https://willbooster-plantuml.herokuapp.com/",
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }
