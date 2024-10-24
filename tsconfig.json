@@ -15,6 +15,6 @@
     "target": "esnext",
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "include": ["scripts/**/*", "src/**/*", "tests/**/*"],
-  "extends": "@tsconfig/svelte/tsconfig.json"
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": ["scripts/**/*", "src/**/*", "tests/**/*"]
 }
