@@ -1,16 +1,1 @@
-{
-  "branches": ["main"],
-  "plugins": [
-    ["@semantic-release/commit-analyzer", { "preset": "conventionalcommits" }],
-    "@semantic-release/release-notes-generator",
-    [
-      "@semantic-release/github",
-      { "successComment": false, "labels": ["r: semantic-release"], "releasedLabels": ["released :bookmark:"] }
-    ],
-    [
-      "semantic-release-firefox-add-on",
-      { "extensionId": "{d324f64b-b423-4c2b-a9b4-d415705c26a9}", "targetXpi": "dist.xpi", "channel": "listed" }
-    ],
-    ["semantic-release-chrome", { "asset": "dist.zip", "extensionId": "ffaloebcmkogfdkemcekamlmfkkmgkcf" }]
-  ]
-}
+{"branches":["main"],"plugins":[["@semantic-release/commit-analyzer",{"preset":"conventionalcommits"}],"@semantic-release/release-notes-generator",["@semantic-release/github",{"successComment":false,"labels":["r: semantic-release"],"releasedLabels":["released :bookmark:"],"failComment":false}],["semantic-release-firefox-add-on",{"extensionId":"{d324f64b-b423-4c2b-a9b4-d415705c26a9}","targetXpi":"dist.xpi","channel":"listed"}],["semantic-release-chrome",{"asset":"dist.zip","extensionId":"ffaloebcmkogfdkemcekamlmfkkmgkcf"}]]}

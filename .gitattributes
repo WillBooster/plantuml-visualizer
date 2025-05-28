@@ -1,5 +1,6 @@
 * text=auto
 
+*.lockb binary diff=lockb
 *.vcproj text eol=crlf
 
 *.cjs text eol=lf
@@ -11,18 +12,23 @@
 *.js text eol=lf
 *.json text eol=lf
 *.json5 text eol=lf
+*.jsonc text eol=lf
 *.jsx text eol=lf
 *.mjs text eol=lf
 *.mts text eol=lf
 *.pu text eol=lf
 *.puml text eol=lf
 *.rb text eol=lf
+*.sh text eol=lf
 *.ts text eol=lf
 *.tsx text eol=lf
 *.vue text eol=lf
+*.xml text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf
 *.go text eol=lf
 *.gradle text eol=lf
 *.py text eol=lf
 *.md text eol=lf
+
+dist/** linguist-generated=true
