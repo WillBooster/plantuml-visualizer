@@ -30,10 +30,16 @@ export class GitHubPullRequestDiffFinder implements DiffFinder {
   }
 
   private static async getTexts(fileUrl: string): Promise<string[]> {
-    const response = await fetch(fileUrl);
+    // enforce text/html response to prevent github from replying with a json
+    const headers = { Accept: 'text/html' };
+    const response = await fetch(fileUrl, { headers });
     if (!response.ok) return [];
+
     const htmlString = await response.text();
     const $body = $(new DOMParser().parseFromString(htmlString, 'text/html')).find('body');
+
+    // pass html response to GitHubFileViewFinder to ensure that
+    // preprocessing of include directives happens
     const fileBlockFinder = new GitHubFileViewFinder();
     const contents = await fileBlockFinder.findContents(fileUrl, $body);
     return contents.map((content) => content.text);

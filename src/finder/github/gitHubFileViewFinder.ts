@@ -1,6 +1,5 @@
 import $ from 'jquery';
 
-import { Constants } from '../../constants';
 import { INCLUDE_REGEX, INCLUDESUB_REGEX } from '../../directiveRegexes';
 import type { CodeFinder, UmlCodeContent } from '../finder';
 import { extractSubIncludedText } from '../finderUtil';
@@ -13,18 +12,33 @@ export class GitHubFileViewFinder implements CodeFinder {
   }
 
   async findContents(webPageUrl: string, $root: JQuery<Node>): Promise<UmlCodeContent[]> {
-    const $texts = $root.find(`div[itemprop='text']:not([${Constants.ignoreAttribute}])`);
     const result = [];
-    for (let i = 0; i < $texts.length; i++) {
-      const $text = $texts.eq(i);
-      const $fileLines = $text.find('tr');
-      let fileText = [...Array.from({ length: $fileLines.length }).keys()]
-        .map((lineno) => $fileLines.eq(lineno).find("[id^='LC']").text() + '\n')
-        .join('');
-      fileText = await this.preprocessIncludeDirective(webPageUrl, fileText);
-      fileText = await this.preprocessIncludeSubDirective(webPageUrl, fileText);
-      result.push({ $text, text: fileText });
+
+    // the div we want to replace with an image only has a generated class name ("eRkHwF")
+    // -> trying to use .react-code-file-contents from the descendant div 3 levels down
+    const $text = $root.find(`div.react-code-file-contents`).parent().parent().parent().first();
+
+    // In case DOM has already been processed by react
+    // a textarea has appeared containing the full file source
+    const $textarea = $text.find('textarea#read-only-cursor-text-area');
+    let fileText = $textarea.text();
+
+    if (fileText.trim().length === 0) {
+      // in case were processing raw HTML response passed in by the GitHubPullRequestDiffFinder
+      // we cannot rely on the DOM being preprocessed by react
+
+      // getting the file contents from script tag is the only way that
+      // also works when not logged in
+      const $scriptEmbeddedData = $root.find(`script[data-target='react-app.embeddedData']`);
+      const embeddedData = JSON.parse($scriptEmbeddedData.text());
+      const fileLines = embeddedData.payload.blob.rawLines;
+      fileText = fileLines.join('\n');
     }
+
+    fileText = await this.preprocessIncludeDirective(webPageUrl, fileText);
+    fileText = await this.preprocessIncludeSubDirective(webPageUrl, fileText);
+    result.push({ $text, text: fileText });
+
     return result;
   }
 
@@ -41,7 +55,9 @@ export class GitHubFileViewFinder implements CodeFinder {
       }
 
       const includedFileUrl = `${dirUrl}/${match[1]}`;
-      const response = await fetch(includedFileUrl);
+      // enforce text/html response to prevent github from replying with a json
+      const headers = { Accept: 'text/html' };
+      const response = await fetch(includedFileUrl, { headers });
       if (!response.ok) {
         preprocessedLines.push(line);
         continue;
@@ -71,7 +87,9 @@ export class GitHubFileViewFinder implements CodeFinder {
       }
 
       const includedFileUrl = `${dirUrl}/${match[1]}`;
-      const response = await fetch(includedFileUrl);
+      // enforce text/html response to prevent github from replying with a json
+      const headers = { Accept: 'text/html' };
+      const response = await fetch(includedFileUrl, { headers });
       if (!response.ok) {
         preprocessedLines.push(line);
         continue;
