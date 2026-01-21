@@ -6,16 +6,12 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{cjs,cpp,cts,dart,htm,html,js,json,json5,jsx,mjs,mts,pu,puml,rb,ts,tsx,vue,yaml,yml}]
+[*.{cjs,cpp,cts,dart,htm,html,js,json,json5,jsonc,jsx,mjs,mts,pu,puml,rb,sh,ts,tsx,vue,xml,yaml,yml}]
 indent_size = 2
 indent_style = space
 
 [*.{go,gradle,py}]
 indent_size = 4
-indent_style = space
-
-[*.sh]
-indent_size = 8
 indent_style = space
 
 [*.md]

@@ -1,6 +1,6 @@
 name: Merge wbfy
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
   schedule:
     - cron: 9 16 * * *
 jobs:

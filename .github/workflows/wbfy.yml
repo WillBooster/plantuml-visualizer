@@ -1,6 +1,6 @@
 name: Willboosterify
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
   schedule:
     - cron: 7 14 * * *
 jobs:
